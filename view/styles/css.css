@@ -4,16 +4,10 @@
   box-sizing: border-box;
 }
 
-body {
-  background: #2980B9;
-  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-}
-
-.iniciarseccion {
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  min-height: 100vh;
+.fond_form {
+  background: #3C3B3F; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .form {
@@ -28,11 +22,6 @@ body {
   text-align: center;
   margin-top: 120px;
   margin-bottom: 200px;
-}
-
-.form_titulo {
-  font-size: 2em;
-  margin-bottom: 0.5em;
 }
 
 .form_tiene {
@@ -50,147 +39,88 @@ body {
   gap: 2.5em;
 }
 
-.form_submit {
-  background-color: rgb(0, 110, 255);
-  color: #000000;
-  font-weight: 300;
-  font-size: 1rem;
-  padding: 0.8em 0;
-  border: none;
-  border-radius: 5em;
+button {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  border: 2px solid black;
+  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black, 5px -5px 0 black;
+  transition: 500ms ease-in-out;
+}
+
+button:hover {
+  box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+button:focus {
+  outline: none;
 }
 
 .input-container {
+  height: 50px;
   position: relative;
-  margin-bottom: 25px;
-}
-
-.input-container label {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  font-size: 16px;
-  color: rgb(0, 0, 0);
-  transition: all 0.2s ease-in-out;
-}
-
-.input-container input {
-  border: 0;
-  border-bottom: 1px solid #555;
-  background: transparent;
   width: 100%;
-  padding: 8px 0 5px 0;
-  font-size: 16px;
-  color: rgb(0, 0, 0);
 }
 
-.input-container input:focus {
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #e74c3c;
-}
-
-.btn {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #03e9f4;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.5s;
-  margin-top: 40px;
-  letter-spacing: 4px;
-}
-
-.input-container input:focus ~ label {
-  top: -12px;
-  font-size: 12px;
-}
-
-.login-box .btn:hover {
-  background: #03e9f4;
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
-}
-
-.login-box .btn span {
-  position: absolute;
-  display: block;
-}
-
-.login-box .btn span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
-  animation: btn-anim1 1s linear infinite;
-}
-
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%, 100% {
-    left: 100%;
-  }
-}
-.login-box .btn span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
+.input {
+  border-radius: 12px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  color: black;
+  font-size: 18px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
-  animation: btn-anim2 1s linear infinite;
-  animation-delay: 0.25s;
-}
-
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%, 100% {
-    top: 100%;
-  }
-}
-.login-box .btn span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
+  outline: 0;
+  padding: 4px 20px 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
-  animation: btn-anim3 1s linear infinite;
-  animation-delay: 0.5s;
 }
 
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%, 100% {
-    right: 100%;
-  }
-}
-.login-box .btn span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #03e9f4);
-  animation: btn-anim4 1s linear infinite;
-  animation-delay: 0.75s;
+.cut {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 83px;
 }
 
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%, 100% {
-    bottom: 100%;
-  }
+.cut-short {
+  width: 25%;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: black;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder, .input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: black;
+}
+
+.input:focus ~ .placeholder {
+  color: black;
 }
 
 /*# sourceMappingURL=css.css.map */

@@ -7,41 +7,29 @@
     <title>Inicio Seccion</title>
     <link href="../../styles/css.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body class="fond_form">
 
-    
-    <form  class="form" action="./iniciarSeccion.php" method="post" >
-
-        <h2 class="form_titulo">Iniciar Seccion</h2>
-        <p class="form_tiene">¿Aun no tienes cuenta? <a href="./Registrarse.html" class="form_link">Entra aqui</a></p>
-
+    <form class="form">
         <div class="form_contenedor">
 
             <div class="input-container">
-                <input type="text">
-                <label for="name">name</label>
-            </div>
+                <input id="name" class="input" type="text" placeholder=" " />
+                <div class="cut cut-short"></div>
+                <label for="name" class="placeholder">Nombre</label>
+            </div> 
 
             <div class="input-container">
-                <input type="password">
-                <label for="name">password</label>
+                <input id="password" class="input" type="password" placeholder=" " />
+                <div class="cut cut-short"></div>
+                <label for="password" class="placeholder">Constraseña</label>
             </div>           
 
-            <div class="login-box">
-                <div class="btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    enviar
-                </div>
-            </div>
-            
-            <input type="submit" id="enviar" name="enviar" class="form_submit" value="Entrar">
-            <input type="reset" class="form_submit" value="resetear">
+            <button type="submit">Iniciar sección</button>
 
+            <p class="form_tiene">¿Aun no tienes cuenta? <a href="./Registrarse.html" class="form_link">Entra aqui</a></p>
         </div>
-    </form>
+
     
+    </form>
 </body>
 </html>
