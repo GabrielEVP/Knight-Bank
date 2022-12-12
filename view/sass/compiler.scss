@@ -1,108 +1,159 @@
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-    }
-    
-    body {
-    
-    background: #2980B9;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-    }
-    
-    .iniciarseccion {
-    
-        background-size: 20px 20px;
-        background-position: 0 0 , 10px 10px;
-        min-height: 100vh;
-    
-      }
-    
-    
-      .form {
-    
-      background-color: #fffefe;
-      margin: auto;
-      width: 100%;
-      height: 90%;
-      max-width: 400px;
-      padding: 4.5em 3em;
-      border-radius: 10px;
-      box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
-      text-align: center;
-      margin-top: 120px;
-      margin-bottom: 200px;
-      background-image: url();
-        
-      }
-    
-      .form_titulo {
-    
-        font-size: 2em;
-        margin-bottom: .5em;
-    
-      }
-    
-      .form_tiene {
-    
-        font-weight: 300;
-    
-      }
-    
-      .form_link {
-    
-        font-weight: 400;
-        color: black;
-    
-      }
-    
-      .form_contenedor {
-    
-        margin-top: 3em;
-        display: grid;
-        gap: 2.5em
-    
-      }
-    
-      .form_grupo {
-    
-        position: relative;
-    
-      }
-    
-      .form_input {
-    
-        width: 60%;
-        background: none;
-        color: rgb(0, 0, 0);
-        font-size: 1rem;
-        padding: .6em .3em;
-        
-    
-      }
-    
-      .form_label {
-    
-        position: absolute;
-        top: 0px;
-        left: 5px;
-        transform: translateY(10px);
-        transition: trasnform .5s, color .3s;
-      }
-    
-      .form_submit {
-    
-        background-color: blue;
-        color: #ffffff;
-        font-weight: 300;
-        font-size: 1rem;
-        padding: .8em 0;
-        border: none;
-        border-radius: 5em;
-       
-        
-      }
+body {
+  background: #2980B9;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
+  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+}
+
+.iniciarseccion {
+
+  background-size: 20px 20px;
+  background-position: 0 0 , 10px 10px;
+  min-height: 100vh;
+
+}
+
+.form {
+  background-color: #fffefe;
+  margin: auto;
+  width: 100%;
+  height: 90%;
+  max-width: 400px;
+  padding: 4.5em 3em;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 200px;
+  background-image: url();
+}
+
+.form_titulo {
+  font-size: 2em;
+  margin-bottom: .5em;
+}
+
+.form_tiene {
+  font-weight: 300;
+}
+
+.form_link {
+  font-weight: 400;
+  color: black;
+}
+
+.form_contenedor {
+  margin-top: 3em;
+  display: grid;
+  gap: 2.5em
+}
+
+.form_grupo {
+  position: relative;
+}
+
+.form_input {
+  width: 60%;
+  background: none;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  padding: .6em .3em;
+}
+
+.form_label {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  transform: translateY(10px);
+  transition: trasnform .5s, color .3s;
+}
+
+.form_submit {
+  backgroundcolor: blue;
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: .8em 0;
+  border: none;
+  border-radius: 5em; 
+}
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+/* demo */
+body {
+  font-family: 'Poppins', sans-serif; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  background-color:#222222;
+}
