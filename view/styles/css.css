@@ -28,7 +28,6 @@ body {
   text-align: center;
   margin-top: 120px;
   margin-bottom: 200px;
-  background-image: url();
 }
 
 .form_titulo {
@@ -51,34 +50,147 @@ body {
   gap: 2.5em;
 }
 
-.form_grupo {
-  position: relative;
-}
-
-.form_input {
-  width: 60%;
-  background: none;
-  color: rgb(0, 0, 0);
-  font-size: 1rem;
-  padding: 0.6em 0.3em;
-}
-
-.form_label {
-  position: absolute;
-  top: 0px;
-  left: 5px;
-  transform: translateY(10px);
-  transition: trasnform 0.5s, color 0.3s;
-}
-
 .form_submit {
-  backgroundcolor: blue;
-  color: #ffffff;
+  background-color: rgb(0, 110, 255);
+  color: #000000;
   font-weight: 300;
   font-size: 1rem;
   padding: 0.8em 0;
   border: none;
   border-radius: 5em;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-container label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e74c3c;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+.input-container input:focus ~ label {
+  top: -12px;
+  font-size: 12px;
+}
+
+.login-box .btn:hover {
+  background: #03e9f4;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+}
+
+.login-box .btn span {
+  position: absolute;
+  display: block;
+}
+
+.login-box .btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+.login-box .btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+.login-box .btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%, 100% {
+    right: 100%;
+  }
+}
+.login-box .btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
 }
 
 /*# sourceMappingURL=css.css.map */
