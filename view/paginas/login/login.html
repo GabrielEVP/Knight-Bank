@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Seccion</title>
+    <link href="../../styles/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    
+    <form  class="form" action="./iniciarSeccion.php" method="post" >
+
+        <h2 class="form_titulo">Iniciar Seccion</h2>
+        <p class="form_tiene">¿Aun no tienes cuenta? <a href="./Registrarse.html" class="form_link">Entra aqui</a></p>
+
+        <div class="form_contenedor">
+
+            <div class="form_grupo">
+                <input type="text" name="usuario" id="usuario" class="form_input" placeholder="Usuario">
+                <label for="user" class="form_label"></label>
+                <span class="form_line"></span>
+            </div>
+
+            <div class="form_grupo">
+                <input type="password" name="contraseña" id="password" class="form_input" placeholder="Constraseña">
+                <label for="password" class="form_label"></label>
+                <span class="form_line"></span>
+            </div>
+            
+
+            <input type="submit" id="enviar" name="enviar" class="form_submit" value="Entrar">
+            <input type="reset" class="form_submit" value="resetear">
+
+        </div>
+    </form>
+    
+</body>
+</html>
