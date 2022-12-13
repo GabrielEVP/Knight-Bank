@@ -6,8 +6,11 @@ include_once ("model/function.php");
 
 class account_move_model extends account_move_class {
 
+    private $objMove;
+    private $objAccount;
+
     public function insert_account_move () {
-        return insert("insert into account_move (IBAN, id_move, amount) values ('$this->IBAN', $this->id_move, $this->amount)");
+        return insert("insert into account_move (IBAN, id_move, amount) values ('$this->objAccount->getIBAN()', $this->objMove->getIdMove(), $this->amount)");
     }
 
     public function delete_account_move () {
