@@ -11,12 +11,12 @@ class user_list {
 
     // elimina un objeto de la ultima posicion del array //
     delete_User() {
-        this.produktu_list.pop();
+        this.user_list.pop();
     }
 
     // bucle que elimina todo los objeto del array //
     delete_all_User() {
-        while(this.produktu_list.length != 0) {
+        while(this.user_list.length != 0) {
             this.delete_User();
         }
     }
@@ -31,7 +31,7 @@ class user_list {
     // castea por medio de bucle un array de objetos generico a array objetos de tipo usuario y pusheandolos al array deseado //
     cast_array_to_User(generic_array) {
         for (const data_array of generic_array) {
-            this.add_Produktu(Object.assign(new produktu_class(), data_array));
+            this.add_User(Object.assign(new user_class(), data_array));
         }
     }
 
@@ -46,7 +46,7 @@ class user_list {
         }
     }
 
-    async fetch_produktu_set_Data(url, data) {
+    async fetch_user_set_Data(url, data) {
         try {
             const res = await fetch (
                 url, {
@@ -60,7 +60,7 @@ class user_list {
             alert(err);
         }
     }
-5
+    
     async fetch_set_data_load_User(url, data) {
         try {
             const res = await fetch (
@@ -70,7 +70,7 @@ class user_list {
                 headers:{'Content-Type': 'application/json'}
             })
             const datos = await res.json();
-            this.cast_array_to_Usera(Array.from(datos.list));
+            this.cast_array_to_User(Array.from(datos.list));
         } catch(err) {
             console.log(err)
         }
