@@ -22,14 +22,18 @@ function result_object_Array($result) {
     return $final_array;
 }
 
-function select_Array($sql) {
+// function select_Array($sql) {
 
-    $bbdd = new conect();
-    $bbdd->OpenConnect($bbdd);  
-    $result = $bbdd->link->query($sql); 
-    result_array($result);
+//     $bbdd = new conect();
+//     $bbdd->OpenConnect($bbdd);  
+//     $result = $bbdd->link->query($sql); 
+//     $return = result_array($result);
 
-}
+//     $bbdd->CloseConnect();
+//     mysqli_free_result($result);
+
+//     return $return;
+// }
 
 function result_Array($result) {
 

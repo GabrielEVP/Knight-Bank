@@ -4,6 +4,7 @@ include_once ("move_class.php");
 include_once ("model/database/query.php");
 include_once ("model/function.php"); 
 
+include_once ("model/move_type/move_type_model.php"); 
 class move_model extends move_class {
 
     private $objMoveType;

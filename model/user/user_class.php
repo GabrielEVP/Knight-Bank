@@ -7,8 +7,7 @@ class user_class {
     protected $surname;
     protected $password;
     protected $admin;
-    protected $active;
-
+    protected $login_tries;
 
 
     /**
@@ -140,17 +139,17 @@ class user_class {
     /**
      * Get the value of active
      */
-    public function getActive()
+    public function getLogintries()
     {
-        return $this->active;
+        return $this->login_tries;
     }
 
     /**
      * Set the value of active
      */
-    public function setActive($active): self
+    public function setLogintries($login_tries): self
     {
-        $this->active = $active;
+        $this->login_tries = $login_tries;
 
         return $this;
     }

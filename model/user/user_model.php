@@ -26,6 +26,40 @@ class user_model extends user_class {
        return $user;
     }
 
+    public function set_full_user($new_user) {
+        $vars = get_object_vars($new_user);
+        foreach ($vars as $key => $valor) {
+            $setter = "set" . ucfirst($key) . "(" . $valor . ")";
+            $this->$setter;
+        }
+    }
+
+    public function login() {
+        // $select = select_Object("select * from user where gmail = $gmail");
+        // $user = cast_array($select, new user_model())[0];
+
+        $sql = "select * from user where NIF = '$this->NIF'";
+        $user = single_row_object_select($sql,new user_model());
+        
+                
+        
+        if ($user != null) {
+            if ($user->getLogintries() > 0) {
+
+            }
+            
+            if(password_verify($this->password,$user->getPassword())) {
+                $this->set_full_user($user);
+            } else {
+
+            }
+        } else {
+            return false;
+        } 
+    
+
+       
+    }
 }
 
 ?>

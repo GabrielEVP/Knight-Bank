@@ -4,14 +4,23 @@ include_once ("conect.php");
 include_once ("query_function.php"); 
 
 function select_Object($sql) {
-
     $bbdd = new conect();
     $bbdd->OpenConnect($bbdd);  
     $result = $bbdd->link->query($sql); 
-    return result_object_Array($result);
 
+    $bbdd->CloseConnect();
+    return result_object_Array($result);
 }
 
+function select_array($sql) {
+    $bbdd = new conect();
+    $bbdd->OpenConnect($bbdd);  
+    $result = $bbdd->link->query($sql); 
+
+    $bbdd->CloseConnect();
+    return result_Array($result);
+
+}
 function delete($table , $id) {
 
     $bbdd = new conect();
@@ -46,7 +55,15 @@ function update($sql) {
     } else {
         return false;
     }
-
 }
 
+function single_row_object_select($sql,$object_type) {
+    $select = select_Object($sql);
+    if (count($select) > 0) {
+        return cast_array($select, new $object_type())[0];
+    } else {
+        return null;
+    }
+    
+}
 ?>
