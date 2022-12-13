@@ -1,0 +1,24 @@
+button {
+	width: 100%;
+	height: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	background: white;
+	border: 2px solid $color_a;
+	box-shadow: 
+    5px 5px 0 $color_a,
+		-5px -5px 0 $color_a,
+		-5px 5px 0 $color_a,
+		5px -5px 0 $color_a;
+	transition: 500ms ease-in-out;
+}
+
+button:hover {
+	box-shadow: 20px 5px 0 $color_a, -20px -5px 0 $color_a;
+}
+
+button:focus {
+	outline: none;
+}

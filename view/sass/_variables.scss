@@ -1,0 +1,18 @@
+$color_principal: #3cff00;
+$color_segundario : wheat;
+$color_terciario : white;
+
+$color_negro : rgb(0, 0, 0);
+$color_negro2 : #2c2c2c;
+$color_gris: gray;
+$color_soporte: #252222;
+$color_a : rgb(226, 219, 219);
+$color_hover : rgb(136, 136, 136);
+
+$sombras : rgb(126, 126, 126);
+$text_shadow: 2px 2px 2px $sombras;
+$box_shadow : 0.05rem 0.3rem 0.3rem -0.03rem $color_negro;
+
+$border_gris :1px solid black;
+$border_negro : 2px solid #000000;
+$border_verde: 2px solid $color_principal;
