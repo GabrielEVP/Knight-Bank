@@ -45,16 +45,17 @@ class user_model extends user_class {
         
         if ($user != null) {
             if ($user->getLogintries() > 0) {
-
-            }
-            
-            if(password_verify($this->password,$user->getPassword())) {
-                $this->set_full_user($user);
+                if(password_verify($this->password,$user->getPassword())) {
+                    $this->set_full_user($user);
+                    return "ok";
+                } else {
+                    return "credenciales incorrectas";
+                }
             } else {
-
+                return "usuario baneado";
             }
         } else {
-            return false;
+            return "usuario no encontrado";
         } 
     
 
