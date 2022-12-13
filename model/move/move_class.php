@@ -5,8 +5,6 @@ class move_class {
     protected $id_move_type;
     protected $dateTime;
     
-
-
     /**
      * Get the value of id_move
      */

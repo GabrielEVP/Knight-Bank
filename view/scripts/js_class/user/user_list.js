@@ -70,7 +70,7 @@ class user_list {
                 headers:{'Content-Type': 'application/json'}
             })
             const datos = await res.json();
-            this.cast_array_to_User(Array.from(datos.list));
+            this.cast_array_to_Usera(Array.from(datos.list));
         } catch(err) {
             console.log(err)
         }
