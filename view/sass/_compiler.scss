@@ -1,7 +1,8 @@
 @import 
     './variables.scss',
     './form.scss',
-    './buttons.scss'
+    './buttons_principal.scss',
+    './card_user.scss'
 ;
 
 * {
@@ -13,168 +14,184 @@
   text-decoration: none;
 }
 
+.button_secondary{
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  margin-top: 20px;
+  margin-left: 10%;
 
-
-.center {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 450px;
-  height: 250px;
-  background-color: #fff;
-  background: linear-gradient(#f8f8f8, #fff);
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-  margin: 1.5rem;
-}
-
-.card h1 {
-  text-align: center;
-}
-
-.card .additional {
-  position: absolute;
-  width: 150px;
-  height: 100%;
-  background: linear-gradient(#919191, #7f7f7f);
-  transition: width 0.4s;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.user-card {
-
-  img {
-    position: absolute;
-    left: 20%;
-    top: 30%;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+  i {
+    font-size: 30px;
   }
-}
 
-.card.green .additional {
-  background: linear-gradient(#92bCa6, #A2CCB6);
-}
-
-
-.card:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
-}
-
-.card .additional .user-card {
-  width: 150px;
-  height: 100%;
-  position: relative;
-  float: left;
-}
-
-.card .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  height: 80%;
-  border-left: 2px solid rgba(0,0,0);
-}
-
-.card .additional .user-card .level {
-  margin-top: 10px;
-  color: #fff;
-  font-size: 1.4em;
-  font-weight: bold;
-  background: rgba(0,0,0,0.15);
-  padding: 0.125rem 0.75rem;
-  border-radius: 100px;
-}
-
-.card .additional .user-card .points {
-  top: 85%;
-}
-
-.card .additional .more-info {
-  width: 300px;
-  float: left;
-  position: absolute;
-  left: 150px;
-  height: 100%;
-}
-
-.card .additional .more-info h1 {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-.card .additional .stats {
-  font-size: 3rem;
-  position: absolute;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  margin-top: 15px;
-  color: #fff;
-}
-
-.card .additional .stats > div {
-  flex: 1;
-  text-align: center;
-}
-
-.card .additional .stats i {
-  display: block;
-}
-
-.card .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  margin: auto;
-}
-
-.card .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-}
-
-.card .general {
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 1rem;
-  padding-top: 0;
-
-  ul {
-    margin-top: 40px;
-    margin-left: 5px;
-  }
-  
-  li {
-    color: black;
-    text-align: start;
+  i:hover {
+    color: aqua;
   }
 
 }
 
-.card .general .more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.9em;
+.fa-check {
+  color: rgb(21, 255, 0);
+}
+
+.fa-ban{
+  color: red;
+}
+
+.fa-pen-to-square {
+  color: rgb(244, 145, 17);
 }
 
 
 
+$base-duration: 500ms;
 
+// Colors
+$color-1: #2c3e50;
+$color-2: #3498db;
+$color-3: #2ecc71;
+$color-4: #e74c3c;
 
+// Breakpoints
+$sm: new-breakpoint(min-width 320px);
+$med: new-breakpoint(min-width 768px);
+$lg: new-breakpoint(min-width 1024px);
 
+.modal-btn {
+	position: relative;
+	display: table-cell;
+	width: 100px;
+	height: 100px;
+	background-color: $color-1;
+	box-shadow: 0 0 40px rgba(black,0.3);
+	border-radius: 50%;
+	font-size: 36px;
+	color: white;
+	text-align: center;
+	line-height: 2.75;
+	transition: box-shadow 250ms ease;
+	
+	&:hover {
+		box-shadow: 0 0 5px rgba(black,0.3);
+	}
+}
+
+.modal-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 10;
+	visibility: hidden;
+	transition: background-color $base-duration/2 linear;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: auto;
+	margin-top: -18%;
+	margin-left: -25%;
+	padding: 30px;
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 0 0 50px rgba(black,0.5);
+	transform: scale(0);
+	transition: transform $base-duration/2 ease;
+	visibility: hidden;
+	z-index: 20;
+
+	.close {
+		position: relative;
+		float: right;
+		font-size: 18px;
+		transition: transform $base-duration ease;
+		z-index: 11;
+
+		&:hover {
+			color: $color-2;
+			transform: rotate(540deg);
+		}
+	}
+
+	header {
+		position: relative;
+		display: block;
+		border-bottom: 1px solid #eee;
+		//background-color: gray;
+
+		h2 {
+			margin: 0 0 10px;
+			padding: 0;
+			font-size: 28px;
+		}
+	}
+
+	article {
+		position: relative;
+		display: block;
+		margin: 0;
+		padding: 0;
+		font-size: 16px;
+		line-height: 1.75;
+
+		p {
+			//margin-bottom: 30px;
+		}
+	}
+
+	footer {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		width: 100%;
+		margin: 0;
+		padding: 10px 0 0;
+
+		.button {
+			position: relative;
+			padding: 10px 30px;
+			border-radius: 3px;
+			font-size: 14px;
+			font-weight: 400;
+			color: white;
+			text-transform: uppercase;
+			overflow: hidden;
+			
+			&:before {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 100%;
+				background-color: rgba(white,0.2);
+				transition: width 250ms ease;
+				z-index: 0;
+			}
+			
+			&:hover {
+				
+				&:before {
+					width: 100%;
+				}
+			}
+
+			&.success {
+				margin-right: 5px;
+				background-color: $color-3;
+			}
+
+			&.danger {
+				background-color: $color-4;
+			}
+		}
+	}
+}
 

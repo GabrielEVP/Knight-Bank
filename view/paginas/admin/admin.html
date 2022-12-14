@@ -9,17 +9,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+</head>
     <title>Admins</title>
 </head>
 <body>
 
-    <div class="center">
+    <div class="container_card">
         <div class="card">
             <div class="additional">
 
                 <div class="user-card">
                     <div class="level center">49512345A</div>
                     <img src="../../prueba_log.jpg" alt="asd">
+                    <button class="button_secondary" value=""><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button id="borrar" class="button_secondary" value=""><i class="fa-solid fa-trash"></i></button>
+                    <button class="button_secondary" value=""><i class="fa-solid fa-ban"></i></button>
+                    <button class="button_secondary" value=""><i class="fa-solid fa-check"></i></button>
                 </div>
 
                 <div class="more-info">
@@ -61,59 +70,59 @@
             <li>correo del usuario</li>
         </ul>
         <span class="more">pon el curso encima para mas informacion</span>
-    </div>  
-    </div>
-
-    <div class="center">
-        <div class="card">
-            <div class="additional">
-
-                <div class="user-card">
-                    <div class="level center">49512345A</div>
-                    <img src="../../prueba_log.jpg" alt="asd">
-                </div>
-
-                <div class="more-info">
-                    <h1>Cuentas del usuario</h1>
-                    <div class="stats"><div>
-
-                    <div class="title">Nº Cuentas</div>
-                    <i class="fa-solid fa-vault"></i>
-                    <div class="value">2</div>
-                </div>
-
-                <div>
-                    <div class="title">Balance</div>
-                    <i class="fa-solid fa-piggy-bank"></i>
-                    <div class="value">27 $</div>
-                </div>
-
-                <div>
-                    <div class="title">Movimiento</div>
-                    <i class="fa-solid fa-money-bill-transfer"></i>
-                    <div class="value">123</div>
-                </div>
-
-                <div>
-                    <div class="title">Ult. movimiento</div>
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <div class="value">2/4/52</div>
-                </div>
-
-            </div>
+        </div>  
         </div>
+
     </div>
 
-    <div class="general">
-        <h1>Nombre del usuario</h1>
-        <ul>
-            <li>nombre del usuario</li>
-            <li>apellido del usuario</li>
-            <li>correo del usuario</li>
-        </ul>
-        <span class="more">pon el curso encima para mas informacion</span>
-    </div>  
+    <label for="modal" class="modal-bg"></label>
+    <div class="modal-content">
+        <label id="close" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <header><h2>Borrar el usuario</h2></header>
+        <article class="content"><p>¿Seguro que quieres borrar el usuario?</p></article>
+        <footer>
+            <label id="Accept" for="modal" class="button success">Accept</label>
+            <label id="decline" for="modal" class="button danger">Decline</label>
+        </footer>
     </div>
+
+    <script>
+        $("#borrar").click(function() {
+            $(".modal-bg").css({
+            "visibility": "visible",
+            "background-color": "black",
+            "opacity": "0.7",
+            "transition": "background-color 500ms/2 linear"
+            });
+
+            $(".modal-content").css({
+                "visibility": "visible",
+                "transform": "scale(1.0)",
+                "transition": "transform 500ms/2 ease",
+                "z-index": "1000"
+            });
+        })
+
+        $("#decline").click(function() {
+            $(".modal-bg").css({
+            "visibility": "hidden"
+            });
+
+            $(".modal-content").css({
+            "visibility": "hidden"
+            });
+        })
+
+        $("#close").click(function() {
+            $(".modal-bg").css({
+            "visibility": "hidden"
+            });
+
+            $(".modal-content").css({
+            "visibility": "hidden"
+            });
+        })
+    </script>
 
 </body>
 </html>
