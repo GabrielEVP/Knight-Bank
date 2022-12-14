@@ -438,4 +438,16 @@ a.form_link:hover:after {
   background-color: #e74c3c;
 }
 
+.borrar {
+  display: none;
+}
+
+.modify {
+  display: none;
+}
+
+.banear {
+  display: none;
+}
+
 /*# sourceMappingURL=css.css.map */
