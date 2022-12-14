@@ -66,4 +66,8 @@ function single_row_object_select($sql,$object_type) {
     }
     
 }
+
+function single_row_array_select($sql) {
+    return select_array($sql)[0];
+}
 ?>

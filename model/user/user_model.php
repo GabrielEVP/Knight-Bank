@@ -39,9 +39,7 @@ class user_model extends user_class {
         // $user = cast_array($select, new user_model())[0];
 
         $sql = "select * from user where NIF = '$this->NIF'";
-        $user = single_row_object_select($sql,new user_model());
-        
-                
+        $user = single_row_object_select($sql,new user_model());      
         
         if ($user != null) {
             if ($user->getLogintries() > 0) {
@@ -56,10 +54,16 @@ class user_model extends user_class {
             }
         } else {
             return "usuario no encontrado";
-        } 
-    
+        }   
+    }
 
-       
+    public function login_fail () {
+        update("update user set login_tries = login_tries - 1 WHERE NIF = '$this->NIF'");
+        return single_row_array_select("SELEC login_tries FROM user WHERE NIF = '$this->NIF'")['login_tries'];
+    }
+
+    public function unBan () {
+        return update("update user set login_tries = 3 WHERE NIF = '$this->NIF'");
     }
 }
 
