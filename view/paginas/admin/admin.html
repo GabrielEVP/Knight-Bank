@@ -9,26 +9,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
-
 </head>
     <title>Admins</title>
 </head>
 <body>
 
-    <div class="container_card">
+    <!--- nav bar -->
+    <div class="sidemenu menu_collapsed">
+        <div class="header"> 
+            <div class="menu_btn">
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="photo"><img src="../../prueba_log.jpg" alt=""></div>
+            <div class="name"><span>nombre del usuario</span></div>
+        </div>
+
+        <div class="menu_items">
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="title"><span>algo</span></div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="title"><span>algo</span></div>
+                </a>
+            </div>
+
+            <div class="item item_separator"></div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="title"><span>algo</span></div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!--- cartas  -->
+    <div class="container_card body_collapse">
         <div class="card">
             <div class="additional">
 
                 <div class="user-card">
                     <div class="level center">49512345A</div>
                     <img src="../../prueba_log.jpg" alt="asd">
-                    <button id="update" class="button_secondary" value=""><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button id="borrar" class="button_secondary" value=""><i class="fa-solid fa-trash"></i></button>
-                    <button id="banear" class="button_secondary" value=""><i class="fa-solid fa-ban"></i></button>
-                    <button class="button_secondary" value=""><i class="fa-solid fa-check"></i></button>
+                    <button class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
+                    <button class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
+                    <button style="display: none;" class="button_secondary desban_button" value=""><i class="fa-solid fa-check"></i></button>
                 </div>
 
                 <div class="more-info">
@@ -72,137 +112,38 @@
         <span class="more">pon el curso encima para mas informacion</span>
         </div>  
         </div>
-
     </div>
 
+    <!--- modal  -->
     <label for="modal" class="modal-bg"></label>
     <div class="modal-content">
         <label id="close" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
         <header>
             <h2 class="borrar">Borrar el usuario</h2>
             <h2 class="banear">Banear el usuario</h2>
+            <h2 class="desban">desbanear el usuario</h2>
             <h2 class="modify">Modificar el usuario</h2>
         </header>
         <article class="content">
             <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
+            <h2 class="desban">¿Seguro que quieres desbanear el usuario?</h2>
             <input class="modify" type="text" placeholder="nombre">
+            <input class="modify" type="password" placeholder="password">
             <input class="modify" type="text" placeholder="nombre">
-            <input class="modify" type="text" placeholder="nombre">
-            <input class="modify" type="text" placeholder="nombre">     
+            <input class="modify" type="text" placeholder="nombre">   
+            <input class="modify" type="file" placeholder="nombre">   
         </article>
         <footer>
-            <label id="Accept" for="modal" class="button success">Accept</label>
-            <label id="decline" for="modal" class="button danger">Decline</label>
+            <label id="borrar" for="modal" class="button success borrar">Borrar</label>
+            <label id="banear" for="modal" class="button success banear">Banear</label>
+            <label id="desban" for="modal" class="button success desban">Desbanear</label>
+            <label id="modify" for="modal" class="button success modify">Modificar</label>
+            <label id="decline" for="modal" class="button danger">Cancelar</label>
         </footer>
     </div>
 
-    <script>
-        $("#borrar").click(function() {
-            $(".modal-bg").css({
-                "visibility": "visible",
-                "background-color": "black",
-                "opacity": "0.7",
-                "transition": "background-color 500ms/2 linear"
-            });
-
-            $(".modal-content").css({
-                "visibility": "visible",
-                "transform": "scale(1.0)",
-                "transition": "transform 500ms/2 ease",
-                "z-index": "1000"
-            });
-
-            $(".borrar").css({
-                "display": "block"
-            });
-            
-        })
-
-        $("#update").click(function() {
-            $(".modal-bg").css({
-            "visibility": "visible",
-            "background-color": "black",
-            "opacity": "0.7",
-            "transition": "background-color 500ms/2 linear"
-            });
-
-            $(".modal-content").css({
-                "visibility": "visible",
-                "transform": "scale(1.0)",
-                "transition": "transform 500ms/2 ease",
-                "z-index": "1000"
-            });
-
-            $(".modify").css({
-                "display": "block"
-            });
-        })
-
-        $("#banear").click(function() {
-            $(".modal-bg").css({
-            "visibility": "visible",
-            "background-color": "black",
-            "opacity": "0.7",
-            "transition": "background-color 500ms/2 linear"
-            });
-
-            $(".modal-content").css({
-                "visibility": "visible",
-                "transform": "scale(1.0)",
-                "transition": "transform 500ms/2 ease",
-                "z-index": "1000"
-            });
-
-            $(".banear").css({
-                "display": "block"
-            });
-        })
-
-        $("#decline").click(function() {
-            $(".modal-bg").css({
-            "visibility": "hidden"
-            });
-
-            $(".modal-content").css({
-            "visibility": "hidden"
-            });
-            
-            $(".borrar").css({
-            "display": "none"
-            });
-
-            $(".modify").css({
-            "display": "none"
-            });
-
-            $(".banear").css({
-                "display": "none"
-            });
-        })
-
-        $("#close").click(function() {
-            $(".modal-bg").css({
-            "visibility": "hidden"
-            });
-
-            $(".modal-content").css({
-            "visibility": "hidden"
-            });
-            
-            $(".borrar").css({
-            "display": "none"
-            });
-            
-            $(".modify").css({
-            "display": "none"
-            });
-
-            $(".banear").css({
-                "display": "none"
-            });
-        })
-    </script>
+    <script src="./admin.js"></script>
 
 </body>
 </html>

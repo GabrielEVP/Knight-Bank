@@ -18,3 +18,18 @@ $border_negro : 2px solid #000000;
 $border_verde: 2px solid $color_principal;
 
 $transition_medium: all 2s;
+
+
+$base-duration: 500ms;
+
+// Colors
+$color-1: #2c3e50;
+$color-2: #3498db;
+$color-3: #2ecc71;
+$color-4: #e74c3c;
+
+// Breakpoints
+$sm: new-breakpoint(min-width 320px);
+$med: new-breakpoint(min-width 768px);
+$lg: new-breakpoint(min-width 1024px);
+
