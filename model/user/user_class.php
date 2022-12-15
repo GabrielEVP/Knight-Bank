@@ -1,5 +1,5 @@
 <?php 
-include_once ("model/standard_class.php"); 
+include_once ("standard_class.php"); 
 class user_class extends standard_class{
     protected $id_user;
     protected $gmail;

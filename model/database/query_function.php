@@ -38,7 +38,6 @@ function result_object_Array($result) {
 function result_Array($result) {
 
     $final_array = array();
-    
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
         array_push($final_array , $row);
     }
