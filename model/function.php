@@ -4,8 +4,8 @@ function cast($stdObject,$new_object) {
 
     $vars = get_object_vars($stdObject);
     foreach ($vars as $key => $valor) {
-        $getter = "get" . ucfirst($key) . "()";
-        $new_object->$getter = $valor;
+        $setter = "set" . ucfirst($key) . "(" . $valor . ")";
+        $new_object->$setter;
     }
 
     return $new_object;

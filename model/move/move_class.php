@@ -1,5 +1,6 @@
 <?php 
-class move_class {
+include_once ("model/standard_class.php"); 
+class move_class extends standard_class{
 
     protected $id_move;
     protected $id_move_type;

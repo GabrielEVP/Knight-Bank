@@ -1,5 +1,6 @@
 <?php 
-class account_class{
+include_once ("model/standard_class.php"); 
+class account_class extends standard_class{
     protected $IBAN;
     protected $balance;
     protected $id_user;
