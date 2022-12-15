@@ -33,7 +33,7 @@ if (!isset($_SESSION['banTime'])) {
     // $_SESSION['password'] = $user->getPassword();
         $_SESSION['admin'] = $user->getAdmin();
 
-        $result['user'] = get_object_vars($user);
+        $result['user'] = $user->getObjvars();
     } else if ($result['status'] == "credenciales incorrectas") {
         $remaining_tries = $user->login_fail();
         if ($remaining_tries <= 0) {

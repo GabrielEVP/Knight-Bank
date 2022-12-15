@@ -1,5 +1,6 @@
 <?php 
-class user_class_hist {
+include_once ("model/standard_class.php"); 
+class user_class_hist extends standard_class{
     protected $id_user;
     protected $gmail;
     protected $NIF;
