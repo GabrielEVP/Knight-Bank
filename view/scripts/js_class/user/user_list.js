@@ -1,4 +1,4 @@
-import { user_class } from "./produktu_class.js.js";
+import { user_class } from "user_class.js";
 
 class user_list {
 
@@ -6,7 +6,7 @@ class user_list {
 
     // añade en la ultima posicion del array //
     add_User(user = new user_class()) {
-        this.produktu_list.push(user);
+        this.user_list.push(user);
     }
 
     // elimina un objeto de la ultima posicion del array //

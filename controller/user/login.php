@@ -2,12 +2,14 @@
 include_once ("model/user/user_model.php"); 
 session_start();
 
-$_SESSION['login_tries'];
-$_SESSION['login_time'];
+// $_SESSION['login_tries'];
+// $_SESSION['login_time'];
+
+$data=json_decode(file_get_contents("php://input"),true);
 
 $user = new user_model();
-$user->setNIF($_POST['NIF']);
-$user->setPassword($_POST['password']);
+$user->setNIF($data['NIF']);
+$user->setPassword($data['password']);
 
 $result = array();
 
