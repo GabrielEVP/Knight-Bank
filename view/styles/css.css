@@ -1,10 +1,7 @@
 .fond_form {
-  background: #ADA996;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #b9b8b7);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ADA996; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #b9b8b7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .form {
@@ -451,12 +448,26 @@ a.form_link:hover:after {
   height: 100%;
   left: 0;
   top: 0;
+  overflow: scroll;
+}
+
+.sidemenu::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidemenu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidemenu::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
 }
 
 /* header */
 .header {
   box-sizing: border-box;
-  border-bottom: solid 3px rgb(23, 184, 95);
+  border-bottom: solid 3px rgb(33, 33, 33);
 }
 
 .title_nav {
@@ -472,7 +483,7 @@ a.form_link:hover:after {
   box-sizing: border-box;
 }
 .menu_btn:hover {
-  background-color: rgb(23, 184, 95);
+  background-color: rgb(33, 33, 33);
 }
 
 .btn_hamburger {
@@ -483,7 +494,7 @@ a.form_link:hover:after {
 }
 
 .profile {
-  border-bottom: solid 3px rgb(23, 184, 95);
+  border-bottom: solid 3px rgb(33, 33, 33);
   padding: 10px;
   text-align: center;
 }
@@ -511,7 +522,7 @@ a.form_link:hover:after {
   display: block;
 }
 .item a:hover {
-  background-color: rgb(23, 184, 95);
+  background-color: rgb(33, 33, 33);
 }
 
 .icon {
@@ -534,9 +545,12 @@ a.form_link:hover:after {
   display: inline-block;
   padding: 10px;
 }
+.title span {
+  color: rgb(255, 255, 255);
+}
 
 .item_separator {
-  border-bottom: solid 3px rgb(23, 184, 95);
+  border-bottom: solid 3px rgb(33, 33, 33);
 }
 
 .menu_expanded {
@@ -593,6 +607,17 @@ a.form_link:hover:after {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   list-style: none;
   text-decoration: none;
+}
+
+.button_filter {
+  border-radius: 2px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background: rgb(14, 79, 199);
+  border: 2px solid rgb(226, 219, 219);
 }
 
 /*# sourceMappingURL=css.css.map */

@@ -4,7 +4,7 @@ $width_navbar_collapsed: 58px;
 $padding: 10px;
 
 $bg_color : rgba(0, 0, 0, 0.836);
-$hover_color : rgb(23, 184, 95);
+$hover_color : rgb(33, 33, 33);
 
 .body_expanded {
     margin-left: calc($width_navbar_aplication - $width_navbar_collapsed);
@@ -22,6 +22,20 @@ $hover_color : rgb(23, 184, 95);
     height: 100%;
     left: 0;
     top: 0;
+    overflow: scroll
+}
+
+.sidemenu::-webkit-scrollbar {
+    width: 0;    
+}
+  
+.sidemenu::-webkit-scrollbar-track {  
+    background: transparent;
+}
+  
+.sidemenu::-webkit-scrollbar-thumb { 
+    background: transparent;
+    border: none;
 }
 
 /* header */
@@ -111,6 +125,10 @@ $hover_color : rgb(23, 184, 95);
     overflow: hidden;
     display: inline-block;
     padding: $padding;
+
+    span {
+        color: rgb(255, 255, 255);
+    }
 }
 
 .item_separator {

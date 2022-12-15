@@ -17,3 +17,13 @@
   text-decoration: none;
 }
 
+.button_filter {
+    border-radius: 2px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    background: rgb(14, 79, 199);
+    border: 2px solid $color_a;
+}
