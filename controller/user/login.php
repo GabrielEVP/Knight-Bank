@@ -2,9 +2,7 @@
 include_once ("../../model/user/user_model.php"); 
 session_start();
 
-// $_SESSION['login_tries'];
-// $_SESSION['login_time'];
-
+//echo phpversion();
 $data=json_decode(file_get_contents("php://input"),true);
 
 $user = new user_model();

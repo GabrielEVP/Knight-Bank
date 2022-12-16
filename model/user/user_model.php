@@ -1,7 +1,6 @@
 <?php
 
 include_once ("user_class.php"); 
-//include_once ('../database/query.php');
 include_once (str_replace("user", "", __DIR__  . "database\query.php"));
 include_once (str_replace("user", "", __DIR__  . "function.php")); 
 
