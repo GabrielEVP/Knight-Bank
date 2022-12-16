@@ -8,7 +8,7 @@ App.controller('Controler', function($scope, $timeout) {
     window.onload = async function () {
         var user_lista = new user_list();
         $timeout(30);
-        const response = user_lista.fetch_load_User('../../../controller/user/list/load_user_list.php');
+        const response = user_lista.fetch_load_User('../../../controller/user/lists/load_user_list.php');
         const result = await response;
         console.log(result);
     }
