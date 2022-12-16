@@ -1,6 +1,7 @@
 import { user_class } from "../../scripts/js_class/user/user_class.js";
 import { user_list } from "../../scripts/js_class/user/user_list.js";
 import {controller_url_User , controller_url_user_List} from "../../scripts/js_class/user/dictionary_user.js"
+import {show_Modal , quit_Modal} from "./modal.js"
 
 const App = angular.module('App', []);
 
@@ -23,5 +24,27 @@ App.controller('Controler', async function($scope, $timeout) {
         $scope.list_user.show_user_List();
     }
 
+    $scope.update = function() {
+        show_Modal(".modify");
+    }
+
+    $scope.delete = function() {
+        show_Modal(".borrar");
+    }
+
+    $scope.ban = function() {
+        show_Modal(".banear");
+    }
+
+    $scope.unban = function() {
+        show_Modal(".desban");
+    }
+
+    $scope.close = function() {
+        quit_Modal();
+    }
+
+
 })
+
 
