@@ -46,23 +46,7 @@ class user_class {
             alert(err);
         }
     }
-
-    //  //
-    // async login() {
-    //     var data = ['nif'=this.nif,'password'=this.password];
-    //     try {
-    //         const res = await fetch (
-    //             url, {
-    //             method: 'POST',
-    //             body: JSON.stringify(data), 
-    //             headers:{'Content-Type': 'application/json'}
-    //         })
-    //         const datos = await res.json()
-    //     } catch(err) {
-    //         alert(err);
-    //     }
-    // }
-
+    
 }
 
 export { user_class };

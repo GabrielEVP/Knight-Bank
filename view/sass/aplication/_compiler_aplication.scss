@@ -1,0 +1,22 @@
+// imports Globals //
+@import 
+    '../global/variables_global'
+;
+
+// imports Aplication //
+@import 
+    './navbar_aplication',
+    './modal',
+    './card_user',
+    './button_filters',
+    './buttons_secondary_aplication'
+;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    list-style: none;
+    text-decoration: none;
+}
