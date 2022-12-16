@@ -37,7 +37,7 @@ class user_list extends standard_class{
     public function get_active_users() {
         $result_list = array();
            foreach ($this->user_list as $user) {
-                if ($user->getLogintries() > 0) {
+                if ($user->getLogintries() > 0 && $user->getAdmin() == 0) {
                     array_push($result_list,$user->getObjvars());
                 }
            }
