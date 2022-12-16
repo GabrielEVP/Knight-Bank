@@ -40,7 +40,7 @@ class user_list {
         try {
             const res = await fetch(url);
             const datos = await res.json();
-            this.cast_array_to_User(Array.from(datos.list));
+            return datos;
         } catch(err) {
             console.log(err)
         }

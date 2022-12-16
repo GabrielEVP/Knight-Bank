@@ -15,7 +15,7 @@
 </head>
     <title>Admins</title>
 </head>
-<body ng-controller="Controler">
+<body ng-controller="Controler" ng-init="load_user()">
 
     <!--- nav bar -->
     <div class="sidemenu menu_collapsed">
@@ -83,12 +83,12 @@
         </div>
         
     <!--- cartas  -->
-        <div class="container_card">
-            <div class="card">
+        <div class="container_card" >
+            <div class="card" ng-repeat="user in list_user.user_list">
                 <div class="additional">
 
                     <div class="user-card">
-                        <div class="level center">49512345A</div>
+                        <div class="level center">{{user.NIF}}</div>
                         <img src="../../img/aplication/user/prueba_log.jpg" alt="asd">
                         <button class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
                         <button class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
@@ -130,9 +130,9 @@
         <div class="general">
             <h1>Nombre del usuario</h1>
             <ul>
-                <li>nombre del usuario</li>
-                <li>apellido del usuario</li>
-                <li>correo del usuario</li>
+                <li>{{user.name}}</li>
+                <li>{{user.surname}}</li>
+                <li>{{user.gmail}}</li>
             </ul>
             <span class="more">pon el curso encima para mas informacion</span>
             </div>  

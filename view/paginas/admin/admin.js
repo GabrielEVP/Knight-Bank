@@ -4,21 +4,23 @@ import {controller_url_User , controller_url_user_List} from "../../scripts/js_c
 
 const App = angular.module('App', []);
 
-App.controller('Controler', function($scope, $timeout) {
-    $scope.list_user = new user_list();
-
-    window.onload = async function () {
-        $timeout(30);
+App.controller('Controler', async function($scope, $timeout) {
+    $scope.load_user = async function () {
+        $timeout(200);
+        $scope.list_user = new user_list();
         const response = $scope.list_user.fetch_load_User(controller_url_user_List('all'));
         const result = await response;
-        console.log(result);
+        $scope.list_user.cast_array_to_User(Array.from(result)); 
+        $scope.list_user.show_user_List();
     }
 
     $scope.filter = async function (controller_name) {
-        $timeout(40);
+        $timeout(200);
+        $scope.list_user = new user_list();
         const response = $scope.list_user.fetch_load_User(controller_url_user_List(controller_name));
         const result = await response;
-        console.log(result);
+        $scope.list_user.cast_array_to_User(Array.from(result)); 
+        $scope.list_user.show_user_List();
     }
 
 })
