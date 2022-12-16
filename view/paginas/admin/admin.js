@@ -16,8 +16,4 @@ App.controller('Controler', function($scope, $timeout) {
         console.log(result);
     }
 
-
-
-   
-
 })

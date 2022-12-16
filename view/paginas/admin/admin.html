@@ -14,7 +14,7 @@
 </head>
     <title>Admins</title>
 </head>
-<body class="fond_form" ng-controller="Controler">
+<body ng-controller="Controler">
 
     <!--- nav bar -->
     <div class="sidemenu menu_collapsed">
@@ -68,11 +68,18 @@
     </div>
 
     <div class="body_collapse">
-        <input type="text" name="" id="">
-        <button class="button_filter">Admins</button>
-        <button>Usuarios</button>
-        <button>Baneados</button>
-        <button><i class="fa-solid fa-plus"></i></button>
+        <div class="container_filter">
+            <div class="container_input_filter">
+                <input class="input_filter" type="text" name="" id="">
+            </div>
+            <div class="container_button_filter">
+                <button value="admin" class="button_filter">Admins</button>
+                <button value="user" class="button_filter">Usuarios</button>
+                <button value="ban" class="button_filter">Baneados</button>
+                <button id="new_user" class="button_filter"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+        
     <!--- cartas  -->
         <div class="container_card">
             <div class="card">
@@ -141,18 +148,20 @@
             <h2 class="banear">Banear el usuario</h2>
             <h2 class="desban">desbanear el usuario</h2>
             <h2 class="modify">Modificar el usuario</h2>
+            <h2 class="add_user">Crear un usuario</h2>
         </header>
         <article class="content">
             <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
             <h2 class="desban">¿Seguro que quieres desbanear el usuario?</h2>
-            <input class="modify" type="text" placeholder="nombre">
-            <input class="modify" type="password" placeholder="password">
-            <input class="modify" type="text" placeholder="nombre">
-            <input class="modify" type="text" placeholder="nombre">   
-            <input class="modify" type="file" placeholder="nombre">   
+            <input class="modify add_user" type="text" placeholder="nombre">
+            <input class="modify add_user" type="password" placeholder="password">
+            <input class="modify add_user" type="text" placeholder="nombre">
+            <input class="modify add_user" type="text" placeholder="nombre">   
+            <input class="modify add_user" type="file" placeholder="nombre">   
         </article>
         <footer>
+            <label id="crear" for="modal" class="button success add_user">Crear</label>
             <label id="borrar" for="modal" class="button success borrar">Borrar</label>
             <label id="banear" for="modal" class="button success banear">Banear</label>
             <label id="desban" for="modal" class="button success desban">Desbanear</label>
@@ -162,7 +171,7 @@
     </div>
     
 
-    <script src="./admin.js"></script>
-    <script src="./modal.js"></script>
+    <script src="./admin.js" type="module"></script>
+    <script src="./modal.js" type="module"></script>
 </body>
 </html>
