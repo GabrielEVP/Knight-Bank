@@ -1,16 +1,12 @@
 <?php 
 include_once ("../../model/user/user_model.php"); 
 session_start();
-
-// $_SESSION['login_tries'];
-// $_SESSION['login_time'];
-
 $data=json_decode(file_get_contents("php://input"),true);
 
 $user = new user_model();
 $user->setNIF($data['nif']);
 $user->setPassword($data['password']);
-//var_dump($user->getObjvars());
+
 $result = array();
 
 if (isset($_SESSION['banTime'])) {
@@ -27,13 +23,11 @@ if (!isset($_SESSION['banTime'])) {
     $result['status'] = $user->login();
 
     if ($result['status'] == "ok") {
-
         $_SESSION['id_user'] = $user->getIdUser();
         $_SESSION['gmail'] = $user->getGmail();
         $_SESSION['NIF'] = $user->getNIF();
         $_SESSION['name'] = $user->getName();
         $_SESSION['surname'] = $user->getSurname();
-    // $_SESSION['password'] = $user->getPassword();
         $_SESSION['admin'] = $user->getAdmin();
 
         $result['user'] = $user->getObjvars();
@@ -46,5 +40,6 @@ if (!isset($_SESSION['banTime'])) {
         $_SESSION['banTime'] = time() + 60;
     }
 }
+
 echo json_encode($result);
 ?>

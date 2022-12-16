@@ -9,21 +9,50 @@
 ;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  list-style: none;
-  text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+.container_filter {
+  display: grid; 
+  grid-template-columns: 0.5fr 1fr;
+  margin: 25px;
+}
+.container_input_filter {
+  margin: auto;
+}
+
+.container_button_filter {
+    display: flex;
+    justify-content: end;
+
 }
 
 .button_filter {
-    border-radius: 2px;
+    margin-left: 15px;
     cursor: pointer;
-    font-size: 15px;
-    border-radius: 10px;
-    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 1px;
+    padding: 10px 20px;
     font-weight: bold;
-    color: black;
-    border: none
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border: 3px solid black;
+    transition: 0.3s;
+
+    &:hover {
+      border: 3px solid gray;
+      color: white;
+      background-color: gray;
+      transition: 0.3s;
+    }
+}
+
+.input_filter {
+  background-color: transparent;
+  border: 2px solid black;
 }
