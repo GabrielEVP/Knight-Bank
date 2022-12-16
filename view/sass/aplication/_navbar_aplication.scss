@@ -6,16 +6,21 @@ $padding: 10px;
 $bg_color : rgba(0, 0, 0, 0.836);
 $hover_color : rgb(33, 33, 33);
 
+$transition_expanded: 0.2s;
+
 .body_expanded {
+    transition: $transition_expanded;
     margin-left: calc($width_navbar_aplication - $width_navbar_collapsed);
 }
 
 .body_collapse {
+    transition: $transition_expanded;
     margin-left: $width_navbar_collapsed;
 }
 
 .sidemenu {
-    background-image: url("../fondo.gif");
+    transition: $transition_expanded;
+    background-image: url("../img/aplication/fondo2.gif");
     background-size: cover;
     color: white;
     position: fixed;
@@ -23,6 +28,12 @@ $hover_color : rgb(33, 33, 33);
     left: 0;
     top: 0;
     overflow: scroll
+   
+}
+
+.i {
+    color: white;
+    font-size: 34px;
 }
 
 .sidemenu::-webkit-scrollbar {
@@ -75,10 +86,12 @@ $hover_color : rgb(33, 33, 33);
 }
 
 .photo {
+    transition: $transition_expanded;
     img {
+        transition: $transition_expanded + 3s;
         width: 100%;
         border-radius: 50%;
-        box-shadow: 0 0 10px rebeccapurple;
+        box-shadow: 0 0 10px rgb(15, 15, 15);
 
     }
 }
@@ -113,10 +126,6 @@ $hover_color : rgb(33, 33, 33);
     box-sizing: border-box;
     padding: $padding;
     width: $width_navbar_collapsed;
-
-    img {
-        width: 100%;
-    }
 }
 
 .title {
@@ -139,6 +148,7 @@ $hover_color : rgb(33, 33, 33);
 
 
 .menu_expanded {
+    transition: $transition_expanded;
     width: $width_navbar_aplication;
     box-shadow: 0 0 10px rebeccapurple;
 
@@ -169,6 +179,7 @@ $hover_color : rgb(33, 33, 33);
 }
 
 .menu_collapsed {
+    transition: $transition_expanded;
     width: $width_navbar_collapsed;
 
     .title_nav {

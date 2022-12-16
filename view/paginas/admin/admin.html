@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles/css.css">
+    <link rel="stylesheet" href="../../styles/css_aplication.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <script src="https://kit.fontawesome.com/422b82f355.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,14 +28,14 @@
         </div>
 
         <div class="profile">
-            <div class="photo"><img src="../../prueba_log.jpg" alt=""></div>
+            <div class="photo"><img src="../../img/aplication/user/prueba_log.jpg" alt="Icono_user"></div>
             <div class="name"><span>nombre del usuario</span></div>
         </div>
 
         <div class="menu_items">
             <div class="item">
                 <a href="#">
-                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="icon"><i class="i fa-solid fa-lock"></i></div>
                     <div class="title"><span>Admin</span></div>
                 </a>
             </div>
@@ -43,14 +44,14 @@
 
             <div class="item">
                 <a href="#">
-                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="icon"><i class="i fa-solid fa-coins"></i></div>
                     <div class="title"><span>Finanzas</span></div>
                 </a>
             </div>
 
             <div class="item">
                 <a href="#">
-                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="icon"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
                     <div class="title"><span>Cuentas</span></div>
                 </a>
             </div>
@@ -59,7 +60,7 @@
 
             <div class="item">
                 <a href="#">
-                    <div class="icon"><img src="../../prueba_log.jpg" alt="algo"></div>
+                    <div class="icon"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
                     <div class="title"><span>Movimientos</span></div>
                 </a>
             </div>
@@ -73,11 +74,11 @@
                 <input class="input_filter" type="text" name="" id="">
             </div>
             <div class="container_button_filter">
-                <button value="todos" class="button_filter">Todos</button>
-                <button value="admin" class="button_filter">Admins</button>
-                <button value="user" class="button_filter">Usuarios</button>
-                <button value="ban" class="button_filter">Baneados</button>
-                <button id="new_user" class="button_filter"><i class="fa-solid fa-plus"></i></button>
+                <button ng-click="filter('all')" class="button_filter button_filter_normal">Todos</button>
+                <button ng-click="filter('admin')" class="button_filter button_filter_normal">Admins</button>
+                <button ng-click="filter('usuarios')" class="button_filter button_filter_normal">Usuarios</button>
+                <button ng-click="filter('inactive')" class="button_filter button_filter_normal">Baneados</button>
+                <button id="new_user" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
         
@@ -88,7 +89,7 @@
 
                     <div class="user-card">
                         <div class="level center">49512345A</div>
-                        <img src="../../prueba_log.jpg" alt="asd">
+                        <img src="../../img/aplication/user/prueba_log.jpg" alt="asd">
                         <button class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
                         <button class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
                         <button class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
@@ -170,9 +171,9 @@
             <label id="decline" for="modal" class="button danger">Cancelar</label>
         </footer>
     </div>
-    
 
     <script src="./admin.js" type="module"></script>
     <script src="./modal.js" type="module"></script>
+    
 </body>
 </html>
