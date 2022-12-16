@@ -1,6 +1,11 @@
 <?php 
 include_once ("../../model/user/user_model.php"); 
 session_start();
+<<<<<<< HEAD
+=======
+
+//echo phpversion();
+>>>>>>> ba13a4d44f56f3582c02fa5fb1797d0793facf4a
 $data=json_decode(file_get_contents("php://input"),true);
 
 $user = new user_model();
