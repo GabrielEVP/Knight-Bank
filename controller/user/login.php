@@ -37,7 +37,7 @@ if (!isset($_SESSION['banTime'])) {
         if ($remaining_tries <= 0) {
             $_SESSION['banTime'] = time() + 60;//tiempo en segundos
         }
-    } else if ($result['status'] == "usuario baneado") {//caso de que un baneado intente entrar desde otro equipo
+    } else if ($result['status'] == "banned") {//caso de que un baneado intente entrar desde otro equipo
         $_SESSION['banTime'] = time() + 60;
     }
 }

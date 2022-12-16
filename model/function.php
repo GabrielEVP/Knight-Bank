@@ -4,7 +4,7 @@ function cast($stdObject,$new_object) {
 
     $vars = get_object_vars($stdObject);
     foreach ($vars as $key => $valor) {
-        
+
         $setter = create_setter($key);
         $new_object->$setter($valor);
     }
@@ -28,9 +28,11 @@ function create_getter($key) {
         if (str_contains($key,"_")) {
             $temp = explode("_",$key);
             $key_name .= ucfirst($temp[0]);
-            for ($i = 1; $i < count($temp); $i++) {
+            $temp_length = count($temp);
+            for ($i = 1; $i < $temp_length; $i++) {
                 $key_name .= ucfirst($temp[$i]);
             }
+            unset($temp_length);
             unset($temp);
         } else {
             $key_name = $key;
@@ -44,9 +46,11 @@ function create_setter($key) {
         if (str_contains($key,"_")) {
             $temp = explode("_",$key);
             $key_name .= ucfirst($temp[0]);
-            for ($i = 1; $i < count($temp); $i++) {
+            $temp_length = count($temp);
+            for ($i = 1; $i < $temp_length; $i++) {
                 $key_name .= ucfirst($temp[$i]);
             }
+            unset($temp_length);
             unset($temp);
         } else {
             $key_name = $key;
