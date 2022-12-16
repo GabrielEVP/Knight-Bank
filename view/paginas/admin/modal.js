@@ -9,7 +9,7 @@ btn.click(function(){
 
 })
 
-$(".new_user").click(function() {
+$("#new_user").click(function() {
     $(".modal-bg").css({
         "visibility": "visible",
         "background-color": "black",

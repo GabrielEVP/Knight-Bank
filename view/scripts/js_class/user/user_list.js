@@ -1,4 +1,4 @@
-import { user_class } from "user_class.js";
+import { user_class } from "./user_class.js";
 
 class user_list {
 

@@ -5,13 +5,10 @@ const App = angular.module('App', []);
 
 App.controller('Controler', function($scope, $timeout) {
 
-
-
     window.onload = async function () {
-        var user_list = new user_list();
+        var user_lista = new user_list();
         $timeout(30);
-        const data = {};
-        const response = user_list.fetch_set_data_User('../../../controller/user/list/load_user_list.php',data);
+        const response = user_lista.fetch_load_User('../../../controller/user/list/load_user_list.php');
         const result = await response;
         console.log(result);
     }
