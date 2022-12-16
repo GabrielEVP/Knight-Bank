@@ -31,8 +31,20 @@ class user_model extends user_class {
     public function set_full_user($new_user) {
         $vars = get_object_vars($new_user);
         foreach ($vars as $key => $valor) {
-            $setter = "set" . ucfirst($key) . "(" . $valor . ")";
-            $this->$setter;
+            $key_name = "";
+            if (str_contains($key,"_")) {
+                $temp = explode("_",$key);
+                $key_name .= ucfirst($temp[0]);
+                for ($i = 1; $i < count($temp); $i++) {
+                    $key_name .= ucfirst($temp[$i]);
+                }
+                unset($temp);
+            } else {
+                $key_name = $key;
+            }
+
+            $setter = "set" . ucfirst($key_name) ;
+            $this->$setter($valor);
         }
     }
 
@@ -66,6 +78,24 @@ class user_model extends user_class {
 
     public function unBan () {
         return update("update user set login_tries = 3 WHERE NIF = '$this->NIF'");
+    }
+
+    /**
+     * Get the value of objuserType
+     */
+    public function getObjuserType()
+    {
+        return $this->objuserType;
+    }
+
+    /**
+     * Set the value of objuserType
+     */
+    public function setObjuserType($objuserType): self
+    {
+        $this->objuserType = $objuserType;
+
+        return $this;
     }
 }
 

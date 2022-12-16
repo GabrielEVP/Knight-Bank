@@ -11,9 +11,16 @@ $scope.login = async function () {
 
     $timeout(30);
     const data = {"nif" : user.nif , "password" : user.password};
-    const aa = user.fetch_set_data_User('../../../controller/user/login.php',data);
-    const a = await aa;
-    alert(a.status);
+    const response = user.fetch_set_data_User('../../../controller/user/login.php',data);
+    const result = await response;
+
+    if (result.status == "ok") {
+        location.href = "../admin/admin.html";
+    } else if (result.status == "banned") {
+        alert("banned: " +result.banTime+ "S");
+    } else {
+        alert(result.status);
+    }
 }
 
 

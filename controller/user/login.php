@@ -18,6 +18,7 @@ if (isset($_SESSION['banTime'])) {
         $user->unBan();
         unset($_SESSION['banTime']);
     } else {
+        $result['status'] = "banned";
         $result['banTime'] = $_SESSION['banTime'] - time();
     }
 }  
