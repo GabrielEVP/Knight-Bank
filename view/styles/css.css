@@ -611,13 +611,13 @@ a.form_link:hover:after {
 
 .button_filter {
   border-radius: 2px;
-  height: 50px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 15px 20px;
   font-weight: bold;
   color: black;
-  background: rgb(14, 79, 199);
-  border: 2px solid rgb(226, 219, 219);
+  border: none;
 }
 
 /*# sourceMappingURL=css.css.map */
