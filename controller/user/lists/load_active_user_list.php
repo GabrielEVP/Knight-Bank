@@ -1,5 +1,8 @@
 <?php 
-include_once ("model/user/user_list.php"); 
+include_once ("../../../model/user/user_list.php"); 
+
+//include_once (str_replace("user\\lists", "", __DIR__  . "database\query.php"));
+
 
 $user_list = new user_list();
 
