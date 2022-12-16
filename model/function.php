@@ -4,19 +4,8 @@ function cast($stdObject,$new_object) {
 
     $vars = get_object_vars($stdObject);
     foreach ($vars as $key => $valor) {
-        $key_name = "";
-        if (str_contains($key,"_")) {
-            $temp = explode("_",$key);
-            $key_name .= ucfirst($temp[0]);
-            for ($i = 1; $i < count($temp); $i++) {
-                $key_name .= ucfirst($temp[$i]);
-            }
-            unset($temp);
-        } else {
-            $key_name = $key;
-
-        }
-        $setter = "set" . ucfirst($key_name) ;
+        
+        $setter = create_setter($key);
         $new_object->$setter($valor);
     }
 
@@ -34,4 +23,35 @@ function cast_array($array,$type) {
     return $result;
 }
 
+function create_getter($key) {
+    $key_name = "";
+        if (str_contains($key,"_")) {
+            $temp = explode("_",$key);
+            $key_name .= ucfirst($temp[0]);
+            for ($i = 1; $i < count($temp); $i++) {
+                $key_name .= ucfirst($temp[$i]);
+            }
+            unset($temp);
+        } else {
+            $key_name = $key;
+
+        }
+        return "get" . ucfirst($key_name);
+}
+
+function create_setter($key) {
+    $key_name = "";
+        if (str_contains($key,"_")) {
+            $temp = explode("_",$key);
+            $key_name .= ucfirst($temp[0]);
+            for ($i = 1; $i < count($temp); $i++) {
+                $key_name .= ucfirst($temp[$i]);
+            }
+            unset($temp);
+        } else {
+            $key_name = $key;
+
+        }
+        return "set" . ucfirst($key_name);
+}
 ?>
