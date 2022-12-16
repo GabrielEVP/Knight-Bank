@@ -8,34 +8,6 @@ btn.click(function(){
     document.querySelector('body').classList.toggle("body_expanded")
 })
 
-$("#new_user").click(function() {
-    show_Modal(".add_user");
-})
-
-$(".delete_button").click(function() {
-    show_Modal(".borrar");
-})
-
-$(".update_button").click(function() {
-    show_Modal(".modify");
-})
-
-$(".ban_button").click(function() {
-    show_Modal(".banear");
-})
-
-$(".desban_button").click(function() {
-    show_Modal(".desban");
-})
-
-$("#decline").click(function() {
-    quit_Modal();
-})
-
-$("#close").click(function() {
-    quit_Modal();
-})
-
 function quit_Modal() {
     $(".modal-bg").css({
         "visibility": "hidden"
@@ -87,3 +59,5 @@ function show_Modal(boton) {
         "z-index": "1000"
     }); 
 }
+
+export { show_Modal , quit_Modal }

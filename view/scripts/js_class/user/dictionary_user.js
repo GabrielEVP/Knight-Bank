@@ -13,7 +13,7 @@ function controller_url_user_List(controller) {
         all: '/banca/controller/user/lists/load_user_list.php',
         admin: '/banca/controller/user/lists/load_admin_list.php',
         user: '/banca/controller/user/lists/load_active_user_list.php',
-        inactive: '/banca/controller/user/lists/load_inactive_list.php'
+        inactive: '/banca/controller/user/lists/load_inactive_user_list.php'
     }
     return url_user_list[controller] ?? alert('error url del controller userlist no existe');
 }
