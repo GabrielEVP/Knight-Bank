@@ -1,5 +1,5 @@
 <?php 
-include_once ("model/user/user_list.php"); 
+include_once ("../../../model/user/user_list.php"); 
 
 $user_list = new user_list();
 
