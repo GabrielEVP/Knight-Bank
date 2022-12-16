@@ -9,6 +9,28 @@ btn.click(function(){
 
 })
 
+$(".new_user").click(function() {
+    $(".modal-bg").css({
+        "visibility": "visible",
+        "background-color": "black",
+        "opacity": "0.7",
+        "transition": "background-color 245ms linear",
+        "transition": "transform 245ms ease"
+    });
+
+    $(".modal-content").css({
+        "visibility": "visible",
+        "transform": "scale(1.0)",
+        "transition": "transform 245ms ease",
+        "z-index": "1000"
+    });
+
+    $(".add_user").css({
+        "display": "block",
+    });
+    
+})
+
 $(".delete_button").click(function() {
     $(".modal-bg").css({
         "visibility": "visible",
@@ -116,6 +138,10 @@ $("#decline").click(function() {
     $(".desban").css({
         "display": "none"
     });
+
+    $(".add_user").css({
+        "display": "none",
+    });
 })
 
 $("#close").click(function() {
@@ -142,6 +168,10 @@ $("#close").click(function() {
 
     $(".desban").css({
         "display": "none"
+    });
+
+    $(".add_user").css({
+        "display": "none",
     });
 
 })
