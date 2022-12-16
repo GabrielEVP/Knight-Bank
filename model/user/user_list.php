@@ -1,8 +1,9 @@
 <?php 
 include_once ("user_model.php"); 
-include_once ("model/database/query.php");
-include_once ("model/function.php"); 
-class user_list {
+include_once (str_replace("user", "", __DIR__  . "database/query.php")); 
+include_once (str_replace("user", "", __DIR__  . "function.php")); 
+include_once (str_replace("user", "", __DIR__  . "standard_class.php")); 
+class user_list extends standard_class{
 
     private $user_list;
 
