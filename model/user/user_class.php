@@ -3,6 +3,7 @@ include_once ("standard_class.php");
 class user_class extends standard_class{
     protected $id_user;
     protected $gmail;
+    protected $foto;
     protected $NIF;
     protected $name;
     protected $surname;
@@ -151,6 +152,24 @@ class user_class extends standard_class{
     public function setLogintries($login_tries): self
     {
         $this->login_tries = $login_tries;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of foto
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
+     * Set the value of foto
+     */
+    public function setFoto($foto): self
+    {
+        $this->foto = $foto;
 
         return $this;
     }

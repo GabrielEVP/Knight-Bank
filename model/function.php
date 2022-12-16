@@ -14,9 +14,10 @@ function cast($stdObject,$new_object) {
             unset($temp);
         } else {
             $key_name = $key;
+
         }
-        $setter = "set" . ucfirst($key_name) . "('" . $valor . "')";
-        $new_object->$setter;
+        $setter = "set" . ucfirst($key_name) ;
+        $new_object->$setter($valor);
     }
 
     return $new_object;

@@ -61,7 +61,7 @@ class user_model extends user_class {
 
     public function login_fail () {
         update("update user set login_tries = login_tries - 1 WHERE NIF = '$this->NIF'");
-        return single_row_array_select("SELEC login_tries FROM user WHERE NIF = '$this->NIF'")['login_tries'];
+        return single_row_array_select("SELECT login_tries FROM user WHERE NIF = '$this->NIF'")['login_tries'];
     }
 
     public function unBan () {

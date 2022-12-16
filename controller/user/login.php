@@ -10,7 +10,7 @@ $data=json_decode(file_get_contents("php://input"),true);
 $user = new user_model();
 $user->setNIF($data['nif']);
 $user->setPassword($data['password']);
-var_dump($user->getObjvars());
+//var_dump($user->getObjvars());
 $result = array();
 
 if (isset($_SESSION['banTime'])) {
