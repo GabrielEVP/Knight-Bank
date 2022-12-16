@@ -30,27 +30,12 @@ class user_model extends user_class {
     public function set_full_user($new_user) {
         $vars = get_object_vars($new_user);
         foreach ($vars as $key => $valor) {
-            $key_name = "";
-            if (str_contains($key,"_")) {
-                $temp = explode("_",$key);
-                $key_name .= ucfirst($temp[0]);
-                for ($i = 1; $i < count($temp); $i++) {
-                    $key_name .= ucfirst($temp[$i]);
-                }
-                unset($temp);
-            } else {
-                $key_name = $key;
-            }
-
-            $setter = "set" . ucfirst($key_name) ;
+            $setter = create_setter($key);
             $this->$setter($valor);
         }
     }
 
     public function login() {
-        // $select = select_Object("select * from user where gmail = $gmail");
-        // $user = cast_array($select, new user_model())[0];
-
         $sql = "select * from user where NIF = '$this->NIF'";
         $user = single_row_object_select($sql,new user_model());      
         
