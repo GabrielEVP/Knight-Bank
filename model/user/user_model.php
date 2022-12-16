@@ -48,7 +48,7 @@ class user_model extends user_class {
                     return "credenciales incorrectas";
                 }
             } else {
-                return "usuario baneado";
+                return "banned";
             }
         } else {
             return "usuario no encontrado";
