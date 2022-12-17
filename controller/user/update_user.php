@@ -10,6 +10,7 @@ if ($_SESSION['admin'] == 1) {
 
     $user = new user_model();
 
+    $user->setIdUser($data['id_user']);
     $user->setGmail($data['gmail']);
     $user->setNIF($data['nif']);
     $user->setName($data['name']);
@@ -19,8 +20,9 @@ if ($_SESSION['admin'] == 1) {
     $password = password_hash($data['password'], PASSWORD_DEFAULT);
     $user->setPassword($password);
     
-    if (!$user->check_NIF_exists()) {
-        if ($user->insert_user()) {
+    if ($user->check_NIF_change_available()) {
+    
+        if ($user->update_user()) {
             $response['status'] = "ok";
         } else {
             $response['status'] = "sql error";
@@ -37,15 +39,3 @@ echo json_encode($response);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-?>

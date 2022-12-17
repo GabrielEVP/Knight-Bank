@@ -64,16 +64,5 @@ class user_list extends standard_class{
         return $result_list;
     }
 
-
-
-    // public function get_filtered_list($condition) {
-    //     $result_list = array();
-    //     foreach ($this->user_list as $user) {
-    //          if ($user->getAdmin() > 0) {
-    //              array_push($result_list,$user);
-    //          }
-    //     }
-    //  return $result_list;
-    // }
 }
 ?>

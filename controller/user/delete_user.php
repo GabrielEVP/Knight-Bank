@@ -10,15 +10,15 @@ if ($_SESSION['admin'] == 1) {
 
     $user = new user_model();
 
-    $user->get_user($data['id_user']);
-    $response['user'] = $user->getObjvars();
-    $response['status'] = 'ok';
-    
+    $user->setIdUser($data['id_user']);
+    if ($user->delete_user()) {
+        $response['status'] = 'ok';
+    } else {
+        $response['status'] = 'sql  error';
+    }
+
 } else {
     $response['status'] = 'no admin';
 }
 
 echo json_encode($response);
-
-
-
