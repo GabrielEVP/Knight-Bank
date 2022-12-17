@@ -1,7 +1,11 @@
 import { user_class } from "../../scripts/js_class/user/user_class.js";
 import { user_list } from "../../scripts/js_class/user/user_list.js";
+<<<<<<< HEAD
 import { controller_url_User , controller_url_user_List } from "../../scripts/js_class/user/dictionary_user.js"
 import { empty_input, show_Modal , quit_Modal } from "./modal.js"
+=======
+import {controller_url_User , controller_url_user_List} from "../../scripts/js_class/user/dictionary_user.js"
+>>>>>>> 2f774433af91c6e977787fd647e424545627394b
 
 const App = angular.module('App', []);
 
@@ -24,6 +28,7 @@ App.controller('Controler', async function($scope, $timeout) {
         $scope.list_user.show_user_List();
     }
 
+<<<<<<< HEAD
     $scope.insert = async function() {
         $scope.new_user = new user_class();
         $scope.new_user.asigment_input();
@@ -110,6 +115,7 @@ App.controller('Controler', async function($scope, $timeout) {
         quit_Modal();
     }
 
+=======
+>>>>>>> 2f774433af91c6e977787fd647e424545627394b
 })
-
 

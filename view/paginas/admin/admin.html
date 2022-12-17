@@ -78,7 +78,7 @@
             <div class="container_button_filter">
                 <button ng-click="filter('all')" class="button_filter button_filter_normal">Todos</button>
                 <button ng-click="filter('admin')" class="button_filter button_filter_normal">Admins</button>
-                <button ng-click="filter('user')" class="button_filter button_filter_normal">Usuarios</button>
+                <button ng-click="filter('usuarios')" class="button_filter button_filter_normal">Usuarios</button>
                 <button ng-click="filter('inactive')" class="button_filter button_filter_normal">Baneados</button>
                 <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
             </div>
@@ -92,10 +92,17 @@
                     <div class="user-card">
                         <div class="level center">{{user.NIF}}</div>
                         <img src="../../img/aplication/user/prueba_log.jpg" alt="asd">
+<<<<<<< HEAD
                         <button ng-click="show_Update()" class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
                         <button ng-click="show_Delete()" class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
                         <button ng-click="show_Ban()" class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
                         <button ng-click="show_Unban()" style="display: none;" class="button_secondary desban_button" value=""><i class="fa-solid fa-check"></i></button>
+=======
+                        <button class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
+                        <button class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
+                        <button style="display: none;" class="button_secondary desban_button" value=""><i class="fa-solid fa-check"></i></button>
+>>>>>>> 2f774433af91c6e977787fd647e424545627394b
                     </div>
 
                     <div class="more-info">

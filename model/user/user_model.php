@@ -10,7 +10,7 @@ class user_model extends user_class {
     private $objuserType;
 
     public function insert_user () {
-        return insert("insert into user ( gmail, NIF, name, surname, password, admin) values ( '$this->gmail', '$this->NIF', '$this->name', '$this->surname', '$this->password', $this->admin)");
+        return insert("insert into user ( gmail, NIF, name, surname, password, foto) values ( '$this->gmail', '$this->NIF', '$this->name', '$this->surname', '$this->password', '$this->foto')");
     }
 
     public function delete_user () {
@@ -18,12 +18,13 @@ class user_model extends user_class {
     }
 
     public function update_user () {
-        return update("update user set gmail = $this->gmail, NIF= '$this->NIF',  WHERE id_user = $this->id_user");
+        return update("update user set gmail = $this->gmail, NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password', foto= '$this->foto', WHERE id_user = $this->id_user");
     }
 
     public function get_user ($id) {
        $select = select_Object("select * from user where id = $id");
        $user = cast_array($select, new user_model())[0];
+       $this->set_full_user($user);
        return $user;
     }
 
@@ -60,10 +61,31 @@ class user_model extends user_class {
         return single_row_array_select("SELECT login_tries FROM user WHERE NIF = '$this->NIF'")['login_tries'];
     }
 
+    public function ban () {
+        return update("update user set login_tries = 0 WHERE id_user = '$this->id_user'");
+    }
+
     public function unBan () {
         return update("update user set login_tries = 3 WHERE NIF = '$this->NIF'");
     }
 
+    public function check_NIF_exists() {
+        $select = single_row_array_select("SELECT id_user FROM user WHERE NIF = '$this->NIF'");
+        if (empty($select)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function check_NIF_change_available() {
+        $select = single_row_array_select("SELECT id_user FROM user WHERE NIF = '$this->NIF' AND id_user <> '$this->id_user'");
+        if (empty($select)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * Get the value of objuserType
      */
