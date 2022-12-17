@@ -8,6 +8,14 @@ btn.click(function(){
     document.querySelector('body').classList.toggle("body_expanded")
 })
 
+function empty_input() {
+    $('#nif').val('');
+    $('#name').val('');
+    $('#surname').val('');
+    $('#gmail').val('');
+    $('#password').val('');
+}
+
 function quit_Modal() {
     $(".modal-bg").css({
         "visibility": "hidden"
@@ -60,4 +68,4 @@ function show_Modal(boton) {
     }); 
 }
 
-export { show_Modal , quit_Modal }
+export { empty_input , show_Modal , quit_Modal }

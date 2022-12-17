@@ -7,8 +7,7 @@ App.controller('Controler', function($scope, $timeout) {
         var user = new user_class();
         user.nif = $('#nif').val();
         user.password = $('#password').val();
-
-        $timeout(30);
+        
         const data = {"nif" : user.nif , "password" : user.password};
         const response = user.fetch_set_data_User('../../../controller/user/login.php',data);
         const result = await response;
