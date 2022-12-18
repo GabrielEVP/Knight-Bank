@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/css.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/422b82f355.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+    <title>simulador</title>
+</head>
+<body ng-controller="Controler">
+
+    <form class="form">
+        <div class="form_contenedor">
+
+            <select id="tipoPrestamo">
+                <option value="frances">Frances</option>
+                <option value="lineal">Lineal</option>
+                <option value="simple">Simple</option>
+                <option value="americano">Americano</option>
+            </select>
+            <label>porcentaje Interes</label>
+            <input id="porcentajeInteres" type="number">
+
+            <label>duracion</label>
+            <input id="duracion" type="number">
+
+            <label>duracion</label>
+            <input id="duracion" type="number">
+
+            <label>total Prestado</label>
+            <input id="totalPrestado" type="number">
+            <button ng-click="calcularPrestamo()">calcular prestamo</button>
+
+            <table>
+                <tr>
+                    <th>cuota</th>
+                    <th>cuota</th>
+                    <th>cuota</th>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+</body>
+</html>

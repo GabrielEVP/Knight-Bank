@@ -12,6 +12,7 @@ $result = array();
 
 if (isset($_SESSION['banTime'])) {
     if ($_SESSION['banTime'] < time()) {
+        $user->get_id_by_NIF();
         $user->unBan();
         unset($_SESSION['banTime']);
     } else {
