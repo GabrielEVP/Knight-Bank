@@ -65,6 +65,15 @@
                 </a>
             </div>
 
+            <div class="item item_separator"></div>
+                <div class="item">
+                   
+                    <a href="#">
+                        <div class="icon"><i class="i fa-solid fa-right-from-bracket"></i></div>
+                        <div class="title"><span>Logout</span></div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -78,7 +87,7 @@
             <div class="container_button_filter">
                 <button ng-click="filter('all')" class="button_filter button_filter_normal">Todos</button>
                 <button ng-click="filter('admin')" class="button_filter button_filter_normal">Admins</button>
-                <button ng-click="filter('usuarios')" class="button_filter button_filter_normal">Usuarios</button>
+                <button ng-click="filter('user')" class="button_filter button_filter_normal">Usuarios</button>
                 <button ng-click="filter('inactive')" class="button_filter button_filter_normal">Baneados</button>
                 <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
             </div>
@@ -168,7 +177,7 @@
         <footer>
             <label ng-click="insert()" for="modal" class="button success add_user">Crear</label>
             <label ng-click="crud('delete',id)" for="modal" class="button success borrar">Borrar</label>
-            <label ng-click="crud('banear',id)" for="modal" class="button success banear">Banear</label>
+            <label ng-click="crud('ban',id)" for="modal" class="button success banear">Banear</label>
             <label ng-click="crud('unban',id)" for="modal" class="button success desban">Desbanear</label>
             <label ng-click="modify()" for="modal" class="button success modify">Modificar</label>
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>

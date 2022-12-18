@@ -12,10 +12,10 @@ $response = array();
 
     $user->setIdUser($data['id_user']);
     $user->setGmail($data['gmail']);
-    $user->setNIF($data['nif']);
+    $user->setNIF($data['NIF']);
     $user->setName($data['name']);
     $user->setSurname($data['surname']);
-    $user->setAdmin($data['admin']);
+   // $user->setAdmin($data['admin']);
     
     $password = password_hash($data['password'], PASSWORD_DEFAULT);
     $user->setPassword($password);

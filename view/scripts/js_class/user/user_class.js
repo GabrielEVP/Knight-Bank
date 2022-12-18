@@ -1,6 +1,6 @@
 class user_class {
 
-    constructor(id_user, gmail, NIF, name, surname, password, admin, active) {
+    constructor(id_user, gmail, NIF, name, surname, password, admin, login_tries) {
         this.id_user = id_user;
         this.gmail = gmail;
         this.NIF = NIF;
@@ -8,7 +8,7 @@ class user_class {
         this.surname = surname;
         this.password = password;
         this.admin = admin;
-        this.active = active;
+        this.login_tries = login_tries;
     }
 
     // method //
@@ -16,8 +16,16 @@ class user_class {
         console.log(this);
     }
 
+    load_input_Value() {
+        $('#nif').val(this.NIF);
+        $('#name').val(this.name);
+        $('#surname').val(this.surname);
+        $('#gmail').val(this.gmail);
+        $('#password').val(this.password);
+    }
+
     asigment_input() {
-        this.nif = $('#nif').val();
+        this.NIF = $('#nif').val();
         this.name = $('#name').val();
         this.surname = $('#surname').val();
         this.gmail = $('#gmail').val();

@@ -14,15 +14,15 @@ class user_model extends user_class {
     }
 
     public function delete_user () {
-       return delete('user',$this->id);
+       return delete('user',$this->id_user,'id_user');
     }
 
     public function update_user () {
-        return update("update user set gmail = $this->gmail, NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password', foto= '$this->foto', WHERE id_user = $this->id_user");
+        return update("update user set gmail = '$this->gmail', NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password', foto= '$this->foto' WHERE id_user = $this->id_user");
     }
 
     public function get_user ($id) {
-       $select = select_Object("select * from user where id = $id");
+       $select = select_Object("select * from user where id_user = $id");
        $user = cast_array($select, new user_model())[0];
        $this->set_full_user($user);
        return $user;

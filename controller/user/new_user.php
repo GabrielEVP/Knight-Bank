@@ -14,7 +14,7 @@ $response = array();
     $user->setNIF($data['nif']);
     $user->setName($data['name']);
     $user->setSurname($data['surname']);
-    $user->setAdmin($data['admin']);
+    $user->setAdmin(0);
     
     $password = password_hash($data['password'], PASSWORD_DEFAULT);
     $user->setPassword($password);
