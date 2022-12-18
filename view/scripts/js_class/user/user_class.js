@@ -16,6 +16,14 @@ class user_class {
         console.log(this);
     }
 
+    asigment_input() {
+        this.nif = $('#nif').val();
+        this.name = $('#name').val();
+        this.surname = $('#surname').val();
+        this.gmail = $('#gmail').val();
+        this.password = $('#password').val();
+    }
+
     // enviar informacion al controlador //
     async fetch_set_data_User(url,data) {
         try {
@@ -25,15 +33,14 @@ class user_class {
                 body: JSON.stringify(data), 
                 headers:{'Content-Type': 'application/json'}
             })
-            const datos = await res.json()
-            return datos;
+            return await res.json();
         } catch(err) {
             alert(err);
         }
     }
 
     // recibir datos del servidor //
-    async fetch_load_User(url,data) {
+    async fetch_set_load_User(url,data) {
         try {
             const res = await fetch (
                 url, {
@@ -41,7 +48,7 @@ class user_class {
                 body: JSON.stringify(data), 
                 headers:{'Content-Type': 'application/json'}
             })
-            const datos = await res.json()
+            return await res.json()
         } catch(err) {
             alert(err);
         }

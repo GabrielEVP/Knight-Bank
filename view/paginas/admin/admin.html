@@ -69,6 +69,8 @@
     </div>
 
     <div class="body_collapse">
+
+        <!--- botones filter  -->
         <div class="container_filter">
             <div class="container_input_filter">
                 <input class="input_filter" type="text" name="" id="">
@@ -78,11 +80,11 @@
                 <button ng-click="filter('admin')" class="button_filter button_filter_normal">Admins</button>
                 <button ng-click="filter('usuarios')" class="button_filter button_filter_normal">Usuarios</button>
                 <button ng-click="filter('inactive')" class="button_filter button_filter_normal">Baneados</button>
-                <button id="new_user" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
+                <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
         
-    <!--- cartas  -->
+        <!--- cartas  -->
         <div class="container_card" >
             <div class="card" ng-repeat="user in list_user.user_list">
                 <div class="additional">
@@ -90,10 +92,10 @@
                     <div class="user-card">
                         <div class="level center">{{user.NIF}}</div>
                         <img src="../../img/aplication/user/prueba_log.jpg" alt="asd">
-                        <button class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
-                        <button class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
-                        <button style="display: none;" class="button_secondary desban_button" value=""><i class="fa-solid fa-check"></i></button>
+                        <button ng-click="show_Update(user.id_user)" class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button ng-click="show_Delete(user.id_user)" class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
+                        <button ng-click="show_Ban(user.id_user)" class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
+                        <button ng-click="show_Unban(user.id_user)" style="display: none;" class="button_secondary desban_button" value=""><i class="fa-solid fa-check"></i></button>
                     </div>
 
                     <div class="more-info">
@@ -142,9 +144,9 @@
     </div>
 
     <!--- modal  -->
-    <label for="modal" class="modal-bg"></label>
+    <label ng-modal="id" for="modal" class="modal-bg"></label>
     <div class="modal-content">
-        <label id="close" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
         <header>
             <h2 class="borrar">Borrar el usuario</h2>
             <h2 class="banear">Banear el usuario</h2>
@@ -156,19 +158,20 @@
             <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
             <h2 class="desban">¿Seguro que quieres desbanear el usuario?</h2>
-            <input class="modify add_user" type="text" placeholder="nombre">
-            <input class="modify add_user" type="password" placeholder="password">
-            <input class="modify add_user" type="text" placeholder="nombre">
-            <input class="modify add_user" type="text" placeholder="nombre">   
-            <input class="modify add_user" type="file" placeholder="nombre">   
+            <input id="nif" class="modify add_user" type="text" placeholder="nif">
+            <input id="name" class="modify add_user" type="text" placeholder="name">
+            <input id="surname" class="modify add_user" type="text" placeholder="surname">
+            <input id="gmail" class="modify add_user" type="text" placeholder="gmail">   
+            <input id="password" class="modify add_user" type="password" placeholder="password">
+            <input id="image" class="modify add_user" type="file" placeholder="image">     
         </article>
         <footer>
-            <label id="crear" for="modal" class="button success add_user">Crear</label>
-            <label id="borrar" for="modal" class="button success borrar">Borrar</label>
-            <label id="banear" for="modal" class="button success banear">Banear</label>
-            <label id="desban" for="modal" class="button success desban">Desbanear</label>
-            <label id="modify" for="modal" class="button success modify">Modificar</label>
-            <label id="decline" for="modal" class="button danger">Cancelar</label>
+            <label ng-click="insert()" for="modal" class="button success add_user">Crear</label>
+            <label ng-click="crud('delete',id)" for="modal" class="button success borrar">Borrar</label>
+            <label ng-click="crud('banear',id)" for="modal" class="button success banear">Banear</label>
+            <label ng-click="crud('unban',id)" for="modal" class="button success desban">Desbanear</label>
+            <label ng-click="modify()" for="modal" class="button success modify">Modificar</label>
+            <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
     </div>
 

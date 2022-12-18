@@ -1,10 +1,10 @@
 <?php 
-include_once ("model/user/user_model.php"); 
-include_once ("model/user/account_model.php"); 
+include_once ("../../model/user/user_model.php"); 
+include_once ("../../model/account/account_model.php"); 
 
 $response = array();
 
-if ($_SESSION['admin'] == 1) {
+//if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
     $data=json_decode(file_get_contents("php://input"),true);
 
@@ -29,9 +29,9 @@ if ($_SESSION['admin'] == 1) {
         $response['status'] = 'invalid NIF';
     }
     
-} else {
+/*} else {
     $response['status'] = 'no admin';
-}
+}*/
 
 echo json_encode($response);
 
