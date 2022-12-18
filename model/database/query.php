@@ -68,6 +68,11 @@ function single_row_object_select($sql,$object_type) {
 }
 
 function single_row_array_select($sql) {
-    return select_array($sql)[0];
+    $result = select_array($sql);
+    if(count($result) > 0) {
+        return $result[0];
+    } else {
+        return false;
+    }
 }
 ?>

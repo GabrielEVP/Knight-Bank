@@ -1,5 +1,5 @@
 <?php 
-include_once ("model/standard_class.php"); 
+include_once (str_replace("account", "", __DIR__  . "standard_class.php")); 
 class account_class extends standard_class{
     protected $IBAN;
     protected $balance;

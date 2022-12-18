@@ -34,48 +34,7 @@ class user_list {
             this.add_User(Object.assign(new user_class(), data_array));
         }
     }
-
-    // carga el contenido asincronamente de un json al array casteandolo a objetos  //
-    async fetch_load_User(url) {
-        try {
-            const res = await fetch(url);
-            const datos = await res.json();
-            return datos;
-        } catch(err) {
-            console.log(err)
-        }
-    }
-
-    async fetch_user_set_Data(url, data) {
-        try {
-            const res = await fetch (
-                url, {
-                method: 'POST',
-                body: JSON.stringify(data), 
-                headers:{'Content-Type': 'application/json'}
-            })
-            const datos = await res.json()
-            alert(datos.error);
-        } catch(err) {
-            alert(err);
-        }
-    }
     
-    async fetch_set_data_load_User(url, data) {
-        try {
-            const res = await fetch (
-                url, {
-                method: 'POST',
-                body: JSON.stringify(data), 
-                headers:{'Content-Type': 'application/json'}
-            })
-            const datos = await res.json();
-            this.cast_array_to_User(Array.from(datos.list));
-        } catch(err) {
-            console.log(err)
-        }
-    }
-
 }
 
 export { user_list };

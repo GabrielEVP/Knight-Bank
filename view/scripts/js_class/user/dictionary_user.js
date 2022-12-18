@@ -5,10 +5,10 @@ function controller_url_User(controller) {
         logged: '/banca/controller/user/logged_verify',
         load: '/banca/controller/user/load_user.php',
         
-        modify: '/banca/controller/user/load_user.php',
-        ban: '/banca/controller/user/load_user.php',
-        delete: '/banca/controller/user/load_user.php',
-        unban: '/banca/controller/user/load_user.php',
+        modify: '/banca/controller/user/update_user.php',
+        ban: '/banca/controller/user/ban_user.php',
+        delete: '/banca/controller/user/delete_user.php',
+        unban: '/banca/controller/user/unban_user.php',
     }
     return url_user[controller] ?? alert('error url del controller user no existe');
 }

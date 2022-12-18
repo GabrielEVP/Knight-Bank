@@ -1,10 +1,10 @@
 <?php
-include_once ("model/user/user_model.php"); 
+include_once ("../../model/user/user_model.php"); 
 
 session_start();
 
 $response = array();
-if (isset($_SESSION['id_user'])) {
+//if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
     $user = new user_model();
 
@@ -17,9 +17,9 @@ if (isset($_SESSION['id_user'])) {
     
     $response['logged'] = true;
     $response['user'] = $user->getObjvars();
-} else {
+/*} else {
     $response['logged'] = false;
-}
+}*/
 
 echo json_encode($response);
 

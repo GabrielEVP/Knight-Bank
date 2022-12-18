@@ -10,7 +10,7 @@ class user_model extends user_class {
     private $objuserType;
 
     public function insert_user () {
-        return insert("insert into user ( gmail, NIF, name, surname, password, foto) values ( '$this->gmail', '$this->NIF', '$this->name', '$this->surname', '$this->password', '$this->foto')");
+        return insert("insert into user ( gmail, NIF, name, surname, password, foto, admin) values ( '$this->gmail', '$this->NIF', '$this->name', '$this->surname', '$this->password', '$this->foto', 0)");
     }
 
     public function delete_user () {

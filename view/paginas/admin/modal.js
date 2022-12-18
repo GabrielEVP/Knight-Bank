@@ -8,7 +8,6 @@ btn.click(function(){
     document.querySelector('body').classList.toggle("body_expanded")
 })
 
-<<<<<<< HEAD
 function empty_input() {
     $('#nif').val('');
     $('#name').val('');
@@ -16,35 +15,6 @@ function empty_input() {
     $('#gmail').val('');
     $('#password').val('');
 }
-=======
-$("#new_user").click(function() {
-    show_Modal(".add_user");
-})
-
-$(".delete_button").click(function() {
-    show_Modal(".borrar");
-})
-
-$(".update_button").click(function() {
-    show_Modal(".modify");
-})
-
-$(".ban_button").click(function() {
-    show_Modal(".banear");
-})
-
-$(".desban_button").click(function() {
-    show_Modal(".desban");
-})
-
-$("#decline").click(function() {
-    quit_Modal();
-})
-
-$("#close").click(function() {
-    quit_Modal();
-})
->>>>>>> 2f774433af91c6e977787fd647e424545627394b
 
 function quit_Modal() {
     $(".modal-bg").css({
@@ -96,10 +66,6 @@ function show_Modal(boton) {
         "transition": "transform 245ms ease",
         "z-index": "1000"
     }); 
-<<<<<<< HEAD
 }
 
 export { empty_input , show_Modal , quit_Modal }
-=======
-}
->>>>>>> 2f774433af91c6e977787fd647e424545627394b
