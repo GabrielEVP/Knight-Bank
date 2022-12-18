@@ -61,12 +61,18 @@ class user_model extends user_class {
         return single_row_array_select("SELECT login_tries FROM user WHERE NIF = '$this->NIF'")['login_tries'];
     }
 
+    public function get_id_by_NIF () {
+        $select = single_row_array_select("SELECT id_user FROM user WHERE NIF = '$this->NIF'");
+        $this->id_user = $select['id_user'];
+        return $this->id_user;
+    }
+
     public function ban () {
         return update("update user set login_tries = 0 WHERE id_user = '$this->id_user'");
     }
 
     public function unBan () {
-        return update("update user set login_tries = 3 WHERE NIF = '$this->NIF'");
+        return update("update user set login_tries = 3 WHERE id_user = '$this->id_user'");
     }
 
     public function check_NIF_exists() {
