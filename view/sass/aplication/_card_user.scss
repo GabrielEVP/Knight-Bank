@@ -23,10 +23,21 @@
     position: absolute;
     width: 150px;
     height: 100%;
-    background: linear-gradient(#919191, #7f7f7f);
     transition: width 0.4s;
     overflow: hidden;
     z-index: 2;
+  }
+
+  .admin_card {
+    background: linear-gradient(#e0b802, #757474);
+  }
+
+  .user_card{
+    background: linear-gradient(#21b151, #138550);
+  }
+
+  .unban_card{
+    background: linear-gradient(#575757, #757474);
   }
   
 .user-card {
@@ -39,12 +50,7 @@
         height: 90px;
         border-radius: 50%;
     }
-  }
-  
-  .card.green .additional {
-    background: linear-gradient(#92bCa6, #A2CCB6);
-  }
-  
+  }  
   
   .card:hover .additional {
     width: 100%;

@@ -31,36 +31,6 @@ class user_class {
         this.gmail = $('#gmail').val();
         this.password = $('#password').val();
     }
-
-    // enviar informacion al controlador //
-    async fetch_set_data_User(url,data) {
-        try {
-            const res = await fetch (
-                url, {
-                method: 'POST',
-                body: JSON.stringify(data), 
-                headers:{'Content-Type': 'application/json'}
-            })
-            return await res.json();
-        } catch(err) {
-            alert(err);
-        }
-    }
-
-    // recibir datos del servidor //
-    async fetch_set_load_User(url,data) {
-        try {
-            const res = await fetch (
-                url, {
-                method: 'POST',
-                body: JSON.stringify(data), 
-                headers:{'Content-Type': 'application/json'}
-            })
-            return await res.json()
-        } catch(err) {
-            alert(err);
-        }
-    }
     
 }
 

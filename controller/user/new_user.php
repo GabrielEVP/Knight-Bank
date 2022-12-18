@@ -11,7 +11,7 @@ $response = array();
     $user = new user_model();
 
     $user->setGmail($data['gmail']);
-    $user->setNIF($data['nif']);
+    $user->setNIF($data['NIF']);
     $user->setName($data['name']);
     $user->setSurname($data['surname']);
     $user->setAdmin(0);

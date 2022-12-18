@@ -11,7 +11,7 @@ App.controller('Controler', function($scope) {
         if (result.status == "ok") {
             location.href = "../aplication/admin.html";
         } else if (result.status == "banned") {
-            alert("Banned: " +result.banTime+ "S");
+            alert("Banned: " +result.banTime+ " S");
         } else {
             alert(result.status);
         }

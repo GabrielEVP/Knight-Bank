@@ -1,3 +1,4 @@
+import {controller_url_User} from '../class/user/dictionary_user.js'
 async function fetch_get_Data(url) {
     try {
         const res = await fetch(url);
@@ -21,4 +22,24 @@ async function fetch_set_Data(url, data) {
     }
 }
 
-export { fetch_get_Data , fetch_set_Data }
+async function login_verify() {
+    try {
+        const res = await fetch(controller_url_User('login_verify'));
+        const result = await res.json();
+
+        if(result.logged == true && result.admin == 1) {
+            console.log('admin')
+        } else if (result.logged == true && result.admin == 0) {
+            alert('entraste como usuario y todavia no esta creado tu apartado asi que lo siento mucho pero agur eh');
+            location.href = "../web/login.html"
+        } else {
+            alert('not login');
+            location.href = "../web/login.html"
+        }
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+
+export { fetch_get_Data , fetch_set_Data, login_verify }
