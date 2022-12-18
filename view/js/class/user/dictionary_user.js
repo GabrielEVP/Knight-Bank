@@ -4,7 +4,6 @@ function controller_url_User(controller) {
         login: '/banca/controller/user/login.php',
         logged: '/banca/controller/user/logged_verify',
         load: '/banca/controller/user/load_user.php',
-        
         modify: '/banca/controller/user/update_user.php',
         ban: '/banca/controller/user/ban_user.php',
         delete: '/banca/controller/user/delete_user.php',

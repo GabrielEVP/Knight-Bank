@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles/css_aplication.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <script src="https://kit.fontawesome.com/422b82f355.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-</head>
+    
+    <link rel="stylesheet" href="../../styles/css_aplication.css">
+    <script src="../../js/app/aplication/app_admin.js" type="module"></script>
     <title>Admins</title>
 </head>
-<body ng-controller="Controler" ng-init="load_user()">
+<body ng-controller="Controler" ng-init="load_user('all')">
 
     <!--- nav bar -->
     <div class="sidemenu menu_collapsed">
@@ -85,10 +85,10 @@
                 <input class="input_filter" type="text" name="" id="">
             </div>
             <div class="container_button_filter">
-                <button ng-click="filter('all')" class="button_filter button_filter_normal">Todos</button>
-                <button ng-click="filter('admin')" class="button_filter button_filter_normal">Admins</button>
-                <button ng-click="filter('user')" class="button_filter button_filter_normal">Usuarios</button>
-                <button ng-click="filter('inactive')" class="button_filter button_filter_normal">Baneados</button>
+                <button ng-click="load_user('all')" class="button_filter button_filter_normal">Todos</button>
+                <button ng-click="load_user('admin')" class="button_filter button_filter_normal">Admins</button>
+                <button ng-click="load_user('user')" class="button_filter button_filter_normal">Usuarios</button>
+                <button ng-click="load_user('inactive')" class="button_filter button_filter_normal">Baneados</button>
                 <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
@@ -101,10 +101,10 @@
                     <div class="user-card">
                         <div class="level center">{{user.NIF}}</div>
                         <img src="../../img/aplication/user/prueba_log.jpg" alt="asd">
-                        <button ng-click="show_Update(user.id_user)" class="button_secondary update_button" value=""><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button ng-click="show_Delete(user.id_user)" class="button_secondary delete_button" value=""><i class="fa-solid fa-trash"></i></button>
-                        <button ng-click="show_Ban(user.id_user)" class="button_secondary ban_button" value=""><i class="fa-solid fa-ban"></i></button>
-                        <button ng-click="show_Unban(user.id_user)" style="display: none;" class="button_secondary desban_button" value=""><i class="fa-solid fa-check"></i></button>
+                        <button ng-click="show_Update(user.id_user)" class="button_secondary update_button"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button ng-click="show_Crud('.borrar',user.id_user)" class="button_secondary delete_button"><i class="fa-solid fa-trash"></i></button>
+                        <button ng-click="show_Crud('.banear',user.id_user)" class="button_secondary ban_button"><i class="fa-solid fa-ban"></i></button>
+                        <button ng-click="show_Crud('.desban',user.id_user)" style="display: none;" class="button_secondary desban_button"><i class="fa-solid fa-check"></i></button>
                     </div>
 
                     <div class="more-info">
@@ -166,7 +166,7 @@
         <article class="content">
             <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
-            <h2 class="desban">¿Seguro que quieres desbanear el usuario?</h2>
+            <p class="desban">¿Seguro que quieres desbanear el usuario?</p>
             <input id="nif" class="modify add_user" type="text" placeholder="nif">
             <input id="name" class="modify add_user" type="text" placeholder="name">
             <input id="surname" class="modify add_user" type="text" placeholder="surname">
@@ -183,9 +183,6 @@
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
     </div>
-
-    <script src="./admin.js" type="module"></script>
-    <script src="./modal.js" type="module"></script>
-    
+     
 </body>
 </html>

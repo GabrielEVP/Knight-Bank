@@ -5,7 +5,7 @@ session_start();
 $data=json_decode(file_get_contents("php://input"),true);
 
 $user = new user_model();
-$user->setNIF($data['nif']);
+$user->setNIF($data['NIF']);
 $user->setPassword($data['password']);
 
 $result = array();

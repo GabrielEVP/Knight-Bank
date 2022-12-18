@@ -1,4 +1,3 @@
-
 async function fetch_get_Data(url) {
     try {
         const res = await fetch(url);
