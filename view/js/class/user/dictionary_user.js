@@ -9,7 +9,6 @@ function controller_url_User(controller) {
         logout: '/banca/controller/user/logout.php',
         load: '/banca/controller/user/load_user.php',
         login_verify: '/banca/controller/user/logged_verify.php',
-
     }
     return url_user[controller] ?? alert('error url del controller user no existe');
 }
