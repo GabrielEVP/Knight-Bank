@@ -16,19 +16,19 @@ App.controller('Controler', function($scope, $timeout) {
         var amortizado_cuota = 0;
         var total_cuota = 0;
         var interes_cuota = 0;
-
+        //console.log(tipoPrestamo);
         switch(tipoPrestamo) {
               case "frances":
-                // code block
+                calcularFrances();
                 break;
               case "lineal":
-                // code block
+                calcularLineal();
                 break;
               case "simple":
-                // code block
+                calcularSimple();
                 break;
              case "americano":
-                // code block
+                calcularAmericano();
                 break;
               default:
                 // code block
@@ -51,6 +51,7 @@ App.controller('Controler', function($scope, $timeout) {
                     const cuota = {"interes_cuota":interes_cuota,'total_cuota':total_cuota,'amortizado_cuota':amortizado_cuota,'total_amortizado':total_amortizado,'total_pendiente':total_pendiente};
                     tabla_prestamo.push(cuota);
                 }
+                console.log(tabla_prestamo);
             }
         
             function calcularSimple() {

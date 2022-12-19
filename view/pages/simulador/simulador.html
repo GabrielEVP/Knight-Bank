@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../../js/app/web/simulador.js"></script>
 </head>
     <title>simulador</title>
 </head>
@@ -44,9 +45,6 @@
             <label>duracion</label>
             <input id="duracion" type="number">
 
-            <label>duracion</label>
-            <input id="duracion" type="number">
-
             <label>total Prestado</label>
             <input id="totalPrestado" type="number">
             <button ng-click="calcularPrestamo()">calcular prestamo</button>
@@ -54,8 +52,19 @@
             <table>
                 <tr>
                     <th>cuota</th>
-                    <th>cuota</th>
-                    <th>cuota</th>
+                    <th>Interes</th>
+                    <th>amortizacion</th>
+
+                    <th>Total amortizado</th>
+                    <th>Total pendiente</th>
+                </tr>
+                <tr ng-repeat="cuota in tabla_prestamo">
+                    <td>{{cuota.total_cuota}}</td>
+                    <td>{{cuota.interes_cuota}}</td>
+                    <td>{{cuota.amortizado_cuota}}</td>
+
+                    <td>{{cuota.total_amortizado}}</td>
+                    <td>{{cuota.total_pendiente}}</td>
                 </tr>
             </table>
         </div>
