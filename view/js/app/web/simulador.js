@@ -4,6 +4,7 @@ App.controller('Controler', function($scope, $timeout) {
 
     $scope.tabla_prestamo = Array();
     $scope.calcularPrestamo = function () {
+        $scope.tabla_prestamo = Array();
 
         const tipoPrestamo = $("#tipoPrestamo").val();
 
@@ -46,9 +47,6 @@ App.controller('Controler', function($scope, $timeout) {
 
                     console.log(total_pendiente + " - " + amortizado_cuota);
                     const cuota = {"interes_cuota":truncate_decimals(interes_cuota,2),'total_cuota':truncate_decimals(total_cuota,2),'amortizado_cuota':truncate_decimals(amortizado_cuota,2),'total_amortizado':truncate_decimals(total_amortizado,2),'total_pendiente':truncate_decimals(total_pendiente,2)};
-                    // const cuota = {"interes_cuota":interes_cuota,'total_cuota':total_cuota,'amortizado_cuota':amortizado_cuota,'total_amortizado':total_amortizado,'total_pendiente':total_pendiente};
-                    // cuota.map(truncate_decimals);
-
                     $scope.tabla_prestamo.push(cuota);
                 }
             }
