@@ -31,8 +31,7 @@ async function login_verify() {
         if(result.logged == true && result.admin == 1) {
             console.log('admin')
         } else if (result.logged == true && result.admin == 0) {
-            alert('entraste como usuario y todavia no esta creado tu apartado asi que lo siento mucho pero agur eh');
-            location.href = "../web/login.html"
+            location.href = "/banca/"
         } else {
            // alert('not login');
             location.href = "/banca/"
