@@ -1,0 +1,224 @@
+footer {
+
+    width: 100%;
+    bottom: 0;
+    background-image: $color_linear;
+    padding: 110px;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 200px;
+
+    img {
+        margin-left: 35%;
+        width: 80px;
+        height: 80px;
+        
+    }
+
+    p {
+        color: $color_principal;
+        margin-top: 10px;
+    }
+
+    .row {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .col {
+        flex-basis: 35%;
+        padding: 10px;
+
+    }
+
+    .col:nth-child(2) , .col:nth-child(3) {
+        flex-basis: 15%;
+        
+
+    }
+
+    h3 {
+        width: fit-content;
+        margin-bottom: 40px;
+        position: relative;
+        color: $color_segundario;
+        z-index: 0;
+    }
+
+    h4 {
+        width: fit-content;
+        margin-top: 9px;
+        position: relative;
+        color: $color_principal;
+    }
+
+    .email_id {
+        width: fit-content;
+        border-bottom: 1px solid #ccc ;
+    }
+
+    ul li {
+
+        margin-bottom: 12px ;
+        color: $color_principal;
+
+    }
+
+
+    form {
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 50px;
+    }
+
+    .far {
+        font-size: 25px;
+        margin-right: 10px;
+        color: #ccc;
+    }
+
+    form input {
+        width: 100%;
+        background: transparent;
+        color: #ccc;
+        border: 0;
+        outline: none;
+
+    }
+
+    button {
+        background: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    a {
+        color: $color_principal;
+    }
+
+    .fas {
+        font-size: 16px;
+        color: #ccc;
+    }
+
+    .social_icons .fab{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        color: rgb(255, 255, 254);
+        background: rgb(0, 0, 0);
+        margin-right: 15px;
+    }
+
+    .fab::before {
+    
+        @include transition;
+        transform: scale(.9);
+        z-index: 0;
+      }
+            
+      .fab:hover {
+        
+        color: #8f8f8f;
+        box-shadow: 0 0 5px #8b8b8b;
+     
+      }
+    
+
+    .copyrigth {
+        text-align: center;
+        color: rgb(126, 126, 126);
+        position: relative;
+        top: 2rem ;
+    }
+
+    hr {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid;
+        color: $color_principal;
+        
+    }
+
+    .linea {
+
+        width: 80%;
+        height: 5px;
+        background: #0c0b0b;
+        border-radius: 3px;
+        position: absolute;
+        top: 25px;
+        left: 10%;
+        overflow: hidden;
+
+            
+        
+        span {
+            width: 15px;
+            height: 100%;
+            background: rgb(255, 255, 255);
+            border-radius: 3px;
+            position: absolute;
+            animation: moving 2s linear infinite;
+        }
+    }
+
+}
+
+.center {
+    text-align: center;
+
+    .linea { 
+        top: 3rem;
+    }
+}
+
+@keyframes moving {
+
+    0% {
+
+        left: -20px;
+    }
+
+    100% {
+        left: 100%;
+    }
+    
+}
+
+@media (max-width: 952px) {
+    
+
+    footer {
+        bottom: unset;
+
+        img {
+     
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+        }
+
+        .col {
+            flex-basis: 100%;
+        }
+        
+        .col:nth-child(2) , .col:nth-child(3) {
+            flex-basis: 100%;
+        }
+
+    }
+     
+}
+
