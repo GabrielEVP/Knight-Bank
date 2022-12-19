@@ -21,9 +21,9 @@ const card_User = async () => {
         }
 
         if (user.login_tries > 0) {
-            visualizacion = `<button onclick="show_Crud('.banear', ${user.id_user})" class="button_secondary ban_button"><i class="fa-solid fa-ban"></i></button>`;
+            visualizacion = /*html*/`<button onclick="show_Crud('.banear', ${user.id_user})" class="button_secondary ban_button"><i class="fa-solid fa-ban"></i></button>`;
         } else {
-            visualizacion = `<button onclick="show_Crud('.desban', ${user.id_user})" class="button_secondary desban_button"><i class="fa-solid fa-check"></i></button>`;
+            visualizacion = /*html*/`<button onclick="show_Crud('.desban', ${user.id_user})" class="button_secondary desban_button"><i class="fa-solid fa-check"></i></button>`;
         }
 
         card += (
@@ -33,9 +33,9 @@ const card_User = async () => {
                     <div class="additional ${color}">
                         <div class="user-card">
                             <div class="level center">${user.NIF}</div>
-                            <img src="../../img/aplication/user/prueba_log.jpg" alt="logo_usuario">
-                            <button ng-click="show_Update(${user.id_user})" class="button_secondary update_button"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button ng-click="show_Crud('.borrar', ${user.id_user})" class="button_secondary delete_button"><i class="fa-solid fa-trash"></i></button>
+                            <img src="${user.foto}" alt="logo_usuario">
+                            <button onclick="show_Update(${user.id_user})" class="button_secondary update_button"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="show_Crud('.borrar', ${user.id_user})" class="button_secondary delete_button"><i class="fa-solid fa-trash"></i></button>
                             ${visualizacion} 
                         </div>
 
@@ -77,9 +77,7 @@ const card_User = async () => {
                     <li>${user.surname}</li>
                     <li>${user.gmail}</li>
                 </ul>
-                <span class="more">pon el curso encima para mas informacion</span>
-                </div>  
-                </div>
+                <span class="more">pon el curso encima para mas informacion</span></div></div>
             </div>
         `
         ) 
