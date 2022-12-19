@@ -5,21 +5,24 @@
     border-radius: 1px;
     padding: 10px 20px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
-   
+    color: rgb(255, 255, 255);
     transition: 0.3s;
 
-    &:hover {
+    &:hover  {
       border: 3px solid gray;
       color: white;
       background-color: gray;
       transition: 0.3s;
     }
+
+    .fa-solid {
+      color: rgb(24, 23, 23);
+    }
 }
 
 .button_filter_normal {
-    background-color: rgb(0, 204, 255);
-    border: 3px solid  rgb(0, 204, 255);
+    background-color: #1b1b1b;
+    border: 3px solid #1b1b1b;
 }
 
 .button_filter_especial {

@@ -3,12 +3,16 @@ import { user_list } from "../../class/user/user_list.js";
 import { controller_url_User , controller_url_user_List } from "../../class/user/dictionary_user.js"
 import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
 import { empty_input, show_Modal , quit_Modal } from "../../components/aplication/modal.js"
+import { card_User } from "../../components/aplication/card_users.js"
+
+
 
 const App = angular.module('App', []);
 
 App.controller('Controler', function($scope, $timeout) {
 
-    window.onload = function() {
+    window.onload = async function() {
+        document.querySelector('.container_filter').innerHTML += await card_User();
         login_verify();
     }
 
