@@ -33,7 +33,7 @@ async function login_verify() {
             alert('entraste como usuario y todavia no esta creado tu apartado asi que lo siento mucho pero agur eh');
             location.href = "../web/login.html"
         } else {
-            alert('not login');
+           // alert('not login');
             location.href = "../web/login.html"
         }
     } catch(err) {
