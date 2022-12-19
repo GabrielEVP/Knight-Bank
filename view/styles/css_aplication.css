@@ -10,7 +10,7 @@
 
 .sidemenu {
   transition: 0.2s;
-  background-image: url("../img/aplication/fondo2.gif");
+  background-image: url("../img/aplication/fondo.gif");
   background-size: cover;
   color: white;
   position: fixed;

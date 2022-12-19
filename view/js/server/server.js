@@ -1,4 +1,5 @@
 import {controller_url_User} from '../class/user/dictionary_user.js'
+
 async function fetch_get_Data(url) {
     try {
         const res = await fetch(url);
@@ -34,7 +35,7 @@ async function login_verify() {
             location.href = "../web/login.html"
         } else {
            // alert('not login');
-            location.href = "../web/login.html"
+            location.href = "/banca/"
         }
     } catch(err) {
         console.log(err)

@@ -18,7 +18,7 @@ App.controller('Controler', function($scope, $timeout) {
         $scope.list_user = new user_list();
         const result = await fetch_get_Data(controller_url_user_List(controller_name));
         $scope.list_user.cast_array_to_User(Array.from(result));
-     
+        
         for (const iterator of $scope.list_user.user_list) {
             if (iterator.admin == 1 && iterator.login_tries > 0) {
                 $scope.color = 'admin_card';
@@ -101,7 +101,7 @@ App.controller('Controler', function($scope, $timeout) {
     $scope.logout = async function() {
         const result = await fetch_get_Data(controller_url_User('logout'));
         if (result.logout == true) {
-            location.href='../web/login.html';
+            location.href='/banca/';
         } else {
             alert('error');
         }

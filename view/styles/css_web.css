@@ -14,6 +14,11 @@ nav .logo {
   font-size: 35px;
   font-weight: 600;
 }
+nav .logo img {
+  margin-left: 10%;
+  width: 80px;
+  height: 80px;
+}
 
 nav ul {
   display: flex;
@@ -105,7 +110,7 @@ nav ul li a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: -1;
+  z-index: 1000;
   width: 100%;
   padding: 0 30px;
   color: #1b1b1b;
@@ -201,7 +206,7 @@ a.form_link:hover:after {
 
 .input {
   border-radius: 12px;
-  border: 1px solid black;
+  border: 1px solid gray;
   box-sizing: border-box;
   color: black;
   font-size: 18px;
@@ -257,6 +262,177 @@ a.form_link:hover:after {
   color: black;
 }
 
+footer {
+  width: 100%;
+  bottom: 0;
+  background-image: linear-gradient(to left, #373737, #2e2e2e, #252525, #1c1c1c, #141414);
+  padding: 110px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-top: 200px;
+}
+footer img {
+  margin-left: 35%;
+  width: 80px;
+  height: 80px;
+}
+footer p {
+  color: #ffffff;
+  margin-top: 10px;
+}
+footer .row {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+footer .col {
+  flex-basis: 35%;
+  padding: 10px;
+}
+footer .col:nth-child(2), footer .col:nth-child(3) {
+  flex-basis: 15%;
+}
+footer h3 {
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+  color: wheat;
+  z-index: 0;
+}
+footer h4 {
+  width: fit-content;
+  margin-top: 9px;
+  position: relative;
+  color: #ffffff;
+}
+footer .email_id {
+  width: fit-content;
+  border-bottom: 1px solid #ccc;
+}
+footer ul li {
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+footer form {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+footer .far {
+  font-size: 25px;
+  margin-right: 10px;
+  color: #ccc;
+}
+footer form input {
+  width: 100%;
+  background: transparent;
+  color: #ccc;
+  border: 0;
+  outline: none;
+}
+footer button {
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+footer a {
+  color: #ffffff;
+}
+footer .fas {
+  font-size: 16px;
+  color: #ccc;
+}
+footer .social_icons .fab {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: rgb(255, 255, 254);
+  background: rgb(0, 0, 0);
+  margin-right: 15px;
+}
+footer .fab::before {
+  transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -webkit-transition: all 0.7s ease-in-out;
+  transform: scale(0.9);
+  z-index: 0;
+}
+footer .fab:hover {
+  color: #8f8f8f;
+  box-shadow: 0 0 5px #8b8b8b;
+}
+footer .copyrigth {
+  text-align: center;
+  color: rgb(126, 126, 126);
+  position: relative;
+  top: 2rem;
+}
+footer hr {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid;
+  color: #ffffff;
+}
+footer .linea {
+  width: 80%;
+  height: 5px;
+  background: #0c0b0b;
+  border-radius: 3px;
+  position: absolute;
+  top: 25px;
+  left: 10%;
+  overflow: hidden;
+}
+footer .linea span {
+  width: 15px;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  position: absolute;
+  animation: moving 2s linear infinite;
+}
+
+.center {
+  text-align: center;
+}
+.center .linea {
+  top: 3rem;
+}
+
+@keyframes moving {
+  0% {
+    left: -20px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@media (max-width: 952px) {
+  footer {
+    bottom: unset;
+  }
+  footer img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+  }
+  footer .col {
+    flex-basis: 100%;
+  }
+  footer .col:nth-child(2), footer .col:nth-child(3) {
+    flex-basis: 100%;
+  }
+}
 * {
   margin: 0;
   padding: 0;
