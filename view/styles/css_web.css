@@ -267,9 +267,8 @@ a.form_link:hover:after {
 }
 
 footer {
-  position: absolute;
   width: 100%;
-  bottom: 0;
+  margin-top: 30vh;
   background-image: linear-gradient(to left, #373737, #2e2e2e, #252525, #1c1c1c, #141414);
   padding: 110px;
   font-size: 13px;
@@ -441,6 +440,35 @@ footer .linea span {
     flex-basis: 100%;
   }
 }
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #474747;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000000;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
