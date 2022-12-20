@@ -1,6 +1,7 @@
 <?php 
 include_once (str_replace("account", "", __DIR__  . "standard_class.php")); 
 class account_class extends standard_class{
+    protected $id_account;
     protected $IBAN;
     protected $balance;
     protected $id_user;
@@ -95,6 +96,24 @@ class account_class extends standard_class{
     public function setActive($active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_account
+     */
+    public function getIdAccount()
+    {
+        return $this->id_account;
+    }
+
+    /**
+     * Set the value of id_account
+     */
+    public function setIdAccount($id_account): self
+    {
+        $this->id_account = $id_account;
 
         return $this;
     }
