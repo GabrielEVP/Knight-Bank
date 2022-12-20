@@ -1,8 +1,13 @@
 import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
 import { controller_url_User , controller_url_user_List } from "../../class/user/dictionary_user.js"
+
+import { account_class } from "../../class/account/account_class.js";
+import { account_list } from "../../class/account/account_list.js";
+import { controller_url_Account , controller_url_account_List } from "../../class/account/dictionary_account.js"
+
 import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
-import { empty_input, show_Modal , quit_Modal } from "../../components/aplication/modal.js"
+import { empty_input, empty_input_account, show_Modal , quit_Modal } from "../../components/aplication/modal.js"
 import { card_User } from "../../components/aplication/card_users.js"
 
 
@@ -18,7 +23,6 @@ App.controller('Controler', function($scope, $timeout, $http) {
 
     $scope.load_user = async function (controller_name) {
         $timeout(400);
-
         $scope.list_user = new user_list();
         const result = await fetch_get_Data(controller_url_user_List(controller_name));
         console.log(result);
@@ -104,11 +108,43 @@ App.controller('Controler', function($scope, $timeout, $http) {
         quit_Modal();
     }
 
-    $scope.show_Account = async function(id) {
-        console.log(id);
-        $scope.list_user = new user_list();
-        const result = await fetch_get_Data(controller_url_user_List('load'));
-        console.log(result);
+    $scope.show_Account = async function(class_element,id) {
+        $timeout(400);
+        const data = { id_user : id }
+        const result = await fetch_set_Data(controller_url_account_List('load_from_user'), data);
+
+        show_Modal(class_element);
+
+        $scope.list_account = new account_list(); 
+        $scope.list_account.cast_array_to_Account(Array.from(result));
+
+    }
+
+    $scope.show_insert_acount = function() {
+        $scope.list_account.delete_all_Account();
+        $(".account").css({
+            "display": "none",
+        });
+        show_Modal('.insert_account');
+    }
+
+    $scope.insert_account = async function(id) {
+        empty_input_account();
+        $scope.new_account = new account_class();
+        $scope.new_account.asigment_input();
+        $scope.new_account.id_user = id;
+        console.log( $scope.new_account);
+
+        if ($scope.new_account.IBAN != '') {
+            const result = await fetch_set_Data(controller_url_Account('new'), $scope.new_account);
+            if (result.status == 'ok') {
+                location.reload();
+            } else {
+                alert(result.status);
+            }
+        } else {
+            alert('no has ingresado nada');
+        }
     }
 
     $scope.logout = async function() {

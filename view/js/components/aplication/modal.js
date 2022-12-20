@@ -12,6 +12,13 @@ function empty_input() {
     $('#password').val('');
 }
 
+function empty_input_account() {
+    $('#IBAN').val('');
+    $('#balance').val('');
+}
+
+
+
 function show_Modal(boton) {
     $(boton).css({
         "display": "block",
@@ -62,6 +69,14 @@ function quit_Modal() {
     $(".add_user").css({
         "display": "none",
     });
+
+    $(".account").css({
+        "display": "none",
+    });
+
+    $(".insert_account").css({
+        "display": "none",
+    });
 }
 
-export { empty_input , show_Modal , quit_Modal }
+export { empty_input , empty_input_account , show_Modal , quit_Modal }

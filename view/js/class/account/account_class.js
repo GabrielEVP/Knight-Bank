@@ -13,35 +13,14 @@ class account_class {
         console.log(this);
     }
 
-    // enviar informacion al controlador //
-    async fetch_set_data_Account(url, data) {
-        try {
-            const res = await fetch (
-                url, {
-                method: 'POST',
-                body: JSON.stringify(data), 
-                headers:{'Content-Type': 'application/json'}
-            })
-            const datos = await res.json()
-            alert(datos.error);
-        } catch(err) {
-            alert(err);
-        }
+    load_input_Value() {
+        $('#IBAN').val(this.IBAN);
+        $('#balance').val(this.balance);
     }
 
-    // recibir datos del servidor //
-    async fetch_load_Account(url, data) {
-        try {
-            const res = await fetch (
-                url, {
-                method: 'POST',
-                body: JSON.stringify(data), 
-                headers:{'Content-Type': 'application/json'}
-            })
-            const datos = await res.json()
-        } catch(err) {
-            alert(err);
-        }
+    asigment_input() {
+        this.IBAN = $('#IBANA').val();
+        this.balance = $('#balances').val();
     }
 
 }

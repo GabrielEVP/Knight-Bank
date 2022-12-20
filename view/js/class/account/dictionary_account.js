@@ -11,6 +11,7 @@ function controller_url_Account(controller) {
 function controller_url_account_List(controller) {
     const url_account_List = {
         all: '/banca/controller/account/lists/load_account_list.php',
+        load_from_user : '/banca/controller/account/load_accounts_from_user.php',
     }
     return url_account_List[controller] ?? alert('error url del controller account no existe');
 }

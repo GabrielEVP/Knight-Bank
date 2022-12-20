@@ -1,6 +1,6 @@
 import { account_class } from "./account_class.js";
 
-class account_list_class {
+class account_list {
 
     account_list = new Array();
 
@@ -31,10 +31,10 @@ class account_list_class {
     // castea por medio de bucle un array de objetos generico a array objetos de tipo usuario y pusheandolos al array deseado //
     cast_array_to_Account(generic_array) {
         for (const data_array of generic_array) {
-            this.add_Account(Object.assign(new move_class(), data_array));
+            this.add_Account(Object.assign(new account_class(), data_array));
         }
     }
 
 }
 
-export { account_list_class };
+export { account_list };

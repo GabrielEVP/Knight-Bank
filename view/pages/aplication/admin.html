@@ -111,7 +111,7 @@
                         <div class="stats"><div>
 
                         <div class="title">Nº Cuentas</div>
-                        <i ng-click="show_Account(user.id_user)" class="btn fa-solid fa-vault"></i>
+                        <i ng-click="show_Account('.account', user.id_user)" class="btn fa-solid fa-vault"></i>
                         <div class="value">2</div>
                     </div>
 
@@ -161,6 +161,8 @@
             <h2 class="desban">desbanear el usuario</h2>
             <h2 class="modify">Modificar el usuario</h2>
             <h2 class="add_user">Crear un usuario</h2>
+            <h2 class="account">Cuentas del usuario</h2>
+            <h2 class="insert_account">Creacion de cuenta del usuario</h2>
         </header>
         <article class="content">
             <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
@@ -171,9 +173,19 @@
             <input id="surname" class="modify add_user" type="text" placeholder="surname">
             <input id="gmail" class="modify add_user" type="text" placeholder="gmail">   
             <input id="password" class="modify add_user" type="password" placeholder="password">
-            <input id="image" class="modify add_user" type="file" placeholder="image">     
+            <input id="image" class="modify add_user" type="file" placeholder="image">  
+            
+            <input id="IBANA" class="insert_account" type="text" placeholder="IBAN">
+            <input id="balance" class="insert_account" type="text" placeholder="balance">
+            
+            <div ng-repeat="account in list_account.account_list">
+               <p>{{account.IBAN}} y {{account.balance}}$</p>
+            </div>
+            
         </article>
         <footer>
+            <label ng-click="insert_account(id)" for="modal" class="button success insert_account">Añadir Cuenta</label>
+            <label ng-click="show_insert_acount()" for="modal" class="button success account">Crear Cuenta</label>
             <label ng-click="insert()" for="modal" class="button success add_user">Crear</label>
             <label ng-click="crud('delete',id)" for="modal" class="button success borrar">Borrar</label>
             <label ng-click="crud('ban',id)" for="modal" class="button success banear">Banear</label>

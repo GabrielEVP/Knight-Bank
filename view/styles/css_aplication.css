@@ -297,6 +297,14 @@
   display: none;
 }
 
+.account {
+  display: none;
+}
+
+.insert_account {
+  display: none;
+}
+
 @media (max-width: 1080px) {
   .modal-content {
     left: 5%;
