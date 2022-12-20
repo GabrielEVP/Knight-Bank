@@ -4,6 +4,7 @@ import { controller_url_User } from "../../class/user/dictionary_user.js"
 const App = angular.module('App', []);
 
 App.controller('Controler', function($scope) {
+        
     $scope.login = async function () {
         const data = { "NIF" : $('#nif').val() , "password" : $('#password').val() };
         const result = await fetch_set_Data(controller_url_User('login'), data);

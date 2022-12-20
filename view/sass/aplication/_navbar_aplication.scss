@@ -20,8 +20,9 @@ $transition_expanded: 0.2s;
 
 .sidemenu {
     transition: $transition_expanded;
-    background-image: url("../img/aplication/fondo.gif");
+    background-image: url("../img/aplication/fondo5.gif");
     background-size: cover;
+    background-position: bottom 50px right 20px;
     color: white;
     position: fixed;
     height: 100%;
@@ -70,6 +71,7 @@ $transition_expanded: 0.2s;
     &:hover {
         background-color: $hover_color;
     }
+
 }
 
 .btn_hamburger {
@@ -116,6 +118,13 @@ $transition_expanded: 0.2s;
         a:hover {
             background-color: $hover_color;
         }
+
+        a:hover .i {
+            color: aqua;
+        }
+
+
+        
 }
 
 .icon {
@@ -150,7 +159,7 @@ $transition_expanded: 0.2s;
 .menu_expanded {
     transition: $transition_expanded;
     width: $width_navbar_aplication;
-    box-shadow: 0 0 10px rebeccapurple;
+    box-shadow: 0 0 10px rgb(12, 12, 12);
 
     .photo {
         margin-left: 10%;

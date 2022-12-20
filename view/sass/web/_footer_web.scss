@@ -1,18 +1,21 @@
 footer {
 
+    position: absolute;
     width: 100%;
     bottom: 0;
     background-image: $color_linear;
     padding: 110px;
     font-size: 13px;
     line-height: 20px;
-    margin-top: 200px;
+    z-index: 0;
 
     img {
         margin-left: 35%;
         width: 80px;
         height: 80px;
-        
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        z-index: 0;
     }
 
     p {
@@ -45,7 +48,7 @@ footer {
         width: fit-content;
         margin-bottom: 40px;
         position: relative;
-        color: $color_segundario;
+        color: white;
         z-index: 0;
     }
 

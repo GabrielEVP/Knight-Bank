@@ -2,7 +2,7 @@ nav {
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
+  background-image: linear-gradient(to left, #373737, #2e2e2e, #252525, #1c1c1c, #141414);
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
@@ -18,6 +18,8 @@ nav .logo img {
   margin-left: 10%;
   width: 80px;
   height: 80px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 nav ul {
@@ -80,6 +82,7 @@ input[type=checkbox] {
     text-align: center;
     display: block;
     transition: all 0.3s ease;
+    z-index: 100;
   }
   #click:checked ~ ul {
     left: 0;
@@ -127,8 +130,8 @@ nav ul li a:hover {
   font-weight: bold;
   color: black;
   background: white;
-  border: 2px solid rgb(226, 219, 219);
-  box-shadow: 5px 5px 0 rgb(226, 219, 219), -5px -5px 0 rgb(226, 219, 219), -5px 5px 0 rgb(226, 219, 219), 5px -5px 0 rgb(226, 219, 219);
+  border: 2px solid #1b1b1b;
+  box-shadow: 5px 5px 0 #1b1b1b, -5px -5px 0 #1b1b1b, -5px 5px 0 #1b1b1b, 5px -5px 0 #1b1b1b;
   transition: 500ms ease-in-out;
 }
 
@@ -138,7 +141,7 @@ nav ul li a:hover {
 }
 
 .button_principal:hover {
-  box-shadow: 20px 5px 0 rgb(226, 219, 219), -20px -5px 0 rgb(226, 219, 219);
+  box-shadow: 20px 5px 0 #1b1b1b, -20px -5px 0 #1b1b1b;
 }
 
 .button_principal:focus {
@@ -167,18 +170,19 @@ nav ul li a:hover {
 
 .form_tiene {
   font-weight: 300;
+  color: rgb(63, 63, 63);
 }
 
 a {
-  font-weight: 300;
-  color: rgb(3, 179, 248);
+  font-weight: 800;
+  color: rgb(0, 0, 0);
   display: inline-block;
   margin: 0;
 }
 a:after {
   display: block;
   content: "";
-  border-bottom: solid 3px rgb(226, 219, 219);
+  border-bottom: solid 3px #1b1b1b;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
@@ -206,9 +210,9 @@ a.form_link:hover:after {
 
 .input {
   border-radius: 12px;
-  border: 1px solid gray;
+  border: 2px solid black;
   box-sizing: border-box;
-  color: black;
+  color: rgb(8, 8, 8);
   font-size: 18px;
   height: 100%;
   outline: 0;
@@ -228,7 +232,7 @@ a.form_link:hover:after {
 }
 
 .cut-short {
-  width: 20%;
+  width: 12%;
 }
 
 .cut-long {
@@ -263,18 +267,22 @@ a.form_link:hover:after {
 }
 
 footer {
+  position: absolute;
   width: 100%;
   bottom: 0;
   background-image: linear-gradient(to left, #373737, #2e2e2e, #252525, #1c1c1c, #141414);
   padding: 110px;
   font-size: 13px;
   line-height: 20px;
-  margin-top: 200px;
+  z-index: 0;
 }
 footer img {
   margin-left: 35%;
   width: 80px;
   height: 80px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  z-index: 0;
 }
 footer p {
   color: #ffffff;
@@ -299,7 +307,7 @@ footer h3 {
   width: fit-content;
   margin-bottom: 40px;
   position: relative;
-  color: wheat;
+  color: white;
   z-index: 0;
 }
 footer h4 {

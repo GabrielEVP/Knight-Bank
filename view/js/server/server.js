@@ -33,7 +33,6 @@ async function login_verify() {
         } else if (result.logged == true && result.admin == 0) {
             location.href = "/banca/"
         } else {
-           // alert('not login');
             location.href = "/banca/"
         }
     } catch(err) {

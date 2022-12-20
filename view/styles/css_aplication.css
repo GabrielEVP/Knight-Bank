@@ -10,8 +10,9 @@
 
 .sidemenu {
   transition: 0.2s;
-  background-image: url("../img/aplication/fondo.gif");
+  background-image: url("../img/aplication/fondo5.gif");
   background-size: cover;
+  background-position: bottom 50px right 20px;
   color: white;
   position: fixed;
   height: 100%;
@@ -102,6 +103,9 @@
 .item a:hover {
   background-color: rgb(33, 33, 33);
 }
+.item a:hover .i {
+  color: aqua;
+}
 
 .icon {
   font-size: 14px;
@@ -131,7 +135,7 @@
 .menu_expanded {
   transition: 0.2s;
   width: 300px;
-  box-shadow: 0 0 10px rebeccapurple;
+  box-shadow: 0 0 10px rgb(12, 12, 12);
 }
 .menu_expanded .photo {
   margin-left: 10%;
@@ -332,15 +336,15 @@
 }
 
 .admin_card {
-  background: linear-gradient(#e0b802, #757474);
+  background: linear-gradient(#e0b802, #8b780b);
 }
 
 .user_card {
-  background: linear-gradient(#21b151, #138550);
+  background: linear-gradient(#07aa15, #112b10);
 }
 
 .unban_card {
-  background: linear-gradient(#575757, #757474);
+  background: linear-gradient(#575757, #6e6e6e);
 }
 
 .user-card img {
@@ -458,6 +462,11 @@
   font-size: 0.9em;
 }
 
+.btn:hover {
+  cursor: pointer;
+  color: rgb(0, 195, 255);
+}
+
 .button_filter {
   margin-left: 15px;
   cursor: pointer;
@@ -465,7 +474,7 @@
   border-radius: 1px;
   padding: 10px 20px;
   font-weight: bold;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   transition: 0.3s;
 }
 .button_filter:hover {
@@ -474,10 +483,13 @@
   background-color: gray;
   transition: 0.3s;
 }
+.button_filter .fa-solid {
+  color: rgb(24, 23, 23);
+}
 
 .button_filter_normal {
-  background-color: rgb(0, 204, 255);
-  border: 3px solid rgb(0, 204, 255);
+  background-color: #1b1b1b;
+  border: 3px solid #1b1b1b;
 }
 
 .button_filter_especial {

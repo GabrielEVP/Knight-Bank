@@ -2,7 +2,7 @@ nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
+  background-image: $color_linear;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
@@ -18,6 +18,8 @@ nav .logo{
     margin-left: 10%;
     width: 80px;
     height: 80px;
+     -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
   }
 }
 nav ul{
@@ -74,6 +76,7 @@ input[type="checkbox"]{
     text-align: center;
     display: block;
     transition: all 0.3s ease;
+    z-index: 100;
   }
   #click:checked ~ ul{
     left: 0;
