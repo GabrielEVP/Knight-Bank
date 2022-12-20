@@ -30,30 +30,43 @@
         </ul>
      </nav>
 
-    <form >
+    <form>
         <div>
-
+            <div class="container_simulator">
             <select id="tipoPrestamo">
                 <option value="frances">Frances</option>
                 <option value="lineal">Lineal</option>
                 <option value="simple">Simple</option>
                 <option value="americano">Americano</option>
             </select>
-            <label>porcentaje Interes</label>
-            <input id="porcentajeInteres" type="number">
 
-            <label>duracion</label>
-            <input id="duracion" type="number">
+            <div class="group">      
+                <input class="simulator_input" id="porcentajeInteres" type="number" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="simulator_label">Porcentaje Interes %</label>
+            </div>
 
-            <label>total Prestado</label>
-            <input id="totalPrestado" type="number">
-            <button ng-click="calcularPrestamo()">calcular prestamo</button>
+            <div class="group">      
+                <input class="simulator_input" id="duracion" type="number" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="simulator_label">Duracion</label>
+            </div>
 
+            <div class="group">      
+                <input class="simulator_input" id="totalPrestado" type="number" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="simulator_label">Total Prestado</label>
+            </div>
+            <div ng-click="calcularPrestamo()" class="flex dark"><button class="bttn white">Calcular Prestamo</button></div>
+            </div>
             <table id="customers">
                 <tr>
-                    <th>cuota</th>
+                    <th>Cuota</th>
                     <th>Interes</th>
-                    <th>amortizacion</th>
+                    <th>Amortizacion</th>
 
                     <th>Total amortizado</th>
                     <th>Total pendiente</th>
