@@ -28,7 +28,7 @@ const card_User = async () => {
 
         card += (
         /*html*/`  
-            <div class="container_card" >
+            <div class="container_card">
                 <div class="card">
                     <div class="additional ${color}">
                         <div class="user-card">

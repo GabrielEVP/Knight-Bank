@@ -9,10 +9,10 @@ import { card_User } from "../../components/aplication/card_users.js"
 
 const App = angular.module('App', []);
 
-App.controller('Controler', function($scope, $timeout) {
+App.controller('Controler', function($scope, $timeout, $http) {
 
     window.onload = async function() {
-        document.querySelector('.container_filter').innerHTML += await card_User();
+        //document.querySelector('.container_filter').innerHTML = await card_User();
         login_verify();
     }
 
@@ -21,6 +21,7 @@ App.controller('Controler', function($scope, $timeout) {
 
         $scope.list_user = new user_list();
         const result = await fetch_get_Data(controller_url_user_List(controller_name));
+        console.log(result);
         $scope.list_user.cast_array_to_User(Array.from(result));
         
         for (const iterator of $scope.list_user.user_list) {
@@ -35,6 +36,7 @@ App.controller('Controler', function($scope, $timeout) {
 
     }
 
+    //$scope.load_user('all');
     $scope.insert = async function() {
         $scope.new_user = new user_class();
         $scope.new_user.asigment_input();
@@ -100,6 +102,13 @@ App.controller('Controler', function($scope, $timeout) {
 
     $scope.close = function() {
         quit_Modal();
+    }
+
+    $scope.show_Account = async function(id) {
+        console.log(id);
+        $scope.list_user = new user_list();
+        const result = await fetch_get_Data(controller_url_user_List('load'));
+        console.log(result);
     }
 
     $scope.logout = async function() {
