@@ -25,7 +25,7 @@ function delete($table , $id, $keyname ='id') {
 
     $bbdd = new conect();
     $bbdd->OpenConnect($bbdd); 
-    $sql = "delete from $table where $keyname = $id";
+    $sql = "delete from $table where $keyname = '$id'";
     $bbdd->link->query($sql);
 
     if ($bbdd->link->affected_rows == 1) {
