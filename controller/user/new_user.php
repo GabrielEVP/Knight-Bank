@@ -21,7 +21,23 @@ $response = array();
     
     if (!$user->check_NIF_exists()) {
         if ($user->insert_user()) {
-            $response['status'] = "ok";
+            $user->get_id_by_NIF();
+            
+            $account_inserted = true;
+            for ($i = 0; $i<2 && $account_inserted == true; $i++) {
+                $account = new account_model();
+                $account->generate_new_IBAN();
+    
+                $account->setObjUser($user);
+    
+                $account_inserted = $account->insert_account();
+            }
+
+            if ($account_inserted == true) {
+                $response['status'] = "ok";
+            } else {
+                $response['status'] = "account generation error";
+            }
         } else {
             $response['status'] = "sql error";
         }
@@ -34,7 +50,6 @@ $response = array();
 }*/
 
 echo json_encode($response);
-
 
 
 

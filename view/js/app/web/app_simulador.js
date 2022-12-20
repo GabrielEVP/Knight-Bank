@@ -65,6 +65,14 @@ App.controller('Controler', function($scope, $timeout) {
                     total_amortizado += (amortizado_cuota);
                     total_pendiente -= (amortizado_cuota);
 
+                    if (i == (duracion - 1) && total_pendiente != 0) {
+                        amortizado_cuota += total_pendiente;
+                        total_cuota += total_pendiente;
+                        total_amortizado += total_pendiente; 
+
+                        total_pendiente = 0;
+                    }
+
                     const cuota = {"interes_cuota":truncate_decimals(interes_cuota/100,2),'total_cuota':truncate_decimals(total_cuota/100,2),'amortizado_cuota':truncate_decimals(amortizado_cuota/100,2),'total_amortizado':truncate_decimals(total_amortizado/100,2),'total_pendiente':truncate_decimals(total_pendiente/100,2)};
                     $scope.tabla_prestamo.push(cuota);
                 }
@@ -77,6 +85,14 @@ App.controller('Controler', function($scope, $timeout) {
                     total_cuota = truncate_decimals(interes_cuota + amortizado_cuota);   
                     total_amortizado += truncate_decimals(amortizado_cuota);     
                     total_pendiente -= truncate_decimals(amortizado_cuota);
+
+                    if (i == (duracion - 1) && total_pendiente != 0) {
+                        amortizado_cuota += total_pendiente;
+                        total_cuota += total_pendiente;
+                        total_amortizado += total_pendiente; 
+
+                        total_pendiente = 0;
+                    }
 
                     const cuota = {"interes_cuota":truncate_decimals(interes_cuota,2),'total_cuota':truncate_decimals(total_cuota,2),'amortizado_cuota':truncate_decimals(amortizado_cuota,2),'total_amortizado':truncate_decimals(total_amortizado,2),'total_pendiente':truncate_decimals(total_pendiente,2)};
                     $scope.tabla_prestamo.push(cuota);
