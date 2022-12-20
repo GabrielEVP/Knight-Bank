@@ -9,7 +9,7 @@ class account_model extends account_class {
     private $objUser;
 
     public function insert_account () {
-        return insert("insert into account (IBAN, balance, id_user,active) values ('$this->IBAN', 0, $this->id_user, 1)");
+        return insert("insert into account (IBAN, balance, id_user, active) values ('$this->IBAN', 0, '$this->id_user', 1)");
     }
 
     public function delete_account () {

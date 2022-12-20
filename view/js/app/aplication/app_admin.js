@@ -110,6 +110,7 @@ App.controller('Controler', function($scope, $timeout, $http) {
 
     $scope.show_Account = async function(class_element,id) {
         $timeout(400);
+        $scope.id = id;
         const data = { id_user : id }
         const result = await fetch_set_Data(controller_url_account_List('load_from_user'), data);
 
@@ -120,31 +121,15 @@ App.controller('Controler', function($scope, $timeout, $http) {
 
     }
 
-    $scope.show_insert_acount = function() {
-        $scope.list_account.delete_all_Account();
-        $(".account").css({
-            "display": "none",
-        });
-        show_Modal('.insert_account');
-    }
-
     $scope.insert_account = async function(id) {
-        empty_input_account();
-        $scope.new_account = new account_class();
-        $scope.new_account.asigment_input();
-        $scope.new_account.id_user = id;
-        console.log( $scope.new_account);
-
-        if ($scope.new_account.IBAN != '') {
-            const result = await fetch_set_Data(controller_url_Account('new'), $scope.new_account);
-            if (result.status == 'ok') {
-                location.reload();
-            } else {
-                alert(result.status);
-            }
+        const data = {'id_user' : id} 
+        const result = await fetch_set_Data(controller_url_Account('new'), data);
+        if (result.status == 'ok') {
+            location.reload();
         } else {
-            alert('no has ingresado nada');
+            alert(result.status);
         }
+    
     }
 
     $scope.logout = async function() {
