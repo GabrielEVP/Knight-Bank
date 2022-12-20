@@ -17,8 +17,18 @@ function controller_url_account_List(controller) {
 }
 
 function controller_path_builder (controller_path) {
-    var path = window.location.pathname;
-    return path.replace("view/js/class/account/dictionary_account.js","") + "/controller/" + controller_path;
+    const path = window.location.pathname;
+    const path_array = path.split("/");
+    const array_length = path_array.length;
+    var erase_path = "";
+    for (let i = array_length - 1; i >= 0; i--) {
+        if (path_array[i] == 'banca') {
+            break;
+        } else {
+            erase_path = path_array[i] + "/" + erase_path;
+        }
+    }
+    return path.replace(erase_path.slice(0, -1), "") + "controller/" + controller_path;
 }
 
 export { controller_url_Account , controller_url_account_List }
