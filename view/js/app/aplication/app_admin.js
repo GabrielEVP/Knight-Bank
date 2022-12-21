@@ -21,13 +21,12 @@ App.controller('Controler', function($scope, $http) {
         login_verify();
     }
 
-    $scope.load_user = function (controller_name) {
+    $scope.load_user = async function (controller_name) {
         $scope.list_user = new user_list();
 
         $http.post(controller_url_user_List(controller_name))
         .then((result) => {
             $scope.list_user.cast_array_to_User(Array.from(result.data));
-
             for (const iterator of $scope.list_user.user_list) {
                 if (iterator.admin == 1 && iterator.login_tries > 0) {
                     $scope.color = 'admin_card';
@@ -41,7 +40,7 @@ App.controller('Controler', function($scope, $http) {
             console.log(err);
         });;
     }
-
+   
     $scope.insert = async function() {
         $scope.new_user = new user_class();
         $scope.new_user.asigment_input();
@@ -111,16 +110,22 @@ App.controller('Controler', function($scope, $http) {
     }
 
     $scope.show_Account = async function(class_element,id) {
-        $timeout(400);
         $scope.id = id;
         const data = { id_user : id }
-        const result = await fetch_set_Data(controller_url_account_List('load_from_user'), data);
-
-        show_Modal(class_element);
-
-        $scope.list_account = new account_list(); 
-        $scope.list_account.cast_array_to_Account(Array.from(result));
-
+        
+        $http({
+            url : controller_url_account_List('load_from_user'),
+            method : 'POST',
+            datatype : data
+        }).then((result) => {
+            console.log(result)
+            $scope.list_account = new account_list(); 
+            $scope.list_account.cast_array_to_Account(Array.from(result.data));
+            show_Modal(class_element);
+        }).catch((err) => {
+            console.log(err);
+        });;
+       
     }
 
     $scope.insert_account = async function(id) {
