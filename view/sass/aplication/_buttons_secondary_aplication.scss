@@ -1,0 +1,28 @@
+.button_secondary{
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    margin-left: 10%;
+  
+    i {
+      font-size: 30px;
+    }
+  
+    i:hover {
+      color: aqua;
+    }
+  
+  }
+  
+  .fa-check {
+    color: rgb(21, 255, 0);
+  }
+  
+  .fa-ban{
+    color: red;
+  }
+  
+  .fa-pen-to-square {
+    color: rgb(244, 145, 17);
+  }

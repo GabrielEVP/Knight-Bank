@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/422b82f355.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="../../styles/css_aplication.css">
+    <script src="../../js/app/aplication/app_admin.js" type="module"></script>
+    <title>Admins</title>
+</head>
+<body ng-controller="Controler" ng-init="load_user('all')">
+
+    <!--- nav bar -->
+    <div class="sidemenu menu_collapsed">
+        <div class="header"> 
+            <div class="menu_btn">
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="photo"><img src="../../img/aplication/user/prueba_log.jpg" alt="Icono_user"></div>
+            <div class="name"><span>nombre del usuario</span></div>
+        </div>
+
+        <div class="menu_items">
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-solid fa-lock"></i></div>
+                    <div class="title"><span>Admin</span></div>
+                </a>
+            </div>
+
+            <div class="item item_separator"></div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-solid fa-coins"></i></div>
+                    <div class="title"><span>Finanzas</span></div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
+                    <div class="title"><span>Cuentas</span></div>
+                </a>
+            </div>
+
+            <div class="item item_separator"></div>
+
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
+                    <div class="title"><span>Movimientos</span></div>
+                </a>
+            </div>
+
+            <div class="item item_separator"></div>
+                <div class="item logout">
+                   
+                    <a ng-click="logout()" href="#">
+                        <div class="icon"><i class="i fa-solid fa-right-from-bracket"></i></div>
+                        <div class="title"><span>Logout</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body_collapse">
+
+        <div class="container_input_filter">
+            <input class="input_filter" type="text" name="" id="">
+        </div>
+        <div class="container_button_filter">
+            <button ng-click="load_user('all')" class="button_filter button_filter_normal">Todos</button>
+            <button ng-click="load_user('admin')" class="button_filter button_filter_normal">Admins</button>
+            <button ng-click="load_user('user')" class="button_filter button_filter_normal">Usuarios</button>
+            <button ng-click="load_user('inactive')" class="button_filter button_filter_normal">Baneados</button>
+            <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        </div>
+
+        <!--- botones filter  -->
+        <div class="container_filter">
+           
+
+    </div>
+
+    <!--- modal  -->
+    <label ng-modal="id" for="modal" class="modal-bg"></label>
+    <div class="modal-content">
+        <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <header>
+            <h2 class="borrar">Borrar el usuario</h2>
+            <h2 class="banear">Banear el usuario</h2>
+            <h2 class="desban">desbanear el usuario</h2>
+            <h2 class="modify">Modificar el usuario</h2>
+            <h2 class="add_user">Crear un usuario</h2>
+        </header>
+        <article class="content">
+            <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
+            <p class="banear">¿Seguro que quieres banear el usuario?</p>
+            <p class="desban">¿Seguro que quieres desbanear el usuario?</p>
+            <input id="nif" class="modify add_user" type="text" placeholder="nif">
+            <input id="name" class="modify add_user" type="text" placeholder="name">
+            <input id="surname" class="modify add_user" type="text" placeholder="surname">
+            <input id="gmail" class="modify add_user" type="text" placeholder="gmail">   
+            <input id="password" class="modify add_user" type="password" placeholder="password">
+            <input id="image" class="modify add_user" type="file" placeholder="image">     
+        </article>
+        <footer>
+            <label ng-click="insert()" for="modal" class="button success add_user">Crear</label>
+            <label ng-click="crud('delete',id)" for="modal" class="button success borrar">Borrar</label>
+            <label ng-click="crud('ban',id)" for="modal" class="button success banear">Banear</label>
+            <label ng-click="crud('unban',id)" for="modal" class="button success desban">Desbanear</label>
+            <label ng-click="modify()" for="modal" class="button success modify">Modificar</label>
+            <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
+        </footer>
+    </div>
+     
+</body>
+</html>

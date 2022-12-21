@@ -4,15 +4,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./view/styles/css_web.css">
     <title>Banca</title>
 </head>
 <body>
 
+    <!-- --------- nav --------- -->
+    <nav>
+        <div class="logo"><img src="./logo.gif" alt=""></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
+        <ul>
+           <li><a class="active" href="#">Inicio</a></li>
+           <li><a href="#">Sobre nosotros</a></li>
+           <li><a href="./view/pages/web/simulador.html">Simulador</a></li>
+           <li><a href="./view/pages/web/login.html">Login</a></li>
+          <!-- <li><a href="./view/pages/aplication/admin.html">Admin</a></li>-->
+        </ul>
+     </nav>
+    <!-- --------- contend --------- -->
+    <div class="container_header">
 
-    <h1>agur</h1>
-    <h1>agur ejh</h1>
-    
-    <h1>aa</h1>
+        <div class="information">
+            <div class="title"><h1>Knight Bank</h1></div>
+            <div class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</div>
+            <div class="flex dark"><a href="./view/pages/web/login.html" class="bttn dark">Iniciar Seccion</a></div>
+        </div>
+
+        <div class="image"><img src="./logo.gif" alt=""></div>
+    </div>
+
+
+    <!-- --------- Footer --------- -->
+    <footer>
+        <hr>
+        <div class="row">
+      
+            <div class="col">
+                <img src="./logo.gif" alt="">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</p>
+            </div>
+
+            <div class="col">
+                <h3>Bulegoa <div class="linea"><span></span></div></h3>
+                <p>20600 Eibar, Gipuzkoa</p>
+                <p>Telefono finko: 943 92 63 89</p>
+                <p>+34 645 42 53 65</p>
+                <p class="email_id">4rbikes@gmail.com</p>
+            </div>
+
+            <div class="col">
+                <h3>Besteak <div class="linea"><span></span></div></h3>
+                <ul>
+                    <li><a href="../about/about.php">Guri buruz</a></li>
+                    <li><a href="../soporte/soporte.php">Laguntza teknikoa</a></li>
+                    <li><a href="../tienda/adaptacion.php">Adaptazioak</a></li>
+                    <li><a href="../tienda/reciclaje.php">Birziklapena</a></li>
+                    <li><a href="../tienda/motor.php">Motore Elektrikoak</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h3>Korreoa<div class="linea"><span></span></div></h3>
+
+                <form action="">
+                    <i class="far fa-envelope"></i>
+                    <input type="text" name="" id="" required>
+                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                </form>
+
+                <div class="social_icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-pinterest"></i>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+    </footer>
 
 </body>
 </html>

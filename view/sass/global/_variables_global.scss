@@ -1,0 +1,132 @@
+$color_principal: #ffffff;
+$color_segundario : wheat;
+$color_terciario : white;
+
+$color_negro : rgb(0, 0, 0);
+$color_negro2 : #2c2c2c;
+$color_gris: gray;
+$color_soporte: #252222;
+//$color_a : rgb(226, 219, 219);
+$color_a : #1b1b1b;;
+$color_hover : rgb(136, 136, 136);
+
+$sombras : rgb(126, 126, 126);
+$text_shadow: 2px 2px 2px $sombras;
+$box_shadow : 0.05rem 0.3rem 0.3rem -0.03rem $color_negro;
+
+$border_gris :1px solid black;
+$border_negro : 2px solid #000000;
+$border_verde: 2px solid $color_principal;
+
+$transition_medium: all 2s;
+
+
+$base-duration: 500ms;
+
+// Colors
+$color-1: #2c3e50;
+$color-2: #3498db;
+$color-3: #2ecc71;
+$color-4: #e74c3c;
+
+// Breakpoints
+$sm: new-breakpoint(min-width 320px);
+$med: new-breakpoint(min-width 768px);
+$lg: new-breakpoint(min-width 1024px);
+
+
+// color del nav y footer //
+$color_linear :  linear-gradient(to left, #373737, #2e2e2e, #252525, #1c1c1c, #141414);
+
+// colores base de la pagina //
+
+$color_principal: #ffffff;
+$color_segundario : wheat;
+$color_terciario : white;
+
+
+$color_negro : rgb(0, 0, 0);
+$color_negro2 : #2c2c2c;
+$color_gris: gray;
+$color_soporte: #252222;
+
+$color_hover : rgb(136, 136, 136);
+
+$sombras : rgb(126, 126, 126);
+$text_shadow: 2px 2px 2px $sombras;
+$box_shadow : 0.05rem 0.3rem 0.3rem -0.03rem $color_negro;
+
+$border_gris :1px solid $color_gris;
+$border_negro : 2px solid #000000;
+$border_verde: 2px solid $color_principal;
+
+@mixin transition {
+
+    transition: all .70s ease-in-out;
+    -moz-transition: all .70s ease-in-out;
+    -webkit-transition: all .70s  ease-in-out;
+    
+}
+
+@mixin Botones {
+
+        background-color: $color_negro; 
+        border: none;
+        padding: 15px 32px;
+        margin-top: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 50%;
+        margin: auto;
+        @include transition;
+        border: 2px solid $color_negro; 
+    
+        &:hover  {
+          
+            color: $color_negro;
+            border: 2px solid $color_gris;
+            @include transition;
+        }
+    
+            &:hover a  {
+                color: $color_gris;
+                @include transition;        
+            }
+       
+                a {
+                    color: $color_principal;
+                    @include transition;
+                }
+}
+
+@mixin imagenes_bucles {
+
+    @for $i from 1 through 3 {
+
+        &:nth-child(#{$i}) {
+
+            @if $i == 1 { 
+                background-image: url(../Img/boton4.jpg) 
+            }
+
+            @else {
+                background-image: url(../Img/boton#{$i}.jpg);
+            }
+        }
+    }
+}
+
+@mixin imagenes_bucles2 {
+
+    @for $i from 1 through 3 {
+
+        &:nth-child(#{$i}) {
+
+            background-image: url(../Img/about/valore_#{$i}.jpg);
+            
+        }
+    }
+}
+
