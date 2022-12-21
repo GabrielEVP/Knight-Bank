@@ -7,7 +7,6 @@ App.controller('Controler', function($scope, $timeout) {
 
     $scope.calcularPrestamo = function () {
 
-        $scope.show_table = true; 
         $scope.tabla_prestamo = Array();
 
         const tipoPrestamo = $("#tipoPrestamo").val();
@@ -24,6 +23,8 @@ App.controller('Controler', function($scope, $timeout) {
         var interes_cuota = 0;
 
         if (duracion != '' && porcentaje_interes !='' && tipoPrestamo != '' && total_pendiente != '') {    
+
+            $scope.show_table = true;
 
             const cuota = {"periodo":0,"interes_cuota":process_number_format(interes_cuota),'total_cuota':process_number_format(total_cuota),'amortizado_cuota':process_number_format(amortizado_cuota),'total_amortizado':process_number_format(total_amortizado),'total_pendiente':process_number_format(total_pendiente)};
             $scope.tabla_prestamo.push(cuota);
