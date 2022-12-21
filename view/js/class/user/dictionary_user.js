@@ -1,7 +1,7 @@
 function controller_url_User(controller) {
     const url_user = {
         new: controller_path_builder('user/new_user.php'),
-        modify: controller_path_builder('ser/update_user.php'),
+        modify: controller_path_builder('user/update_user.php'),
         ban: controller_path_builder('user/ban_user.php'),
         delete: controller_path_builder('user/delete_user.php'),
         unban: controller_path_builder('user/unban_user.php'),
