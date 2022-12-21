@@ -11,6 +11,7 @@ function controller_url_User(controller) {
         login_verify: controller_path_builder('user/logged_verify.php'),
     }
     return url_user[controller] ?? alert('error url del controller user no existe');
+    
 }
 
 function controller_url_user_List(controller) {
