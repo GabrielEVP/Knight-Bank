@@ -15,7 +15,7 @@ App.controller('Controler', function($scope, $timeout) {
         const porcentaje_interes = $("#porcentajeInteres").val();
         const interes = porcentaje_interes/100;
         const duracion = $("#duracion").val();//años
-
+        
         var total_pendiente = $("#totalPrestado").val();
         var total_amortizado = 0;
 
