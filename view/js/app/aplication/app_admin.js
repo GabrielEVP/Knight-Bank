@@ -105,6 +105,7 @@ App.controller('Controler', function($scope, $timeout, $http) {
     }
 
     $scope.close = function() {
+        $scope.list_account = new account_list(); 
         quit_Modal();
     }
 
@@ -123,7 +124,6 @@ App.controller('Controler', function($scope, $timeout, $http) {
 
     $scope.insert_account = async function(id) {
         const data = {'id_user' : id} 
-        //console.log("jasbuosabsaoubsuaob" + id);
         const result = await fetch_set_Data(controller_url_Account('new'), data);
         if (result.status == 'ok') {
             location.reload();
