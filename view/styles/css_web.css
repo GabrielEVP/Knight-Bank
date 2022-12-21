@@ -269,7 +269,7 @@ a.form_link:hover:after {
 
 footer {
   width: 100%;
-  margin-top: 35vh;
+  margin-top: 5vh;
   background-image: linear-gradient(to left, #373737, #2e2e2e, #252525, #1c1c1c, #141414);
   padding: 110px;
   font-size: 13px;
@@ -486,7 +486,7 @@ footer .linea span {
 }
 
 .bttn {
-  border: 3px solid #f7f7f7;
+  border: 1px solid #f7f7f7;
   text-decoration: none;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s ease all;
@@ -506,7 +506,7 @@ footer .linea span {
 }
 
 .white {
-  border: 3px solid #2b2c30;
+  border: 1px solid #2b2c30;
   color: #2b2c30;
 }
 .white:hover {

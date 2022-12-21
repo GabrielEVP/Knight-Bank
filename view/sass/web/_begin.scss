@@ -57,7 +57,7 @@ $third:#4426a8;
   
   
   .bttn {
-    border:3px solid $second;
+    border:1px solid $second;
     text-decoration:none;
     -webkit-transition:0.3s all ease;
     transition:0.3s ease all;
@@ -79,7 +79,7 @@ $third:#4426a8;
   }
 
   .white {
-    border:3px solid #2b2c30;
+    border:1px solid #2b2c30;
     color:#2b2c30;
     &:hover {
       color:rgb(248, 247, 247);
