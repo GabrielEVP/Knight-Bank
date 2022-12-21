@@ -70,11 +70,9 @@ input[type=checkbox] {
   nav .menu-btn i {
     display: block;
   }
-
   #click:checked ~ .menu-btn i:before {
     content: "\f00d";
   }
-
   nav ul {
     position: fixed;
     top: 80px;
@@ -87,16 +85,13 @@ input[type=checkbox] {
     transition: all 0.3s ease;
     z-index: 100;
   }
-
   #click:checked ~ ul {
     left: 0;
   }
-
   nav ul li {
     width: 100%;
     margin: 40px 0;
   }
-
   nav ul li a {
     width: 100%;
     margin-left: -100%;
@@ -104,11 +99,9 @@ input[type=checkbox] {
     font-size: 20px;
     transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-
   #click:checked ~ ul li a {
     margin-left: 0px;
   }
-
   nav ul li a.active,
 nav ul li a:hover {
     background: none;
@@ -157,12 +150,9 @@ nav ul li a:hover {
 }
 
 .fond_form {
-  background: #ADA996;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #b9b8b7);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ADA996; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #b9b8b7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .form {
@@ -574,7 +564,6 @@ footer .linea span {
   .container_header {
     grid-template-columns: 1.5fr;
   }
-
   .image {
     width: 100%;
     display: flex;
