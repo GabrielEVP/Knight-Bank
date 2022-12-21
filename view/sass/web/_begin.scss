@@ -1,11 +1,11 @@
 .container_header {
     display: grid;
     margin: auto;
-    margin: 30px 0 30px 0;
+    margin: 30px;
     justify-content: center;
     grid-template-columns: 1.5fr 1fr;
     background:#24252A;
-
+    border-radius: 15px;
     padding: 10em;
 }
 
@@ -57,13 +57,14 @@ $third:#4426a8;
   
   
   .bttn {
-    border:1px solid $second;
+    border:3px solid $second;
     text-decoration:none;
     -webkit-transition:0.3s all ease;
-    transition:2s ease all;
+    transition:0.3s ease all;
   }
 
   .dark {
+
     color:$second;
     &:hover {
       color:rgb(14, 13, 13);
@@ -78,7 +79,7 @@ $third:#4426a8;
   }
 
   .white {
-    border:1px solid #2b2c30;
+    border:3px solid #2b2c30;
     color:#2b2c30;
     &:hover {
       color:rgb(248, 247, 247);
@@ -105,7 +106,6 @@ $third:#4426a8;
     position:relative;
     box-shadow: 0 2px 10px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.1);
     z-index:2;
-    
     &:before {
       -webkit-transition:0.5s all ease;
       transition:0.5s all ease;
