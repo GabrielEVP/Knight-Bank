@@ -630,7 +630,7 @@ select option {
   display: block;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #757575;
+  border-bottom: 2px solid #2d2828;
 }
 
 .simulator_input:focus {
