@@ -31,9 +31,9 @@ async function login_verify() {
         if(result.logged == true && result.admin == 1) {
             console.log('admin')
         } else if (result.logged == true && result.admin == 0) {
-            location.href = "/banca/"
+            location.href = "../../../index.html"
         } else {
-            location.href = "/banca/"
+            location.href = "../../../index.html"
         }
     } catch(err) {
         console.log(err)
