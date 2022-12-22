@@ -62,26 +62,28 @@
             </div>
             <div ng-click="calcularPrestamo()" class="flex dark"><button class="bttn white">Calcular Prestamo</button></div>
             </div>
-            <table id="customers" ng-show="show_table == true">
-                <tr>
-                    <th>Periodo</th>
-                    <th>Cuota</th>
-                    <th>Amortizacion</th>
-                    <th>Interes</th>
+            <div class="table">
+                <table id="customers" ng-show="show_table == true">
+                    <tr>
+                        <th>Periodo</th>
+                        <th>Cuota</th>
+                        <th>Amortizacion</th>
+                        <th>Interes</th>
 
-                    <th>Total amortizado</th>
-                    <th>Total pendiente</th>
-                </tr>
-                <tr ng-repeat="cuota in tabla_prestamo">
-                    <td>{{cuota.periodo}}</td>
-                    <td>{{cuota.total_cuota}}€</td>
-                    <td>{{cuota.amortizado_cuota}}€</td>
-                    <td>{{cuota.interes_cuota}}€</td>
+                        <th>Total amortizado</th>
+                        <th>Total pendiente</th>
+                    </tr>
+                    <tr ng-repeat="cuota in tabla_prestamo">
+                        <td>{{cuota.periodo}}</td>
+                        <td>{{cuota.total_cuota}}€</td>
+                        <td>{{cuota.amortizado_cuota}}€</td>
+                        <td>{{cuota.interes_cuota}}€</td>
 
-                    <td>{{cuota.total_amortizado}}€</td>
-                    <td>{{cuota.total_pendiente}}€</td>
-                </tr>
-            </table>
+                        <td>{{cuota.total_amortizado}}€</td>
+                        <td>{{cuota.total_pendiente}}€</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </form>
 
