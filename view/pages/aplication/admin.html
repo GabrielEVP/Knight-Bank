@@ -96,7 +96,7 @@
         <!--- cartas  -->
         <div class="container_card" >
             <div class="card" ng-repeat="user in list_user.user_list">
-                <div class="additional {{color}}">
+                <div ng-Class="{'admin_card': user.admin == 1 && user.login_tries > 0, 'user_card': user.admin == 0 && user.login_tries > 0, 'unban_card': user.login_tries == 0}" class="additional">
                     <div class="user-card">
                         <div class="level center">{{user.NIF}}</div>
                         <img src="../../img/aplication/user/prueba_log.jpg" alt="logo_usuario">

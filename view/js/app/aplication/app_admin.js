@@ -17,25 +17,14 @@ const App = angular.module('App', []);
 App.controller('Controler', function($scope, $http) {
 
     window.onload = async function() {
-        //document.querySelector('.container_filter').innerHTML = await card_User();
-        login_verify();
+       await login_verify();
     }
 
     $scope.load_user = async function (controller_name) {
-        $scope.list_user = new user_list();
-
         $http.post(controller_url_user_List(controller_name))
         .then((result) => {
+            $scope.list_user = new user_list();
             $scope.list_user.cast_array_to_User(Array.from(result.data));
-            for (const iterator of $scope.list_user.user_list) {
-                if (iterator.admin == 1 && iterator.login_tries > 0) {
-                    $scope.color = 'admin_card';
-                } else if (iterator.admin == 0 && iterator.login_tries > 0) {
-                    $scope.color = 'user_card';
-                } else {
-                    $scope.color = 'unban_card';
-                }
-            }
         }).catch((err) => {
             console.log(err);
         });;
@@ -112,11 +101,11 @@ App.controller('Controler', function($scope, $http) {
     $scope.show_Account = async function(class_element,id) {
         $scope.id = id;
         const data = { id_user : id }
-        
+        console.log(data);
         $http({
             url : controller_url_account_List('load_from_user'),
             method : 'POST',
-            datatype : data
+            data : JSON.stringify(data)
         }).then((result) => {
             console.log(result)
             $scope.list_account = new account_list(); 
@@ -125,7 +114,9 @@ App.controller('Controler', function($scope, $http) {
         }).catch((err) => {
             console.log(err);
         });;
-       
+
+        const result = await $http.get(controller_url_account_List('load_from_user'));
+        console.log(result);
     }
 
     $scope.insert_account = async function(id) {
