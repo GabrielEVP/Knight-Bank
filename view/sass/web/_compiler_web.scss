@@ -6,12 +6,15 @@
 // imports Web //
 @import 
     './navbar_web',
-    './buttons_principal_web',
+    './buttons_principal',
+    './_buttons_login',
     './form_login',
     './footer_web',
     './begin',
     './simulador'
 ;
+
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:700';
 
 * {
     margin: 0;

@@ -28,7 +28,9 @@ $transition_expanded: 0.2s;
     height: 100%;
     left: 0;
     top: 0;
-    overflow: scroll
+    overflow: scroll;
+
+    @include no_scrollBars;
    
 }
 
@@ -37,18 +39,7 @@ $transition_expanded: 0.2s;
     font-size: 34px;
 }
 
-.sidemenu::-webkit-scrollbar {
-    width: 0;    
-}
-  
-.sidemenu::-webkit-scrollbar-track {  
-    background: transparent;
-}
-  
-.sidemenu::-webkit-scrollbar-thumb { 
-    background: transparent;
-    border: none;
-}
+
 
 /* header */
 .header {

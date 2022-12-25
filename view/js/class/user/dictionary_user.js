@@ -1,3 +1,5 @@
+import { controller_path_builder } from '../../functions/path_builder.js'
+
 function controller_url_User(controller) {
     const url_user = {
         new: controller_path_builder('user/new_user.php'),
@@ -24,19 +26,6 @@ function controller_url_user_List(controller) {
     return url_user_list[controller] ?? alert('error url del controller userlist no existe');
 }
 
-function controller_path_builder (controller_path) {
-    const path = window.location.pathname;
-    const path_array = path.split("/");
-    const array_length = path_array.length;
-    var erase_path = "";
-    for (let i = array_length - 1; i >= 0; i--) {
-        if (path_array[i] == 'banca') {
-            break;
-        } else {
-            erase_path = path_array[i] + "/" + erase_path;
-        }
-    }
-    return path.replace(erase_path.slice(0, -1), "") + "controller/" + controller_path;
-}
+
 
 export { controller_url_User , controller_url_user_List }

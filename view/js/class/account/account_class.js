@@ -19,8 +19,8 @@ class account_class {
     }
 
     asigment_input() {
-        this.IBAN = $('#IBANA').val();
-        this.balance = $('#balances').val();
+        this.IBAN = $('#IBAN').val();
+        this.balance = $('#balance').val();
     }
 
 }

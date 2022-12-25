@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="./view/styles/css_web.css">
-    <title>Banca</title>
+    <title>Knight Bank</title>
 </head>
 <body>
 
     <!-- --------- nav --------- -->
     <nav>
-        <div class="logo"><img src="./logo.gif" alt=""></div>
+        <img src="./view/img/global/logos/logo.gif" alt="">
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
         <ul>
@@ -23,10 +25,39 @@
            <li><a href="#">Sobre nosotros</a></li>
            <li><a href="./view/pages/web/simulador.html">Simulador</a></li>
            <li><a href="./view/pages/web/login.html">Login</a></li>
-          <!-- <li><a href="./view/pages/aplication/admin.html">Admin</a></li>-->
+           <li><a href="./view/pages/aplication/admin.html">Admin</a></li>
         </ul>
      </nav>
     <!-- --------- contend --------- -->
+
+    <!-- --------- presentation --------- -->
+    <div class="presentation">
+        <h1  data-aos="fade-down">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, similique.</h1>
+    </div>
+
+    <!-- --------- card --------- -->
+    <div class="container_flex" >
+        <div class="card" data-aos="fade-up">
+            <img src="./view/img/web/begin2.jpg" alt="">
+            <h3 class="title">Lorem ipsum dolor sit amet.</h3>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fugiat at saepe unde blanditiis totam sit nihil cumque rem. Vero!</p>
+            <div class="flex dark"><button class="bttn white_revert center">Ver mas</button></div>
+        </div>
+        <div class="card" data-aos="fade-up">
+            <img src="./view/img/web/begin5.jpg" alt="">
+            <h3 class="title">Lorem ipsum dolor sit amet.</h3>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fugiat at saepe unde blanditiis totam sit nihil cumque rem. Vero!</p>
+            <div class="flex dark"><button class="bttn white_revert center">Ver mas</button></div>
+        </div>
+        <div class="card" data-aos="fade-up">
+            <img src="./view/img/web/begin3.jpg" alt="">
+            <h3 class="title">Lorem ipsum dolor sit amet.</h3>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fugiat at saepe unde blanditiis totam sit nihil cumque rem. Vero!</p>
+            <div class="flex dark"><button class="bttn white_revert center">Ver mas</button></div>
+        </div>
+    </div>
+
+    <!-- --------- Knigt --------- -->
     <div class="container_header">
 
         <div class="information">
@@ -35,7 +66,7 @@
             <div class="flex dark"><a href="./view/pages/web/login.html" class="bttn dark">Iniciar Seccion</a></div>
         </div>
 
-        <div class="image"><img src="./logo.gif" alt=""></div>
+        <div class="image"><img src="./view/img/global/logos/logo.gif" alt=""></div>
     </div>
 
 
@@ -45,7 +76,7 @@
         <div class="row">
       
             <div class="col">
-                <img src="./logo.gif" alt="">
+                <img src="./view/img/global/logos/logo.gif" alt="">
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</p>
             </div>
 
@@ -88,6 +119,10 @@
         </div>
         <hr>
     </footer>
+
+    <script>
+          AOS.init();
+    </script>
 
 </body>
 </html>
