@@ -38,20 +38,20 @@
     <!-- --------- card --------- -->
     <section id="services">     
         <h1>Nuestros Servicios</h1>
-        <div class="container_flex" >
+        <div class="container_flex">
     
             <div class="card" data-aos="fade-up">
-                <img src="./view/img/web/begin2.jpg" alt="">
+                <img src="./view/img/web/services_app.webp" alt="">
                 <h3 class="title">Lorem ipsum dolor sit amet.</h3>
                 <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fugiat at saepe unde blanditiis totam sit nihil cumque rem. Vero!</p>
             </div>
             <div class="card" data-aos="fade-up">
-                <img src="./view/img/web/begin5.jpg" alt="">
+                <img src="./view/img/web//services_confiabilidad.webp" alt="">
                 <h3 class="title">Lorem ipsum dolor sit amet.</h3>
                 <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fugiat at saepe unde blanditiis totam sit nihil cumque rem. Vero!</p>
             </div>
             <div class="card" data-aos="fade-up">
-                <img src="./view/img/web/begin3.jpg" alt="">
+                <img src="./view/img/web/services_prestamos.jpg" alt="">
                 <h3 class="title">Lorem ipsum dolor sit amet.</h3>
                 <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fugiat at saepe unde blanditiis totam sit nihil cumque rem. Vero!</p>
             </img>
@@ -63,10 +63,30 @@
         <div class="information">
             <div class="title" data-aos="fade-up"><h1>Knight Bank</h1></div>
             <div class="text" data-aos="fade-up">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</div>
-            <div class="flex dark" data-aos="fade-up"><a href="./view/pages/web/login.html" class="bttn dark">Pedir Demo</a></div>
+            <div class="flex dark" data-aos="fade-up"><button onclick="show_Modal('.correo')" class="bttn dark">Pedir Demo</button></div>
         </div>
         <div class="image" data-aos="fade-up" ><img src="./view/img/global/logos/logo.gif" alt=""></div>
     </div>
+
+    <!-- --------- modal --------- -->
+    <label for="modal" class="modal-bg"></label>
+    <div class="modal-content">
+        <label for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <header>
+            <h2 class="correo" class="borrar">Peticion de demo</h2>
+        </header>
+        <article class="content">
+            <input class="correo" type="text" placeholder="nombre">
+            <input class="correo" type="text" placeholder="nombre">
+            <input class="correo" type="file">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </article>
+        <footer>
+            <label class="correo" for="modal" class="button success">Enviar</label>
+            <label class="correo" for="modal" class="button danger">Cancelar</label>
+        </footer>
+    </div>
+     
 
     <!-- --------- Information of knigth --------- -->
     <div class="container_information_knight">
@@ -80,12 +100,15 @@
     
     <!-- --------- Footer --------- -->
     <footer>
+       <!--  - -->
         <hr>
         <div class="row">
-      
+          
+               
             <div class="col">
-                <img src="./view/img/global/logos/logo.gif" alt="">
+                
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</p>
+                <img src="./view/img/global/logos/logo.gif" alt="">
             </div>
 
             <div class="col">
@@ -96,7 +119,7 @@
                 <p class="email_id">4rbikes@gmail.com</p>
             </div>
 
-            <div class="col">
+            <div class="col ">
                 <h3>Besteak <div class="linea"><span></span></div></h3>
                 <ul>
                     <li><a href="../about/about.php">Guri buruz</a></li>
@@ -108,19 +131,14 @@
             </div>
 
             <div class="col">
-                <h3>Korreoa<div class="linea"><span></span></div></h3>
-
-                <form action="">
-                    <i class="far fa-envelope"></i>
-                    <input type="text" name="" id="" required>
-                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
-                </form>
-
+                <h3 class="redes">Redes<div class="linea"><span></span></div></h3>
                 <div class="social_icons">
                     <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-brands fa-instagram"></i>
                     <i class="fab fa-whatsapp"></i>
-                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-brands fa-github"></i>
+                    <i class="fab fa-brands fa-linkedin"></i>
                 </div>
             </div>
 
@@ -128,8 +146,10 @@
         <hr>
     </footer>
 
+    <script src="./view/js/components/aplication/modal.js" type="module"></script>
+
     <script>
-          AOS.init();
+        AOS.init();
     </script>
 
 </body>

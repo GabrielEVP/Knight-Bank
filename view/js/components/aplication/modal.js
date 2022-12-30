@@ -17,8 +17,6 @@ function empty_input_account() {
     $('#balance').val('');
 }
 
-
-
 function show_Modal(boton) {
     $(boton).css({
         "display": "block",
