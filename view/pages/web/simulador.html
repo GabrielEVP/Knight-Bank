@@ -33,12 +33,46 @@
     <form>
         <div>
             <div class="container_simulator">
+
+            <label class="simulator_label">Tipo de prestamo</label>
             <select id="tipoPrestamo">
                 <option value="frances">Frances</option>
                 <option value="lineal">Lineal</option>
                 <option value="simple">Simple</option>
                 <option value="americano">Americano</option>
             </select>
+
+            <label class="simulator_label">Periodo de amortizacion</label>
+            <select id="tipoAmortizacion">
+                <option value="12">Anual</option>
+                <option value="6">Semestral</option>
+                <option value="4">Cuatrimestral</option>
+                <option value="3">Trimestral</option>
+                <option value="1">Mensual</option>
+            </select>
+
+            <label class="simulator_label">Periodo de intereses</label>
+            <select id="tipoInteres">
+                <option value="12">Anual</option>
+                <option value="6">Semestral</option>
+                <option value="4">Cuatrimestral</option>
+                <option value="3">Trimestral</option>
+                <option value="1">Mensual</option>
+            </select>
+
+            <label class="simulator_label">Periodo de carencia</label>
+            <select id="tipoCarencia" >
+                <option value="0">Sin carencia</option>
+                <option value="1">Parcial</option>
+                <option value="2">Total</option>
+            </select>
+
+            <div class="group" id="div_carencia">      
+                <input class="simulator_input" id="carencia" type="number" value="0" required >
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label class="simulator_label" >Meses de carencia</label>
+            </div>
 
             <div class="group">      
                 <input class="simulator_input" id="porcentajeInteres" type="number" required>
@@ -65,6 +99,7 @@
             <div class="table">
                 <table id="loans" ng-show="show_table == true">
                     <tr>
+                        <th>A&ntilde;o</th>
                         <th>Periodo</th>
                         <th>Cuota</th>
                         <th>Amortizacion</th>
@@ -74,6 +109,7 @@
                         <th>Total pendiente</th>
                     </tr>
                     <tr ng-repeat="cuota in tabla_prestamo">
+                        <td>{{cuota.ano}}</td>
                         <td>{{cuota.periodo}}</td>
                         <td>{{cuota.total_cuota}}€</td>
                         <td>{{cuota.amortizado_cuota}}€</td>
