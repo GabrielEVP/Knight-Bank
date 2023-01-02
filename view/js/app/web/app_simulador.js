@@ -10,14 +10,14 @@ App.controller('Controler', function($scope, $timeout) {
 
         const tipoPrestamo = $("#tipoPrestamo").val();
 
-        var tipo_amortizacion = $("#tipoAmortizacion").val();
-        var tipo_interes = $("#tipoInteres").val();
-        var tipo_carencia = $("#tipoCarencia").val();
-        var carencia = $("#carencia").val();
+        const tipo_amortizacion = $("#tipoAmortizacion").val();
+        const tipo_interes = $("#tipoInteres").val();
+        const tipo_carencia = $("#tipoCarencia").val();
+        const carencia = $("#carencia").val();
 
         const porcentaje_interes = $("#porcentajeInteres").val();
         const interes = porcentaje_interes/100;
-        var duracion = $("#duracion").val();//meses 
+        const duracion = parseInt($("#duracion_anos").val() * 12) + parseInt($("#duracion_meses").val());//meses 
         
         var total_pendiente = $("#totalPrestado").val();
         var total_amortizado = 0;
@@ -50,60 +50,71 @@ App.controller('Controler', function($scope, $timeout) {
                     // code block
                 } 
             console.log($scope.tabla_prestamo);
-
+        
             function calcularFrances() {
-                
-                duracion = duracion / 12;//apaño temporal
-                total_pendiente = total_pendiente * 100;//centimos
-                total_cuota = ((total_pendiente * interes) / (1-(Math.pow(1+interes,-duracion))));
-                total_cuota = parseInt(truncate_decimals(total_cuota,0));
-                
-                for (let i = 0; i < duracion; i++) {
-                    interes_cuota = parseInt(truncate_decimals((total_pendiente * interes),0));
-                    amortizado_cuota = (total_cuota - interes_cuota);
-                    total_amortizado += (amortizado_cuota);
-                    total_pendiente -= (amortizado_cuota);
+                var anos = (duracion / 12);   
+                const interes_K = Math.pow( (1 + interes) ,1/(12/tipo_interes) ) - 1;
+                const calculo_cuota = (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * -anos))) );
 
-                    if (i == (duracion - 1) && total_pendiente != 0) {
-                        amortizado_cuota += total_pendiente;
-                        total_cuota += total_pendiente;
-                        total_amortizado += total_pendiente; 
+                if (anos % 1 != 0) {
+                    anos++;
+                }
+                
+                var fin_prestamo = false;
+                for (let i = 1; i <= anos; i++) {
+                    var contador_periodo = 0;
+                    for (let j = 1; j < 13 && fin_prestamo == false; j++) {
+                        var check = false;
 
-                        total_pendiente = 0;
+                        interes_cuota = 0;
+                        amortizado_cuota = 0;
+                        total_cuota = 0;
+
+                        if ( j % (tipo_interes) == 0 ) {
+                            interes_cuota = (Math.pow( (1 + interes) ,1/(12/tipo_interes)) * total_pendiente) - total_pendiente;
+                            check = true;
+                        }
+
+                        if ( j % (tipo_amortizacion) == 0 ) {
+                            total_cuota = calculo_cuota;
+                            amortizado_cuota = calculo_cuota - interes_cuota;
+                            check = true;
+                        }
+
+                        if (check) {
+                            total_cuota = interes_cuota + amortizado_cuota;
+                            total_pendiente = total_pendiente - amortizado_cuota;
+                            total_amortizado += amortizado_cuota;
+
+                            if ( ((i - 1) * 12) + j == duracion) {
+                                console.log(i);
+                                console.log(j);
+                                fin_prestamo = true;
+                                if (total_pendiente != 0) {
+                                    amortizado_cuota += total_pendiente;
+                                    total_cuota += total_pendiente;
+                                    total_amortizado += total_pendiente; 
+    
+                                    total_pendiente = 0;
+                                }
+                            }
+
+                            contador_periodo++;
+
+                            const cuota = {"ano":i,"periodo":contador_periodo,"interes_cuota":process_number_format(interes_cuota),'total_cuota':process_number_format(total_cuota),'amortizado_cuota':process_number_format(amortizado_cuota),'total_amortizado':process_number_format(total_amortizado),'total_pendiente':process_number_format(total_pendiente)};
+                            $scope.tabla_prestamo.push(cuota);
+                        }
+                        delete(check);
                     }
-
-                    const cuota = {"periodo":i+1,"interes_cuota":process_number_format(interes_cuota/100),'total_cuota':process_number_format(total_cuota/100),'amortizado_cuota':process_number_format(amortizado_cuota/100),'total_amortizado':process_number_format(total_amortizado/100),'total_pendiente':process_number_format(total_pendiente/100)};
-                    $scope.tabla_prestamo.push(cuota);
                 }
             }
-        
-            // function calcularLineal() {
-            //     amortizado_cuota = total_pendiente / duracion;
-            //     for (let i = 0; i < duracion; i++) {
-            //         interes_cuota = truncate_decimals(total_pendiente * interes);
-            //         total_cuota = truncate_decimals(interes_cuota + amortizado_cuota);   
-            //         total_amortizado += truncate_decimals(amortizado_cuota);     
-            //         total_pendiente -= truncate_decimals(amortizado_cuota);
-
-            //         if (i == (duracion - 1) && total_pendiente != 0) {
-            //             amortizado_cuota += total_pendiente;
-            //             total_cuota += total_pendiente;
-            //             total_amortizado += total_pendiente; 
-
-            //             total_pendiente = 0;
-            //         }
-
-            //         const cuota = {"periodo":i+1,"interes_cuota":process_number_format(interes_cuota),'total_cuota':process_number_format(total_cuota),'amortizado_cuota':process_number_format(amortizado_cuota),'total_amortizado':process_number_format(total_amortizado),'total_pendiente':process_number_format(total_pendiente)};
-            //         $scope.tabla_prestamo.push(cuota);
-            //     }
-            // }
 
             function calcularLineal() {
-                const anos = duracion / 12;   
+                var anos = duracion / 12;   
                 const amortizacion = total_pendiente / (duracion/tipo_amortizacion);
 
                 if (anos % 1 != 0) {
-                    anos = anos++;
+                    anos++;
                 }
 
                 var fin_prestamo = false;
@@ -129,7 +140,7 @@ App.controller('Controler', function($scope, $timeout) {
                             total_pendiente = total_pendiente - amortizado_cuota;
                             total_amortizado += amortizado_cuota;
 
-                            if ( (i * 12) + j == duracion) {
+                            if ( ((i - 1) * 12) + j == duracion) {
                                 fin_prestamo = true;
                                 if (total_pendiente != 0) {
                                     amortizado_cuota += total_pendiente;
@@ -151,9 +162,8 @@ App.controller('Controler', function($scope, $timeout) {
             }
         
             function calcularSimple() {
-                duracion = duracion / 12;//apaño temporal
+                const duracion_bucle = duracion / tipo_amortizacion - 1;
 
-                const duracion_bucle = duracion - 1;
                 for (let i = 0; i < duracion_bucle; i++) {
                     const cuota = {"periodo":i+1,"interes_cuota":process_number_format(0),'total_cuota':process_number_format(0),'amortizado_cuota':process_number_format(0),'total_amortizado':process_number_format(0),'total_pendiente':process_number_format(total_pendiente)};
                     $scope.tabla_prestamo.push(cuota);
@@ -173,21 +183,21 @@ App.controller('Controler', function($scope, $timeout) {
             }
         
             function calcularAmericano() {
-                duracion = duracion / 12;//apaño temporal
+                const duracion_bucle = duracion / tipo_amortizacion;
 
                 total_pendiente = total_pendiente * 100;//centimos
-                interes_cuota = parseInt(truncate_decimals((total_pendiente * interes),0));
+                interes_cuota = parseInt(truncate_decimals(( (total_pendiente * interes) / (12/tipo_interes) ),0));
                 total_cuota = interes_cuota;
-                for (let i = 0; i < duracion; i++) {
+                for (let i = 0; i < duracion_bucle; i++) {
 
-                    if (i == (duracion - 1)) {
+                    if (i == (duracion_bucle - 1)) {
                         amortizado_cuota += total_pendiente;
                         total_cuota += total_pendiente;
                         total_amortizado += total_pendiente; 
 
                         total_pendiente = 0;
                     }
-
+                    delete duracion_bucle;
                     const cuota = {"periodo":i+1,"interes_cuota":process_number_format(interes_cuota/100),'total_cuota':process_number_format(total_cuota/100),'amortizado_cuota':process_number_format(amortizado_cuota/100),'total_amortizado':process_number_format(total_amortizado/100),'total_pendiente':process_number_format(total_pendiente/100)};
                     $scope.tabla_prestamo.push(cuota);
                 }
