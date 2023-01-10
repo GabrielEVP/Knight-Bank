@@ -113,3 +113,60 @@ $third:#4426a8;
                   
                 }
 }
+
+.button_modal {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-left: -30em;
+}
+
+.modal_buttons_success {
+    margin: auto 5px;
+    border:1px solid #4fea07;
+    color:rgb(248, 247, 247);
+    background-color:#4fea07;
+        &:hover {
+            color:#4fea07;
+        }
+            &:focus {
+                color:#4fea07;
+            }
+
+                &:before {
+                    background-color:#ffffff;
+                  
+                }
+}
+
+
+.modal_buttons_cancel {
+    margin: auto 5px;
+    border:1px solid #e10909;
+    color:rgb(248, 247, 247);
+    background-color:#ed230c;
+        &:hover {
+            color:#ed230c;
+        }
+            &:focus {
+                color:#ed230c;
+            }
+
+                &:before {
+                    background-color:#ffffff;
+                  
+                }
+}
+
+
+@media (max-width: 660px) {
+
+	.modal_buttons_cancel {
+		margin-top: 5px;
+	}
+
+	.modal_buttons_success {
+		margin-top: 5px;
+	}
+
+}

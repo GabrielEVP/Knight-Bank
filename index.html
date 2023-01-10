@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='App'>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <link rel="stylesheet" href="./view/styles/css_web.css">
+    <script src="./view/js/app/web/app_index.js" type="module"></script>
     <title>Knight Bank</title>
 </head>
-<body>
+<body ng-controller="Controler">
 
     <!-- --------- nav --------- -->
     <nav>
@@ -63,7 +67,7 @@
         <div class="information">
             <div class="title" data-aos="fade-up"><h1>Knight Bank</h1></div>
             <div class="text" data-aos="fade-up">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</div>
-            <div class="flex dark" data-aos="fade-up"><button onclick="show_Modal('.correo')" class="bttn dark">Pedir Demo</button></div>
+            <div class="flex dark" data-aos="fade-up"><button ng-click="show_Correo()" class="bttn dark">Pedir Demo</button></div>
         </div>
         <div class="image" data-aos="fade-up" ><img src="./view/img/global/logos/logo.gif" alt=""></div>
     </div>
@@ -71,20 +75,24 @@
     <!-- --------- modal --------- -->
     <label for="modal" class="modal-bg"></label>
     <div class="modal-content">
-        <label for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <label ng-click="hidde_Correo()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
         <header>
             <h2 class="correo" class="borrar">Peticion de demo</h2>
         </header>
-        <article class="content">
-            <input class="correo" type="text" placeholder="nombre">
-            <input class="correo" type="text" placeholder="nombre">
-            <input class="correo" type="file">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </article>
-        <footer>
-            <label class="correo" for="modal" class="button success">Enviar</label>
-            <label class="correo" for="modal" class="button danger">Cancelar</label>
-        </footer>
+        <form id="form">
+            <article class="content">
+                <input name="correo" id="correo" class="correo" type="text" placeholder="Correo" required>
+                <input name="name" id="name" class="correo" type="text" placeholder="Nombre" required>
+                <input name="surname" id="surname" class="correo" type="text" placeholder="Apellido" required>
+                <input name="phone" id="phone" class="correo" type="number" maxlength="8" placeholder="Telefono" required>
+                <input name="dni" id="dni" class="correo" type="text" placeholder="Dni">
+                <textarea name="text" id="text" cols="30" rows="10"></textarea>
+            </article>
+            <footer class="button_modal">
+                <div class="flex dark"><button ng-click="set_Data()" class="bttn modal_buttons_success">Enviar</button></div>
+                <div class="flex dark"><button ng-click="hidde_Correo()" class="bttn modal_buttons_cancel">Cancelar</button></div>
+            </footer>
+        </form>
     </div>
      
 
@@ -99,7 +107,7 @@
     
     
     <!-- --------- Footer --------- -->
-    <footer>
+    <footer class="footer">
        <!--  - -->
         <hr>
         <div class="row">
@@ -145,8 +153,6 @@
         </div>
         <hr>
     </footer>
-
-    <script src="./view/js/components/aplication/modal.js" type="module"></script>
 
     <script>
         AOS.init();

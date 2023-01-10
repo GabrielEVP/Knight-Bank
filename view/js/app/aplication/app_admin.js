@@ -7,9 +7,7 @@ import { account_list } from "../../class/account/account_list.js";
 import { controller_url_Account , controller_url_account_List } from "../../class/account/dictionary_account.js"
 
 import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
-import { empty_input, empty_input_account, show_Modal , quit_Modal } from "../../components/aplication/modal.js"
-import { card_User } from "../../components/aplication/card_users.js"
-
+import { empty_input, empty_input_account, show_Modal , quit_Modal } from "../../components/global/modal.js"
 
 
 const App = angular.module('App', []);
@@ -20,7 +18,7 @@ App.controller('Controler', function($scope, $http) {
        await login_verify();
     }
 
-    $scope.load_user = async function (controller_name) {
+    $scope.load_user = function (controller_name) {
         $http.post(controller_url_user_List(controller_name))
         .then((result) => {
             $scope.list_user = new user_list();
@@ -75,7 +73,7 @@ App.controller('Controler', function($scope, $http) {
     /* Modal View */
     $scope.show_Insert = function() {
         empty_input();
-        show_Modal(".add_user");
+        show_Modal(".correo");
     }
 
     $scope.show_Update = async function(id) {

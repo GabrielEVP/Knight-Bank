@@ -1,5 +1,5 @@
 .modal-bg {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -10,7 +10,7 @@
 }
 
 .modal-content {
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	left: 50%;
 	width: 50%;
@@ -53,10 +53,29 @@
 	article {
 		position: relative;
 		display: block;
-		margin: 0;
+		margin: auto;
 		padding: 0;
 		font-size: 16px;
 		line-height: 1.75;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		input {
+			width: 80%;
+			margin: auto;
+			margin-top: 15px;
+			align-content: center;
+			font-size: large;
+		}
+
+		textarea {
+			width: 80%;
+			margin: auto;
+			margin-top: 15px;
+			align-content: center;
+			font-size: large;
+		}
 
 	}
 
@@ -64,9 +83,9 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: center;
 		width: 100%;
-		margin: 0;
+		margin: auto;
 		padding: 10px 0 0;
 
 		.button {
@@ -138,13 +157,30 @@
 	display: none;
 }
 
+.correo {
+	display: none;
+}
+
 @media (max-width: 1080px) {
 
 	.modal-content {
 		left: 5%;
 		right: 5%;
 		width: 90%;
+		top: 20%;
 		margin-left: 0%;
+	}
+
+}
+
+@media (max-width: 660px) {
+
+	.modal-content {
+		top: 20%;
+	}
+
+	footer {
+		flex-direction: column;
 	}
 
 }
