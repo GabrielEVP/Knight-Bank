@@ -1,3 +1,5 @@
+import { truncate_decimals , process_number_format  } from "../../functions/calculus.js";
+
 const App = angular.module('App', []);
 
 App.controller('Controler', function($scope, $timeout) {
@@ -148,7 +150,7 @@ App.controller('Controler', function($scope, $timeout) {
                             const cuota = {"ano":i,"periodo":contador_periodo,"interes_cuota":process_number_format(interes_cuota),'total_cuota':process_number_format(total_cuota),'amortizado_cuota':process_number_format(amortizado_cuota),'total_amortizado':process_number_format(total_amortizado),'total_pendiente':process_number_format(total_pendiente)};
                             $scope.tabla_prestamo.push(cuota);
                         }
-                        delete(check);
+                        //delete(check);
                     }
                     inicio_contador_mes = 1;
                 }
@@ -246,7 +248,7 @@ App.controller('Controler', function($scope, $timeout) {
                             const cuota = {"ano":i,"periodo":contador_periodo,"interes_cuota":process_number_format(interes_cuota),'total_cuota':process_number_format(total_cuota),'amortizado_cuota':process_number_format(amortizado_cuota),'total_amortizado':process_number_format(total_amortizado),'total_pendiente':process_number_format(total_pendiente)};
                             $scope.tabla_prestamo.push(cuota);
                         }
-                        delete(check);
+                        //delete(check);
                     }
                     inicio_contador_mes = 1;
                 }
@@ -259,7 +261,7 @@ App.controller('Controler', function($scope, $timeout) {
                     const cuota = {"periodo":i+1,"interes_cuota":process_number_format(0),'total_cuota':process_number_format(0),'amortizado_cuota':process_number_format(0),'total_amortizado':process_number_format(0),'total_pendiente':process_number_format(total_pendiente)};
                     $scope.tabla_prestamo.push(cuota);
                 }
-                delete duracion_bucle;
+                //delete duracion_bucle;
 
                 amortizado_cuota += total_pendiente;
                 total_amortizado += total_pendiente; 
@@ -288,7 +290,7 @@ App.controller('Controler', function($scope, $timeout) {
 
                         total_pendiente = 0;
                     }
-                    delete duracion_bucle;
+                    //delete duracion_bucle;
                     const cuota = {"periodo":i+1,"interes_cuota":process_number_format(interes_cuota/100),'total_cuota':process_number_format(total_cuota/100),'amortizado_cuota':process_number_format(amortizado_cuota/100),'total_amortizado':process_number_format(total_amortizado/100),'total_pendiente':process_number_format(total_pendiente/100)};
                     $scope.tabla_prestamo.push(cuota);
                 }
@@ -297,29 +299,3 @@ App.controller('Controler', function($scope, $timeout) {
     }
 
 })
-
-
-
-function truncate_decimals(num, fixed = 2) {
-        var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
-        truncated_number =  num.toString().match(re)[0];
-
-    //truncated_number =  Math.round((num + Number.EPSILON) * 100) / 10000  ;
-    return parseFloat(truncated_number);
-}
-
-function process_number_format (num) {
-    var processed_number = (truncate_decimals(num).toFixed(2)).toString();
-    processed_number = processed_number.replace(".",",");
-    //console.log(processed_number);
-    const char_array = Array.from(processed_number).reverse(); 
-    var final_char_array = char_array;
-
-    const array_length = char_array.length;
-    for (let i = 6; i < array_length; i = i+4) {
-        final_char_array.splice(i,0,".");
-    }
-
-    return (final_char_array.reverse()).join("");
-}
-
