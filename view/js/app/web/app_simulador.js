@@ -28,7 +28,9 @@ App.controller('Controler', function($scope, $timeout) {
         var total_cuota = 0;
         var interes_cuota = 0;
 
-        if (duracion != '' && porcentaje_interes !='' && tipoPrestamo != '' && total_pendiente != '') {    
+        if (parseInt(tipo_amortizacion) < parseInt(tipo_interes)) {
+            alert("el periodo de amortizacion debe ser igual o mayor al de carencia");
+        } else if (duracion != '' && porcentaje_interes !='' && tipoPrestamo != '' && total_pendiente != '') {    
 
             $scope.show_table = true;
 
@@ -49,7 +51,7 @@ App.controller('Controler', function($scope, $timeout) {
                     calcularAmericano();
                     break;
                   default:
-                    // code block
+                    alert("error al seleccionar tipo de simulacion");
                 } 
             console.log($scope.tabla_prestamo);
         
@@ -99,7 +101,11 @@ App.controller('Controler', function($scope, $timeout) {
                     inicio_contador_anos = anos_carencia + 1;
                     
                 } 
-                const calculo_cuota = (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * - ( (anos) - (anos_carencia))))) );
+                console.log(anos);
+                console.log((1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * - ( (duracion - duracion_carencia)/12 )))) ));
+                const calculo_cuota = (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * - ( (duracion - duracion_carencia)/12 )))) );
+//                const calculo_cuota = ( (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ( - ( (duracion - duracion_carencia)/12 )))) ) ) / (12/tipo_amortizacion);
+
 
                 if (anos % 1 != 0) {
                     anos++;
@@ -158,7 +164,7 @@ App.controller('Controler', function($scope, $timeout) {
 
             function calcularLineal() {
                 var anos = duracion / 12;   
-                const amortizacion = total_pendiente / (duracion/tipo_amortizacion);
+                
 
                 var inicio_contador_anos = 1;
                 var inicio_contador_mes = 1;
@@ -208,6 +214,8 @@ App.controller('Controler', function($scope, $timeout) {
                 if (inicio_contador_mes == 13) {
                     inicio_contador_mes = 1;
                 }
+
+                const amortizacion = total_pendiente / ((duracion - duracion_carencia)/tipo_amortizacion);
 
                 var fin_prestamo = false;
                 for (let i = inicio_contador_anos; i <= anos; i++) {
