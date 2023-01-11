@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="../../styles/css_web.css">
+    <script src="./view/js/app/web/app_index.js" type="module"></script>
+    <title>Knight Bank</title>
+</head>
+<body ng-controller="Controler">
+
+    <!-- --------- nav --------- -->
+    <nav>
+        <img src="../../img/global/logos/logo.gif" alt="">
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
+        <ul>
+            <li><a href="../../../index.html">Inicio</a></li>
+            <li><a class="active" href="#">Sobre nosotros</a></li>
+            <li><a href="./simulador.html">Simulador</a></li>
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+     </nav>
+
+    <!-- --------- contend --------- -->
+    <div class="container_information_knight">
+        <div class="image_graficos" data-aos="fade-up" ><img src="../../img/web/zornotzalogo.jpg" alt=""></div>
+        <div class="text">
+            <p data-aos="fade-up">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia tenetur consectetur, dolore architecto consequatur optio molestiae aliquam, quas tempore facilis et a, distinctio ratione incidunt velit maxime corporis reprehenderit rerum.</p>
+        </div>
+    </div>  
+
+    <!-- google map location -->
+
+    <section class="location">
+        <div class="location_list">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+
+        <div class="map">
+            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">gps watches</a></iframe>
+        </div>
+    </section>
+
+    <!-- personal people -->
+    <div class="container">
+        <div class="card_about card_about0">
+          <div class="border">
+            <h2>Al Pacino</h2>
+            <div class="icons">
+              <i class="fa fa-codepen" aria-hidden="true"></i>
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i class="fa fa-dribbble" aria-hidden="true"></i>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card_about card_about1">
+          <div class="border">
+            <h2>Ben Stiller</h2>
+            <div class="icons">
+              <i class="fa fa-codepen" aria-hidden="true"></i>
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i class="fa fa-dribbble" aria-hidden="true"></i>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card_about card_about2">
+          <div class="border">
+            <h2>Patrick Stewart</h2>
+            <div class="icons">
+              <i class="fa fa-codepen" aria-hidden="true"></i>
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i class="fa fa-dribbble" aria-hidden="true"></i>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- --------- Footer --------- -->
+    <footer class="footer">
+        <hr>
+        <div class="row">
+            <div class="col">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis quibusdam ut, adipisci facilis, sint illo possimus eum numquam tempore deleniti cum earum nesciunt ullam placeat architecto, inventore necessitatibus a autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi molestiae quos cumque necessitatibus ducimus eveniet sed sapiente doloremque reiciendis corporis hic delectus error veritatis aspernatur, nihil doloribus optio eaque tempora.</p>
+                <img src="../../img/global/logos/logo.gif" alt="">
+            </div>
+
+            <div class="col">
+                <h3>Bulegoa <div class="linea"><span></span></div></h3>
+                <p>20600 Eibar, Gipuzkoa</p>
+                <p>Telefono finko: 943 92 63 89</p>
+                <p>+34 645 42 53 65</p>
+                <p class="email_id">4rbikes@gmail.com</p>
+            </div>
+
+            <div class="col ">
+                <h3>Besteak <div class="linea"><span></span></div></h3>
+                <ul>
+                    <li><a href="../about/about.php">Guri buruz</a></li>
+                    <li><a href="../soporte/soporte.php">Laguntza teknikoa</a></li>
+                    <li><a href="../tienda/adaptacion.php">Adaptazioak</a></li>
+                    <li><a href="../tienda/reciclaje.php">Birziklapena</a></li>
+                    <li><a href="../tienda/motor.php">Motore Elektrikoak</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h3 class="redes">Redes<div class="linea"><span></span></div></h3>
+                <div class="social_icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-brands fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-brands fa-github"></i>
+                    <i class="fab fa-brands fa-linkedin"></i>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
