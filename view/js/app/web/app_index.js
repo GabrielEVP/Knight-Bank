@@ -1,5 +1,5 @@
-import { empty_input, empty_input_account, show_Modal , quit_Modal } from "../../components/global/modal.js"
-import { verification_Dni , verification_Email } from "../../functions/verification_form.js";
+import { show_Modal , quit_Modal } from "../../components/global/modal.js"
+import { verification_Email , verification_Dni , verification_Phone } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
 
@@ -14,24 +14,22 @@ App.controller('Controler', function($scope, ) {
     }
 
     $scope.set_Data = function () {
+       const avaible_email = verification_Email($('#email').val());
+       const avaible_dni = verification_Dni($('#dni').val())
+       const avaible_phone = verification_Phone($('#phone').val())
+       
+       if (avaible_email && avaible_dni && avaible_phone) {
+            document.getElementById("form").addEventListener('submit', async function() {
+                emailjs.init('o5KjR2swVQ-VjGWP_');
+                const serviceID = "service_mr0cxam" ;
+                const templateID = "template_rmmgi7r" ;
 
-       var a = verification_Email($('#email').val());
-       var b = verification_Dni($('#dni').val())
-       console.log(a);
-       console.log(b);
-
-        document.getElementById("form").addEventListener('submit', async function() {
-            emailjs.init('o5KjR2swVQ-VjGWP_');
-            const serviceID = "service_mr0cxam" ;
-            const templateID = "template_rmmgi7r" ;
-
-            try {
                 await emailjs.sendForm(serviceID, templateID, this);
                 location.reload();
-            } catch (err) {
-                throw err
-            }
-        })
+             
+            })
+       } else {
+            alert ("Compruebe los datos");
+       }
     }
-    
 })
