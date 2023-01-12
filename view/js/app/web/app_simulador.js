@@ -1,8 +1,17 @@
 import { truncate_decimals , process_number_format  } from "../../functions/calculus.js";
+import { keypress_condition } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
 
-App.controller('Controler', function($scope, $timeout) {
+App.controller('Controler', function($scope) {
+
+    window.onload = function () {
+        keypress_condition("#porcentajeInteres", "0123456789");
+        keypress_condition("#duracion_anos", "0123456789");
+        keypress_condition("#duracion_meses", "0123456789");
+        keypress_condition("#carencia", "0123456789");
+        keypress_condition("#totalPrestado", "0123456789");
+    }
 
     $scope.tabla_prestamo = Array();
     $scope.show_table = false;

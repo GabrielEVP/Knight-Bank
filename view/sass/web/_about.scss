@@ -30,7 +30,7 @@
 }
 
 .gabriel{
-  background-image: url(../img/web/gabriel.jpg);
+  background-image: url(../img/web/gabriel3.jpg);
 }
 
 .josu {
@@ -59,6 +59,7 @@
     }
   
       h2 {
+        margin-top: 0.4em;
         color: white;
         font-size:2em;
         font-weight: 800;
@@ -82,39 +83,4 @@
     color: gray;
     cursor: pointer;
   }
-}
-
-.location {
-  background-image: url(../img/web/fondo_about.jpg);
-  background-size: cover;
-  background-repeat: repeat;
-  background-position: center;
-  background-attachment: fixed;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  .location_list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-  }
-
-    h2 {
-      margin: 5px;
-    }
-
-      .map {
-        width: 100%;
-        margin: auto;
-      }
-        iframe {
-          width: 80%;
-          height: 500px;
-        }
 }

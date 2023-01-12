@@ -75,7 +75,6 @@
        
 }
 
-
 .container_header {
     position: relative;
     display: grid;
@@ -102,7 +101,7 @@
     .text {
         color: rgb(212, 212, 212);
         font-weight: 1000;
-        font-size: 15px;
+        font-size: 20px;
         margin: 50px;
         text-align: center;
     }
@@ -130,8 +129,9 @@
     margin: 5em;
 
     .image_graficos {
+        margin: auto;
         display: flex;
-        width: 100%;
+        width: 80%;
         justify-content: center;
     }
     
@@ -188,7 +188,6 @@
 }
 
 @media (max-width: 570px) {
-
     #services {
         padding-top: 80px;
         h1 {
@@ -197,7 +196,6 @@
     }
 
     .presentation {
-
         h1 {
             font-size: 50px;
             width: 100%;
@@ -216,7 +214,7 @@
 
     .container_information_knight {
         margin: 0;
-        
+
             img {
                 width: 90%;
                 

@@ -1,20 +1,31 @@
 .container_simulator {
-  align-items: center;
-  align-content: center;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  margin-top: 8vh;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
 
-  select {
-    margin-bottom: 30px;
-    width: 20%;
-    font-size: 20px; 
-  
-    option {
-      font-size: 20px;
+  .container_option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+
+    .container_input {
+      margin: auto;
+      margin-top: 1.5em;
+      display: flex;
+      flex-direction: column;
     }
-  }  
+
+      select {
+        margin-bottom: 30px;
+        width: 20em;
+        font-size: 20px; 
+        border-radius: 5px;
+      
+        option {
+          font-size: 20px;
+        }
+      }  
 }
 
 // input text //
@@ -167,4 +178,16 @@
           text-align: center;
         }
 }
+
+@media (max-width: 975px) { 
+  .container_simulator {
+    display: flex;
+    flex-direction: column;
+  }
+}
   
+@media (max-width: 520px) { 
+  .container_simulator select {
+    width: 17em;
+  }
+}

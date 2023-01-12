@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='App'>
 <head>
+    <link rel="shortcut icon" href="./view/img/global/logos/logo.gif">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
     <link rel="stylesheet" href="./view/styles/css_web.css">
     <script src="./view/js/app/web/app_index.js" type="module"></script>
     <title>Knight Bank</title>
@@ -26,12 +25,10 @@
         <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
         <ul>
            <li><a class="active" href="#">Inicio</a></li>
-           <li><a href="./view/pages/web/about.html">Sobre nosotros</a></li>
            <li><a href="./view/pages/web/simulador.html">Simulador</a></li>
            <li><a href="./view/pages/web/login.html">Login</a></li>
         </ul>
      </nav>
-    <!-- --------- contend --------- -->
 
     <!-- --------- presentation --------- -->
     <div class="presentation">
@@ -81,11 +78,11 @@
         </header>
         <form id="form">
             <article class="content">
-                <input name="email" id="email" class="correo" type="text" placeholder="Correo electronico" required>
-                <input name="name" id="name" class="correo" type="text" placeholder="Nombre" required>
-                <input name="surname" id="surname" class="correo" type="text" placeholder="Apellido" required>
-                <input name="phone" id="phone" class="correo" type="number" maxlength="8" placeholder="Telefono" required>
-                <input name="dni" id="dni" class="correo" type="text" placeholder="Dni">
+                <input name="email" id="email" class="correo" type="text" placeholder="Correo electronico" >
+                <input name="name" id="name" class="correo" type="text" maxlength="40" placeholder="Nombre" >
+                <input name="surname" id="surname" class="correo" type="text"  maxlength="40" placeholder="Apellido" >
+                <input name="phone" id="phone" class="correo" type="text" maxlength="9" placeholder="Telefono" >
+                <input name="dni" id="dni" class="correo" type="text" maxlength="9" placeholder="Dni">
                 <textarea name="text" id="text" cols="30" rows="10"></textarea>
             </article>
             <footer class="button_modal">
@@ -95,7 +92,6 @@
         </form>
     </div>
      
-
     <!-- --------- Information of knigth --------- -->
     <div class="container_information_knight padding_section">
         <div class="image_graficos" data-aos="fade-up" ><img src="./view/img/web/graficos.png" alt=""></div>
@@ -108,8 +104,8 @@
     <!-- personal people -->
     <section id="section_people">
         <h1 id="people" data-aos="fade-up" >Integrantes</h1>
-        <div class="container_people">
-            <div class="card_people gabriel" data-aos="fade-up">
+        <div class="container_people" data-aos="fade-up">
+            <div class="card_people gabriel">
               <h2>Gabriel Vargas</h2>
               <i class="fab icon_people fa-brands fa-github"></i>
               <i class="fab icon_people fa-whatsapp"></i>
@@ -117,7 +113,7 @@
               <i class="fab icon_people fa-brands fa-linkedin"></i>
             </div>
     
-            <div class="card_people josu" data-aos="fade-up">
+            <div class="card_people josu">
               <h2>Josu Diez</h2>
               <i class="fab icon_people fa-brands fa-github"></i>
               <i class="fab icon_people fa-whatsapp"></i>
@@ -125,9 +121,9 @@
               <i class="fab icon_people fa-brands fa-linkedin"></i>
             </div>
           </div>
-        </section>
+    </section>
 
-          <!-- zortnoza information -->
+    <!-- zortnoza information -->
     <div class="container_information_knight about">
         <div class="image_graficos" data-aos="fade-up" ><img src="./view/img/web/logo_urritxe.png" alt=""></div>
         <div class="text">
@@ -137,20 +133,14 @@
         </div>
     </div>  
     
-    
     <!-- --------- Footer --------- -->
     <footer class="footer">
-       <!--  - -->
         <hr>
-        <div class="row">
-          
-               
+        <div class="row">   
             <div class="col">
-                
                 <p>La información ofrecida en esta página no constituye asesoramiento en materia de inversión, ni asesoramiento bancario. Por no suponer un asesoramiento bancario, la información ofrecida no se basa en un análisis objetivo y amplio de los servicios bancarios disponibles en el mercado, ni considera la situación personal y financiera del usuario, preferencias u objetivos.</p>
                 <img src="./view/img/global/logos/logo.gif" alt="">
             </div>
-
             <div class="col">
                 <h3>Contacto <div class="linea"><span></span></div></h3>
                 <p>48340 Amorebieta-Etxano, Bizkaia</p>
@@ -158,17 +148,14 @@
                 <p>+34 645 42 53 65</p>
                 <p class="email_id">knightBank_support@gmail.com</p>
             </div>
-
             <div class="col ">
                 <h3>Otros <div class="linea"><span></span></div></h3>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="./view/pages/web/about.html">Sobre nosotros</a></li>
                     <li><a href="./view/pages/web/simulador.html">Simulacion de prestamos</a></li>
                     <li><a href="./view/pages/web/login.html">App</a></li>
                 </ul>
             </div>
-
             <div class="col">
                 <h3 class="redes">Redes<div class="linea"><span></span></div></h3>
                 <div class="social_icons">

@@ -2,6 +2,7 @@
 <html lang="en" ng-app='App'>
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../img/global/logos/logo.gif">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/css_web.css">
@@ -13,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../../js/app/web/app_simulador.js" type="module"></script>
 </head>
-    <title>simulador</title>
+    <title>Simulador</title>
 </head>
 <body ng-controller="Controler">
 
@@ -23,122 +24,121 @@
         <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
         <ul>
            <li><a href="../../../index.html">Inicio</a></li>
-           <li><a href="./about.html">Sobre nosotros</a></li>
            <li><a class="active" href="./simulador.html">Simulador</a></li>
            <li><a href="./login.html">Login</a></li>
         </ul>
      </nav>
 
+    <!---------- formulario ------------>
     <form>
-        <div>
-            <div class="container_simulator">
+        <!---------- option ------------>
+        <div class="container_simulator">
+            <div class="container_option" >
+                <label class="simulator_label">Tipo de prestamo</label>
+                <select id="tipoPrestamo">
+                    <option value="frances">Frances</option>
+                    <option value="lineal">Lineal</option>
+                    <option value="simple">Simple</option>
+                    <option value="americano">Americano</option>
+                </select>
 
-            <label class="simulator_label">Tipo de prestamo</label>
-            <select id="tipoPrestamo">
-                <option value="frances">Frances</option>
-                <option value="lineal">Lineal</option>
-                <option value="simple">Simple</option>
-                <option value="americano">Americano</option>
-            </select>
+                <label class="simulator_label mostrar_periodo_amortizacion" >Periodo de amortizacion</label>
+                <select id="tipoAmortizacion" class="mostrar_periodo_amortizacion" >
+                    <option value="12">Anual</option>
+                    <option value="6">Semestral</option>
+                    <option value="4">Cuatrimestral</option>
+                    <option value="3">Trimestral</option>
+                    <option value="1">Mensual</option>
+                </select>
 
-            <label class="simulator_label mostrar_periodo_amortizacion" >Periodo de amortizacion</label>
-            <select id="tipoAmortizacion" class="mostrar_periodo_amortizacion" >
-                <option value="12">Anual</option>
-                <option value="6">Semestral</option>
-                <option value="4">Cuatrimestral</option>
-                <option value="3">Trimestral</option>
-                <option value="1">Mensual</option>
-            </select>
+                <label class="simulator_label mostrar_periodo_interes" >Periodo de intereses</label>
+                <select id="tipoInteres" class="mostrar_periodo_interes" >
+                    <option value="12">Anual</option>
+                    <option value="6">Semestral</option>
+                    <option value="4">Cuatrimestral</option>
+                    <option value="3">Trimestral</option>
+                    <option value="1">Mensual</option>
+                </select>
 
-            <label class="simulator_label mostrar_periodo_interes" >Periodo de intereses</label>
-            <select id="tipoInteres" class="mostrar_periodo_interes" >
-                <option value="12">Anual</option>
-                <option value="6">Semestral</option>
-                <option value="4">Cuatrimestral</option>
-                <option value="3">Trimestral</option>
-                <option value="1">Mensual</option>
-            </select>
-
-            <label class="simulator_label mostrar_carencia" >Periodo de carencia</label>
-            <select id="tipoCarencia" class="mostrar_carencia" >
-                <option value="0">Sin carencia</option>
-                <option value="1">Parcial</option>
-                <option value="2">Total</option>
-            </select>
-
-            <div class="group mostrar_duracion_carencia" id="div_carencia" >      
-                <input class="simulator_input" id="carencia" type="number" value="0" required >
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label" >Meses de carencia</label>
+                <label class="simulator_label mostrar_carencia" >Periodo de carencia</label>
+                <select id="tipoCarencia" class="mostrar_carencia" >
+                    <option value="0">Sin carencia</option>
+                    <option value="1">Parcial</option>
+                    <option value="2">Total</option>
+                </select>
             </div>
+            <!---------- input ------------>
+            <div class="container_input" >
+                <div class="group">      
+                    <input class="simulator_input" id="porcentajeInteres" type="text" maxlength="2" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">Porcentaje Interes %</label>
+                </div>
 
-            <div class="group">      
-                <input class="simulator_input" id="porcentajeInteres" type="number" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">Porcentaje Interes %</label>
-            </div>
+                <div class="group">      
+                    <input class="simulator_input" id="duracion_anos" type="text" maxlength="2"  required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">A&ntilde;os</label>
+                </div>
 
-            <div class="group">      
-                <input class="simulator_input" id="duracion_anos" type="number" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">A&ntilde;os</label>
-            </div>
+                <div class="group mostrar_duracion_meses" >      
+                    <input class="simulator_input mostrar_duracion_meses" id="duracion_meses" type="text" maxlength="3" required >
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">Meses</label>
+                </div>
 
-            <div class="group mostrar_duracion_meses" >      
-                <input class="simulator_input mostrar_duracion_meses" id="duracion_meses" type="number" value="0" required >
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">Meses</label>
-            </div>
+                <div class="group mostrar_duracion_carencia" id="div_carencia" >      
+                    <input class="simulator_input" id="carencia" type="text" maxlength="3" required >
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label" >Meses de carencia</label>
+                </div>
 
-            <div class="group">      
-                <input class="simulator_input" id="totalPrestado" type="number" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">Total Prestado</label>
+                <div class="group">      
+                    <input class="simulator_input" id="totalPrestado" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">Total Prestado</label>
+                </div>
             </div>
-            <div ng-click="calcularPrestamo()" class="flex dark"><button class="bttn white">Calcular Prestamo</button></div>
-            </div>
-            <div class="table">
-                <table id="loans" ng-show="show_table == true">
-                    <tr>
-                        <th>A&ntilde;o</th>
-                        <th>Periodo</th>
-                        <th>Cuota</th>
-                        <th>Amortizacion</th>
-                        <th>Interes</th>
+        </div>
 
-                        <th>Total amortizado</th>
-                        <th>Total pendiente</th>
-                    </tr>
-                    <tr ng-repeat="cuota in tabla_prestamo">
-                        <td>{{cuota.ano}}</td>
-                        <td>{{cuota.periodo}}</td>
-                        <td>{{cuota.total_cuota}}€</td>
-                        <td>{{cuota.amortizado_cuota}}€</td>
-                        <td>{{cuota.interes_cuota}}€</td>
+        <div ng-click="calcularPrestamo()" class="flex dark"><button class="bttn white">Calcular Prestamo</button></div>
+        <div class="table">
+            <table id="loans" ng-show="show_table == true">
+                <tr>
+                    <th>A&ntilde;o</th>
+                    <th>Periodo</th>
+                    <th>Cuota</th>
+                    <th>Amortizacion</th>
+                    <th>Interes</th>
 
-                        <td>{{cuota.total_amortizado}}€</td>
-                        <td>{{cuota.total_pendiente}}€</td>
-                    </tr>
-                </table>
-            </div>
+                    <th>Total amortizado</th>
+                    <th>Total pendiente</th>
+                </tr>
+                <tr ng-repeat="cuota in tabla_prestamo">
+                    <td>{{cuota.ano}}</td>
+                    <td>{{cuota.periodo}}</td>
+                    <td>{{cuota.total_cuota}}€</td>
+                    <td>{{cuota.amortizado_cuota}}€</td>
+                    <td>{{cuota.interes_cuota}}€</td>
+
+                    <td>{{cuota.total_amortizado}}€</td>
+                    <td>{{cuota.total_pendiente}}€</td>
+                </tr>
+            </table>
         </div>
     </form>
 
     <footer class="footer">
-        <!--  - -->
          <hr>
-         <div class="row">
-           
-                
+         <div class="row"> 
              <div class="col">
-                 
                  <p>La información ofrecida en esta página no constituye asesoramiento en materia de inversión, ni asesoramiento bancario. Por no suponer un asesoramiento bancario, la información ofrecida no se basa en un análisis objetivo y amplio de los servicios bancarios disponibles en el mercado, ni considera la situación personal y financiera del usuario, preferencias u objetivos.</p>
-                 <img src="./view/img/global/logos/logo.gif" alt="">
+                 <img src="../../img/global/logos/logo.gif"" alt="">
              </div>
  
              <div class="col">
@@ -153,7 +153,6 @@
                  <h3>Otros <div class="linea"><span></span></div></h3>
                  <ul>
                      <li><a href="index.html">Inicio</a></li>
-                     <li><a href="./view/pages/web/about.html">Sobre nosotros</a></li>
                      <li><a href="./view/pages/web/simulador.html">Simulacion de prestamos</a></li>
                      <li><a href="./view/pages/web/login.html">App</a></li>
                  </ul>
