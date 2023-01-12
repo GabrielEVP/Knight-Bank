@@ -51,24 +51,24 @@
     h2 {
       opacity: 1;
     }
-    .fa {
+    .faa {
       opacity: 1;
     }
       
 }
 
 .card_about1 {
-  background: url('https://i.pinimg.com/originals/28/d2/e6/28d2e684e7859a0dd17fbd0cea00f8a9.jpg') center center no-repeat;
+  background: url('../img/web/astronauta.jpg') center center no-repeat;
   background-size: 300px;
 
   &:hover {
-    background: url('https://i.pinimg.com/originals/28/d2/e6/28d2e684e7859a0dd17fbd0cea00f8a9.jpg') left center no-repeat;
+    background: url('../img/web/astronauta.jpg') left center no-repeat;
     background-size: 600px;
   }
     h2 {
       opacity: 1;
     }
-    .fa {
+    .faa {
       opacity: 1;
     }
 }
@@ -94,7 +94,7 @@ h2 {
   opacity: 0;
   transition: opacity 1s;
 }
-.fa {
+.faa {
   opacity: 0;
   transition: opacity 1s;
 }
