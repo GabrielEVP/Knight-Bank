@@ -119,11 +119,14 @@
     }  
 }
 
+.padding_section {
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
 .container_information_knight {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 8em;
-    padding-bottom: 8em;
+    grid-template-columns: 1fr 1fr;   
     margin: 5em;
 
     .image_graficos {
