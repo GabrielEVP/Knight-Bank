@@ -7,6 +7,54 @@ App.controller('Controler', function($scope, $timeout) {
     $scope.tabla_prestamo = Array();
     $scope.show_table = false;
 
+    $scope.model_tipo = "frances";
+    $scope.model_carencia = "0";
+
+    $(".mostrar_periodo_amortizacion").show();
+    $(".mostrar_periodo_interes").show();
+    $(".mostrar_carencia").show();
+    $(".mostrar_duracion_carencia").hide();
+    $(".duracion_meses").show();
+    
+    $( "#tipoPrestamo" ).change(function() {
+        const tipoPrestamo = $("#tipoPrestamo").val();
+        if (tipoPrestamo == "frances" || tipoPrestamo == "lineal") {
+
+            $(".mostrar_periodo_amortizacion").show();
+            $(".mostrar_periodo_interes").show();
+            $(".mostrar_carencia").show();
+            $(".mostrar_duracion_carencia").hide();
+            $(".duracion_meses").show();
+
+            $("#tipoAmortizacion").val(12);
+            $("#tipoInteres").val(12);
+            $("#tipoCarencia").val(0);
+            $("#carencia").val(0);
+        } else {
+            
+            $(".mostrar_periodo_amortizacion").hide();
+            $(".mostrar_periodo_interes").hide();
+            $(".mostrar_carencia").hide();
+            $(".mostrar_duracion_carencia").hide();
+            $(".duracion_meses").hide();
+
+            $("#tipoAmortizacion").val(12);
+            $("#tipoInteres").val(12);
+            $("#tipoCarencia").val(0);
+            $("#carencia").val(0);
+        }
+    });
+
+    $("#tipoCarencia").change(function() {
+        const tipo_carencia = $("#tipoCarencia").val(); 
+        if (tipo_carencia == "0") {
+            $(".mostrar_duracion_carencia").hide();
+            $("#carencia").val(0);
+        } else {
+            $(".mostrar_duracion_carencia").show();
+        }
+    });
+
     $scope.calcularPrestamo = function () {
         $scope.tabla_prestamo = Array();
 
@@ -71,7 +119,7 @@ App.controller('Controler', function($scope, $timeout) {
                     var fin_carencia = false;
                     for (let i = 1; i <= anos_carencia; i++) {
                         var contador_periodo = 0;
-                        for (let j = 1; j < 13 && fin_carencia == false; j++) {
+                        for (let j = 1; j < 13 && fin_carencia == false && !(((i - 1) * 12) + j >= duracion_carencia); j++) {
                             var check = false;
                             interes_cuota = 0;
                             amortizado_cuota = 0;
@@ -98,14 +146,11 @@ App.controller('Controler', function($scope, $timeout) {
                         }
                     }
 
-                    inicio_contador_anos = anos_carencia + 1;
+                    inicio_contador_anos = truncate_decimals((anos_carencia + 1),0);
                     
                 } 
-                console.log(anos);
-                console.log((1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * - ( (duracion - duracion_carencia)/12 )))) ));
-                const calculo_cuota = (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * - ( (duracion - duracion_carencia)/12 )))) );
-//                const calculo_cuota = ( (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ( - ( (duracion - duracion_carencia)/12 )))) ) ) / (12/tipo_amortizacion);
-
+                
+                const calculo_cuota = (total_pendiente * interes_K) / (1 - Math.pow((1 + interes_K), ( ((12/tipo_amortizacion) * - truncate_decimals( ((duracion - duracion_carencia)/12),0 )))) );
 
                 if (anos % 1 != 0) {
                     anos++;
@@ -117,7 +162,7 @@ App.controller('Controler', function($scope, $timeout) {
                 var fin_prestamo = false;
                 for (let i = inicio_contador_anos; i <= anos; i++) {
                     var contador_periodo = 0;
-                    for (let j = inicio_contador_mes ; j < 13 && fin_prestamo == false; j++) {
+                    for (let j = inicio_contador_mes ; j < 13 && fin_prestamo == false && !(((i - 1) * 12) + j > duracion) && total_pendiente > 0; j++) {
                         var check = false;
 
                         interes_cuota = 0;
@@ -156,7 +201,6 @@ App.controller('Controler', function($scope, $timeout) {
                             const cuota = {"ano":i,"periodo":contador_periodo,"interes_cuota":process_number_format(interes_cuota),'total_cuota':process_number_format(total_cuota),'amortizado_cuota':process_number_format(amortizado_cuota),'total_amortizado':process_number_format(total_amortizado),'total_pendiente':process_number_format(total_pendiente)};
                             $scope.tabla_prestamo.push(cuota);
                         }
-                        //delete(check);
                     }
                     inicio_contador_mes = 1;
                 }
@@ -164,12 +208,11 @@ App.controller('Controler', function($scope, $timeout) {
 
             function calcularLineal() {
                 var anos = duracion / 12;   
-                
 
                 var inicio_contador_anos = 1;
                 var inicio_contador_mes = 1;
 
-                if (duracion_carencia > 0 && tipo_carencia != 0) {
+                if (duracion_carencia > 0 && tipo_carencia != 0 && ((duracion_carencia/tipo_amortizacion > 1) ||(duracion_carencia/tipo_interes > 1)  ) ) {
                     var anos_carencia = duracion_carencia/12;
                     if (anos_carencia % 1 != 0) {
                         anos_carencia++;
@@ -177,7 +220,7 @@ App.controller('Controler', function($scope, $timeout) {
                     var fin_carencia = false;
                     for (let i = 1; i <= anos_carencia; i++) {
                         var contador_periodo = 0;
-                        for (let j = 1; j < 13 && fin_carencia == false; j++) {
+                        for (let j = 1; j < 13 && fin_carencia == false && !(((i - 1) * 12) + j >= duracion_carencia); j++) {
                             var check = false;
                             interes_cuota = 0;
                             amortizado_cuota = 0;
@@ -195,6 +238,7 @@ App.controller('Controler', function($scope, $timeout) {
                             if ( ((i - 1) * 12) + j == duracion_carencia) {
                                 fin_carencia = true;
                                 inicio_contador_mes = j + 1;
+                                console.log("hola");
                             }
                             if (check) { 
                                 contador_periodo++;
@@ -203,9 +247,8 @@ App.controller('Controler', function($scope, $timeout) {
                             }
                         }
                     }
-
-                    inicio_contador_anos = anos_carencia + 1;
                     
+                    inicio_contador_anos = truncate_decimals((anos_carencia + 1),0);
                 } 
 
                 if (anos % 1 != 0) {
@@ -215,12 +258,14 @@ App.controller('Controler', function($scope, $timeout) {
                     inicio_contador_mes = 1;
                 }
 
-                const amortizacion = total_pendiente / ((duracion - duracion_carencia)/tipo_amortizacion);
+                console.log(inicio_contador_anos);
+                console.log(inicio_contador_mes);
+                const amortizacion = total_pendiente / truncate_decimals( ((duracion - duracion_carencia)/tipo_amortizacion) ,0);
 
                 var fin_prestamo = false;
                 for (let i = inicio_contador_anos; i <= anos; i++) {
                     var contador_periodo = 0;
-                    for (let j = inicio_contador_mes; j < 13 && fin_prestamo == false; j++) {
+                    for (let j = inicio_contador_mes; j < 13 && fin_prestamo == false && !(((i - 1) * 12) + j > duracion) && total_pendiente > 0; j++) {
                         var check = false;
                         interes_cuota = 0;
                         amortizado_cuota = 0;

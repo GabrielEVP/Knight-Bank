@@ -41,8 +41,8 @@
                 <option value="americano">Americano</option>
             </select>
 
-            <label class="simulator_label">Periodo de amortizacion</label>
-            <select id="tipoAmortizacion">
+            <label class="simulator_label mostrar_periodo_amortizacion" >Periodo de amortizacion</label>
+            <select id="tipoAmortizacion" class="mostrar_periodo_amortizacion" >
                 <option value="12">Anual</option>
                 <option value="6">Semestral</option>
                 <option value="4">Cuatrimestral</option>
@@ -50,8 +50,8 @@
                 <option value="1">Mensual</option>
             </select>
 
-            <label class="simulator_label">Periodo de intereses</label>
-            <select id="tipoInteres">
+            <label class="simulator_label mostrar_periodo_interes" >Periodo de intereses</label>
+            <select id="tipoInteres" class="mostrar_periodo_interes" >
                 <option value="12">Anual</option>
                 <option value="6">Semestral</option>
                 <option value="4">Cuatrimestral</option>
@@ -59,14 +59,14 @@
                 <option value="1">Mensual</option>
             </select>
 
-            <label class="simulator_label">Periodo de carencia</label>
-            <select id="tipoCarencia" >
+            <label class="simulator_label mostrar_carencia" >Periodo de carencia</label>
+            <select id="tipoCarencia" class="mostrar_carencia" >
                 <option value="0">Sin carencia</option>
                 <option value="1">Parcial</option>
                 <option value="2">Total</option>
             </select>
 
-            <div class="group" id="div_carencia">      
+            <div class="group mostrar_duracion_carencia" id="div_carencia" >      
                 <input class="simulator_input" id="carencia" type="number" value="0" required >
                 <span class="highlight"></span>
                 <span class="bar"></span>
@@ -87,8 +87,8 @@
                 <label class="simulator_label">A&ntilde;os</label>
             </div>
 
-            <div class="group">      
-                <input class="simulator_input" id="duracion_meses" type="number" required>
+            <div class="group mostrar_duracion_meses" >      
+                <input class="simulator_input mostrar_duracion_meses" id="duracion_meses" type="number" value="0" required >
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label class="simulator_label">Meses</label>
