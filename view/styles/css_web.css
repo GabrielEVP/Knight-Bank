@@ -855,11 +855,14 @@ a.form_link:hover:after {
   filter: grayscale(100%);
 }
 
+.padding_section {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+
 .container_information_knight {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-top: 8em;
-  padding-bottom: 8em;
   margin: 5em;
 }
 .container_information_knight .image_graficos {
@@ -941,113 +944,120 @@ a.form_link:hover:after {
     margin: 10px;
   }
 }
-.container {
-  max-height: 800px;
-  max-width: 1280px;
-  min-height: 600px;
-  min-width: 1000px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
+.about {
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100%;
+  padding-top: 6em;
+  padding-bottom: 6em;
+  filter: brightness(80%);
+}
+.about p {
+  color: rgb(0, 0, 0);
 }
 
-.border {
-  height: 369px;
-  width: 290px;
-  background: transparent;
-  border-radius: 10px;
-  transition: border 1s;
-  position: relative;
-}
-.border:hover {
-  border: 1px solid white;
+#people {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 1000;
 }
 
-.card_about {
-  height: 379px;
-  width: 300px;
-  background: grey;
-  border-radius: 10px;
-  transition: all 0.8s;
-  overflow: hidden;
-  background: black;
-  box-shadow: 0 70px 63px -60px #000000;
+#section_people {
+  padding-top: 2em;
+  padding-bottom: 5em;
+}
+
+.container_people {
   display: flex;
+  flex-wrap: wrap;
+  margin: auto 15px;
   justify-content: center;
-  align-items: center;
+}
+
+.gabriel {
+  background-image: url(../img/web/gabriel.jpg);
+}
+
+.josu {
+  background-image: url(../img/web/josu.jpg);
+}
+
+.card_people {
   position: relative;
+  width: 20em;
+  height: 30em;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  margin: 15px;
 }
-
-.card_about0 {
-  background: url("https://i.pinimg.com/736x/8f/a0/51/8fa051251f5ac2d0b756027089fbffde--terry-o-neill-al-pacino.jpg") center center no-repeat;
-  background-size: 300px;
+.card_people:hover {
+  background-position: -5em;
+  transition: all 0.3s ease-in-out;
 }
-.card_about0:hover {
-  background: url("https://i.pinimg.com/736x/8f/a0/51/8fa051251f5ac2d0b756027089fbffde--terry-o-neill-al-pacino.jpg") left center no-repeat;
-  background-size: 600px;
-}
-.card_about0 h2 {
+.card_people:hover > .icon_people {
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
-.card_about0 .faa {
-  opacity: 1;
-}
-
-.card_about1 {
-  background: url("../img/web/astronauta.jpg") center center no-repeat;
-  background-size: 300px;
-}
-.card_about1:hover {
-  background: url("../img/web/astronauta.jpg") left center no-repeat;
-  background-size: 600px;
-}
-.card_about1 h2 {
-  opacity: 1;
-}
-.card_about1 .faa {
-  opacity: 1;
-}
-
-.card_about2 {
-  background: url("https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg") center center no-repeat;
-  background-size: 300px;
-}
-.card_about2:hover {
-  background: url("https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg") left center no-repeat;
-  background-size: 600px;
-}
-.card_about2 h2 {
-  opacity: 1;
-}
-.card_about2 .fa {
-  opacity: 1;
-}
-
-h2 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.card_people h2 {
   color: white;
-  margin: 20px;
-  opacity: 0;
-  transition: opacity 1s;
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center;
 }
 
-.faa {
+.icon_people {
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  color: rgb(255, 255, 255);
   opacity: 0;
-  transition: opacity 1s;
-}
-
-.icons {
-  position: absolute;
-  fill: #fff;
-  color: #fff;
-  height: 130px;
-  top: 226px;
-  width: 50px;
+  bottom: -60%;
+  left: 10px;
+  font-size: 20px;
+  margin: 8px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+}
+.icon_people:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.location {
+  background-image: url(../img/web/fondo_about.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.location .location_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+.location h2 {
+  margin: 5px;
+}
+.location .map {
+  width: 100%;
+  margin: auto;
+}
+.location iframe {
+  width: 80%;
+  height: 500px;
 }
 
 .container_simulator {
