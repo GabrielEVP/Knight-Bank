@@ -1,17 +1,15 @@
 .about {
-  background: #DC2424;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4A569D, #DC2424);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4A569D, #DC2424); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0;
   width: 100%;
   padding-top: 6em;
   padding-bottom: 6em;  
   p {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
   }
 }
 
 #people {
+  color: white;
   text-align: center;
   margin-top: 20px;
   font-size: 40px;
@@ -19,6 +17,7 @@
 }
 
 #section_people {
+  background-color: #24252A;
   padding-top: 2em;
   padding-bottom: 5em;
 }
