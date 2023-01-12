@@ -4,6 +4,17 @@ function verification_Email (email) {
    return expEMAIL.test(email) ? true : false
 }
 
+// Comprueba por medio de expresiones regulares si el valor puesto solamente tiene letras //
+function verification_Name (name) {
+    const expNAME =  /^[a-z]*.*[a-z]$/;
+    return expNAME.test(name.toLowerCase()) ? true : false
+}
+
+// Comprueba por medio de expresiones regulares si el valor puesto en el input tiene 9 de longitud //
+function verification_Phone (phone) {
+    return phone.length == 9 ?? false;
+}
+
 // Comprueba por medio de expresiones regulares si el valor puesto en el input es un dni o un nif //
 function verification_Dni (dni) {
     const expNIF =  /^[a-z]./;
@@ -14,11 +25,6 @@ function verification_Dni (dni) {
     } else {
         return false
     }
-}
-
-// Comprueba por medio de expresiones regulares si el valor puesto en el input tiene 9 de longitud //
-function verification_Phone (phone) {
-    return phone.length == 9 ?? false;
 }
 
 // Comprueba por medio de evento keypress a travez de codigo ASCII si el valor puesto en el input tiene lo que le pongas como condicion//
@@ -36,4 +42,13 @@ function keypress_porcentaje (input) {
     })
 }
 
-export { verification_Phone , verification_Dni , verification_Email, keypress_condition, keypress_porcentaje }
+// Comprueba si un booleano por medio de las funciones verificacion si se cumplen o no para mostrarlo al usuario //
+function comprobator_input (boolean, input) {
+    if (boolean === false) {
+        $(input).css({"border-color": "red"},) ;
+    } else {
+        $(input).css({"border-color": ""},) ;
+    }
+}
+
+export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, keypress_porcentaje , comprobator_input }
