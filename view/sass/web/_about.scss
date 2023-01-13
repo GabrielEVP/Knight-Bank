@@ -1,0 +1,86 @@
+.about {
+  margin: 0;
+  width: 100%;
+  padding-top: 6em;
+  padding-bottom: 6em;  
+  p {
+    color: rgb(0, 0, 0);
+  }
+}
+
+#people {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 1000;
+}
+
+#section_people {
+  background-color: #24252A;
+  padding-top: 2em;
+  padding-bottom: 5em;
+}
+
+.container_people {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 15px;
+  justify-content: center;
+}
+
+.gabriel{
+  background-image: url(../img/web/gabriel3.jpg);
+}
+
+.josu {
+  background-image: url(../img/web/josu.jpg);
+}
+
+.card_people {
+  position: relative;
+  width: 20em;
+  height: 30em;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  transition: all .30s ease-in-out;
+  margin: 15px;
+
+  &:hover {
+    background-position: -5em;
+    transition: all .30s ease-in-out;
+
+  }
+
+    &:hover > .icon_people{
+      transition: all .30s ease-in-out;
+      opacity: 1;
+    }
+  
+      h2 {
+        margin-top: 0.4em;
+        color: white;
+        font-size:2em;
+        font-weight: 800;
+        text-align: center;
+      }
+}
+
+.icon_people {
+  transition: all .30s ease-in-out;
+  position: relative;
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  bottom: -60%;
+  left: 10px;
+  font-size: 20px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    color: gray;
+    cursor: pointer;
+  }
+}

@@ -2,6 +2,7 @@
 <html lang="en" ng-app='App'>
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../img/global/logos/logo.gif">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/css_web.css">
@@ -11,133 +12,167 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="../../js/app/web/app_simulador.js"></script>
+    <script src="../../js/app/web/app_simulador.js" type="module"></script>
 </head>
-    <title>simulador</title>
+    <title>Simulador</title>
 </head>
 <body ng-controller="Controler">
 
     <nav>
-        <div class="logo"><img src="../../../logo.gif" alt=""></div>
+        <div class="logo"><img src="../../img/global/logos/logo.gif" alt=""></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
         <ul>
            <li><a href="../../../index.html">Inicio</a></li>
-           <li><a href="#">Sobre nosotros</a></li>
            <li><a class="active" href="./simulador.html">Simulador</a></li>
            <li><a href="./login.html">Login</a></li>
-          <!--  <li><a href="../aplication/admin.html">Admin</a></li> !-->
         </ul>
      </nav>
 
+    <!---------- formulario ------------>
     <form>
-        <div>
-            <div class="container_simulator">
-            <select id="tipoPrestamo">
-                <option value="frances">Frances</option>
-                <option value="lineal">Lineal</option>
-                <option value="simple">Simple</option>
-                <option value="americano">Americano</option>
-            </select>
+        <!---------- option ------------>
+        <div class="container_simulator">
+            <div class="container_option" >
+                <label class="simulator_label">Tipo de prestamo</label>
+                <select id="tipoPrestamo">
+                    <option value="frances">Frances</option>
+                    <option value="lineal">Lineal</option>
+                    <option value="simple">Simple</option>
+                    <option value="americano">Americano</option>
+                </select>
 
-            <div class="group">      
-                <input class="simulator_input" id="porcentajeInteres" type="number" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">Porcentaje Interes %</label>
-            </div>
+                <label class="simulator_label mostrar_periodo_amortizacion" >Periodo de amortizacion</label>
+                <select id="tipoAmortizacion" class="mostrar_periodo_amortizacion" >
+                    <option value="12">Anual</option>
+                    <option value="6">Semestral</option>
+                    <option value="4">Cuatrimestral</option>
+                    <option value="3">Trimestral</option>
+                    <option value="1">Mensual</option>
+                </select>
 
-            <div class="group">      
-                <input class="simulator_input" id="duracion" type="number" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">Duracion</label>
-            </div>
+                <label class="simulator_label mostrar_periodo_interes" >Periodo de intereses</label>
+                <select id="tipoInteres" class="mostrar_periodo_interes" >
+                    <option value="12">Anual</option>
+                    <option value="6">Semestral</option>
+                    <option value="4">Cuatrimestral</option>
+                    <option value="3">Trimestral</option>
+                    <option value="1">Mensual</option>
+                </select>
 
-            <div class="group">      
-                <input class="simulator_input" id="totalPrestado" type="number" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label class="simulator_label">Total Prestado</label>
+                <label class="simulator_label mostrar_carencia" >Periodo de carencia</label>
+                <select id="tipoCarencia" class="mostrar_carencia" >
+                    <option value="0">Sin carencia</option>
+                    <option value="1">Parcial</option>
+                    <option value="2">Total</option>
+                </select>
             </div>
-            <div ng-click="calcularPrestamo()" class="flex dark"><button class="bttn white">Calcular Prestamo</button></div>
-            </div>
-            <div class="table">
-                <table id="customers" ng-show="show_table == true">
-                    <tr>
-                        <th>Periodo</th>
-                        <th>Cuota</th>
-                        <th>Amortizacion</th>
-                        <th>Interes</th>
+            <!---------- input ------------>
+            <div class="container_input" >
+                <div class="group">      
+                    <input class="simulator_input" id="porcentajeInteres" type="text" maxlength="5" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">Porcentaje Interes %</label>
+                </div>
 
-                        <th>Total amortizado</th>
-                        <th>Total pendiente</th>
-                    </tr>
-                    <tr ng-repeat="cuota in tabla_prestamo">
-                        <td>{{cuota.periodo}}</td>
-                        <td>{{cuota.total_cuota}}€</td>
-                        <td>{{cuota.amortizado_cuota}}€</td>
-                        <td>{{cuota.interes_cuota}}€</td>
+                <div class="group">      
+                    <input class="simulator_input" id="duracion_anos" type="text" maxlength="2"  required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">A&ntilde;os</label>
+                </div>
 
-                        <td>{{cuota.total_amortizado}}€</td>
-                        <td>{{cuota.total_pendiente}}€</td>
-                    </tr>
-                </table>
+                <div class="group mostrar_duracion_meses" >      
+                    <input class="simulator_input mostrar_duracion_meses" id="duracion_meses" type="text" maxlength="3" required >
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">Meses</label>
+                </div>
+
+                <div class="group mostrar_duracion_carencia" id="div_carencia" >      
+                    <input class="simulator_input" id="carencia" type="text" maxlength="3" required >
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label" >Meses de carencia</label>
+                </div>
+
+                <div class="group">      
+                    <input class="simulator_input" id="totalPrestado" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="simulator_label">Total Prestado</label>
+                </div>
             </div>
+        </div>
+
+        <div ng-click="calcularPrestamo()" class="flex dark"><button class="bttn white">Calcular Prestamo</button></div>
+        <div class="table">
+            <table id="loans" ng-show="show_table == true">
+                <tr>
+                    <th>A&ntilde;o</th>
+                    <th>Periodo</th>
+                    <th>Cuota</th>
+                    <th>Amortizacion</th>
+                    <th>Interes</th>
+
+                    <th>Total amortizado</th>
+                    <th>Total pendiente</th>
+                </tr>
+                <tr ng-repeat="cuota in tabla_prestamo">
+                    <td>{{cuota.ano}}</td>
+                    <td>{{cuota.periodo}}</td>
+                    <td>{{cuota.total_cuota}}€</td>
+                    <td>{{cuota.amortizado_cuota}}€</td>
+                    <td>{{cuota.interes_cuota}}€</td>
+
+                    <td>{{cuota.total_amortizado}}€</td>
+                    <td>{{cuota.total_pendiente}}€</td>
+                </tr>
+            </table>
         </div>
     </form>
 
-    <footer>
-        <hr>
-        <div class="row">
-      
-            <div class="col">
-                <img src="../../../logo.gif" alt="">
-                <p>4RBIKES proiektua, beste hainbat proiektu bezala, gau ilun batian tximista bakar
-                batek sortzen duen argitasun zuntz batetik sortutako idea da. Zergatik ez imajinatu
-                beste mobilitate eredu bat ? askoz ere jasangarriagoa, inklusiboa, osasuntsuagoa eta
-                natura berarekin integratzaileagoa.</p>
-            </div>
-
-            <div class="col">
-                <h3>Bulegoa <div class="linea"><span></span></div></h3>
-                <p>20600 Eibar, Gipuzkoa</p>
-                <p>Telefono finko: 943 92 63 89</p>
-                <p>+34 645 42 53 65</p>
-                <p class="email_id">4rbikes@gmail.com</p>
-            </div>
-
-            <div class="col">
-                <h3>Besteak <div class="linea"><span></span></div></h3>
-                <ul>
-                    <li><a href="../about/about.php">Guri buruz</a></li>
-                    <li><a href="../soporte/soporte.php">Laguntza teknikoa</a></li>
-                    <li><a href="../tienda/adaptacion.php">Adaptazioak</a></li>
-                    <li><a href="../tienda/reciclaje.php">Birziklapena</a></li>
-                    <li><a href="../tienda/motor.php">Motore Elektrikoak</a></li>
-                </ul>
-            </div>
-
-            <div class="col">
-                <h3>Korreoa<div class="linea"><span></span></div></h3>
-
-                <form action="">
-                    <i class="far fa-envelope"></i>
-                    <input type="text" name="" id="" required>
-                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
-                </form>
-
-                <div class="social_icons">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-whatsapp"></i>
-                    <i class="fab fa-pinterest"></i>
-                </div>
-            </div>
-
-        </div>
-        <hr>
-    </footer>
+    <footer class="footer">
+         <hr>
+         <div class="row"> 
+             <div class="col">
+                 <p>La información ofrecida en esta página no constituye asesoramiento en materia de inversión, ni asesoramiento bancario. Por no suponer un asesoramiento bancario, la información ofrecida no se basa en un análisis objetivo y amplio de los servicios bancarios disponibles en el mercado, ni considera la situación personal y financiera del usuario, preferencias u objetivos.</p>
+                 <img src="../../img/global/logos/logo.gif"" alt="">
+             </div>
+ 
+             <div class="col">
+                 <h3>Contacto <div class="linea"><span></span></div></h3>
+                 <p>48340 Amorebieta-Etxano, Bizkaia</p>
+                 <p>Telefono: 943 92 63 89</p>
+                 <p>+34 645 42 53 65</p>
+                 <p class="email_id">knightBank_support@gmail.com</p>
+             </div>
+ 
+             <div class="col ">
+                 <h3>Otros <div class="linea"><span></span></div></h3>
+                 <ul>
+                     <li><a href="index.html">Inicio</a></li>
+                     <li><a href="./view/pages/web/simulador.html">Simulacion de prestamos</a></li>
+                     <li><a href="./view/pages/web/login.html">App</a></li>
+                 </ul>
+             </div>
+ 
+             <div class="col">
+                 <h3 class="redes">Redes<div class="linea"><span></span></div></h3>
+                 <div class="social_icons">
+                     <i class="fab fa-facebook-f"></i>
+                     <i class="fab fa-brands fa-instagram"></i>
+                     <i class="fab fa-whatsapp"></i>
+                     <i class="fab fa-twitter"></i>
+                     <i class="fab fa-brands fa-github"></i>
+                     <i class="fab fa-brands fa-linkedin"></i>
+                 </div>
+             </div>
+ 
+         </div>
+         <hr>
+     </footer>
 
 </body>
 </html>
