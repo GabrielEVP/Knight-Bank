@@ -1,4 +1,8 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+
 include_once ("../../model/user/user_model.php"); 
 session_start();
 

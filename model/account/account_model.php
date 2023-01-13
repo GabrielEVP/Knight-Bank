@@ -1,7 +1,7 @@
 <?php
 
 include_once ("account_class.php"); 
-include_once (str_replace("account", "", __DIR__  . "database\query.php")); 
+include_once (str_replace("account", "", __DIR__  . "database/query.php")); 
 include_once (str_replace("account", "", __DIR__  . "function.php")); 
 
 class account_model extends account_class {
