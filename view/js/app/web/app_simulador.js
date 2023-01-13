@@ -6,7 +6,7 @@ const App = angular.module('App', []);
 App.controller('Controler', function($scope) {
 
     window.onload = function () {
-        keypress_condition("#porcentajeInteres", "0123456789");
+        keypress_condition("#porcentajeInteres", "0123456789.");
         keypress_condition("#duracion_anos", "0123456789");
         keypress_condition("#duracion_meses", "0123456789");
         keypress_condition("#carencia", "0123456789");
