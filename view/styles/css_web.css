@@ -1019,8 +1019,8 @@ a.form_link:hover:after {
   left: 10px;
   font-size: 20px;
   margin: 8px;
-  display: flex;
-  flex-direction: column;
+  width: 10px;
+  display: list-item;
 }
 .icon_people:hover {
   color: gray;

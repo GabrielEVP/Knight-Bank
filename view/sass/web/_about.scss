@@ -76,8 +76,8 @@
   left: 10px;
   font-size: 20px;
   margin: 8px;
-  display: flex;
-  flex-direction: column;
+  width: 10px;
+  display: list-item;
 
   &:hover {
     color: gray;
