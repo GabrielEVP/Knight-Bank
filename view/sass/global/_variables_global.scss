@@ -67,9 +67,9 @@ $border_verde: 2px solid $color_principal;
 }
 
 @mixin no_scrollBars {
-
     &::-webkit-scrollbar {
-        width: 0;    
+        width: 0;
+        height: 0;    
     }
       
     &::-webkit-scrollbar-track {  
@@ -81,4 +81,20 @@ $border_verde: 2px solid $color_principal;
         border: none;
     }
     
+}
+
+$colores: (
+  "green" #16f802,
+  "yellow" #e3fc04,
+  "a" #adf701,
+  "blue" #0d64d6,
+  "orange" #ff9100,
+  "cya_white" #00ffb3,
+  "gray" #cfc7c7,
+);
+
+@each $name , $color in $colores {
+    .#{$name} {
+      color: $color;
+    } 
 }

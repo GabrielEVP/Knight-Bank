@@ -50,3 +50,14 @@
       justify-content: end;
   
   }
+
+  @media (max-width: 1040px) {
+   
+    .button_filter {
+      display: none;
+    }
+
+    .container_filter {
+     display: none;
+    }
+}
