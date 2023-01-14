@@ -10,15 +10,15 @@ class move_model extends move_class {
     private $objMoveType;
 
     public function insert_move () {
-        return insert("insert into move (id_moveType, dateTime) values ($this->objMoveType->getIdMoveType(), '$this->dateTime')");
+        return insert("insert into move (id_moveType, dateTime, notion) values ($this->objMoveType->getIdMoveType(), '$this->dateTime', '$this->notion')");
     }
 
     public function delete_move () {
-       return delete('move',$this->id);
+       return delete('move',$this->id_move);
     }
 
     public function update_move () {
-        return update("update move set IBAN = '$this->IBAN', id_move = $this->id_move, amount= $this->amount WHERE id_move = $this->id_move");
+        return update("update move set id_moveType = '$this->objMoveType->getIdMoveType()', id_move = $this->id_move, dateTime = '$this->dateTime', notion = '$this->notion' WHERE id_move = $this->id_move");
     }
 
     public function get_move ($id) {

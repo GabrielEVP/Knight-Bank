@@ -64,5 +64,113 @@ class user_list extends standard_class{
         return $result_list;
     }
 
+
+    
+    public function get_full_extra_list() {
+        $extra_data_array = $this->get_extra_data();
+        $array_user_list = $this->getArrayObjVars("user_list");
+
+        $array_length = count($array_user_list);
+        for ($i = 0; $i < $array_length; $i++) {//las dos listas se obtienen ordenadas de la misma manera, podemos usar los mismos indices
+            $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
+            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
+            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+        }
+        unset($array_length);
+
+        return $array_user_list;
+    }
+
+    public function get_administrator_extra_list() {
+        $extra_data_array = $this->get_extra_data();
+        $array_user_list = $this->getArrayObjVars("user_list");
+
+        $result = array();
+        $array_length = count($array_user_list);
+        for ($i = 0; $i < $array_length; $i++) { //las dos listas se obtienen ordenadas de la misma manera, podemos usar los mismos indices
+            if (!$array_user_list[$i]['admin'] > 0) {
+                continue;//nos saltamos a los que no son admin
+            }
+            $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
+            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
+            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+
+            array_push($result,$array_user_list[$i]);
+        }
+        unset($array_length);
+
+        return $array_user_list;
+    }
+
+    public function get_inactive_extra_list() {
+        $extra_data_array = $this->get_extra_data();
+        $array_user_list = $this->getArrayObjVars("user_list");
+
+        $result = array();
+        $array_length = count($array_user_list);
+        for ($i = 0; $i < $array_length; $i++) { //las dos listas se obtienen ordenadas de la misma manera, podemos usar los mismos indices
+            if (!$array_user_list[$i]['login_tries'] == 0) {
+                continue;//nos saltamos a los estan baneados (no tienen intentos de login)
+            }
+            $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
+            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
+            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+
+            array_push($result,$array_user_list[$i]);
+        }
+        unset($array_length);
+
+        return $array_user_list;
+    }
+
+    public function get_active_extra_list() {
+        $extra_data_array = $this->get_extra_data();
+        $array_user_list = $this->getArrayObjVars("user_list");
+
+        $result = array();
+        $array_length = count($array_user_list);
+        for ($i = 0; $i < $array_length; $i++) { //las dos listas se obtienen ordenadas de la misma manera, podemos usar los mismos indices
+            if (! ($array_user_list[$i]['login_tries'] > 0 && $array_user_list[$i]['admin'] == 0) ) {
+                continue;//nos saltamos a los admin y a los baneados
+            }
+            $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
+            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
+            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+
+            array_push($result,$array_user_list[$i]);
+        }
+        unset($array_length);
+
+        return $array_user_list;
+    }
+
+    private function get_extra_data() {
+        $sql = "SELECT
+                    a.id_user,
+                    COUNT(a.id_account) as 'account_number',
+                    SUM(a.balance) as 'total_balance',
+                    COUNT(am.id_account_move) as 'move_number',
+                    MAX(m.dateTime) as 'last_move'
+                FROM 
+                    account_move am
+                RIGHT JOIN     	
+                        account a 
+                    ON
+                        a.id_account = am.id_account
+                LEFT JOIN
+                        move m
+                    ON
+                        am.id_move = m.id_move
+                WHERE 
+                    a.id_user IS NOT NULL
+                GROUP BY 
+                    a.id_user;";
+        return  select_array($sql);      
+    }
+
 }
 ?>
