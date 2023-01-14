@@ -2,12 +2,11 @@ import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
 import { controller_url_User , controller_url_user_List } from "../../class/user/dictionary_user.js"
 
-import { account_class } from "../../class/account/account_class.js";
 import { account_list } from "../../class/account/account_list.js";
 import { controller_url_Account , controller_url_account_List } from "../../class/account/dictionary_account.js"
 
 import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
-import { empty_input, empty_input_account, show_Modal , quit_Modal } from "../../components/global/modal.js"
+import { empty_input, show_Modal , quit_Modal } from "../../components/global/modal.js"
 
 
 const App = angular.module('App', []);
