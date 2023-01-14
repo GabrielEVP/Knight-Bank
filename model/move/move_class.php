@@ -3,8 +3,9 @@ include_once ("model/standard_class.php");
 class move_class extends standard_class{
 
     protected $id_move;
-    protected $id_move_type;
+    protected $id_moveType;
     protected $dateTime;
+    protected $notion;
     
     /**
      * Get the value of id_move
@@ -25,19 +26,19 @@ class move_class extends standard_class{
     }
 
     /**
-     * Get the value of id_move_type
+     * Get the value of id_moveType
      */
     public function getIdMoveType()
     {
-        return $this->id_move_type;
+        return $this->id_moveType;
     }
 
     /**
-     * Set the value of id_move_type
+     * Set the value of id_moveType
      */
-    public function setIdMoveType($id_move_type): self
+    public function setIdMoveType($id_moveType): self
     {
-        $this->id_move_type = $id_move_type;
+        $this->id_moveType = $id_moveType;
 
         return $this;
     }
@@ -56,6 +57,24 @@ class move_class extends standard_class{
     public function setDateTime($dateTime): self
     {
         $this->dateTime = $dateTime;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of notion
+     */
+    public function getNotion()
+    {
+        return $this->notion;
+    }
+
+    /**
+     * Set the value of notion
+     */
+    public function setNotion($notion): self
+    {
+        $this->notion = $notion;
 
         return $this;
     }
