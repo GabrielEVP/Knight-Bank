@@ -67,7 +67,7 @@ class user_list extends standard_class{
     //------------------------------------------------------------------
     //LISTAS CON DATOS EXTRA PARA LAS TARJETAS DE USUARIO
     //------------------------------------------------------------------
-    
+
     public function get_full_extra_list() {
         $extra_data_array = $this->get_extra_data();
         $array_user_list = $this->getArrayObjVars("user_list");
@@ -77,7 +77,7 @@ class user_list extends standard_class{
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
-            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+            $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
         }
         unset($array_length);
 
@@ -97,7 +97,7 @@ class user_list extends standard_class{
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
-            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+            $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
 
             array_push($result,$array_user_list[$i]);
         }
@@ -119,7 +119,7 @@ class user_list extends standard_class{
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
-            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+            $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
 
             array_push($result,$array_user_list[$i]);
         }
@@ -141,7 +141,7 @@ class user_list extends standard_class{
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
-            $array_user_list[$i]['last_move'] = $extra_data_array[$i]['last_move'];
+            $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
 
             array_push($result,$array_user_list[$i]);
         }
