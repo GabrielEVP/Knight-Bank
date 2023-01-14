@@ -200,7 +200,6 @@ nav {
   flex-wrap: wrap;
 }
 nav img {
-  margin-left: 10%;
   width: 80px;
   height: 80px;
   -webkit-filter: grayscale(100%);
@@ -788,6 +787,9 @@ a.form_link:hover:after {
   background-repeat: repeat;
   background-position: center;
   background-attachment: fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
 }
 .presentation h1 {
   text-align: center;
@@ -1047,8 +1049,8 @@ a.form_link:hover:after {
   left: 10px;
   font-size: 20px;
   margin: 8px;
-  display: flex;
-  flex-direction: column;
+  width: 10px;
+  display: list-item;
 }
 .icon_people:hover {
   color: gray;
