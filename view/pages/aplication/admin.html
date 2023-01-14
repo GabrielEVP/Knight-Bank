@@ -126,28 +126,28 @@
                         <div class="chart_information">
                             <div class="title">Nº Cuentas</div>
                             <i ng-click="show_Account('.account', user.id_user)" class="btn fa-solid fa-vault cya_white"></i>
-                            <div class="value">2</div>
+                            <div class="value">{{user.account_number}}</div>
                         </div>
                     </div>
                     <div class="container_information">
                         <div class="chart_information">
                             <div class="title">Balance</div>
                             <i class="fa-solid fa-piggy-bank a "></i>
-                            <div class="value">27 $</div>
+                            <div class="value">{{user.total_balance}} $</div>
                         </div>
                     </div>
                     <div class="container_information">
                         <div class="chart_information">
                             <div class="title">Movimiento</div>
                             <i class="fa-solid fa-money-bill-transfer green"></i>
-                            <div class="value">123</div>
+                            <div class="value">{{user.move_number}}</div>
                         </div>
                     </div>
                     <div class="container_information">
                         <div class="chart_information">
                             <div class="title">Ult. movimiento</div>
                             <i class="fa-regular fa-calendar-days gray"></i>
-                            <div class="value">2/4/52</div>
+                            <div class="value">{{user.last_move}}</div>
                         </div>
                     </div>
                 </div>
