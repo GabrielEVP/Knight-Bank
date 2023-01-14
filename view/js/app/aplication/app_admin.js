@@ -6,7 +6,7 @@ import { account_list } from "../../class/account/account_list.js";
 import { controller_url_Account , controller_url_account_List } from "../../class/account/dictionary_account.js"
 
 import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
-import { empty_input, show_Modal , quit_Modal } from "../../components/global/modal.js"
+import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
 
 
 const App = angular.module('App', []);
@@ -14,7 +14,12 @@ const App = angular.module('App', []);
 App.controller('Controler', function($scope, $http) {
 
     window.onload = async function() {
-       await login_verify();
+        $scope.menu_status = localStorage.getItem('menu_status');
+        $scope.body_status = localStorage.getItem('menu');
+
+        console.log($scope.menu_status);
+        console.log($scope.body_status);
+        await login_verify();
     }
 
     $scope.load_user = function (controller_name) {
@@ -94,12 +99,65 @@ App.controller('Controler', function($scope, $http) {
     $scope.close = function() {
         $scope.list_account = new account_list(); 
         quit_Modal();
+
+        if (screen.width < 520) {
+            $(".modal-content").css({
+                "top": "30%"
+            });
+
+            $(".modal_content").css({
+                "max-height": "60vh"
+            });
+        } else if (screen.width >= 1300) {
+            $(".modal-content").css({
+                "top": "60%"
+            });
+            
+            $(".modal_content").css({
+                "max-height": "50vh"
+            });
+        } else {
+            $(".modal-content").css({
+                "top": "30%"
+            });
+
+            $(".modal_content").css({
+                "max-height": "10vh"
+            });
+        }
     }
 
     $scope.show_Account = async function(class_element,id) {
         $scope.id = id;
         const data = { id_user : id }
-        console.log(data);
+
+        if (screen.width < 520) {
+            $(".modal-content").css({
+                "top": "10%"
+            });
+
+            $(".modal_content").css({
+                "max-height": "60vh"
+            });
+        
+        } else if (screen.width >= 1300) {
+            $(".modal-content").css({
+                "top": "40%"
+            });
+            
+            $(".modal_content").css({
+                "max-height": "50vh"
+            });
+        } else {
+            $(".modal-content").css({
+                "top": "30%"
+            });
+
+            $(".modal_content").css({
+                "max-height": "50vh"
+            });
+        }
+
         $http({
             url : controller_url_account_List('load_from_user'),
             method : 'POST',

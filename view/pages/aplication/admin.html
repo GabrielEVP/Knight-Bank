@@ -19,10 +19,9 @@
     <script src="../../js/app/aplication/app_admin.js" type="module"></script>
     <title>Admins</title>
 </head>
-<body ng-controller="Controler" ng-init="load_user('all')">
-
+<body ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }"  ng-controller="Controler" ng-init="load_user('all')">
     <!--- nav bar PC  -->
-    <div class="sidemenu menu_collapsed">
+    <div  ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
             <div class="menu_btn">
                 <div class="btn_hamburger"></div>
@@ -92,16 +91,18 @@
 
     <div class="body_collapse body_phone">
         <!--- botones filter  -->
+    
+        <div class="container_input_filter">
+            <input class="input_filter" type="text">
+        </div>
+        
         <div class="container_filter">
-            <div class="container_input_filter">
-                <input class="input_filter" type="text" name="" id="">
-            </div>
             <div class="container_button_filter">
-                <button ng-click="load_user('all')" class="button_filter button_filter_normal">Todos</button>
-                <button ng-click="load_user('admin')" class="button_filter button_filter_normal">Admins</button>
-                <button ng-click="load_user('user')" class="button_filter button_filter_normal">Usuarios</button>
-                <button ng-click="load_user('inactive')" class="button_filter button_filter_normal">Baneados</button>
-                <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
+                <button ng-click="load_user('all')" class="button_filter boton_orange ">Todos</button>
+                <button ng-click="load_user('admin')" class="button_filter boton_gold">Admins</button>
+                <button ng-click="load_user('user')" class="button_filter boton_green">Usuarios</button>
+                <button ng-click="load_user('inactive')" class="button_filter boton_gray">Baneados</button>
+                <button ng-click="show_Insert()" class="button_filter boton_a "><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
         
@@ -184,7 +185,7 @@
 
             <div class="container_tarjet modal_content">
                 <div class="tarjet" ng-repeat="account in list_account.account_list">
-                    <h3 class="tarjet_company title_company">Kniht Bank</h3>
+                    <h3 class="tarjet_company title_company">Knight Bank</h3>
                     <p>debito</p>
                     <div class="img_chip">
                         <img src="../../img/aplication/scan.png" alt="">
@@ -198,7 +199,6 @@
                     <h3 class="tarjet_company title_tip">Visa</h3>
                 </div>
             </div>
-            
         </article>
         <footer>
             <label ng-click="insert_account(id)" for="modal" class="button success account">Crear Cuenta</label>

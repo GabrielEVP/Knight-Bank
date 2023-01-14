@@ -11,7 +11,7 @@
 
 .modal-content {
 	position: fixed;
-	top: 50%;
+	top: 60%;
 	left: 45%;
 	width: 60%;
 	height: auto;
@@ -21,7 +21,7 @@
 	background-color: white;
 	border-radius: 4px;
 	box-shadow: 0 0 50px rgba(black,0.5);
-	transform: scale(0);
+
 	visibility: hidden;
 	z-index: 20;
 
@@ -85,8 +85,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		margin: auto;
-		padding: 10px 0 0;
+		
 
 		.button {
 			position: relative;
@@ -181,7 +180,7 @@
 		left: 0;
 		margin-top: 0;
 		padding: 5px;
-		height: 80%;
+
 
 		header {
 			margin: 15px;
@@ -190,16 +189,14 @@
 		i {
 			margin: 20px;
 		}
-
-		article {
-			width: 100%;
-			
-		}
 		
 	}
-
-	footer {
-		flex-direction: column;
-	}
-
 }
+
+@media (max-width: 450px) {
+
+	.modal-content {
+		top: 30%;		
+	}
+}
+

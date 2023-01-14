@@ -5,13 +5,13 @@
     border-radius: 1px;
     padding: 10px 20px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     transition: 0.3s;
 
     &:hover  {
-      border: 3px solid gray;
       color: white;
       background-color: gray;
+      border: 3px solid gray;
       transition: 0.3s;
     }
 
@@ -20,44 +20,68 @@
     }
 }
 
-.button_filter_normal {
-    background-color: #1b1b1b;
-    border: 3px solid #1b1b1b;
-}
+$margenes_filter : 2em;
 
-.button_filter_especial {
-  background-color: rgb(72, 255, 0);
-  border: 3px solid rgb(72, 255, 0);
+.container_input_filter {
+  position: absolute;
+  top: $margenes_filter ;
+  left: calc($margenes_filter + $width_navbar_aplication);
+  margin: auto;
 }
 
 .input_filter {
   background-color: transparent;
   border: 2px solid black;
+ 
 }
 
-.container_filter {
+.container_button_filter {
+  display: flex;
+  margin-top: $margenes_filter;
+  margin-right: $margenes_filter ;
+  justify-content: end;
+}
+
+@media (max-width: 1240px) {
+
+  .container_filter {
     display: grid; 
-    grid-template-columns: 0.5fr 1fr;
-    margin: 25px;
-  }
-  .container_input_filter {
+    grid-template-columns: 1fr;
     margin: auto;
-    margin-left: 0px;
+    margin-top: 25px;
+    overflow-x: scroll;
+    @include no_scrollBars;
+    align-items: center;
   }
   
   .container_button_filter {
-      display: flex;
-      justify-content: end;
-  
+    margin: 15px;
+    margin: auto;
   }
 
-  @media (max-width: 1040px) {
-   
-    .button_filter {
-      display: none;
-    }
+  .container_input_filter {
+    position:relative;
+    top: 0;
+    left: 0;
+    margin: auto;
+    margin-top: 2em;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-    .container_filter {
-     display: none;
-    }
+}
+  
+
+@media (max-width: 1040px) {
+
+  .container_filter {
+    margin-top: 25px;
+  }
+  
+
+  .container_input_filter {
+    margin-top: 6em;
+  }
 }
