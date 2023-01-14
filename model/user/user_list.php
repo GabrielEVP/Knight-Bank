@@ -103,7 +103,7 @@ class user_list extends standard_class{
         }
         unset($array_length);
 
-        return $array_user_list;
+        return $result;
     }
 
     public function get_inactive_extra_list() {
@@ -125,7 +125,7 @@ class user_list extends standard_class{
         }
         unset($array_length);
 
-        return $array_user_list;
+        return $result;
     }
 
     public function get_active_extra_list() {
@@ -147,7 +147,7 @@ class user_list extends standard_class{
         }
         unset($array_length);
 
-        return $array_user_list;
+        return $result;
     }
 
     private function get_extra_data() {
