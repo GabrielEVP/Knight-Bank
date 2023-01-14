@@ -64,7 +64,9 @@ class user_list extends standard_class{
         return $result_list;
     }
 
-
+    //------------------------------------------------------------------
+    //LISTAS CON DATOS EXTRA PARA LAS TARJETAS DE USUARIO
+    //------------------------------------------------------------------
     
     public function get_full_extra_list() {
         $extra_data_array = $this->get_extra_data();
