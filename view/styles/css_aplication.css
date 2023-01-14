@@ -189,6 +189,12 @@
     padding: 5px;
     height: 80%;
   }
+  .modal-content header {
+    margin: 15px;
+  }
+  .modal-content i {
+    margin: 20px;
+  }
   .modal-content article {
     width: 100%;
   }
