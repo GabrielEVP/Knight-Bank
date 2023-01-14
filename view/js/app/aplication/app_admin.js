@@ -73,7 +73,8 @@ App.controller('Controler', function($scope, $http) {
     /* Modal View */
     $scope.show_Insert = function() {
         empty_input();
-        show_Modal(".correo");
+        console.log("asd")
+        show_Modal(".add_user");
     }
 
     $scope.show_Update = async function(id) {

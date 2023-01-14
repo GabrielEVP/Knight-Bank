@@ -1,5 +1,4 @@
 <?php 
-
 class conect_data {
     public $host='localhost';
     public $userbbdd='root';

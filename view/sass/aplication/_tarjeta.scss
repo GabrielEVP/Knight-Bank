@@ -1,0 +1,127 @@
+// tarjeta // 
+
+$anchura_img_tarjet : 40px;
+$color_tarjet : gold;
+$color_cont : rgb(255, 255, 255);
+
+$left : 20px;
+
+$anchura_tarjet : 30em;
+$altura_tarjet : calc($anchura_tarjet / 2);
+
+$anchura_tarjet_movil : 27em;
+$altura_tarjet_movil : calc($anchura_tarjet_movil / 2);
+
+$anchur_cuenta : calc($altura_tarjet - 80%);
+$anchur_iconos : calc($altura_tarjet - 8.5em);
+
+.modal_content {
+    max-height: 65vh;
+    overflow-y: scroll;
+}
+
+.container_tarjet {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+
+}
+
+.tarjet {
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: relative;
+  width: $anchura_tarjet;
+  height: calc($altura_tarjet + 2em);
+  border-radius: 10px;
+  margin: 15px;
+
+  img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  .img_fondo img {
+    position: absolute;
+    right: 1em;
+    bottom: 3em;
+    width: 10em;
+    background: transparent;
+    opacity: 0.1;
+  }
+
+
+  .img_chip img {
+    position: relative;
+    top: $anchur_iconos;
+    width: $anchura_img_tarjet;
+    height: $anchura_img_tarjet;
+    left: $left;
+  }
+
+    .tarjet_company {
+      position: absolute;
+      font-size: 30px;
+      font-weight: 1000;
+    }
+
+      .title_company {
+        font-family: Georgia, serif;
+        color:$color_tarjet;
+        left: $left;
+        top: 15px;
+      }
+
+        p {
+          position: absolute;
+          font-weight: 500;
+          top: 20px;
+          right: 20px;
+          color: $color_tarjet;
+        }
+
+          .number {
+            position: absolute;
+            top: $anchur_cuenta;
+            left: $left;
+            font-size: 25px;
+            color: $color_cont;
+          }
+
+            .value {
+              position: absolute;
+              bottom: 15px;
+              font-size: 30px;
+              font-weight: 1000;
+              left: $left;
+              color: $color_tarjet;
+            }
+
+              .title_tip {
+                font-family: Noto Sans, sans-serif;
+                color: $color_tarjet;
+                position: absolute;
+                bottom: 10px;
+                right: 15px;
+              }
+}
+
+@media (max-width: 400px) {   
+  .tarjet {
+    width: $anchura_tarjet_movil;
+    height: $altura_tarjet_movil;
+
+    .img_chip img {
+      position: relative;
+      top: calc($anchur_iconos - 1em);
+    }
+    .number {
+      top: calc($anchur_cuenta + 2em);
+      font-size: 18px;
+    }
+  }
+
+  
+ 
+}

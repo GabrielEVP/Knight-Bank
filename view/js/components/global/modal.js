@@ -2,6 +2,8 @@ $(".menu_btn").click(function(){
     document.querySelector(".sidemenu").classList.toggle("menu_expanded");
     document.querySelector(".sidemenu").classList.toggle("menu_collapsed");
     document.querySelector('body').classList.toggle("body_expanded")
+    document.querySelector('body').classList.toggle("body_phone")
+
 })
 
 function empty_input() {
