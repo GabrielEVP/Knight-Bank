@@ -16,9 +16,6 @@ App.controller('Controler', function($scope, $http) {
     window.onload = async function() {
         $scope.menu_status = localStorage.getItem('menu_status');
         $scope.body_status = localStorage.getItem('menu');
-
-        console.log($scope.menu_status);
-        console.log($scope.body_status);
         await login_verify();
     }
 
@@ -77,7 +74,6 @@ App.controller('Controler', function($scope, $http) {
     /* Modal View */
     $scope.show_Insert = function() {
         empty_input();
-        console.log("asd")
         show_Modal(".add_user");
     }
 
