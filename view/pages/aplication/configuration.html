@@ -95,14 +95,27 @@
 
     <div class="body_collapse body_phone">
 
-        <div class="container_form_configuration">
-            <div class="container_photo_user">
-                <img src={{user_logged.foto}} alt="">
-                <input type="file">
-                <button></button>
+        <form action="../../../controller/user/update_user.php" method="post">
+            <div class="container_form_configuration">
+                <div class="container_photo_user">
+                    <img src={{user_logged.foto}} alt="">
+                    <input type="file">
+                    <button></button>
+                    <div class="container_input_user">
+                        <input type="text" value={{user_logged.NIF}} placeholder="NIF">
+                        <input type="text" value={{user_logged.gmail}} placeholder="Correo">
+                        <input type="text" value={{user_logged.name}} placeholder="Nombre">
+                        <input type="text" value={{user_logged.surname}} placeholder="Apellido">
+                        <input type="text" placeholder="Contraseña">
+                    </div>
+                    <div class="container_button_user">
+                        <button type="submit" >Enviar</button>
+                        <button value="cancelar">Cancelar</button>
+                    </div>
+                </div>
             </div>
-        </div>
-
+        </form>
+        
     </div>
 </body>
 </html>
