@@ -26,7 +26,7 @@ class account_list extends standard_class{
     }
 
     public function get_accounts_from_user_id ($user_id) {
-        $select = select_Object("SELECT * FROM account WHERE id_user = $user_id OR id_user_hist = $user_id");
+        $select = select_Object("SELECT * FROM account WHERE id_user = $user_id");
         $this->account_list = cast_array($select, new account_model());
     }
 }
