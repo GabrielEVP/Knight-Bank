@@ -1,5 +1,7 @@
 <?php 
 include_once ("../../../model/user/user_list.php"); 
+include_once ("../../../model/function.php"); 
+
 session_start();
 if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {//medida de seguridad
 

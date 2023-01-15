@@ -58,4 +58,14 @@ function create_setter($key) {
         }
         return "set" . ucfirst($key_name);
 }
+
+// function refactor_array_indexes($input_array) {
+//     $result = array();
+//     $array_length = count($input_array);
+
+//     for ($i = 0; $i < $array_length; $i++) {
+//         array_push()
+//     }
+//     unset($array_length);
+// }
 ?>
