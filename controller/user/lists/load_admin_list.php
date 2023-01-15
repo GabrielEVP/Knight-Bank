@@ -1,14 +1,18 @@
 <?php 
 include_once ("../../../model/user/user_list.php"); 
-//if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+session_start();
+if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {//medida de seguridad
 
-$user_list = new user_list();
+    $user_list = new user_list();
 
-$user_list->get_user_list_from_BBDD();
-$administrators = $user_list->get_administrator_extra_list();
+    $user_list->get_user_list_from_BBDD();
+    $administrators = $user_list->get_administrator_extra_list();
 
-echo json_encode($administrators);
-/*} else {
+    $loged_user = array_search($_SESSION['NIF'], array_column($administrators, 'NIF'));
+    unset($administrators[$loged_user]); //quitamos el usuario que esta loegeado
+
+    echo json_encode($administrators);
+} else {
     echo json_encode("no admin");
-}*/
+}
 ?>
