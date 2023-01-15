@@ -883,13 +883,14 @@ body {
   font-weight: 1000;
 }
 .container_form_configuration button:hover {
-  background: #f5f5f5;
+  background: #161515;
+  color: #d9dfdc;
 }
 .container_form_configuration button:active {
   background: #9fa1a0;
 }
 .container_form_configuration button:invalid + span {
-  color: #000000;
+  color: #f5f5f5;
 }
 .container_form_configuration button:valid + span {
   color: #ffffff;
@@ -918,9 +919,12 @@ body {
   margin: 5px;
   background: #dddddd;
   display: inline-block;
+  transition: all 0.4s;
 }
 .container_photo_user .label:hover {
-  background: #5cbd95;
+  transition: all 0.4s;
+  background: #161515;
+  color: #d9dfdc;
 }
 .container_photo_user .label:active {
   background: #9fa1a0;

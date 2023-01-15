@@ -18,7 +18,8 @@
         font-weight: 1000;
     
         &:hover {
-            background: #f5f5f5;
+            background: #161515;
+            color: #d9dfdc;
         }
     
             &:active {
@@ -26,7 +27,7 @@
             }
     
                 &:invalid+span {
-                    color: #000000;
+                    color: #f5f5f5;
                 }
     
                     &:valid+span {
@@ -61,9 +62,12 @@
         margin: 5px;
         background: #dddddd;
         display: inline-block;
+        transition: $transition_fast;
 
         &:hover {
-            background: #5cbd95;
+            transition: $transition_fast;
+            background: #161515;
+            color: #d9dfdc;
         }
 
             &:active {
