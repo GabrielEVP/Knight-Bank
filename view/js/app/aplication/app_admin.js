@@ -5,7 +5,7 @@ import { controller_url_User , controller_url_user_List } from "../../class/user
 import { account_list } from "../../class/account/account_list.js";
 import { controller_url_Account , controller_url_account_List } from "../../class/account/dictionary_account.js"
 
-import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
+import { fetch_get_Data, fetch_set_Data } from "../../server/server.js"
 import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
 
 const App = angular.module('App', []);
@@ -14,33 +14,25 @@ App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
-        $http.get((controller_url_User('login_verify')))
-        .then((res) => {
+
+        $http.get((controller_url_User('login_verify'))).then((res) => {
             const result = res.data;
-            $scope.list_user = new user_list();
-            $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
-            $('body').removeClass('hidden');
-        }).catch((err) => {
-            console.log(err);
-        });;
-    }
-
-    window.onload = function() {
-        $scope.menu_status = localStorage.getItem('menu_status');
-        $scope.body_status = localStorage.getItem('menu');
-    }
-
-    $scope.user_logged = function () {
-        fetch(controller_url_User('login_verify')).then(res => res.json()).then(result => {
+            $scope.menu_status = localStorage.getItem('menu_status');
+            $scope.body_status = localStorage.getItem('menu');
+         
             if (result.logged !== true) {
                 location.href = '../web/login.html'
-            } else {         
-                $scope.user_logged = new user_class(result.user.id_user, result.user.gmail, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
-            }   
-        }).catch(error => console.error('Error status:', error));	   
+            } else {
+                $scope.load_user('all');
+                $scope.list_user = new user_list();
+                $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.NIF , result.user.foto, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
+                $('body').removeClass('hidden');
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
     }
 
-  
     $scope.load_user = function (controller_name) {
         $http.post(controller_url_user_List(controller_name))
         .then((result) => {

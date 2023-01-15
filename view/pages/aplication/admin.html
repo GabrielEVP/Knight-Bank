@@ -21,12 +21,12 @@
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
 
-     <!--- animation load -->
+     <!--- animation load  -->
     <div class="loading"></div>
 
     <!--- nav bar PC  -->
     <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
-        <div class="header" ng-init="load_user('all')"> 
+        <div class="header"> 
             <div class="menu_btn">
                 <div class="btn_hamburger"></div>
                 <div class="btn_hamburger"></div>
@@ -39,7 +39,7 @@
         </div>
         <div class="menu_items">
             <div class="item">
-                <a href="#">
+                <a href="./admin.html">
                     <div class="icon active"><i class="i fa-solid fa-lock "></i></div>
                     <div class="title"><span>Admin</span></div>
                 </a>

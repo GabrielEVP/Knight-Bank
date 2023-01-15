@@ -16,12 +16,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     
     <link rel="stylesheet" href="../../styles/css_aplication.css">
-    <script src="../../js/app/aplication/app_admin.js" type="module"></script>
+    <script src="../../js/app/aplication/app_configuration.js" type="module"></script>
     <title>Admins</title>
 </head>
-<body ng-controller="Controler" ng-init="load_user('all')" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }"   >
+<body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
+
+     <!--- animation load  ng-init="load_user('all')" -->
+    <div class="loading"></div>
+
     <!--- nav bar PC  -->
-    <div  ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
+    <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
             <div class="menu_btn">
                 <div class="btn_hamburger"></div>
@@ -30,13 +34,13 @@
             </div>
         </div>
         <div class="profile">
-            <div class="photo"><a href="./configuration.html"><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></a></div>
-            <div class="name"><span>nombre del usuario</span></div>
+            <div class="photo"><a href="./configuration.html"><img src={{user_logged.foto}} alt="Icono_user"></a></div>
+            <div class="name"><span>{{user_logged.name}}</span></div>
         </div>
         <div class="menu_items">
             <div class="item">
                 <a href="./admin.html">
-                    <div class="icon"><i class="i fa-solid fa-lock"></i></div>
+                    <div class="icon active"><i class="i fa-solid fa-lock "></i></div>
                     <div class="title"><span>Admin</span></div>
                 </a>
             </div>
@@ -74,7 +78,7 @@
     <!--- nav bar Phone top -->
     <div class="navbar_phone navbar_top">
         <div class="container_navbar_phone">
-            <a href="./configuration.html"><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></a>
+            <a href="./configuration.html"><img src={{user_logged.foto}} alt="Icono_user"></a>
             <a href="./admin.html"><i class="i fa-solid fa-lock"></i></a>
             <a href=""><i class="i fa-solid fa-right-from-bracket"></i></a>
         </div>   
@@ -90,7 +94,15 @@
     </div>
 
     <div class="body_collapse body_phone">
+
+        <div class="container_form_configuration">
+            <div class="container_photo_user">
+                <img src={{user_logged.foto}} alt="">
+                <input type="file">
+                <button></button>
+            </div>
+        </div>
+
     </div>
-     
 </body>
 </html>

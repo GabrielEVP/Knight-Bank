@@ -32,6 +32,7 @@ if (!isset($_SESSION['banTime'])) {
         $_SESSION['id_user'] = $user->getIdUser();
         $_SESSION['gmail'] = $user->getGmail();
         $_SESSION['NIF'] = $user->getNIF();
+        $_SESSION['foto'] = $user->getFoto();
         $_SESSION['name'] = $user->getName();
         $_SESSION['surname'] = $user->getSurname();
         $_SESSION['admin'] = $user->getAdmin();
