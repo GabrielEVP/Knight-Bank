@@ -3,7 +3,8 @@ $(".menu_btn").click(function(){
     document.querySelector(".sidemenu").classList.toggle("menu_collapsed");
     document.querySelector('body').classList.toggle("body_expanded")
     document.querySelector('body').classList.toggle("body_phone")
-
+    localStorage.setItem('menu_status', document.querySelector(".sidemenu").classList);
+    localStorage.setItem('menu', document.querySelector('body').classList);
 })
 
 function empty_input() {

@@ -91,10 +91,18 @@ $colores: (
   "orange" #ff9100,
   "cya_white" #00ffb3,
   "gray" #cfc7c7,
+  "gold" gold,
 );
 
 @each $name , $color in $colores {
     .#{$name} {
       color: $color;
+    } 
+}
+
+@each $name , $color in $colores {
+    .boton_#{$name} {
+      background-color: $color;
+      border: 3px solid $color;
     } 
 }

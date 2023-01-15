@@ -19,10 +19,9 @@
     <script src="../../js/app/aplication/app_admin.js" type="module"></script>
     <title>Admins</title>
 </head>
-<body ng-controller="Controler" ng-init="load_user('all')">
-
+<body ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }"  ng-controller="Controler" ng-init="load_user('all')">
     <!--- nav bar PC  -->
-    <div class="sidemenu menu_collapsed">
+    <div  ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
             <div class="menu_btn">
                 <div class="btn_hamburger"></div>
@@ -31,7 +30,7 @@
             </div>
         </div>
         <div class="profile">
-            <div class="photo"><img src="../../img/aplication/user/prueba_log.jpg" alt="Icono_user"></div>
+            <div class="photo"><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></div>
             <div class="name"><span>nombre del usuario</span></div>
         </div>
         <div class="menu_items">
@@ -44,7 +43,7 @@
             <div class="item item_separator"></div>
             <div class="item">
                 <a href="#">
-                    <div class="icon"><i class="i fa-solid fa-coins"></i></div>
+                    <div class="icon"><i class="i fa-solid fa-coins color_green"></i></div>
                     <div class="title"><span>Finanzas</span></div>
                 </a>
             </div>
@@ -75,7 +74,7 @@
     <!--- nav bar Phone top -->
     <div class="navbar_phone navbar_top">
         <div class="container_navbar_phone">
-            <a href=""><img src="../../img/aplication/user/prueba_log.jpg" alt="Icono_user"></a>
+            <a href=""><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></a>
             <a href=""><i class="i fa-solid fa-lock"></i></a>
             <a href=""><i class="i fa-solid fa-right-from-bracket"></i></a>
         </div>   
@@ -92,16 +91,18 @@
 
     <div class="body_collapse body_phone">
         <!--- botones filter  -->
+    
+        <div class="container_input_filter">
+            <input class="input_filter" type="text">
+        </div>
+        
         <div class="container_filter">
-            <div class="container_input_filter">
-                <input class="input_filter" type="text" name="" id="">
-            </div>
             <div class="container_button_filter">
-                <button ng-click="load_user('all')" class="button_filter button_filter_normal">Todos</button>
-                <button ng-click="load_user('admin')" class="button_filter button_filter_normal">Admins</button>
-                <button ng-click="load_user('user')" class="button_filter button_filter_normal">Usuarios</button>
-                <button ng-click="load_user('inactive')" class="button_filter button_filter_normal">Baneados</button>
-                <button ng-click="show_Insert()" class="button_filter button_filter_especial"><i class="fa-solid fa-plus"></i></button>
+                <button ng-click="load_user('all')" class="button_filter boton_orange ">Todos</button>
+                <button ng-click="load_user('admin')" class="button_filter boton_gold">Admins</button>
+                <button ng-click="load_user('user')" class="button_filter boton_green">Usuarios</button>
+                <button ng-click="load_user('inactive')" class="button_filter boton_gray">Baneados</button>
+                <button ng-click="show_Insert()" class="button_filter boton_a "><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
         
@@ -126,28 +127,28 @@
                         <div class="chart_information">
                             <div class="title">Nº Cuentas</div>
                             <i ng-click="show_Account('.account', user.id_user)" class="btn fa-solid fa-vault cya_white"></i>
-                            <div class="value">2</div>
+                            <div class="value">{{user.account_number}}</div>
                         </div>
                     </div>
                     <div class="container_information">
                         <div class="chart_information">
                             <div class="title">Balance</div>
                             <i class="fa-solid fa-piggy-bank a "></i>
-                            <div class="value">27 $</div>
+                            <div class="value">{{user.total_balance}} $</div>
                         </div>
                     </div>
                     <div class="container_information">
                         <div class="chart_information">
                             <div class="title">Movimiento</div>
                             <i class="fa-solid fa-money-bill-transfer green"></i>
-                            <div class="value">123</div>
+                            <div class="value">{{user.move_number}}</div>
                         </div>
                     </div>
                     <div class="container_information">
                         <div class="chart_information">
                             <div class="title">Ult. movimiento</div>
                             <i class="fa-regular fa-calendar-days gray"></i>
-                            <div class="value">2/4/52</div>
+                            <div class="value">{{user.last_move}}</div>
                         </div>
                     </div>
                 </div>
@@ -184,7 +185,7 @@
 
             <div class="container_tarjet modal_content">
                 <div class="tarjet" ng-repeat="account in list_account.account_list">
-                    <h3 class="tarjet_company title_company">Kniht Bank</h3>
+                    <h3 class="tarjet_company title_company">Knight Bank</h3>
                     <p>debito</p>
                     <div class="img_chip">
                         <img src="../../img/aplication/scan.png" alt="">
@@ -198,7 +199,6 @@
                     <h3 class="tarjet_company title_tip">Visa</h3>
                 </div>
             </div>
-            
         </article>
         <footer>
             <label ng-click="insert_account(id)" for="modal" class="button success account">Crear Cuenta</label>

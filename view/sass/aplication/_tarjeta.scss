@@ -16,8 +16,8 @@ $anchur_cuenta : calc($altura_tarjet - 80%);
 $anchur_iconos : calc($altura_tarjet - 8.5em);
 
 .modal_content {
-    max-height: 65vh;
-    overflow-y: scroll;
+    max-height: 60vh;
+    overflow-y: scroll; 
 }
 
 .container_tarjet {
@@ -107,7 +107,7 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
               }
 }
 
-@media (max-width: 400px) {   
+@media (max-width: 440px) {   
   .tarjet {
     width: $anchura_tarjet_movil;
     height: $altura_tarjet_movil;
