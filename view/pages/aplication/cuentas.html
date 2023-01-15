@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     
     <link rel="stylesheet" href="../../styles/css_aplication.css">
-    <script src="../../js/app/aplication/app_configuration.js" type="module"></script>
+    <script src="../../js/app/aplication/app_cuentas.js" type="module"></script>
     <title>Admins</title>
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
@@ -55,7 +55,7 @@
             </div>
             <div class="item">
                 <a href="./cuentas.html">
-                    <div class="icon orange"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
+                    <div class="icon active"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
                     <div class="title"><span>Cuentas</span></div>
                 </a>
             </div>
@@ -91,39 +91,46 @@
         <div class="container_navbar_phone">
             <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
             <a href=""><i class="i fa-solid fa-coins gold"></i></a>
-            <a href="./cuentas.html"><i class="i fa-sharp fa-solid fa-building-columns orange"></i></a>
+            <a href="./cuentas.html"><i class="i fa-sharp fa-solid fa-building-columns active"></i></a>
         </div>
     </div>
 
     <div class="body_collapse body_phone">
 
-        <form action="../../../controller/user/update_profile.php" method="post" enctype="multipart/form-data">
-            <div class="container_form_configuration">
-                <div class="container_photo_user">
-                    <div>
-                        <img src={{user_logged.foto}} alt="">
-                    </div>
-                    <div class="button_photo_user">
-                        <label class="label">
-                            <input type="file" name="image"/>
-                            <span><i class="fa-solid fa-images"></i></span>
-                        </label>
-                        <button name="borrar" value="borrar" class="trash"><i class="fa-solid fa-trash"></i></button>
-                    </div>
+        <div class="container_tarjet">
+            <div class="tarjet">
+                <h3 class="tarjet_company title_company">Knight Bank</h3>
+                <p>debito</p>
+                <div class="img_chip">
+                    <img src="../../img/aplication/scan.png" alt="">
+                    <img src="../../img/aplication/chip.png" alt="">
                 </div>
-                <div class="container_input_user">
-                    <input type="text" name="NIF" value={{user_logged.NIF}} placeholder="NIF" disabled>
-                    <input type="text" name="gmail" value={{user_logged.gmail}} placeholder="Correo">
-                    <input type="text" name="name" value={{user_logged.name}} placeholder="Nombre">
-                    <input type="text" name="surname" value={{user_logged.surname}} placeholder="Apellido">
-                    <input type="text" placeholder="Contraseña">
+                <div class="img_fondo">
+                    <img src="../../img/global/logos/logo.gif" alt="">
                 </div>
-                <div class="container_button_user">
-                    <button type="submit">Guardar</button>
-                    <button value="cancelar">Cancelar</button>
-                </div>
+                <h4 class="number">ES1231233 123213123</h4>
+                <h3 class="value" >25 $</h3>
+                <h3 class="tarjet_company title_tip">Visa</h3>
             </div>
-        </form>
+        </div>
+        
+
+        <div class="grafico">
+            <div id="hueco">
+              <div class="mes">Enero</div>
+              <div class="anio">2023</div>
+            </div>
+            <div id="porcion1" class="recorte">
+              <div class="quesito"></div>
+            </div>
+            <div id="porcion2" class="recorte">
+              <div class="quesito"></div>
+            </div>
+            <div id="porcion3" class="recorte">
+              <div class="quesito"></div>
+            </div>
+        
+        
 
     </div>
 </body>

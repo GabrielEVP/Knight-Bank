@@ -828,6 +828,54 @@
     font-size: 18px;
   }
 }
+.grafico {
+  height: 200px;
+  position: relative;
+  width: 200px;
+  background-color: green;
+  border-radius: 50%;
+}
+.grafico div {
+  text-align: center;
+  text-transform: uppercase;
+}
+.grafico div.mes {
+  font-size: 20px;
+  margin-top: 45px;
+}
+.grafico div.anio {
+  opacity: 0.5;
+  font-size: 26px;
+}
+
+#hueco {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -75px 0 0 -75px;
+  z-index: 100;
+}
+
+.recorte {
+  border-radius: 50%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.recorte .quesito {
+  border-radius: 50%;
+  clip: rect(0px, 200px, 100px, 100px);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #58BFD1;
+  transform: rotate(0deg);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -950,6 +998,7 @@ body {
   width: 80%;
 }
 .container_input_user input {
+  padding: 8px;
   margin: 5px;
   height: 2em;
   color: #000000;
