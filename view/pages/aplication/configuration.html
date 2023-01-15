@@ -97,7 +97,7 @@
 
     <div class="body_collapse body_phone">
 
-        <form action="../../../controller/user/update_user.php" method="post">
+        <form action="../../../controller/user/update_user.php" method="post" enctype="multipart/form-data">
             <div class="container_form_configuration">
                 <div class="container_photo_user">
                     <div>
@@ -112,10 +112,10 @@
                     </div>
                 </div>
                 <div class="container_input_user">
-                    <input type="text" value={{user_logged.NIF}} placeholder="NIF" disabled>
-                    <input type="text" value={{user_logged.gmail}} placeholder="Correo">
-                    <input type="text" value={{user_logged.name}} placeholder="Nombre">
-                    <input type="text" value={{user_logged.surname}} placeholder="Apellido">
+                    <input type="text" name="NIF" value={{user_logged.NIF}} placeholder="NIF" disabled>
+                    <input type="text" name="gmail" value={{user_logged.gmail}} placeholder="Correo">
+                    <input type="text" name="name" value={{user_logged.name}} placeholder="Nombre">
+                    <input type="text" name="surname" value={{user_logged.surname}} placeholder="Apellido">
                     <input type="text" placeholder="Contraseña">
                 </div>
                 <div class="container_button_user">
