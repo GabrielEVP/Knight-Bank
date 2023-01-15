@@ -51,7 +51,7 @@ if (! (isset($_POST['name'])) ) {//si no ha mandado el formulario
         $_SESSION['name'] = $new_user->getName();
         $_SESSION['surname'] = $new_user->getSurname();
 
-        if ($user->getFoto() == null || $new_user->getFoto() == "") {
+        if ($new_user->getFoto() == null || $new_user->getFoto() == "") {
             $_SESSION['foto'] = $folder_path . "0_default.png";//imagen por defecto
         } else {
             $root_path = str_replace("controller\user","",__DIR__);
