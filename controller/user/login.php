@@ -32,10 +32,17 @@ if (!isset($_SESSION['banTime'])) {
         $_SESSION['id_user'] = $user->getIdUser();
         $_SESSION['gmail'] = $user->getGmail();
         $_SESSION['NIF'] = $user->getNIF();
-        $_SESSION['foto'] = $user->getFoto();
         $_SESSION['name'] = $user->getName();
         $_SESSION['surname'] = $user->getSurname();
         $_SESSION['admin'] = $user->getAdmin();
+
+        if ($user->getFoto() == null || $user->getFoto() == "") {
+            $_SESSION['foto'] = $folder_path . "0_default.png";//imagen por defecto
+        } else {
+            $root_path = str_replace("controller\user","",__DIR__);
+            $folder_path = $root_path . "view\img\aplication\user\\";
+            $_SESSION['foto'] = $folder_path . $user->getFoto();
+        }
 
         $result['user'] = $user->getObjvars();
     } else if ($result['status'] == "credenciales incorrectas") {
