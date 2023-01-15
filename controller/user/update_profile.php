@@ -23,7 +23,7 @@ if (! (isset($_POST['name'])) ) {//si no ha mandado el formulario
         
         $new_user->setFoto($sql_path);
         
-        if (file_exists($folder_path . $old_user->getFoto())) {
+        if (file_exists($folder_path . $old_user->getFoto()) && $old_user->getFoto() != "0_default.png") {
             unlink($folder_path . $old_user->getFoto());
         }
         
