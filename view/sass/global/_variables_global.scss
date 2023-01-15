@@ -18,6 +18,7 @@ $border_gris :1px solid black;
 $border_negro : 2px solid #000000;
 $border_verde: 2px solid $color_principal;
 
+$transition_fast: all 0.4s;
 $transition_medium: all 2s;
 
 
@@ -92,6 +93,7 @@ $colores: (
   "cya_white" #00ffb3,
   "gray" #cfc7c7,
   "gold" gold,
+  "red" #ec400c
 );
 
 @each $name , $color in $colores {

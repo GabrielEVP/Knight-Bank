@@ -74,8 +74,9 @@ class user_list extends standard_class{
 
         $array_length = count($array_user_list);
         for ($i = 0; $i < $array_length; $i++) {//las dos listas se obtienen ordenadas de la misma manera, podemos usar los mismos indices
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
-            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
             $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
         }
@@ -94,8 +95,9 @@ class user_list extends standard_class{
             if (!$array_user_list[$i]['admin'] > 0) {
                 continue;//nos saltamos a los que no son admin
             }
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
-            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
             $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
 
@@ -116,8 +118,9 @@ class user_list extends standard_class{
             if (!$array_user_list[$i]['login_tries'] == 0) {
                 continue;//nos saltamos a los estan baneados (no tienen intentos de login)
             }
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
-            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
             $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
 
@@ -138,8 +141,9 @@ class user_list extends standard_class{
             if (! ($array_user_list[$i]['login_tries'] > 0 && $array_user_list[$i]['admin'] == 0) ) {
                 continue;//nos saltamos a los admin y a los baneados
             }
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
-            $array_user_list[$i]['total_balance'] = $extra_data_array[$i]['total_balance'];
+            $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
             $array_user_list[$i]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
 
@@ -152,25 +156,27 @@ class user_list extends standard_class{
 
     private function get_extra_data() {
         $sql = "SELECT
-                    a.id_user,
+                    u.id_user,
                     COUNT(a.id_account) as 'account_number',
                     SUM(a.balance) as 'total_balance',
                     COUNT(am.id_account_move) as 'move_number',
-                    MAX(m.dateTime) as 'last_move'
+                    DATE(MAX(m.dateTime)) as 'last_move'
                 FROM 
                     account_move am
                 RIGHT JOIN     	
                         account a 
                     ON
                         a.id_account = am.id_account
+                RIGHT JOIN     	
+                        user u 
+                    ON
+                        u.id_user = a.id_user
                 LEFT JOIN
                         move m
                     ON
                         am.id_move = m.id_move
-                WHERE 
-                    a.id_user IS NOT NULL
                 GROUP BY 
-                    a.id_user;";
+                    u.id_user;";
         return  select_array($sql);      
     }
 

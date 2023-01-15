@@ -4,6 +4,8 @@ ini_set('display_errors', '1');
 
 
 include_once ("../../model/user/user_model.php"); 
+include_once ("../../model/function.php"); 
+
 session_start();
 
 $data=json_decode(file_get_contents("php://input"),true);
@@ -35,6 +37,9 @@ if (!isset($_SESSION['banTime'])) {
         $_SESSION['name'] = $user->getName();
         $_SESSION['surname'] = $user->getSurname();
         $_SESSION['admin'] = $user->getAdmin();
+
+        $user->setFoto(refactor_profile_img_path($user->getFoto()));
+        $_SESSION['foto'] = $user->getFoto();
 
         $result['user'] = $user->getObjvars();
     } else if ($result['status'] == "credenciales incorrectas") {

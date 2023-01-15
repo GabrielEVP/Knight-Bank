@@ -19,9 +19,13 @@
     <script src="../../js/app/aplication/app_admin.js" type="module"></script>
     <title>Admins</title>
 </head>
-<body ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }"  ng-controller="Controler" ng-init="load_user('all')">
+<body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
+
+     <!--- animation load  -->
+    <div class="loading"></div>
+
     <!--- nav bar PC  -->
-    <div  ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
+    <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
             <div class="menu_btn">
                 <div class="btn_hamburger"></div>
@@ -30,41 +34,41 @@
             </div>
         </div>
         <div class="profile">
-            <div class="photo"><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></div>
-            <div class="name"><span>nombre del usuario</span></div>
+            <div class="photo"><a href="./configuration.html"><img src={{user_logged.foto}} alt="Icono_user"></a></div>
+            <div class="name"><span>{{user_logged.name}}</span></div>
         </div>
         <div class="menu_items">
             <div class="item">
-                <a href="#">
-                    <div class="icon"><i class="i fa-solid fa-lock"></i></div>
+                <a href="./admin.html">
+                    <div class="icon active"><i class="i fa-solid fa-lock"></i></div>
                     <div class="title"><span>Admin</span></div>
                 </a>
             </div>
             <div class="item item_separator"></div>
             <div class="item">
                 <a href="#">
-                    <div class="icon"><i class="i fa-solid fa-coins color_green"></i></div>
+                    <div class="icon gold"><i class="i fa-solid fa-coins color_green"></i></div>
                     <div class="title"><span>Finanzas</span></div>
                 </a>
             </div>
             <div class="item">
-                <a href="#">
-                    <div class="icon"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
+                <a href="./cuentas.html">
+                    <div class="icon orange"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
                     <div class="title"><span>Cuentas</span></div>
                 </a>
             </div>
             <div class="item item_separator"></div>
             <div class="item">
                 <a href="#">
-                    <div class="icon"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
+                    <div class="icon green"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
                     <div class="title"><span>Movimientos</span></div>
                 </a>
             </div>
-            <div class="item item_separator"></div>
+            <div class="item item_separator logout_raya"></div>
                 <div class="item logout">    
                     <a ng-click="logout()" href="#">
-                        <div class="icon"><i class="i fa-solid fa-right-from-bracket"></i></div>
-                        <div class="title"><span>Logout</span></div>
+                        <div class="icon red"><i class="i fa-solid fa-right-from-bracket"></i></div>
+                        <div class="title"><span>Cerrar Seccion</span></div>
                     </a>
                 </div>
             </div>
@@ -74,28 +78,28 @@
     <!--- nav bar Phone top -->
     <div class="navbar_phone navbar_top">
         <div class="container_navbar_phone">
-            <a href=""><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></a>
-            <a href=""><i class="i fa-solid fa-lock"></i></a>
-            <a href=""><i class="i fa-solid fa-right-from-bracket"></i></a>
+            <a href="./configuration.html"><img src={{user_logged.foto}} alt="Icono_user"></a>
+            <a href="./admin.html"><i class="i fa-solid fa-lock active"></i></a>
+            <a ng-click="logout()" href=""><i class="i fa-solid fa-right-from-bracket red"></i></a>
         </div>   
     </div>
 
     <!--- nav bar Phone bottom -->
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
-            <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></a>
-            <a href=""><i class="i fa-solid fa-coins"></i></a>
-            <a href=""><i class="i fa-sharp fa-solid fa-building-columns"></i></a>
+            <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
+            <a href=""><i class="i fa-solid fa-coins gold"></i></a>
+            <a href="./cuentas.html"><i class="i fa-sharp fa-solid fa-building-columns orange"></i></a>
         </div>
     </div>
 
     <div class="body_collapse body_phone">
         <!--- botones filter  -->
-    
         <div class="container_input_filter">
-            <input class="input_filter" type="text">
+            <form action="">
+                <input class="input_filter" type="text">
+            </form>
         </div>
-        
         <div class="container_filter">
             <div class="container_button_filter">
                 <button ng-click="load_user('all')" class="button_filter boton_orange ">Todos</button>
@@ -113,7 +117,7 @@
                     <h4>{{user.NIF}}</h4>
                 </div>
                 <div class="photo_user">
-                    <img src="../../img/aplication/user/user1.webp" alt="">
+                    <img src={{user.foto}} alt="foto del usuario">
                 </div>
                 <div class="information_user">
                     <ul>
@@ -177,11 +181,13 @@
             <p class="borrar">¿Seguro que quieres borrar el usuario?</p>
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
             <p class="desban">¿Seguro que quieres desbanear el usuario?</p>
-            <input id="nif" class="modify add_user" type="text" placeholder="nif">
-            <input id="name" class="modify add_user" type="text" placeholder="name">
-            <input id="surname" class="modify add_user" type="text" placeholder="surname">
-            <input id="gmail" class="modify add_user" type="text" placeholder="gmail">   
-            <input id="password" class="modify add_user" type="password" placeholder="password">  
+            <form>
+                <input id="nif" class="modify add_user" type="text" placeholder="nif">
+                <input id="name" class="modify add_user" type="text" placeholder="name">
+                <input id="surname" class="modify add_user" type="text" placeholder="surname">
+                <input id="gmail" class="modify add_user" type="text" placeholder="gmail">   
+                <input id="password" class="modify add_user" type="password" placeholder="password">
+            </form>  
 
             <div class="container_tarjet modal_content">
                 <div class="tarjet" ng-repeat="account in list_account.account_list">
@@ -210,6 +216,5 @@
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
     </div>
-     
 </body>
 </html>
