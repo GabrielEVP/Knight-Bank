@@ -74,6 +74,7 @@ class user_list extends standard_class{
 
         $array_length = count($array_user_list);
         for ($i = 0; $i < $array_length; $i++) {//las dos listas se obtienen ordenadas de la misma manera, podemos usar los mismos indices
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
@@ -94,6 +95,7 @@ class user_list extends standard_class{
             if (!$array_user_list[$i]['admin'] > 0) {
                 continue;//nos saltamos a los que no son admin
             }
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
@@ -116,6 +118,7 @@ class user_list extends standard_class{
             if (!$array_user_list[$i]['login_tries'] == 0) {
                 continue;//nos saltamos a los estan baneados (no tienen intentos de login)
             }
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];
@@ -138,6 +141,7 @@ class user_list extends standard_class{
             if (! ($array_user_list[$i]['login_tries'] > 0 && $array_user_list[$i]['admin'] == 0) ) {
                 continue;//nos saltamos a los admin y a los baneados
             }
+            $array_user_list[$i]['foto'] = refactor_profile_img_path($array_user_list[$i]['foto']);
             $array_user_list[$i]['account_number'] = $extra_data_array[$i]['account_number'];
             $array_user_list[$i]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
             $array_user_list[$i]['move_number'] = $extra_data_array[$i]['move_number'];

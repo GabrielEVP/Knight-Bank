@@ -4,6 +4,8 @@ ini_set('display_errors', '1');
 
 
 include_once ("../../model/user/user_model.php"); 
+include_once ("../../model/function.php"); 
+
 session_start();
 
 $data=json_decode(file_get_contents("php://input"),true);
@@ -36,13 +38,8 @@ if (!isset($_SESSION['banTime'])) {
         $_SESSION['surname'] = $user->getSurname();
         $_SESSION['admin'] = $user->getAdmin();
 
-        if ($user->getFoto() == null || $user->getFoto() == "") {
-            $_SESSION['foto'] = $folder_path . "0_default.png";//imagen por defecto
-        } else {
-            $root_path = str_replace("controller\user","",__DIR__);
-            $folder_path = $root_path . "view\img\aplication\user\\";
-            $_SESSION['foto'] = $folder_path . $user->getFoto();
-        }
+        $user->setFoto(refactor_profile_img_path($user->getFoto()));
+        $_SESSION['foto'] = $user->getFoto();
 
         $result['user'] = $user->getObjvars();
     } else if ($result['status'] == "credenciales incorrectas") {

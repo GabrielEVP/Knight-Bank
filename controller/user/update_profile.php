@@ -1,5 +1,7 @@
 <?php 
 include_once ("../../model/user/user_model.php"); 
+include_once ("../../model/function.php"); 
+
 session_start();
 
 $root_path = str_replace("controller\user","",__DIR__);
@@ -51,16 +53,12 @@ if (! (isset($_POST['name'])) ) {//si no ha mandado el formulario
         $_SESSION['name'] = $new_user->getName();
         $_SESSION['surname'] = $new_user->getSurname();
 
-        if ($new_user->getFoto() == null || $new_user->getFoto() == "") {
-            $_SESSION['foto'] = $folder_path . "0_default.png";//imagen por defecto
-        } else {
-            $root_path = str_replace("controller\user","",__DIR__);
-            $folder_path = $root_path . "view\img\aplication\user\\";
-            $_SESSION['foto'] = $folder_path . $new_user->getFoto();
-        }
+        $new_user->setFoto(refactor_profile_img_path($new_user->getFoto()));
+        $_SESSION['foto'] = $new_user->getFoto();
 
         $response['status'] = 'ok';
     }
+    //print_r($_HOST);
     header("Location: " . $root_path . "view\pages\aplication\configuration.html");
 }
 
