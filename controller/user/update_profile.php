@@ -47,12 +47,9 @@ if (! (isset($_POST['name'])) ) {//si no ha mandado el formulario
         
         $new_user->update_user();
     
-        $_SESSION['id_user'] = $new_user->getIdUser();
         $_SESSION['gmail'] = $new_user->getGmail();
-        $_SESSION['NIF'] = $new_user->getNIF();
         $_SESSION['name'] = $new_user->getName();
         $_SESSION['surname'] = $new_user->getSurname();
-        $_SESSION['admin'] = $new_user->getAdmin();
 
         if ($user->getFoto() == null || $new_user->getFoto() == "") {
             $_SESSION['foto'] = $folder_path . "0_default.png";//imagen por defecto
