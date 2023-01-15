@@ -17,6 +17,9 @@
     
     <link rel="stylesheet" href="../../styles/css_aplication.css">
     <script src="../../js/app/aplication/app_cuentas.js" type="module"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Admins</title>
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
@@ -113,25 +116,44 @@
                 <h3 class="tarjet_company title_tip">Visa</h3>
             </div>
         </div>
-        
 
-        <div class="grafico">
-            <div id="hueco">
-              <div class="mes">Enero</div>
-              <div class="anio">2023</div>
-            </div>
-            <div id="porcion1" class="recorte">
-              <div class="quesito"></div>
-            </div>
-            <div id="porcion2" class="recorte">
-              <div class="quesito"></div>
-            </div>
-            <div id="porcion3" class="recorte">
-              <div class="quesito"></div>
-            </div>
-        
+        <div class="container_graficos">
+            <canvas id="myChart"></canvas>
+        </div>
         
 
     </div>
+
+    <script>
+        const gastos = 213;
+        const ingresos = 123;
+        const ctx = document.getElementById('myChart').getContext("2d");
+        const chart = new Chart(ctx, {
+            type:"pie",
+            data: {
+                labels: ['Ingresos' , 'Gastos'],
+                datasets:[{
+                    label:'Num datos',
+                    data:[ingresos,gastos],
+                    backgroundColor:[
+                        'rgb(0, 255, 71)',
+                        'rgb(255, 0, 0)'
+                    ]
+                }]
+            },
+            options:{
+                scales:{
+                    yAxes:[{
+                        ticks:{
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        })
+
+        
+    </script>
+
 </body>
 </html>
