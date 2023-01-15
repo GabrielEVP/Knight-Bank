@@ -152,7 +152,7 @@ class user_list extends standard_class{
 
     private function get_extra_data() {
         $sql = "SELECT
-                    a.id_user,
+                    u.id_user,
                     COUNT(a.id_account) as 'account_number',
                     SUM(a.balance) as 'total_balance',
                     COUNT(am.id_account_move) as 'move_number',
@@ -163,14 +163,16 @@ class user_list extends standard_class{
                         account a 
                     ON
                         a.id_account = am.id_account
+                RIGHT JOIN     	
+                        user u 
+                    ON
+                        u.id_user = a.id_user
                 LEFT JOIN
                         move m
                     ON
                         am.id_move = m.id_move
-                WHERE 
-                    a.id_user IS NOT NULL
                 GROUP BY 
-                    a.id_user;";
+                    u.id_user;";
         return  select_array($sql);      
     }
 
