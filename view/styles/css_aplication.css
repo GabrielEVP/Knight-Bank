@@ -880,6 +880,7 @@ body {
   background: #dddddd;
   display: inline-block;
   transition: all 0.4s;
+  font-weight: 1000;
 }
 .container_form_configuration button:hover {
   background: #f5f5f5;
