@@ -55,6 +55,7 @@ if (! (isset($_POST['name'])) ) {//si no ha mandado el formulario
 
         $new_user->setFoto(refactor_profile_img_path($new_user->getFoto()));
         $_SESSION['foto'] = $new_user->getFoto();
+        //print_r($_SESSION['foto']);
 
         $response['status'] = 'ok';
     }

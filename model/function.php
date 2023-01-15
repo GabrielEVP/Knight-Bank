@@ -73,7 +73,8 @@ function refactor_array_indexes($input_array) {
 
 function refactor_profile_img_path($filename) {
     
-    $folder_path = str_replace("model","",__DIR__) . "view\img\aplication\user\\";
+    //$folder_path = str_replace("model","",__DIR__) . "view\img\aplication\user\\";
+    $folder_path = "..\..\img\aplication\user\\";
     if ($filename == null || $filename == "") {
         return  $folder_path . "0_default.png";//imagen por defecto
     } else {
