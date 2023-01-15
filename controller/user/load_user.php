@@ -1,10 +1,11 @@
 <?php 
 include_once ("../../model/user/user_model.php"); 
 include_once ("../../model/account/account_model.php"); 
+session_start();
 
 $response = array();
 
-//if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
     $data=json_decode(file_get_contents("php://input"),true);
 
@@ -14,9 +15,9 @@ $response = array();
     $response['user'] = $user->getObjvars();
     $response['status'] = 'ok';
     
-/*} else {
+} else {
     $response['status'] = 'no admin';
-}*/
+}
 
 echo json_encode($response);
 

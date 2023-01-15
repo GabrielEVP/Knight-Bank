@@ -24,6 +24,7 @@ App.controller('Controler', function($scope, $http) {
         .then((result) => {
             $scope.list_user = new user_list();
             $scope.list_user.cast_array_to_User(Array.from(result.data));
+            console.log(result.data);
         }).catch((err) => {
             console.log(err);
         });;

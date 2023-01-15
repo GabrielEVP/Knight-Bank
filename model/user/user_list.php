@@ -156,7 +156,7 @@ class user_list extends standard_class{
                     COUNT(a.id_account) as 'account_number',
                     SUM(a.balance) as 'total_balance',
                     COUNT(am.id_account_move) as 'move_number',
-                    MAX(m.dateTime) as 'last_move'
+                    DATE(MAX(m.dateTime)) as 'last_move'
                 FROM 
                     account_move am
                 RIGHT JOIN     	
