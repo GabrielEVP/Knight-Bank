@@ -3,53 +3,52 @@ $imagen_user_tamano : 12em;
 
 .admin_card {
   background: linear-gradient(#c9a508, #5a4d04);
-  border-width: 5px;
-  border-style: solid;
-  border-image: linear-gradient(#c9a508, #5a4d04);
-  
 }
 
 .user_card{
   background: linear-gradient(#0a7513, #2a612a);
-  border-width: 5px;
-  border-style: solid;
-  border-image: linear-gradient(#0a7513, #2a612a);
 }
 
 .unban_card{
   background: linear-gradient(#575757, #585757);
-  border-width: 5px;
-  border-style: solid;
-  border-image: linear-gradient(#575757, #585757);
 }
-  
+
+// REVISAR LOS MARGENES DE CONTAINER USER Y EN MEDIA QUERY POR SI NO FUNCIONA BIEN MANANA //
 .container_users {
   display: flex;
   flex-wrap: wrap;
-  margin: 5px;
+  text-shadow: 1px 1px 1px rgba(29, 27, 27, 0.836);
+  margin-left: 4em;
+  margin-top: 2em;
+
+}
+
+.body_expanded  .container_users {
+  margin-left: 8em;
 }
 
 .container_card_user {
   margin: 15px;
   text-align: center;
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   transition: 40ms;
+  border-radius: 15px;
   
   &:hover{
     transition: 40ms;
-    border: 5px solid rgb(40, 42, 43);
+    box-shadow: rgba(0, 0, 0, 0.842) 0px 5px 15px 0px;
   
   }
 }
 
 .nif_user {
-  margin-top: 10px;
-  color: #fff;
-  font-size: 1.4em;
+  margin: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
   font-weight: 1000;
   background: rgba(0,0,0,0.15);
   padding: 0.125rem 0.75rem;
-  border-radius: 100px;
+  border-radius: 10px;
 }
 
 .photo_user {
@@ -62,6 +61,7 @@ $imagen_user_tamano : 12em;
     width: $imagen_user_tamano;
     height: $imagen_user_tamano;
     border-radius: 50%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   }
 }
 
@@ -76,6 +76,7 @@ $imagen_user_tamano : 12em;
     text-align: center;
     font-size: 20px;
     color: rgb(222, 252, 237);
+   
   }
   
 }
@@ -141,7 +142,11 @@ $imagen_user_tamano : 12em;
 @media (max-width: 1040px) {   
   .container_users {
     justify-content: center;
-
+    margin-left: 0;
+  }
+  .body_expanded .container_users {
+    justify-content: center;
+    margin-left: 0;
   }
 }
 
