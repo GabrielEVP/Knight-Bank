@@ -13,7 +13,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
     $loged_user = array_search($_SESSION['NIF'], array_column($users, 'NIF'));
     unset($users[$loged_user]); //quitamos el usuario que esta loegeado
 
-    echo json_encode($users);
+    echo json_encode(refactor_array_indexes($users));
 } else {
     echo json_encode("no admin");
 }
