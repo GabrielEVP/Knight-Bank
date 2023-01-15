@@ -9,8 +9,26 @@ class user_model extends user_class {
 
     private $objuserType;
 
+        /**
+     * Get the value of objuserType
+     */
+    public function getObjuserType()
+    {
+        return $this->objuserType;
+    }
+
+    /**
+     * Set the value of objuserType
+     */
+    public function setObjuserType($objuserType): self
+    {
+        $this->objuserType = $objuserType;
+
+        return $this;
+    }
+
     public function insert_user () {
-        return insert("insert into user ( gmail, NIF, name, surname, password, foto, admin) values ( '$this->gmail', '$this->NIF', '$this->name', '$this->surname', '$this->password', '$this->foto', 0)");
+        return insert("insert into user ( gmail, NIF, name, surname, password, foto, admin) values ( '$this->gmail', '$this->NIF', '$this->name', '$this->surname', '$this->password', '0_default.png', 0)");
     }
 
     public function delete_user () {
@@ -92,23 +110,7 @@ class user_model extends user_class {
             return false;
         }
     }
-    /**
-     * Get the value of objuserType
-     */
-    public function getObjuserType()
-    {
-        return $this->objuserType;
-    }
 
-    /**
-     * Set the value of objuserType
-     */
-    public function setObjuserType($objuserType): self
-    {
-        $this->objuserType = $objuserType;
-
-        return $this;
-    }
 }
 
 ?>
