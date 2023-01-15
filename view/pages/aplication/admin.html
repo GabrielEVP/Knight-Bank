@@ -19,7 +19,11 @@
     <script src="../../js/app/aplication/app_admin.js" type="module"></script>
     <title>Admins</title>
 </head>
-<body ng-controller="Controler"  ng-init="user_logged()"  ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }"   >
+<body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
+
+     <!--- animation load -->
+    <div class="loading"></div>
+
     <!--- nav bar PC  -->
     <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header" ng-init="load_user('all')"> 
@@ -212,6 +216,5 @@
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
     </div>
-     
 </body>
 </html>
