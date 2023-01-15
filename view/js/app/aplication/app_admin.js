@@ -8,17 +8,28 @@ import { controller_url_Account , controller_url_account_List } from "../../clas
 import { fetch_get_Data, fetch_set_Data, login_verify } from "../../server/server.js"
 import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
 
-
 const App = angular.module('App', []);
 
-App.controller('Controler', function($scope, $http) {
+App.controller('Controler', async function($scope, $http) {
 
-    window.onload = async function() {
+    window.onload = function() {
         $scope.menu_status = localStorage.getItem('menu_status');
         $scope.body_status = localStorage.getItem('menu');
-        await login_verify();
     }
 
+    $scope.user_logged = function () {
+        fetch(controller_url_User('login_verify')).then(res => res.json()).then(result => {
+            if (result.logged !== true) {
+                location.href = '../web/login.html'
+            } else {
+                $scope.user_logged = new user_class(result.user.id_user, result.user.gmail, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
+            }   
+        }).catch(error => console.error('Error status:', error));	   
+
+        
+    }
+
+  
     $scope.load_user = function (controller_name) {
         $http.post(controller_url_user_List(controller_name))
         .then((result) => {
@@ -192,4 +203,7 @@ App.controller('Controler', function($scope, $http) {
     }
 
 })
+
+
+    
 

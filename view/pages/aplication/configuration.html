@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../img/global/logos/logo.gif">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/422b82f355.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="../../styles/css_aplication.css">
+    <script src="../../js/app/aplication/app_admin.js" type="module"></script>
+    <title>Admins</title>
+</head>
+<body ng-controller="Controler" ng-init="load_user('all')" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }"   >
+    <!--- nav bar PC  -->
+    <div  ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
+        <div class="header"> 
+            <div class="menu_btn">
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="photo"><a href="./configuration.html"><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></a></div>
+            <div class="name"><span>nombre del usuario</span></div>
+        </div>
+        <div class="menu_items">
+            <div class="item">
+                <a href="./admin.html">
+                    <div class="icon"><i class="i fa-solid fa-lock"></i></div>
+                    <div class="title"><span>Admin</span></div>
+                </a>
+            </div>
+            <div class="item item_separator"></div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-solid fa-coins color_green"></i></div>
+                    <div class="title"><span>Finanzas</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
+                    <div class="title"><span>Cuentas</span></div>
+                </a>
+            </div>
+            <div class="item item_separator"></div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
+                    <div class="title"><span>Movimientos</span></div>
+                </a>
+            </div>
+            <div class="item item_separator"></div>
+                <div class="item logout">    
+                    <a ng-click="logout()" href="#">
+                        <div class="icon"><i class="i fa-solid fa-right-from-bracket"></i></div>
+                        <div class="title"><span>Logout</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- nav bar Phone top -->
+    <div class="navbar_phone navbar_top">
+        <div class="container_navbar_phone">
+            <a href="./configuration.html"><img src="../../img/aplication/user/user1.webp" alt="Icono_user"></a>
+            <a href="./admin.html"><i class="i fa-solid fa-lock"></i></a>
+            <a href=""><i class="i fa-solid fa-right-from-bracket"></i></a>
+        </div>   
+    </div>
+
+    <!--- nav bar Phone bottom -->
+    <div class="navbar_phone navbar_bottom">
+        <div class="container_navbar_phone">
+            <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></a>
+            <a href=""><i class="i fa-solid fa-coins"></i></a>
+            <a href=""><i class="i fa-sharp fa-solid fa-building-columns"></i></a>
+        </div>
+    </div>
+
+    <div class="body_collapse body_phone">
+    </div>
+     
+</body>
+</html>

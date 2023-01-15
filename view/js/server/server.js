@@ -23,21 +23,15 @@ async function fetch_set_Data(url, data) {
     }
 }
 
-async function login_verify() {
-    try {
-        const res = await fetch(controller_url_User('login_verify'));
-        const result = await res.json();
-
-        if(result.logged == true && result.admin == 1) {
-            console.log('admin')
-        } else if (result.logged == true && result.admin == 0) {
-            location.href = "../../../index.html"
+function login_verify() {
+    fetch(controller_url_User('login_verify')).then(res => res.json()).then(result => {
+        console.log(result.user)
+        if (result.logged !== true) {
+            location.href = '../web/login.html'
         } else {
-            location.href = "../../../index.html"
-        }
-    } catch(err) {
-        console.log(err)
-    }
+           return result.user;
+        }   
+    }).catch(error => console.error('Error status:', error));	   
 }
 
 
