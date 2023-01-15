@@ -428,6 +428,10 @@
   width: 100px;
 }
 
+.active {
+  color: aqua;
+}
+
 .navbar_phone {
   display: none;
   background-color: black;
