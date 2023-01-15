@@ -10,7 +10,20 @@ import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
 
 const App = angular.module('App', []);
 
-App.controller('Controler', async function($scope, $http) {
+App.controller('Controler', function($scope, $http) {
+
+    $scope.init = function () {
+        $('.loading').fadeOut();
+        $http.get((controller_url_User('login_verify')))
+        .then((res) => {
+            const result = res.data;
+            $scope.list_user = new user_list();
+            $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
+            $('body').removeClass('hidden');
+        }).catch((err) => {
+            console.log(err);
+        });;
+    }
 
     window.onload = function() {
         $scope.menu_status = localStorage.getItem('menu_status');
@@ -21,12 +34,10 @@ App.controller('Controler', async function($scope, $http) {
         fetch(controller_url_User('login_verify')).then(res => res.json()).then(result => {
             if (result.logged !== true) {
                 location.href = '../web/login.html'
-            } else {
+            } else {         
                 $scope.user_logged = new user_class(result.user.id_user, result.user.gmail, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
             }   
         }).catch(error => console.error('Error status:', error));	   
-
-        
     }
 
   
@@ -35,7 +46,6 @@ App.controller('Controler', async function($scope, $http) {
         .then((result) => {
             $scope.list_user = new user_list();
             $scope.list_user.cast_array_to_User(Array.from(result.data));
-            console.log(result.data);
         }).catch((err) => {
             console.log(err);
         });;

@@ -1,0 +1,36 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    background-color: #fafafa;
+}
+
+.hidden {
+    visibility: hidden;
+}
+  
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -36px 0 0 -36px;
+    height: 72px;
+    width: 72px;
+    border: 8px dotted #e16971;
+    border-radius: 100%;
+    animation: loading 2s infinite linear;
+}
