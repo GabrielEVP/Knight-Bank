@@ -199,7 +199,7 @@ App.controller('Controler', function($scope, $http) {
     $scope.logout = async function() {
         const result = await fetch_get_Data(controller_url_User('logout'));
         if (result.logout == true) {
-            location.href='../../../index.html';
+            location.href='../web/login.html';
         } else {
             alert('error');
         }

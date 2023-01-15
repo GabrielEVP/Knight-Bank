@@ -8,9 +8,13 @@ App.controller('Controler', function($scope) {
         const data = { "NIF" : $('#nif').val() , "password" : $('#password').val() };
         const result = await fetch_set_Data(controller_url_User('login'), data);
 
-        if (result.status == "ok") {
-            location.href = "../aplication/admin.html";
-        } else if (result.status == "banned") {
+        if (result.status == 'ok') {
+            if (result.user.admin > 0 ) {
+                location.href = "../aplication/admin.html";
+            } else {
+                location.href = "../aplication/configuration.html";
+            }
+        } else if (result.status == 'banned') {
             alert("Banned: " +result.banTime+ " S");
         } else {
             alert(result.status);

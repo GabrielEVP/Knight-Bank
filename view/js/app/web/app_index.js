@@ -1,4 +1,4 @@
-import { show_Modal , quit_Modal } from "../../components/global/modal.js"
+import { show_Modal , quit_Modal } from "../../components/modal.js"
 import { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);

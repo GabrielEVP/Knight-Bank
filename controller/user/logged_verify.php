@@ -13,10 +13,9 @@ if (isset($_SESSION['admin'])) {
     $user->setNIF($_SESSION['NIF']);
     $user->setName($_SESSION['name']);
     $user->setSurname($_SESSION['surname']);
-    $user->setPassword($_SESSION['admin']);
+    $user->setAdmin($_SESSION['admin']);
     
     $response['logged'] = true;
-    $response['admin'] = $_SESSION['admin'];
     $response['user'] = $user->getObjvars();
 } else {
     $response['logged'] = false;
