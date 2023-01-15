@@ -20,9 +20,9 @@ $transition_expanded: 0.2s;
 
 .sidemenu {
     transition: $transition_expanded;
-    background-image: url("../img/aplication/fondo5.gif");
-    background-size: cover;
-    background-position: bottom 50px right 20px;
+    background: #201f1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #201f1f, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #181717, #1a1919); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     position: fixed;
     height: 100%;
@@ -35,7 +35,7 @@ $transition_expanded: 0.2s;
 }
 
 .i {
-    color: white;
+   
     font-size: 34px;
 }
 
@@ -119,7 +119,7 @@ $transition_expanded: 0.2s;
         }
 
         a:hover .i {
-            color: aqua;
+            color: rgb(146, 143, 143);
         }   
 }
 
@@ -207,14 +207,26 @@ $transition_expanded: 0.2s;
     }
 }
 
+.logout_raya {
+    position: absolute;
+    bottom: 3em;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+}
+
 .active {
-    color: aqua;
+    color: gray;
 }
 
 // ----------------  Navbar Phone ---------------- //
 .navbar_phone {
     display: none;
-    background-color: black;
+    background: #201f1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #201f1f, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #181717, #1a1919); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
     overflow-x: scroll;
     @include no_scrollBars;
