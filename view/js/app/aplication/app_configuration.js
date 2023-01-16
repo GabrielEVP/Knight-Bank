@@ -44,7 +44,9 @@ App.controller('Controler', function($scope, $http) {
         const response = await $http.post((controller_url_User('delete_image')));
         const result = response.data;
 
-        if (result == 'ok') {
+        console.log(result);
+
+        if (result.status == 'ok') {
             location.reload();
         } else {
             alert("error");
