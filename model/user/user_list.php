@@ -33,6 +33,12 @@ class user_list extends standard_class{
         return $this->user_list;
     }
 
+    public function search_list_from_DDBB ($search_string) {
+        $sql = "SELECT * FROM user WHERE ";
+        $sql .= "NIF = '$search_string'";
+
+    }
+
 
     public function get_active_users() {
         $result_list = array();
@@ -154,7 +160,8 @@ class user_list extends standard_class{
         return $result;
     }
 
-    private function get_extra_data() {
+
+    private function get_extra_data($sql_where = "") {
         $sql = "SELECT
                     u.id_user,
                     COUNT(a.id_account) as 'account_number',
@@ -175,6 +182,7 @@ class user_list extends standard_class{
                         move m
                     ON
                         am.id_move = m.id_move
+                " . $sql_where . "
                 GROUP BY 
                     u.id_user;";
         return  select_array($sql);      
