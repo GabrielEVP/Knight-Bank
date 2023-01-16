@@ -73,7 +73,6 @@ function refactor_array_indexes($input_array) {
 
 function refactor_profile_img_path($filename) {
     
-    //$folder_path = str_replace("model","",__DIR__) . "view\img\aplication\user\\";
     $folder_path = "..\..\img\aplication\user\\";
     if ($filename == null || $filename == "") {
         return  $folder_path . "0_default.png";//imagen por defecto
@@ -99,7 +98,8 @@ $code = str_replace(array("s","z","X"),"s",$code);
 $code = str_replace(array("w","v","b"),"b",$code);
 $code = str_replace("o","u",$code);
 
-return substr(soundex($code), 1);
+return $code;
+//return substr(soundex($code), 1);
 }
 
 function remove_accents($string) {
