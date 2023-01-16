@@ -7,13 +7,14 @@ $response = array();
 if (isset($_SESSION['admin'])) {
 
     $user = new user_model();
-    $user->setIdUser($_SESSION['id_user']);
-    $user->setGmail($_SESSION['gmail']);
-    $user->setFoto($_SESSION['foto']);
-    $user->setNIF($_SESSION['NIF']);
-    $user->setName($_SESSION['name']);
-    $user->setSurname($_SESSION['surname']);
-    $user->setAdmin($_SESSION['admin']);
+    $user->get_user($_SESSION['id_user']);
+
+    $_SESSION['gmail'] = $user->getGmail();
+    $_SESSION['foto'] = $user->getFoto();
+    $_SESSION['NIF'] = $user->getNIF();
+    $_SESSION['name'] = $user->getName();
+    $_SESSION['surname'] = $user->getSurname();
+    $_SESSION['admin'] = $user->getAdmin();
     
     $response['logged'] = true;
     $response['user'] = $user->getObjvars();
