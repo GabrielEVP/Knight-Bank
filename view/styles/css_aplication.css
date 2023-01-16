@@ -271,7 +271,6 @@
   left: 0;
   top: 0;
   overflow: scroll;
-  z-index: 1000;
 }
 .sidemenu::-webkit-scrollbar {
   width: 0;
@@ -803,7 +802,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
-  z-index: -1000;
+  z-index: 0;
 }
 
 .cuadro_tarjet {
