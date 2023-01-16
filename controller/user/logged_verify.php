@@ -1,5 +1,6 @@
 <?php
 include_once ("../../model/user/user_model.php"); 
+include_once ("../../model/function.php"); 
 
 session_start();
 
@@ -10,7 +11,7 @@ if (isset($_SESSION['admin'])) {
     $user->get_user($_SESSION['id_user']);
 
     $_SESSION['gmail'] = $user->getGmail();
-    $_SESSION['foto'] = $user->getFoto();
+    $_SESSION['foto'] = refactor_profile_img_path($user->getFoto());
     $_SESSION['NIF'] = $user->getNIF();
     $_SESSION['name'] = $user->getName();
     $_SESSION['surname'] = $user->getSurname();
