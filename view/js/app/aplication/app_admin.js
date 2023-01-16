@@ -42,6 +42,27 @@ App.controller('Controler', function($scope, $http) {
             console.log(err);
         });;
     }
+
+    $('#seach_user').submit(function(){
+        const value = $('#seach_value').val();
+      
+        if (value == '') {
+            $scope.load_user('all');
+        } else {
+            $http({
+                url: controller_url_user_List('load_search'),
+                method: "POST",
+                data: JSON.stringify({'search': value})
+            }).then(function (result) {
+                $scope.list_user = new user_list();
+                $scope.list_user.cast_array_to_User(Array.from(result.data));
+            }).catch(function (result) {
+                console.error("Ocurrio un error", result.status, result.data);
+            })
+        }
+    }) 
+
+    
    
     $scope.insert = async function() {
         $scope.new_user = new user_class();
