@@ -10,7 +10,7 @@ $user = new user_model();
 
 $user->setIdUser($_SESSION['id_user']);
 
-
+$root_path = str_replace("controller\user","",__DIR__);
 $folder_path = $root_path . "view\img\aplication\user\\";
 $result = array();
 
