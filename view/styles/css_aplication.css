@@ -692,7 +692,10 @@
   justify-content: end;
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1450px) {
+  .search-box {
+    margin: auto;
+  }
   .container_filter {
     display: grid;
     grid-template-columns: 1fr;
@@ -782,9 +785,6 @@
 }
 
 @media (max-width: 1040px) {
-  .search-box {
-    margin: auto;
-  }
   .container_filter {
     margin-top: 25px;
   }
