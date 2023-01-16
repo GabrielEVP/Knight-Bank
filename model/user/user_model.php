@@ -111,6 +111,11 @@ class user_model extends user_class {
         }
     }
 
+
+    public function reset_profile_image() {
+        return update("update user set foto= '0_default.png' WHERE id_user = $this->id_user");
+    }
+
 }
 
 ?>
