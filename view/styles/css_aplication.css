@@ -271,6 +271,7 @@
   left: 0;
   top: 0;
   overflow: scroll;
+  z-index: 1000;
 }
 .sidemenu::-webkit-scrollbar {
   width: 0;
@@ -457,6 +458,7 @@
   background: linear-gradient(to right, #181717, #1a1919); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 100%;
   overflow-x: scroll;
+  z-index: 1000;
 }
 .navbar_phone::-webkit-scrollbar {
   width: 0;
@@ -801,6 +803,15 @@
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
+  z-index: -1000;
+}
+
+.cuadro_tarjet {
+  padding: 1000px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #232526;
 }
 
 .tarjet {
@@ -925,9 +936,9 @@ body {
 .container_form_configuration {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 80%;
   margin: auto;
-  margin-top: 5%;
 }
 .container_form_configuration button {
   cursor: pointer;

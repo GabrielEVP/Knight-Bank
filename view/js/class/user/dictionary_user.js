@@ -22,7 +22,8 @@ function controller_url_user_List(controller) {
         all: controller_path_builder('user/lists/load_user_list.php'),
         admin: controller_path_builder('user/lists/load_admin_list.php'),
         user: controller_path_builder('user/lists/load_active_user_list.php'),
-        inactive: controller_path_builder('user/lists/load_inactive_user_list.php')
+        inactive: controller_path_builder('user/lists/load_inactive_user_list.php'),
+        load_search: controller_path_builder('user/load_search_list.php')
     }
     return url_user_list[controller] ?? alert('error url del controller userlist no existe');
 }
