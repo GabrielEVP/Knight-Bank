@@ -10,12 +10,12 @@ App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
-
+        
         $http.get((controller_url_User('login_verify'))).then((res) => {
             const result = res.data;
             $scope.menu_status = localStorage.getItem('menu_status');
             $scope.body_status = localStorage.getItem('menu');
-                     
+                        
             if (result.logged !== true) {
                 location.href = '../web/login.html'
             } else {
@@ -39,4 +39,3 @@ App.controller('Controler', function($scope, $http) {
     }
     
 });
-

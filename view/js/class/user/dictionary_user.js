@@ -11,6 +11,7 @@ function controller_url_User(controller) {
         logout: controller_path_builder('user/logout.php'),
         load: controller_path_builder('user/load_user.php'),
         login_verify: controller_path_builder('user/logged_verify.php'),
+        delete_image: controller_path_builder('user/delete_profile_image.php'),
     }
     return url_user[controller] ?? alert('error url del controller user no existe');
     

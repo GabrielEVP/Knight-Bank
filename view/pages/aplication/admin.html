@@ -97,7 +97,10 @@
         <!--- botones filter  -->
         <div class="container_input_filter">
             <form action="">
-                <input class="input_filter" type="text">
+                <div class="search-box">
+                    <button type="button" class="btn-search"><i class="fas fa-search"></i></button>
+                    <input  type="text" class="input_filter input-search" placeholder="Buscar por DNI...">
+                  </div>
             </form>
         </div>
         <div class="container_filter">
@@ -138,7 +141,7 @@
                         <div class="chart_information">
                             <div class="title">Balance</div>
                             <i class="fa-solid fa-piggy-bank a "></i>
-                            <div class="value">{{user.total_balance}} $</div>
+                            <div class="value">{{user.total_balance}} €</div>
                         </div>
                     </div>
                     <div class="container_information">
@@ -201,7 +204,7 @@
                         <img src="../../img/global/logos/logo.gif" alt="">
                     </div>
                     <h4 class="number">{{account.IBAN}}</h4>
-                    <h3 class="value" >{{account.balance}} $</h3>
+                    <h3 class="value" >{{account.balance}} €</h3>
                     <h3 class="tarjet_company title_tip">Visa</h3>
                 </div>
             </div>
@@ -215,6 +218,8 @@
             <label ng-click="modify()" for="modal" class="button success modify">Modificar</label>
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
+
+      
     </div>
 </body>
 </html>

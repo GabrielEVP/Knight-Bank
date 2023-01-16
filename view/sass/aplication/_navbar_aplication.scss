@@ -31,15 +31,11 @@ $transition_expanded: 0.2s;
     overflow: scroll;
 
     @include no_scrollBars;
-   
 }
 
 .i {
-   
     font-size: 34px;
 }
-
-
 
 /* header */
 .header {
@@ -149,8 +145,6 @@ $transition_expanded: 0.2s;
     border-bottom: solid 3px $hover_color;
 
 }
-
-
 
 .menu_expanded {
     transition: $transition_expanded;
