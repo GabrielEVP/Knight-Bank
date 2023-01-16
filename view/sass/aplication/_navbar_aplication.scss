@@ -29,7 +29,6 @@ $transition_expanded: 0.2s;
     left: 0;
     top: 0;
     overflow: scroll;
-    z-index: 1000;
 
     @include no_scrollBars;
 }
