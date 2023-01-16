@@ -782,6 +782,9 @@
 }
 
 @media (max-width: 1040px) {
+  .search-box {
+    margin: auto;
+  }
   .container_filter {
     margin-top: 25px;
   }
