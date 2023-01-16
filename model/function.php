@@ -94,11 +94,12 @@ $code = str_replace(array("ch","tx","tz","ts"),"tx",$code);
 $code = str_replace("k","c",$code);
 $code = str_replace(array("ñ","m"),"n",$code);
 $code = str_replace("h","",$code);
-$code = str_replace(array("ll","j","y"),"y",$code);
+$code = str_replace(array("ll","j","y","g","i"),"y",$code);
 $code = str_replace(array("s","z","X"),"s",$code);
 $code = str_replace(array("w","v","b"),"b",$code);
+$code = str_replace("o","u",$code);
 
-return $code;
+return substr(soundex($code), 1);
 }
 
 function remove_accents($string) {
