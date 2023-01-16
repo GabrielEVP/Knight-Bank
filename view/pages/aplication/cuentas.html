@@ -131,29 +131,104 @@
         </div>
 
        
+            <canvas id="myChartbar"></canvas>
+
+
+       
         
 
     </div>
 
     <script>
         
-        const gastos = 894.99;
-        const ingresos = 1272.23;
+        const gastos = -1500;
+        const ingresos = 1200;
+        const total = ingresos + gastos;
+        if (total > 0) {
+            var color = 'green'
+        } else {
+            var color = 'red'
+        }
+
+        const image = new Image();
+        image.src = 'https://www.chartjs.org/img/chartjs-logo.svg';
+
+        const plugin = {
+        id: 'customCanvasBackgroundImage',
+        beforeDraw: (chart) => {
+            if (image.complete) {
+            const ctx = chart.ctx;
+            const {top, left, width, height} = chart.chartArea;
+            const x = left + width / 2 - image.width / 2;
+            const y = top + height / 2 - image.height / 2;
+            ctx.drawImage(image, x, y);
+            } else {
+            image.onload = () => chart.draw();
+            }
+        }
+        };
+
         const ctx = document.getElementById('myChart').getContext("2d");
+        // grafico MEnsual ciruclar //
         const chart = new Chart(ctx, {
-            type:"pie",
+            type:"doughnut",
+            plugins: [plugin],
             data: {
                 labels: ['Ingresos' , 'Gastos'],
                 datasets:[{
-                    label:'Num datos',
                     data:[ingresos,gastos],
                     backgroundColor:[
                         'rgb(0, 255, 71)',
                         'rgb(255, 0, 0)'
                     ]
                 }]
+            },  
+            options: {
+                responsive: true,
+                plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                        font: {
+                        size: 20,
+                        weight: 'normal',
+                        },
+                            position: 'bottom',
+                            display: true,
+                            color: color,
+                            text: ['Total: '+total+' $'],
+                            padding: {
+                                top: 20,
+                            }
+                    }
+                }
+            },
+        })
+
+        // grafico MEnsual bar //
+        const ctxa = document.getElementById('myChartbar').getContext("2d");
+        const chartbar = new Chart(ctxa, {
+
+            type:"bar",
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo','Abril', 'Mayo' ,'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                datasets:[{
+                    label: 'Bar Dataset',
+                    data:[2,3,4,5,1272,7,1272,1272.23,1272,4,1272,3],
+                    backgroundColor:[
+                        'rgb(0, 255, 71)' 
+                    ]
+                }, {
+                    label: 'Bar Dataset',
+                    data:[894.99,3,894.99,1272.23,1272.23,7,8,9,2,4,2,3],
+                    backgroundColor:[
+                        'rgb(255, 0, 0)' 
+                    ]}
+                ]
             },
             options:{
+                responsive: true,
                 scales:{
                     yAxes:[{
                         ticks:{
