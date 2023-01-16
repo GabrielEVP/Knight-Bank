@@ -271,6 +271,7 @@
   left: 0;
   top: 0;
   overflow: scroll;
+  z-index: 1000;
 }
 .sidemenu::-webkit-scrollbar {
   width: 0;
@@ -805,18 +806,11 @@
   z-index: 0;
 }
 
-.cuadro_tarjet {
-  padding: 1000px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  margin: auto;
-  border-radius: 10px;
-  background-color: #232526;
-}
-
 .tarjet {
   background: #232526; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   position: relative;
   width: 30em;
   height: 17em;
@@ -881,6 +875,17 @@
   position: absolute;
   bottom: 10px;
   right: 15px;
+}
+
+.container_botones_cuenta {
+  position: absolute;
+  bottom: -2em;
+  display: flex;
+  justify-content: center;
+  right: 50%;
+}
+.container_botones_cuenta button {
+  margin-left: 15px;
 }
 
 @media (max-width: 440px) {
