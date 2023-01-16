@@ -35,6 +35,8 @@ class user_list extends standard_class{
 
     public function search_list_from_DDBB ($search_string) {
         $sql = "SELECT * FROM user WHERE ";
+
+        
         $sql .= "NIF = '$search_string'";
 
     }
