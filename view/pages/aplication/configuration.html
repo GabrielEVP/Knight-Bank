@@ -21,7 +21,7 @@
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
 
-     <!--- animation load  ng-init="load_user('all')" -->
+     <!--- animation load  -->
     <div class="loading"></div>
 
     <!--- nav bar PC  -->
@@ -105,10 +105,10 @@
                     </div>
                     <div class="button_photo_user">
                         <label class="label">
-                            <input type="file"/>
+                            <input type="file" name="image"/>
                             <span><i class="fa-solid fa-images"></i></span>
                         </label>
-                        <button name="borrar" value="borrar" class="trash"><i class="fa-solid fa-trash"></i></button>
+                        <button ng-click="delete_Image()"  type="button" class="trash"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
                 <div class="container_input_user">

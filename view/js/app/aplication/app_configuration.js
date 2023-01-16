@@ -39,5 +39,10 @@ App.controller('Controler', function($scope, $http) {
             alert('error');
         }
     }
-    
+
+    $scope.delete_Image = async function() {
+        const result = await $http.post((controller_url_User('delete_image')));
+        console.log(result.data);
+    }
+
 });
