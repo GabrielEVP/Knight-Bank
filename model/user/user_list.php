@@ -238,10 +238,10 @@ class user_list extends standard_class{
             if ( ($position = array_search($extra_data_array[$i]["id_user"],$user_id_list)) !== false) {
 
                 $array_user_list[$position]['foto'] = refactor_profile_img_path($array_user_list[$position]['foto']);
-                $array_user_list[$position]['account_number'] = $extra_data_array[$position]['account_number'];
-                $array_user_list[$position]['total_balance'] = ($extra_data_array[$position]['total_balance'] != null)? $extra_data_array[$position]['total_balance'] : "0";
-                $array_user_list[$position]['move_number'] = $extra_data_array[$position]['move_number'];
-                $array_user_list[$position]['last_move'] = ($extra_data_array[$position]['last_move'] != null)? $extra_data_array[$position]['last_move'] : "No hay" ;
+                $array_user_list[$position]['account_number'] = $extra_data_array[$i]['account_number'];
+                $array_user_list[$position]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
+                $array_user_list[$position]['move_number'] = $extra_data_array[$i]['move_number'];
+                $array_user_list[$position]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
     
                 array_push($result,$array_user_list[$position]);
             }
