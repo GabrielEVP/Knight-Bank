@@ -35,6 +35,7 @@ if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado e
         }
     } else {
         $new_user->setFoto($old_user->getFoto());
+        
     }
    
     if (!isset($response['error'])) {
