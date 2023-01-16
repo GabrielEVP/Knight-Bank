@@ -29,6 +29,7 @@ $transition_expanded: 0.2s;
     left: 0;
     top: 0;
     overflow: scroll;
+    z-index: 1000;
 
     @include no_scrollBars;
 }
@@ -224,6 +225,7 @@ $transition_expanded: 0.2s;
     width: 100%;
     overflow-x: scroll;
     @include no_scrollBars;
+    z-index: 1000;
 
     img {
         display: flex;
