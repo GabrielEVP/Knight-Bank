@@ -63,7 +63,7 @@ class user_model extends user_class {
     public function get_user ($id) {
        $select = select_Object("select * from user where id_user = $id");
        $user = cast_array($select, new user_model())[0];
-       $this->set_full_user($user);
+       $this->set_full_object($user);
        return $user;
     }
 
@@ -101,7 +101,7 @@ class user_model extends user_class {
         if ($user != null) {
             if ($user->getLogintries() > 0) {
                 if(password_verify($this->password,$user->getPassword())) {
-                    $this->set_full_user($user);
+                    $this->set_full_object($user);
                     return "ok";
                 } else {
                     return "credenciales incorrectas";
@@ -122,13 +122,6 @@ class user_model extends user_class {
 //MANIPULACION DEL OBJETO (SIN BBDD)
 //------------------------------------------------------------------
 
-public function set_full_user($new_user) {
-    $vars = get_object_vars($new_user);
-    foreach ($vars as $key => $valor) {
-        $setter = create_setter($key);
-        $this->$setter($valor);
-    }
-}
 
 
 

@@ -59,6 +59,15 @@ class account_model extends account_class {
         }
     }
 
+    public function check_account_ownership () {
+        $select = single_row_array_select("SELECT id_user FROM account WHERE IBAN = '$this->IBAN'");
+        if (!empty($select) && $this->objUser->getIdUser() == $select['id_user']) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 //------------------------------------------------------------------
 //MANIPULACION DEL OBJETO (SIN BBDD)
 //------------------------------------------------------------------

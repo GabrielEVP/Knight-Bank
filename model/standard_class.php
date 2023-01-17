@@ -18,5 +18,14 @@ class standard_class {
         }
         return $response_array;
     }
+
+
+    public function set_full_object($new_object) {
+        $vars = get_object_vars($new_object);
+        foreach ($vars as $key => $valor) {
+            $setter = create_setter($key);
+            $this->$setter($valor);
+        }
+    }
 }
 ?>
