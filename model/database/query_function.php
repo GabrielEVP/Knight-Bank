@@ -1,15 +1,11 @@
 <?php
+//*FUNCIONES BASE PARA EL FICHERO QUERY.PHP, MANIPULACION DE RESULTADOS SQL
 
-function row_object($row) {
+//------------------------------------------------------------------
+//RETORNOS DE OBJETOS GENERICOS
+//------------------------------------------------------------------
 
-    $object = new stdClass();
-    foreach ($row as $nombre => $valor) {
-        $object->$nombre=$valor;
-    }
-
-    return $object;
-}
-
+//convierte un resultado sql en un array de objetos genericos (std)
 function result_object_Array($result) {
 
     $final_array = array();
@@ -22,19 +18,22 @@ function result_object_Array($result) {
     return $final_array;
 }
 
-// function select_Array($sql) {
+//recibe una linea de array y la convierte en objeto generico
+function row_object($row) {
 
-//     $bbdd = new conect();
-//     $bbdd->OpenConnect($bbdd);  
-//     $result = $bbdd->link->query($sql); 
-//     $return = result_array($result);
+    $object = new stdClass();
+    foreach ($row as $nombre => $valor) {
+        $object->$nombre=$valor;
+    }
 
-//     $bbdd->CloseConnect();
-//     mysqli_free_result($result);
+    return $object;
+}
 
-//     return $return;
-// }
+//------------------------------------------------------------------
+//RETORNO DE ARRAYS
+//------------------------------------------------------------------
 
+//convierte un resultado sql en un array bidimensional
 function result_Array($result) {
 
     $final_array = array();

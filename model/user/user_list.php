@@ -25,6 +25,9 @@ class user_list extends standard_class{
         return $this;
     }
 
+    //------------------------------------------------------------------
+    //BUSQUEDAS EN LA BBDD
+    //------------------------------------------------------------------
 
     public function get_user_list_from_BBDD() {
         $select = select_Object("SELECT * FROM user");
@@ -53,6 +56,9 @@ class user_list extends standard_class{
         return $this->user_list;
     }
 
+    //------------------------------------------------------------------
+    //FILTROS DE LA LISTA
+    //------------------------------------------------------------------
 
     public function get_active_users() {
         $result_list = array();
@@ -201,7 +207,7 @@ class user_list extends standard_class{
         return  select_array($sql);      
     }
 
-    //version comprimide pero menos eficiente que las anteriores listas (O)n^2 vs (O)n^3
+    //version comprimida pero menos eficiente que las anteriores listas (O)n^2 vs (O)n^3
     public function get_extra_list($sql_where = "") {
         $sql = "SELECT
                 u.id_user as 'id_user',

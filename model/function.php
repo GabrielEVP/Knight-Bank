@@ -1,5 +1,9 @@
 <?php 
+//*FUNCIONES GENERICAS USADAS TANTO EN CONTROLLER COMO EN EL MODEL*
 
+//------------------------------------------------------------------
+//OBJETOS GENERICOS
+//------------------------------------------------------------------
 function cast($stdObject,$new_object) {
 
     $vars = get_object_vars($stdObject);
@@ -22,7 +26,9 @@ function cast_array($array,$type) {
 
     return $result;
 }
-
+//------------------------------------------------------------------
+//GENERAR LLAMADAS A OTRAS FUNCIONES
+//------------------------------------------------------------------
 function create_getter($key) {
     $key_name = "";
         if (str_contains($key,"_")) {
@@ -59,6 +65,10 @@ function create_setter($key) {
         return "set" . ucfirst($key_name);
 }
 
+//------------------------------------------------------------------
+//REFACTORIZACION DE FORMATOS 
+//------------------------------------------------------------------
+
 function refactor_array_indexes($input_array) {
     $result = array();
     $array_length = count($input_array);
@@ -81,25 +91,26 @@ function refactor_profile_img_path($filename) {
     }
 }
 
-
+//------------------------------------------------------------------
+//TRATAMIENTO DE STRINGS
+//------------------------------------------------------------------
 
 function generate_sound_code ($string) {
 
-$code = str_replace(" ","",$string);
-$code = strtolower($code);
-$code = remove_accents($code);
+    $code = str_replace(" ","",$string);
+    $code = strtolower($code);
+    $code = remove_accents($code);
 
-$code = str_replace(array("ch","tx","tz","ts"),"tx",$code);
-$code = str_replace("k","c",$code);
-$code = str_replace(array("ñ","m"),"n",$code);
-$code = str_replace("h","",$code);
-$code = str_replace(array("ll","j","y","g","i"),"y",$code);
-$code = str_replace(array("s","z","X"),"s",$code);
-$code = str_replace(array("w","v","b"),"b",$code);
-$code = str_replace("o","u",$code);
+    $code = str_replace(array("ch","tx","tz","ts"),"tx",$code);
+    $code = str_replace("k","c",$code);
+    $code = str_replace(array("ñ","m"),"n",$code);
+    $code = str_replace("h","",$code);
+    $code = str_replace(array("ll","j","y","g","i"),"y",$code);
+    $code = str_replace(array("s","z","X"),"s",$code);
+    $code = str_replace(array("w","v","b"),"b",$code);
+    $code = str_replace("o","u",$code);
 
 return $code;
-//return substr(soundex($code), 1);
 }
 
 function remove_accents($string) {
