@@ -72,6 +72,42 @@ class account_model extends account_class {
         }
 
     }
+
+    public function get_financial_data ($options) {
+        if (!is_array($options)) { 
+            return null;
+        }
+        $sql_where = "";
+        $sql_where .= (isset($options['period']))  ? " AND " . $options['period'] . "(m.dateTime) = " . $options['period'] ."(CURDATE()) " : " " ;
+        $sql_where .= (isset($options['user']))  ? " AND " . "a.id_user = " . $options['user'] . " " : " " ;
+        $sql_where .= (isset($options['iban']))  ? " AND " . "a.IBAN = '" . $options['iban'] . "' ": " " ;
+
+        $sql = "SELECT IFNULL(sum(amount),0) as 'expenses_income' FROM account a
+                INNER JOIN account_move am
+                    ON am.id_account = a.id_account
+                INNER JOIN move m 
+                    ON m.id_move = am.id_move
+                WHERE
+                    am.amount < 0
+                    $sql_where
+                UNION
+                SELECT IFNULL(sum(amount),0) FROM account a
+                INNER JOIN account_move am
+                    ON am.id_account = a.id_account
+                INNER JOIN move m 
+                    ON m.id_move = am.id_move
+                WHERE 
+                    am.amount > 0
+                    $sql_where
+                    ;";
+        $select = select_array($sql);
+        $result = array(
+            "expenses" => $select[0]["expenses_income"],
+            "income" => $select[1]["expenses_income"],
+        );
+
+        return $result;
+    }
 //------------------------------------------------------------------
 //MANIPULACION DEL OBJETO (SIN BBDD)
 //------------------------------------------------------------------
