@@ -41,6 +41,10 @@ class account_model extends account_class {
     public function update_account () {
         return update("update account set balance = $this->balance, id_user = $this->id_user, id_user_hist= $this->id_user_hist, active = $this->active WHERE id_account = $this->'id_account'");
     }
+
+    public function update_balance ($amount) {
+        return update("update account set balance = balance + $amount WHERE id_account = $this->'id_account'");
+    }
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DESDE LA BBDD
 //------------------------------------------------------------------

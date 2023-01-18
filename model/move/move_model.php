@@ -9,6 +9,23 @@ class move_model extends move_class {
 
     private $objMoveType;
 
+    /**
+     * Get the value of objMoveType
+     */
+    public function getObjMoveType()
+    {
+        return $this->objMoveType;
+    }
+
+    /**
+     * Set the value of objMoveType
+     */
+    public function setObjMoveType($objMoveType): self
+    {
+        $this->objMoveType = $objMoveType;
+
+        return $this;
+    }
 //------------------------------------------------------------------
 //CRUD (SIN SELECT)
 //------------------------------------------------------------------
@@ -39,6 +56,8 @@ class move_model extends move_class {
 
         return $move;
     }
+
+
 
 }
 

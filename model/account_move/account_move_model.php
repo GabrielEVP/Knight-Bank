@@ -58,6 +58,17 @@ class account_move_model extends account_move_class {
     public function update_account_move () {
         return update("update account_move set IBAN = '$this->IBAN', id_move = '$this->objAccount->getIBAN()', amount= $this->amount WHERE id_account_move = $this->id_acccount_move");
     }
+
+    public function save_move () {
+        $this->objMove->insert();
+        $this->objMove = $this->objMove->get_last_move();     
+        
+        $this->insert_account_move();
+    }
+
+    public function save_transference($receiver_IBAN) {
+        return update("CALL NEW_TRANSFERENCE($this->amount,'$this->objMove->getNotion()','$this->IBAN','$receiver_IBAN')");
+    }
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DE LA BBDD
 //------------------------------------------------------------------
@@ -67,13 +78,7 @@ class account_move_model extends account_move_class {
        return $account_move;
     }
 
-    public function save_move () {
-        $this->objMove->insert();
-        $this->objMove = $this->objMove->get_last_move();     
-        
-        $this->insert_account_move();
 
-    }
 }
 
 ?>
