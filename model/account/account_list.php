@@ -29,5 +29,6 @@ class account_list extends standard_class{
         $select = select_Object("SELECT * FROM account WHERE id_user = $user_id");
         $this->account_list = cast_array($select, new account_model());
     }
+
 }
 ?>
