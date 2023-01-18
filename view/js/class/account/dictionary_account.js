@@ -13,7 +13,8 @@ function controller_url_Account(controller) {
 function controller_url_account_List(controller) {
     const url_account_List = {
         all: controller_path_builder('account/lists/load_account_list.php'),
-        load_from_user : controller_path_builder('account/load_accounts_from_user.php'),
+        load_from_user : controller_path_builder('account/lists/load_accounts_from_user.php'),
+        load_own : controller_path_builder('account/lists/load_own_accounts.php'),
     }
     return url_account_List[controller] ?? alert('error url del controller account no existe');
 }
