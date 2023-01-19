@@ -73,38 +73,85 @@ class account_model extends account_class {
 
     }
 
-    public function get_financial_data ($options) {
+    public function get_financial_data ($options = array()) {
+        //**AVAILABLE OPTIONS**
+        //period = MONTH,YEAR,DAY : filtran por el ultimo mes año o dia
+        //user = user.id_user : filtra en base a usuario
+        //iban = account.IBAN : filtra en base al IBAN de las cuentas bancarias
+        //monthly = 1 : agrupa los resultados en mensualidades 
+
         if (!is_array($options)) { 
             return null;
         }
-        $sql_where = "";
-        $sql_where .= (isset($options['period']))  ? " AND " . $options['period'] . "(m.dateTime) = " . $options['period'] ."(CURDATE()) " : " " ;
-        $sql_where .= (isset($options['user']))  ? " AND " . "a.id_user = " . $options['user'] . " " : " " ;
-        $sql_where .= (isset($options['iban']))  ? " AND " . "a.IBAN = '" . $options['iban'] . "' ": " " ;
+        $sql = "";
 
-        $sql = "SELECT IFNULL(sum(amount),0) as 'expenses_income' FROM account a
-                INNER JOIN account_move am
-                    ON am.id_account = a.id_account
-                INNER JOIN move m 
-                    ON m.id_move = am.id_move
-                WHERE
-                    am.amount < 0
-                    $sql_where
-                UNION
-                SELECT IFNULL(sum(amount),0) FROM account a
-                INNER JOIN account_move am
-                    ON am.id_account = a.id_account
-                INNER JOIN move m 
-                    ON m.id_move = am.id_move
-                WHERE 
-                    am.amount > 0
-                    $sql_where
-                    ;";
+        $sql_select = "";
+        $extra_columns = "";
+        $sql_from = "";
+        $sql_where_base = "";
+        $sql_where = "";
+        $sql_group = "";
+
+        $extra_columns .= (isset($options['monthly']))  ? ", d.date as 'month' ": " " ;
+        
+        $sql_select = "SELECT IFNULL(sum(amount),0)  as 'expenses_income' $extra_columns ";
+        if (isset($options['monthly'])) {
+            $extra_columns .= " , d.date";
+            $sql_from .= " FROM 
+                    (SELECT 1 as 'date'";
+            for ($i = 2; $i < 13; $i++) {
+                $sql_from.= " UNION SELECT $i ";
+            }
+            $sql_from .= " ) as d
+                        LEFT JOIN move m
+                            ON d.date = MONTH(m.dateTime)
+                        LEFT JOIN account_move am
+                            ON m.id_move = am.id_move
+                        LEFT JOIN account a   
+                            ON am.id_account = a.id_account";
+        } else {
+            $sql_from .=" FROM account a 
+                        INNER JOIN account_move am
+                            ON am.id_account = a.id_account
+                        INNER JOIN move m 
+                            ON m.id_move = am.id_move";
+        }
+        $sql_where_base .= " WHERE IFNULL(am.amount,-1) < 0 ";
+
+        $sql_where .= (isset($options['period']))  ? " AND IFNULL(" . $options['period'] . "(m.dateTime), " . $options['period'] . "(CURDATE()) ) = " . $options['period'] ."(CURDATE()) " : " " ;
+        $sql_where .= (isset($options['user']))  ? " AND IFNULL(a.id_user,IF(a.id_user_hist IS NULL ," . $options['user'] . ",-1)) = " . $options['user'] . " " : " " ;
+        $sql_where .= (isset($options['iban']))  ? " AND IFNULL(a.IBAN, " . $options['iban'] . ") = '" . $options['iban'] . "' ": " " ;
+
+        $sql_group .= (isset($options['monthly']))  ? " GROUP BY ": " " ;
+        $sql_group .= (isset($options['monthly']))  ? " d.date ,": " " ;
+        $sql_group = rtrim($sql_group,",");
+
+        $sql .= "$sql_select  
+                 $sql_from  
+                 $sql_where_base  
+                 $sql_where  
+                 $sql_group";
+        $sql_where_base = "WHERE IFNULL(am.amount,-1) > 0";
+        $sql .= " 
+                UNION ALL  
+                $sql_select
+                $sql_from
+                $sql_where_base
+                $sql_where 
+                $sql_group";
+
         $select = select_array($sql);
+
+        $numrows = count($select)/2;
         $result = array(
-            "expenses" => $select[0]["expenses_income"],
-            "income" => $select[1]["expenses_income"],
+            "expenses" => array(),
+            "income" => array(),
         );
+        $counter = 1;
+        foreach ($select as $moveset) {
+            ($counter <= $numrows)? array_push($result['expenses'],$moveset) : array_push($result['income'],$moveset);   
+            $counter++;
+        }
 
         return $result;
     }
