@@ -78,6 +78,18 @@ function quit_Modal() {
     $(".insert_account").css({
         "display": "none",
     });
+
+    $(".operation_ingresar").css({
+        "display": "none",
+    });
+
+    $(".operation_retirar").css({
+        "display": "none",
+    });
+
+    $(".operation_transferir").css({
+        "display": "none",
+    });
 }
 
 export { empty_input , empty_input_account , show_Modal , quit_Modal }

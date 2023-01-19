@@ -157,7 +157,7 @@
   justify-content: center;
   width: 100%;
 }
-.modal-content footer .button {
+.modal-content .button {
   position: relative;
   padding: 10px 30px;
   border-radius: 3px;
@@ -167,7 +167,7 @@
   text-transform: uppercase;
   overflow: hidden;
 }
-.modal-content footer .button:before {
+.modal-content .button:before {
   position: absolute;
   content: "";
   top: 0;
@@ -178,14 +178,14 @@
   transition: width 250ms ease;
   z-index: 0;
 }
-.modal-content footer .button:hover:before {
+.modal-content .button:hover:before {
   width: 100%;
 }
-.modal-content footer .button.success {
+.modal-content .button.success {
   margin-right: 5px;
   background-color: #2ecc71;
 }
-.modal-content footer .button.danger {
+.modal-content .button.danger {
   background-color: #e74c3c;
 }
 
@@ -221,6 +221,54 @@
   display: none;
 }
 
+.operation_ingresar {
+  display: none;
+}
+
+.operation_retirar {
+  display: none;
+}
+
+.operation_transferir {
+  display: none;
+}
+
+#form_operationBank {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  margin: auto;
+  margin-top: 2em;
+}
+#form_operationBank input {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  margin-top: 5px;
+  padding-left: 5px;
+  font-size: 20px;
+}
+#form_operationBank input:focus {
+  background-color: rgb(221, 221, 221);
+}
+#form_operationBank select {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: 25px;
+  padding-left: 5px;
+}
+
+.container_modal_button_operation {
+  margin-top: 4em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
 @media (max-width: 1080px) {
   .modal-content {
     left: 10%;
@@ -228,6 +276,9 @@
     width: 80%;
     top: 20%;
     margin-left: 0%;
+  }
+  #form_operationBank {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 660px) {
@@ -815,7 +866,8 @@
   width: 30em;
   height: 17em;
   border-radius: 10px;
-  margin: 15px;
+  margin: auto;
+  margin-top: 5px;
 }
 .tarjet img {
   -webkit-filter: grayscale(100%);
@@ -879,19 +931,80 @@
 
 .container_botones_cuenta {
   position: absolute;
-  bottom: -2em;
-  display: flex;
-  justify-content: center;
-  right: 50%;
+  bottom: -3em;
+  left: 20%;
 }
 .container_botones_cuenta button {
+  background: transparent;
+  color: #232526;
+  border: 1px solid #232526;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px 0px;
   margin-left: 15px;
+  padding: 5px 10px;
+  font-weight: 300;
+  font-size: 15px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+.container_botones_cuenta button:hover {
+  background-color: #232526;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 1px 0px;
+  transition: 0.3s;
 }
 
+.container_scroll_cuenta_filter {
+  background: transparent;
+  border: 2px solid gray;
+  border-radius: 20px;
+  position: absolute;
+}
+.container_scroll_cuenta_filter::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.container_scroll_cuenta_filter::-webkit-scrollbar-track {
+  background: transparent;
+}
+.container_scroll_cuenta_filter::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+.container_scroll_cuenta_filter button {
+  margin: 2px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  border: 1px solid #232526;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px 0px;
+}
+.container_scroll_cuenta_filter button:hover {
+  background-color: #232526;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 1px 0px;
+  transition: 0.3s;
+}
+
+@media (min-width: 1040px) {
+  .container_scroll_cuenta_filter {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    right: -4em;
+    top: 0;
+    max-height: 100%;
+  }
+}
 @media (max-width: 440px) {
   .tarjet {
     width: 27em;
     height: 13.5em;
+    margin-bottom: 6em;
   }
   .tarjet .img_chip img {
     position: relative;
@@ -900,6 +1013,36 @@
   .tarjet .number {
     top: calc(15em - 80% + 2em);
     font-size: 18px;
+  }
+  .container_botones_cuenta {
+    bottom: -5em;
+    left: 7%;
+    display: flex;
+    overflow-x: scroll;
+    max-width: 100%;
+  }
+  .container_botones_cuenta::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .container_botones_cuenta::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .container_botones_cuenta::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+  .container_scroll_cuenta_filter {
+    height: 30px;
+    display: inline-flex;
+    bottom: -2.5em;
+    left: 8%;
+    overflow-x: scroll;
+    max-width: 80%;
+  }
+  .container_scroll_cuenta_filter button {
+    margin: 0px;
+    margin-left: 5px;
   }
 }
 *, *::before, *::after {

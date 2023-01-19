@@ -8,6 +8,9 @@ import { controller_url_Account , controller_url_account_List } from "../../clas
 import { fetch_get_Data, fetch_set_Data } from "../../server/server.js"
 import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
 
+import { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input } from "../../functions/verification_form.js";
+
+
 const App = angular.module('App', []);
 
 App.controller('Controler', function($scope, $http) {

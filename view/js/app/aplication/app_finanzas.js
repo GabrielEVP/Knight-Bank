@@ -4,6 +4,9 @@ import { controller_url_User } from "../../class/user/dictionary_user.js"
 import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
 import { fetch_get_Data } from "../../server/server.js"
 
+import { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input } from "../../functions/verification_form.js";
+
+
 const App = angular.module('App', []);
 
 App.controller('Controler', function($scope, $http) {
@@ -26,7 +29,29 @@ App.controller('Controler', function($scope, $http) {
         });
     }
 
+    window.onload = function () {
+        keypress_condition("#money_operation", "0123456789,.");
+    }
 
+    $scope.show_OperationBank = function(class_element, id_account) {
+        $scope.id_account = id_account;
+        show_Modal(class_element);
+    }
+
+    $scope.do_OperationBank = function() {
+       const num_account = $('#num_account').val();
+       const balance_account =  $('#balance_account').val();
+       const money_operation =  $('#money_operation').val();
+
+       console.log(num_account);
+       console.log(balance_account);
+       console.log(money_operation);
+
+    }
+
+    $scope.close = function() {
+        quit_Modal();
+    }
 
     $scope.logout = async function() {
         const result = await fetch_get_Data(controller_url_User('logout'));
@@ -37,6 +62,5 @@ App.controller('Controler', function($scope, $http) {
             alert('error');
         }
     }
-
     
 });
