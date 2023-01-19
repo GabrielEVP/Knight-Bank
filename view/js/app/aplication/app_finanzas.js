@@ -40,11 +40,14 @@ App.controller('Controler', function($scope, $http) {
 
     $scope.do_OperationBank = function(operation) {
         $('#form_operationBank').submit(async function() {
+            var amount = $('#amount').val();
+            console.log(-Math.abs(amount));
+            var sender_IBAN = $('#sender_IBAN').val();
+            var notion = $('#notion').val();
+            
             switch (operation) {
                 case 'deposit':
-                    const sender_IBAN = $('#num_account').val();
-                    const amount = $('#amount').val();
-                    const notion = $('#notion').val();
+                   
                     break;
 
                 case 'withdrawal':
