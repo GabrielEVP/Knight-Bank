@@ -13,6 +13,9 @@ class standard_class {
     public function getArrayObjVars($arrayname) {
         $response_array = array();
         $getter =  create_getter($arrayname);
+        // if (!is_array($this->$arrayname)) {
+        //     return array();
+        // }
         foreach ($this->$getter() as $object) {
             array_push($response_array,$object->getObjvars());
         }
