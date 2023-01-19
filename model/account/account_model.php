@@ -131,7 +131,7 @@ class account_model extends account_class {
                  $sql_where_base  
                  $sql_where  
                  $sql_group";
-        $sql_where_base = "WHERE IFNULL(am.amount,1) > 0";
+        $sql_where_base = " WHERE IFNULL(am.amount,1) > 0 ";
         $sql .= " 
                 UNION ALL  
                 $sql_select
