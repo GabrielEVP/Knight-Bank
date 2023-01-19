@@ -39,13 +39,9 @@ App.controller('Controler', function($scope, $http) {
     }
 
     $scope.do_OperationBank = function() {
-       const num_account = $('#num_account').val();
-       const balance_account =  $('#balance_account').val();
-       const money_operation =  $('#money_operation').val();
-
-       console.log(num_account);
-       console.log(balance_account);
-       console.log(money_operation);
+       $('#form_operationBank').submit(function() {
+        console.log('a');
+       })
 
     }
 

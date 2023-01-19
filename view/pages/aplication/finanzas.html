@@ -53,13 +53,6 @@
                 </a>
             </div>
             <div class="item">
-                <a href="./cuentas.html">
-                    <div class="icon orange"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
-                    <div class="title"><span>Cuentas</span></div>
-                </a>
-            </div>
-            <div class="item item_separator"></div>
-            <div class="item">
                 <a href="#">
                     <div class="icon green"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
                     <div class="title"><span>Movimientos</span></div>
@@ -90,7 +83,6 @@
         <div class="container_navbar_phone">
             <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
             <a href="./finanzas.html"><i class="i fa-solid fa-coins active"></i></a>
-            <a href="./cuentas.html"><i class="i fa-sharp fa-solid fa-building-columns orange"></i></a>
         </div>
     </div>
 
@@ -145,16 +137,15 @@
             <h2 class="operation_transferir">Transferir dinero a otra cuenta</h2>
         </header>
         <article class="content">
-            <form id="form_operationBank">
-                <div>
-                   
-                    <select id="num_account" class="operation_transferir">
-                        <option value="ES1231233">ES1231233 123213123</option>
-                        <option value="23">ES1231233 123213123</option>
-                        <option value="3">ES1231233 123213123</option>
-                        <option value="4">ES1231233 123213123</option>
+            <form id="form_operationBank" action="">
+                <div class="operation_transferir" >
+                    <select id="num_account">
+                        <option value="ES1231233 123213123">ES1231233 123213123</option>
+                        <option value="ES1231233 123213123">ES1231233 123213123</option>
                     </select>
-                    <input class="operation_retirar operation_ingresar" id="balance_account" type="text" disabled value="ES1231233 123213123">
+                </div>
+                <div class="operation_retirar operation_ingresar" >
+                    <input  id="balance_account" type="text" disabled value="ES1231233 123213123">
                 </div>
                 <div>
                     <input id="balance_account" type="text" disabled value="20">

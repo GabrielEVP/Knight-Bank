@@ -1,7 +1,7 @@
 // Grafico Mensual Ciruclar //
 const generator_CircularMonth = (Canvas) => {
-    const gastos = -1500;
-    const ingresos = 1200;
+    const gastos = -1500.20;
+    const ingresos = 1800.50;
     const total = ingresos + gastos;
     var color;
 
@@ -39,7 +39,7 @@ const generator_CircularMonth = (Canvas) => {
                     position: 'bottom',
                     display: true,
                     color: color,
-                    text: ['Total: '+total+' $'],
+                    text: ['Total: '+total.toFixed(2)+' €'],
                     padding: {
                         top: 20,
                     }

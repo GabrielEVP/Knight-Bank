@@ -165,7 +165,7 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
 }
 
 
-@media (min-width:1040px) {   
+@media (min-width:1520px) {   
   .container_scroll_cuenta_filter {
     position: absolute;
     display: flex;
@@ -177,22 +177,7 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
   }
 }
 
-@media (max-width: 440px) {   
-  .tarjet {
-    width: $anchura_tarjet_movil;
-    height: $altura_tarjet_movil;
-    margin-bottom: 6em;
-
-    .img_chip img {
-      position: relative;
-      top: calc($anchur_iconos - 1em);
-    }
-    .number {
-      top: calc($anchur_cuenta + 2em);
-      font-size: 18px;
-    }
-  }
-
+@media (max-width:1520px) {   
   .container_botones_cuenta {
     bottom: -5em;
     left: 7%;
@@ -215,4 +200,23 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
       margin-left: 5px;
     }
   }
+}
+
+@media (max-width: 1040px) {   
+  .tarjet {
+    width: $anchura_tarjet_movil;
+    height: $altura_tarjet_movil;
+    margin-bottom: 6em;
+
+    .img_chip img {
+      position: relative;
+      top: calc($anchur_iconos - 1em);
+    }
+    .number {
+      top: calc($anchur_cuenta + 2em);
+      font-size: 18px;
+    }
+  }
+
+ 
 }

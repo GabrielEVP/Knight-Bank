@@ -989,7 +989,7 @@
   transition: 0.3s;
 }
 
-@media (min-width: 1040px) {
+@media (min-width: 1520px) {
   .container_scroll_cuenta_filter {
     position: absolute;
     display: flex;
@@ -1000,20 +1000,7 @@
     max-height: 100%;
   }
 }
-@media (max-width: 440px) {
-  .tarjet {
-    width: 27em;
-    height: 13.5em;
-    margin-bottom: 6em;
-  }
-  .tarjet .img_chip img {
-    position: relative;
-    top: 5.5em;
-  }
-  .tarjet .number {
-    top: calc(15em - 80% + 2em);
-    font-size: 18px;
-  }
+@media (max-width: 1520px) {
   .container_botones_cuenta {
     bottom: -5em;
     left: 7%;
@@ -1043,6 +1030,21 @@
   .container_scroll_cuenta_filter button {
     margin: 0px;
     margin-left: 5px;
+  }
+}
+@media (max-width: 1040px) {
+  .tarjet {
+    width: 27em;
+    height: 13.5em;
+    margin-bottom: 6em;
+  }
+  .tarjet .img_chip img {
+    position: relative;
+    top: 5.5em;
+  }
+  .tarjet .number {
+    top: calc(15em - 80% + 2em);
+    font-size: 18px;
   }
 }
 *, *::before, *::after {
@@ -1226,6 +1228,16 @@ body {
   margin-top: 30px;
 }
 
+@media (max-width: 1325px) {
+  .circular {
+    margin-top: 7em;
+  }
+}
+@media (max-width: 985px) {
+  .circular {
+    margin-top: 0;
+  }
+}
 .button_secondary {
   display: inline-block;
   background-color: transparent;

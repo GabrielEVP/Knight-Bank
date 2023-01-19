@@ -164,7 +164,7 @@ App.controller('Controler', function($scope, $http) {
     $scope.show_Account = async function(class_element,id) {
         $scope.id = id;
         const data = { id_user : id }
-
+    
         if (screen.width < 520) {
             $(".modal-content").css({
                 "top": "10%"
@@ -205,8 +205,6 @@ App.controller('Controler', function($scope, $http) {
             console.log(err);
         });;
 
-        const result = await $http.get(controller_url_account_List('load_from_user'));
-        console.log(result);
     }
 
     $scope.insert_account = async function(id) {
