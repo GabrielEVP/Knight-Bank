@@ -233,6 +233,11 @@
   display: none;
 }
 
+.IBAN_operation {
+  justify-content: center;
+  margin: auto;
+}
+
 #form_operationBank {
   width: 80%;
   display: grid;
@@ -252,13 +257,27 @@
 #form_operationBank input:focus {
   background-color: rgb(221, 221, 221);
 }
+#form_operationBank textarea {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  margin-top: 5px;
+  padding-left: 5px;
+  font-size: 20px;
+}
+#form_operationBank textarea:focus {
+  background-color: rgb(221, 221, 221);
+}
 #form_operationBank select {
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  margin: auto;
   font-size: 25px;
   padding-left: 5px;
+  width: 80%;
+  margin: auto;
+  margin-top: 5px;
+  display: block;
+  justify-content: center;
 }
 
 .container_modal_button_operation {
