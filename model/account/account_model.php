@@ -120,7 +120,7 @@ class account_model extends account_class {
 
         $sql_where .= (isset($options['period']))  ? " AND IFNULL(" . $options['period'] . "(m.dateTime), " . $options['period'] . "(CURDATE()) ) = " . $options['period'] ."(CURDATE()) " : " " ;
         $sql_where .= (isset($options['user']))  ? " AND IFNULL(a.id_user,IF(a.id_user_hist IS NULL ," . $options['user'] . ",-1)) = " . $options['user'] . " " : " " ;
-        $sql_where .= (isset($options['iban']))  ? " AND IFNULL(a.IBAN, " . $options['iban'] . ") = '" . $options['iban'] . "' ": " " ;
+        $sql_where .= (isset($options['iban']))  ? " AND IFNULL(a.IBAN, '" . $options['iban'] . "') = '" . $options['iban'] . "' ": " " ;
 
         $sql_group .= (isset($options['monthly']))  ? " GROUP BY ": " " ;
         $sql_group .= (isset($options['monthly']))  ? " d.date ,": " " ;
@@ -131,7 +131,7 @@ class account_model extends account_class {
                  $sql_where_base  
                  $sql_where  
                  $sql_group";
-        $sql_where_base = "WHERE IFNULL(am.amount,-1) > 0";
+        $sql_where_base = "WHERE IFNULL(am.amount,1) > 0";
         $sql .= " 
                 UNION ALL  
                 $sql_select
