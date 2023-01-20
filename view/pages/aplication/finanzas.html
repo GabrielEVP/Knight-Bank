@@ -102,8 +102,8 @@
                 <div class="img_fondo">
                     <img src="../../img/global/logos/logo.gif" alt="">
                 </div>
-                <h4 class="number">ES1231233 123213123</h4>
-                <h3 class="value" >25 $</h3>
+                <h4 class="number">{{account_array_now.IBAN}}</h4>
+                <h3 class="value" >{{account_array_now.balance}} $</h3>
                 <h3 class="tarjet_company title_tip">Visa</h3>
                 <!--- operation buttons click() -->
                 <div class="container_botones_cuenta">
@@ -113,8 +113,7 @@
                 </div>
                 <!--- filter scroll cuenta Repeat() -->
                 <div class="container_scroll_cuenta_filter">
-                    <button value="">1</button>
-                    <button value="">2</button>
+                    <button ng-repeat="account in account_array" value={{account.IBAN}}>{{$index+1}}</button>
                 </div>
             </div>
              <!--- pie grafic -->
@@ -139,7 +138,7 @@
         <article class="content">
            
                 <div class="IBAN_operation">
-                    <input id="sender_IBAN" type="text" disabled value="ES1231233 123213123">
+                    <input id="sender_IBAN" type="text" value={{account_array_now.IBAN}} disabled>
                     <section class="operation_transferir" >
                         <select id="receiver_IBAN">
                             <option value="ES1231233 123213123">ES1231233 123213123</option>
