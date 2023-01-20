@@ -2,7 +2,9 @@ import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
 import { controller_url_User } from "../../class/user/dictionary_user.js"
 import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
-import { fetch_get_Data } from "../../server/server.js"
+
+import { controller_url_move } from "../../class/move/dictionary_account_move.js";
+import { fetch_get_Data, fetch_set_Data } from "../../server/server.js"
 
 import { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input } from "../../functions/verification_form.js";
 
@@ -38,40 +40,25 @@ App.controller('Controler', function($scope, $http) {
         show_Modal(class_element);
     }
 
-    $scope.do_OperationBank = function(operation) {
-        $('#form_operationBank').submit(async function() {
+    $scope.do_OperationBank = async function(operation) {
+        //$('#form_operationBank').click(async function() {
             var amount = $('#amount').val();
-            console.log(-Math.abs(amount));
             var sender_IBAN = $('#sender_IBAN').val();
             var notion = $('#notion').val();
-            
-            switch (operation) {
-                case 'deposit':
-                   
-                    break;
+            var receiver_IBAN;
 
-                case 'withdrawal':
-                    console.log('no sabes ingles');
-                    break;
-
-                case 'transference':
-                    var receiver_IBAN = $('#receiver_IBAN').val();
-                    break;
-
-                default:
-                    return false;  
-            }
+            if (operation == 'withdrawal' ) amount = -Math.abs(amount);
+            if (operation == 'transference') receiver_IBAN = $('#receiver_IBAN').val(); 
 
             const data = { "sender_IBAN" : sender_IBAN, "amount" :amount, "notion" :notion, "receiver_IBAN" :receiver_IBAN, "move_type" :operation };
-            const result = await fetch_set_Data(controller_url_User('logout') , data);
-            console.log(result)
+            const result = await fetch_set_Data(controller_url_move('new') , data);
 
             if (result.status == 'ok') {
                 location.reload();
             } else {
                 console.error('error en la operacion');
             }
-        })
+       // })
     }    
 
     $scope.close = function() {

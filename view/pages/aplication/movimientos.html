@@ -14,17 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    
     <link rel="stylesheet" href="../../styles/css_aplication.css">
-    <script src="../../js/app/aplication/app_cuentas.js" type="module"></script>
-
+    <script src="../../js/app/aplication/app_finanzas.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <title>Admins</title>
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
 
-     <!--- animation load  ng-init="load_user('all')" -->
     <div class="loading"></div>
 
     <!--- nav bar PC  -->
@@ -52,17 +48,10 @@
             </div>
             <div class="item">
                 <a href="./finanzas.html">
-                    <div class="icon gold"><i class="i fa-solid fa-coins color_green"></i></div>
+                    <div class="icon active"><i class="i fa-solid fa-coins color_green"></i></div>
                     <div class="title"><span>Finanzas</span></div>
                 </a>
             </div>
-            <div class="item">
-                <a href="./cuentas.html">
-                    <div class="icon active"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
-                    <div class="title"><span>Cuentas</span></div>
-                </a>
-            </div>
-            <div class="item item_separator"></div>
             <div class="item">
                 <a href="#">
                     <div class="icon green"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
@@ -93,14 +82,16 @@
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
             <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
-            <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
-            <a href="./cuentas.html"><i class="i fa-sharp fa-solid fa-building-columns active"></i></a>
+            <a href="./finanzas.html"><i class="i fa-solid fa-coins active"></i></a>
         </div>
     </div>
 
+    <!--- Container of aplication -->
     <div class="body_collapse body_phone">
 
-        <div class="container_tarjet">
+        <!--- header aplication -->
+        <div class="container">
+            <!--- tarjet -->
             <div class="tarjet">
                 <h3 class="tarjet_company title_company">Knight Bank</h3>
                 <p>debito</p>
@@ -114,14 +105,66 @@
                 <h4 class="number">ES1231233 123213123</h4>
                 <h3 class="value" >25 $</h3>
                 <h3 class="tarjet_company title_tip">Visa</h3>
-
+                <!--- operation buttons click() -->
                 <div class="container_botones_cuenta">
-                    <button>transe</button>
-                    <button>transe</button>
-                    <button>transe</button>
+                    <button ng-click="show_OperationBank('.operation_ingresar',1)">Ingresar</button>
+                    <button ng-click="show_OperationBank('.operation_retirar',1)">Retirar</button>
+                    <button ng-click="show_OperationBank('.operation_transferir',1)">Transferir</button>
+                </div>
+                <!--- filter scroll cuenta Repeat() -->
+                <div class="container_scroll_cuenta_filter">
+                    <button value="">1</button>
+                    <button value="">2</button>
                 </div>
             </div>
+             <!--- pie grafic -->
+            <div class="container_graficos circular">
+                <canvas id="circular_month"></canvas>
+            </div>
+        </div>
+         <!--- bar grafic -->
+        <div class="container_graficos bar">
+            <canvas id="bar_year"></canvas>
+        </div>
 
+           <!--- Modal code -->
+    <label ng-modal="id" for="modal" class="modal-bg"></label>
+    <div class="modal-content">
+        <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <header>
+            <h2 class="operation_ingresar">Ingresar dinero a la cuenta</h2>
+            <h2 class="operation_retirar">Retirar dinero de la cuenta</h2>
+            <h2 class="operation_transferir">Transferir dinero a otra cuenta</h2>
+        </header>
+        <article class="content">
+            <form id="form_operationBank">
+                <div class="IBAN_operation">
+                    <input id="sender_IBAN" type="text" disabled value="ES1231233 123213123">
+                    <section class="operation_transferir" >
+                        <select id="receiver_IBAN">
+                            <option value="ES1231233 123213123">ES1231233 123213123</option>
+                            <option value="ES1231233 123">ES1231233 123213123</option>
+                        </select>
+                    </section>
+                </div> 
+                <div>
+                    <input id="balance_account" type="text" disabled value="20">
+                    <input id="amount" type="text" placeholder="Dinero" maxlength="5">
+                    <textarea  id="notion" cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="container_modal_button_operation">
+                    <button type="button" ng-click="do_OperationBank('deposit')" for="modal" class="button success operation_ingresar">Ingresar</button>
+                    <button type="button" ng-click="do_OperationBank('withdrawal')" for="modal" class="button success operation_retirar">Retirar </button>
+                    <button type="button" ng-click="do_OperationBank('transference')" for="modal" class="button success operation_transferir">Transferir</button>
+                    <button type="button" ng-click="close()" for="modal" class="button danger">Cancelar</button>
+                </div>
+               
+            </form>  
+
+            </div>
+        </article>
+           
     </div>
 
     <script src="./graficos.js"></script>
