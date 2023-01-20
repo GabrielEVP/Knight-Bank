@@ -9,7 +9,7 @@ $account_list = new account_list();
 $result = array();
 
 $account_list->get_accounts_from_user_id($_SESSION['id_user']);
-$result['accounts'] = $account_list->getAccountList();
+$result['accounts'] = $account_list->getArrayObjVars("account_list");
 
 $result['financial_data'] = $account_list->get_financial_data();
 
