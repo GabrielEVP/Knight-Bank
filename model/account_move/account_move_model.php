@@ -1,11 +1,12 @@
 <?php
 
 include_once ("account_move_class.php"); 
-include_once ("model/database/query.php");
-include_once ("model/function.php"); 
+include_once (str_replace("account_move", "", __DIR__  . "database/query.php")); 
+include_once (str_replace("account_move", "", __DIR__  . "function.php")); 
 
-include_once ("model/move/move_model.php"); 
-include_once ("model/account/account_model.php"); 
+include_once (str_replace("account_move", "", __DIR__  . "move/move_model.php")); 
+include_once (str_replace("account_move", "", __DIR__  . "account/account_model.php")); 
+
 class account_move_model extends account_move_class {
 
     private $objMove;
