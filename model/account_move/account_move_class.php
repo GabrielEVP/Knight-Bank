@@ -1,5 +1,5 @@
 <?php
-include_once (str_replace("account", "", __DIR__  . "standard_class.php")); 
+include_once (str_replace("account_move", "", __DIR__  . "standard_class.php")); 
 class account_move_class extends standard_class{
     protected $id_acccount_move;
     protected $IBAN;

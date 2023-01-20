@@ -1,10 +1,10 @@
 <?php
 
 include_once ("move_type_class.php"); 
-include_once ("model/database/query.php");
-include_once ("model/function.php"); 
 
-include_once ("model/move_type_type/move_type_type_model.php"); 
+include_once (str_replace("move_type", "", __DIR__  . "database/query.php")); 
+include_once (str_replace("move_type", "", __DIR__  . "function.php")); 
+
 class move_type_model extends move_type_class {
 
     private $objmove_typeType;
