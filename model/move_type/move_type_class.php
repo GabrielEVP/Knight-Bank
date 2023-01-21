@@ -1,5 +1,5 @@
 <?php 
-include_once ("model/standard_class.php"); 
+include_once (str_replace("move_type", "", __DIR__  . "standard_class.php")); 
 class move_type_class extends standard_class{
     protected $id_moveType;
     protected $name;

@@ -38,7 +38,6 @@ class account_list extends standard_class{
         $result = array();
         foreach ($this->account_list as $account) {
             $options['iban'] = $account->getIBAN();
-            $options['monthly'] = 1; 
 
             $finances = $account->get_financial_data($options);
             $finances["iban"] = $account->getIBAN();

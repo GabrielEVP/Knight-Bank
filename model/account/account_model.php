@@ -92,7 +92,7 @@ class account_model extends account_class {
         $sql_where = "";
         $sql_group = "";
 
-        $extra_columns .= (isset($options['monthly']))  ? ", d.date as 'month' ": " " ;
+        $extra_columns .= (isset($options['monthname']))  ? ", d.date as 'month' ": " " ;
         
         $sql_select = "SELECT IFNULL(sum(amount),0)  as 'expenses_income' $extra_columns ";
         if (isset($options['monthly'])) {
