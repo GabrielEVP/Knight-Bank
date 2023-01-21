@@ -43,6 +43,7 @@ App.controller('Controler', function($scope, $http) {
         // variables de cuentas //
         $scope.account_array_scroll = $scope.result; // array de scroll con sus respectivas posiciones //
         $scope.account_array_now = $scope.result[$scope.index_account]; // datos de la cuenta actual //
+        $scope.balance_user = parseFloat($scope.account_array_now.balance).toFixed(2);
     }
 
     $scope.filter_Financial_data = function (index) {
