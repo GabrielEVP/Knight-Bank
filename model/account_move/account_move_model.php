@@ -69,7 +69,7 @@ class account_move_model extends account_move_class {
     }
 
     public function save_transference($receiver_IBAN) {
-        return update("CALL NEW_TRANSFERENCE($this->amount,'" . $this->objMove->getNotion() . "','$this->IBAN','$receiver_IBAN')");
+        return update("CALL NEW_TRANSFERENCE($this->amount,'" . $this->objMove->getNotion() . "','" . $this->objAccount->getIBAN() . "','$receiver_IBAN')");
     }
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DE LA BBDD

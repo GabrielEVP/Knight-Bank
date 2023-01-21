@@ -30,7 +30,6 @@ if (!isset($data['amount']) || !isset($data['sender_IBAN']) || !$account->check_
     $move->setObjMoveType($move_type->get_move_type_by_name());
 
     $account = $account->get_account_with_IBAN();
-    
     $move->setNotion($data['notion']);
 
     $account_move = new account_move_model();
