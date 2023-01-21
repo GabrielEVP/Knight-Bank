@@ -53,7 +53,7 @@
                 </a>
             </div>
             <div class="item">
-                <a href="#">
+                <a href="./movimientos.html">
                     <div class="icon green"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
                     <div class="title"><span>Movimientos</span></div>
                 </a>
@@ -81,7 +81,7 @@
     <!--- nav bar Phone bottom -->
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
-            <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
+            <a href="./movimientos.html"><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
             <a href="./finanzas.html"><i class="i fa-solid fa-coins active"></i></a>
         </div>
     </div>
@@ -136,18 +136,17 @@
                 <h2 class="operation_transferir">Transferir dinero a otra cuenta</h2>
             </header>
             <article class="content">
-                    <!---  <form id="form_operationBank" action=""> -->
+                <form id="form_operationBank" action="">
                     <div class="IBAN_operation">
                         <input id="sender_IBAN" type="text" value={{account_array_now.IBAN}} disabled>
                         <section class="operation_transferir" >
                             <select id="receiver_IBAN">
-                                <option value="ES1231233 123213123">ES1231233 123213123</option>
-                                <option value="ES1231233 123">ES1231233 123213123</option>
+                                <option ng-repeat="account_all in result_all_iban" value={{account_all.IBAN}}>{{account_all.IBAN}}</option>
                             </select>
                         </section>
                     </div> 
                     <div>
-                        <input id="balance_account" type="text" disabled value="20">
+                        <input id="balance_account" type="text" disabled value="{{account_array_now.balance}} €">
                         <input id="amount" type="text" placeholder="Dinero" maxlength="5">
                         <textarea  id="notion" cols="30" rows="10"></textarea>
                     </div>
@@ -158,7 +157,7 @@
                         <button type="submit" ng-click="do_OperationBank('transference')" for="modal" class="button success operation_transferir">Transferir</button>
                         <button type="button" ng-click="close()" for="modal" class="button danger">Cancelar</button>
                     </div>
-                <!--- </form> -->
+                </form>
                 </div>
             </article>
     </div>

@@ -43,12 +43,13 @@ function keypress_porcentaje (input) {
 }
 
 // Comprueba si un booleano por medio de las funciones verificacion si se cumplen o no para mostrarlo al usuario //
-function comprobator_input (boolean, input) {
-    if (boolean === false) {
-        $(input).css({"border-color": "red"},) ;
-    } else {
-        $(input).css({"border-color": ""},) ;
+
+function comprobator_input (boolean) {
+    const boleean_Case = {
+        true : (input) =>  $(input).css({"border-color": ""},) ,
+        false : (input) => $(input).css({"border-color": "red"},)
     }
+    return boleean_Case[boolean] ?? alert('error no es un booleano');
 }
 
 export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, keypress_porcentaje , comprobator_input }

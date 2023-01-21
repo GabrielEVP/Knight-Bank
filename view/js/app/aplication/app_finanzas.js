@@ -33,11 +33,20 @@ App.controller('Controler', function($scope, $http) {
                 $scope.list_user = new user_list();
                 $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.NIF , result.user.foto, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
                 $scope.load_Financial_data();
+                $scope.account_all();
                 $('body').removeClass('hidden');
                 $scope.index_account = 0;
                 $scope.chartbar;
                 $scope.chartdoughnut;
             }
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    $scope.account_all = function () {
+        $http.post((controller_url_account_List('all'))).then((res) => {
+            $scope.result_all_iban = res.data.list;
         }).catch((err) => {
             console.log(err);
         });
@@ -61,8 +70,8 @@ App.controller('Controler', function($scope, $http) {
         $scope.account_array_now = $scope.result.accounts[$scope.index_account]; // datos de la cuenta actual //
 
         // variables de graficos doughnut (circular) //
-        $scope.graficDOUGHNUT_financial_income = $scope.result.present_financial_data[$scope.index_account].income[0].expenses_income+Math.random() * 1000;
-        $scope.graficDOUGHNUT_financial_expense = $scope.result.present_financial_data[$scope.index_account].expenses[0].expenses_income+Math.random() * 1000;
+        $scope.graficDOUGHNUT_financial_income = $scope.result.present_financial_data[$scope.index_account].income[0].expenses_income;
+        $scope.graficDOUGHNUT_financial_expense = $scope.result.present_financial_data[$scope.index_account].expenses[0].expenses_income;
 
         // variables de graficos pie (mensual de barra) //
         $scope.graficBAR_financial_income = $scope.result.monthly_financial_data[$scope.index_account].income;
@@ -72,14 +81,14 @@ App.controller('Controler', function($scope, $http) {
         $scope.expenses = new Array();
         $scope.income = new Array();
 
-        for (const iterator of $scope.graficBAR_financial_expenses) {
-            $scope.expenses.push(iterator.expenses_income+Math.random() * 1000)
-        }
-
         for (const iterator of $scope.graficBAR_financial_income) {
-            $scope.income.push(iterator.expenses_income+Math.random() * 1000)
+            $scope.income.push(iterator.expenses_income)
         }
 
+        for (const iterator of $scope.graficBAR_financial_expenses) {
+            $scope.expenses.push(+Math.abs(iterator.expenses_income))
+        }
+       
         if ($scope.chartdoughnut != null) $scope.chartdoughnut.destroy();
         $scope.chartdoughnut = new Chart(ctx_circular, generator_config_CircularMonth($scope.graficDOUGHNUT_financial_income ,$scope.graficDOUGHNUT_financial_expense));
 
@@ -108,7 +117,9 @@ App.controller('Controler', function($scope, $http) {
             if (operation == 'transference') receiver_IBAN = $('#receiver_IBAN').val(); 
 
             const data = { "sender_IBAN" : sender_IBAN, "amount" :amount, "notion" :notion, "receiver_IBAN" :receiver_IBAN, "move_type" :operation };
+            console.log(data)
             const result = await fetch_set_Data(controller_url_move('new') , data);
+ 
 
             if (result.status == 'ok') {
                 location.reload();

@@ -12,7 +12,7 @@ function controller_url_Account(controller) {
 
 function controller_url_account_List(controller) {
     const url_account_List = {
-        all: controller_path_builder('account/lists/load_account_list.php'),
+        all: controller_path_builder('account/lists/load_all_IBAN.php'),
         load_from_user : controller_path_builder('account/lists/load_accounts_from_user.php'),
         load_own : controller_path_builder('account/lists/load_own_accounts.php'),
         financial : controller_path_builder('account/lists/load_financial_data.php')

@@ -24,11 +24,11 @@ App.controller('Controler', function($scope, ) {
         const avaible_phone = verification_Phone($('#phone').val());
         const avaible_dni = verification_Dni($('#dni').val());
 
-        comprobator_input(avaible_email, "#email");
-        comprobator_input(avaible_nombre, "#name");
-        comprobator_input(avaible_surname, "#surname");
-        comprobator_input(avaible_phone, "#phone");
-        comprobator_input(avaible_dni, "#dni");
+        comprobator_input(avaible_email)("#email");
+        comprobator_input(avaible_nombre)("#name");
+        comprobator_input(avaible_surname)("#surname");
+        comprobator_input(avaible_phone)("#phone");
+        comprobator_input(avaible_dni)("#dni");
 
         if (avaible_email && avaible_nombre  && avaible_surname && avaible_phone && avaible_dni) {
             $("#form").submit(async function() {
