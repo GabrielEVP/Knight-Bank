@@ -46,7 +46,7 @@ App.controller('Controler', function($scope, $http) {
         });;
     }
 
-    $('#seach_user').submit(function(){
+    $('#seach_user').submit(function() { 
         const value = $('#seach_value').val();
       
         if (value == '') {

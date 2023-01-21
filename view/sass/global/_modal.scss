@@ -181,7 +181,7 @@
 }
 
 #form_operationBank {
-	width: 80%;
+	width: 100%;
 	display: grid;
 	grid-template-columns: 0.5fr 1fr;
 	margin: auto;
@@ -220,7 +220,6 @@
 		border-radius: 5px;
 		font-size: 25px;
 		padding-left: 5px;
-		width: 80%;
 		margin: auto;
 		margin-top: 5px;
 		display: block;

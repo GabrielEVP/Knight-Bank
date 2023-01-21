@@ -113,7 +113,7 @@
                 </div>
                 <!--- filter scroll cuenta Repeat() -->
                 <div class="container_scroll_cuenta_filter">
-                    <button ng-repeat="account in account_array" value={{account.IBAN}}>{{$index+1}}</button>
+                    <button ng-repeat="account in account_array_scroll" ng-click="filter_Financial_data($index)" value={{account.IBAN}}>{{$index+1}}</button>
                 </div>
             </div>
              <!--- pie grafic -->
@@ -127,46 +127,40 @@
         </div>
 
            <!--- Modal code -->
-    <label ng-modal="id" for="modal" class="modal-bg"></label>
-    <div class="modal-content">
-        <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
-        <header>
-            <h2 class="operation_ingresar">Ingresar dinero a la cuenta</h2>
-            <h2 class="operation_retirar">Retirar dinero de la cuenta</h2>
-            <h2 class="operation_transferir">Transferir dinero a otra cuenta</h2>
-        </header>
-        <article class="content">
-           
-                <div class="IBAN_operation">
-                    <input id="sender_IBAN" type="text" value={{account_array_now.IBAN}} disabled>
-                    <section class="operation_transferir" >
-                        <select id="receiver_IBAN">
-                            <option value="ES1231233 123213123">ES1231233 123213123</option>
-                            <option value="ES1231233 123">ES1231233 123213123</option>
-                        </select>
-                    </section>
-                </div> 
-                <div>
-                    <input id="balance_account" type="text" disabled value="20">
-                    <input id="amount" type="text" placeholder="Dinero" maxlength="5">
-                    <textarea  id="notion" cols="30" rows="10"></textarea>
-                </div>
+        <label ng-modal="id" for="modal" class="modal-bg"></label>
+        <div class="modal-content">
+            <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+            <header>
+                <h2 class="operation_ingresar">Ingresar dinero a la cuenta</h2>
+                <h2 class="operation_retirar">Retirar dinero de la cuenta</h2>
+                <h2 class="operation_transferir">Transferir dinero a otra cuenta</h2>
+            </header>
+            <article class="content">
+                <form id="form_operationBank" action="">
+                    <div class="IBAN_operation">
+                        <input id="sender_IBAN" type="text" value={{account_array_now.IBAN}} disabled>
+                        <section class="operation_transferir" >
+                            <select id="receiver_IBAN">
+                                <option value="ES1231233 123213123">ES1231233 123213123</option>
+                                <option value="ES1231233 123">ES1231233 123213123</option>
+                            </select>
+                        </section>
+                    </div> 
+                    <div>
+                        <input id="balance_account" type="text" disabled value="20">
+                        <input id="amount" type="text" placeholder="Dinero" maxlength="5">
+                        <textarea  id="notion" cols="30" rows="10"></textarea>
+                    </div>
 
-                <div class="container_modal_button_operation">
-                    <button type="submit" ng-click="do_OperationBank('deposit')" for="modal" class="button success operation_ingresar">Ingresar</button>
-                    <button type="submit" ng-click="do_OperationBank('withdrawal')" for="modal" class="button success operation_retirar">Retirar </button>
-                    <button type="submit" ng-click="do_OperationBank('transference')" for="modal" class="button success operation_transferir">Transferir</button>
-                    <button type="button" ng-click="close()" for="modal" class="button danger">Cancelar</button>
+                    <div class="container_modal_button_operation">
+                        <button type="submit" ng-click="do_OperationBank('deposit')" for="modal" class="button success operation_ingresar">Ingresar</button>
+                        <button type="submit" ng-click="do_OperationBank('withdrawal')" for="modal" class="button success operation_retirar">Retirar </button>
+                        <button type="submit" ng-click="do_OperationBank('transference')" for="modal" class="button success operation_transferir">Transferir</button>
+                        <button type="button" ng-click="close()" for="modal" class="button danger">Cancelar</button>
+                    </div>
+                </form>
                 </div>
-               
-        
-
-            </div>
-        </article>
-           
+            </article>
     </div>
-
-    <script src="./graficos.js"></script>
-
 </body>
 </html>
