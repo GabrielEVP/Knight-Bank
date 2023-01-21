@@ -98,7 +98,7 @@ App.controller('Controler', function($scope, $http) {
     }
 
     $scope.do_OperationBank = async function(operation) {
-        $('#form_operationBank').click(async function() {
+        //$('#form_operationBank').click(async function() {
             var amount = $('#amount').val();
             var sender_IBAN = $('#sender_IBAN').val();
             var notion = $('#notion').val();
@@ -115,7 +115,7 @@ App.controller('Controler', function($scope, $http) {
             } else {
                 console.error('error en la operacion');
             }
-        })
+        //})
     }    
 
     $scope.close = function() {

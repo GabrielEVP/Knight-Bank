@@ -104,7 +104,4 @@ const generator_config_BarMonth = (income, expense) => {
     }
 }
 
-  
-
-
 export {generator_config_CircularMonth , generator_config_BarMonth }
