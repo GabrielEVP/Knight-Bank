@@ -4,7 +4,8 @@ include_once ("account_move_class.php");
 include_once (str_replace("account_move", "", __DIR__  . "database/query.php")); 
 include_once (str_replace("account_move", "", __DIR__  . "function.php")); 
 
-include_once (str_replace("account_move", "", __DIR__  . "move/move_model.php")); 
+include_once (str_replace("account_move", "", __DIR__  . "move/move_model.php"));
+include_once (str_replace("account_move", "", __DIR__  . "move_type/move_type_model.php")); 
 include_once (str_replace("account_move", "", __DIR__  . "account/account_model.php")); 
 
 class account_move_model extends account_move_class {
@@ -84,7 +85,9 @@ class account_move_model extends account_move_class {
                                 INNER JOIN account a
                                     ON a.id_account = am.id_account
                                 INNER JOIN move m
-                                    ON am.id_move = m.id_move        
+                                    ON am.id_move = m.id_move 
+                                INNER JOIN move_type mt
+                                    ON m.id_moveType = mt.id_moveType             
                                 WHERE 
                                     a.IBAN = '" . $this->objAccount->getIBAN() . "'        
                                         ");
@@ -92,7 +95,18 @@ class account_move_model extends account_move_class {
         foreach ($select as $row) {
             $account = new account_model();
             $move = new move_model();
-            
+            $move_type = new move_type_model();
+
+            //$move_type->setIdMoveType($row['mt.id_moveType']);
+            $move_type->setName($row['mt.name']);
+
+            $move->setObjMoveType($move_type);
+
+            $move->setDateTime($row['m.dateTime']);
+            $move->setNotion($row['m.notion']);
+
+            $account->setIBAN($row["a.Iban"]);
+            $account->setBalance($row['balance']);
         }
     }
 }

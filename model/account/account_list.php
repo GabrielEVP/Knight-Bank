@@ -48,5 +48,9 @@ class account_list extends standard_class{
         return $result;
     }
 
+    public function get_all_IBAN() {
+        return select_array("SELECT IBAN FROM account WHERE active = 1");
+    }
+
 }
 ?>
