@@ -49,7 +49,7 @@ class account_move_model extends account_move_class {
 //------------------------------------------------------------------
 
     public function insert_account_move () {
-        return insert("insert into account_move (IBAN, id_move, amount) values ('$this->objAccount->getIBAN()', $this->objMove->getIdMove(), $this->amount)");
+        return insert("insert into account_move (id_account, id_move, amount) values ('" . $this->objAccount->getIdAccount() . "', " . $this->objMove->getIdMove(). ", $this->amount)");
     }
 
     public function delete_account_move () {
@@ -61,14 +61,14 @@ class account_move_model extends account_move_class {
     }
 
     public function save_move () {
-        $this->objMove->insert();
+        $this->objMove->insert_move();
         $this->objMove = $this->objMove->get_last_move();     
         
         $this->insert_account_move();
     }
 
     public function save_transference($receiver_IBAN) {
-        return update("CALL NEW_TRANSFERENCE($this->amount,'$this->objMove->getNotion()','$this->IBAN','$receiver_IBAN')");
+        return update("CALL NEW_TRANSFERENCE($this->amount,'" . $this->objMove->getNotion() . "','$this->IBAN','$receiver_IBAN')");
     }
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DE LA BBDD
@@ -78,7 +78,7 @@ class account_move_model extends account_move_class {
        $account_move = cast_array($select, new account_move_model())[0];
        return $account_move;
     }
-    
+
     public function get_moves_from_account() {
         $select = select_array("SELECT * FROM account_move am
                                 INNER JOIN account a

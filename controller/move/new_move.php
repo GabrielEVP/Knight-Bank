@@ -20,15 +20,17 @@ $account->setObjUser($user);
 $account->setIBAN($data['sender_IBAN']);
 
 
-
-if (!isset($data['amount']) || !isset($data['sender_IBAN']) || !$account->check_account_ownership() || !(floatval($data['amount']) > 0) ) {
+if (!isset($data['amount']) || !isset($data['sender_IBAN']) || !$account->check_account_ownership() || !(floatval($data['amount']) != 0) ) {
     $response['status'] = "error";
 } else if ($data['move_type'] == 'deposit' || $data['move_type'] == 'withdrawal') {
 
     $move = new move_model();
     $move_type = new move_type_model();
-    $move->setObjMoveType($move_type->get_move_type_by_name($data['move_type']));
-   
+    $move_type->setName($data['move_type']);
+    $move->setObjMoveType($move_type->get_move_type_by_name());
+
+    $account = $account->get_account_with_IBAN();
+    
     $move->setNotion($data['notion']);
 
     $account_move = new account_move_model();

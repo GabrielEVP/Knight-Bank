@@ -31,7 +31,7 @@ class move_model extends move_class {
 //------------------------------------------------------------------
 
     public function insert_move () {
-        return insert("insert into move (id_moveType, dateTime, notion) values ($this->objMoveType->getIdMoveType(), now(), '$this->notion')");
+        return insert("insert into move (id_moveType, dateTime, notion) values ('" . $this->objMoveType->getIdMoveType() . "', now(), '$this->notion')");
     }
 
     public function delete_move () {

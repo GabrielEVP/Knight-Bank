@@ -43,7 +43,7 @@ class account_model extends account_class {
     }
 
     public function update_balance ($amount) {
-        return update("update account set balance = balance + $amount WHERE id_account = $this->'id_account'");
+        return update("update account set balance = balance + $amount WHERE id_account = '$this->id_account'");
     }
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DESDE LA BBDD
@@ -52,6 +52,15 @@ class account_model extends account_class {
        $select = select_Object("select * from account where id_account = $this->id_account");
        $account = cast_array($select, new account_model())[0];
        return $account;
+    }
+
+    public function get_account_with_IBAN() {
+        $select = single_row_object_select("SELECT * FROM account WHERE IBAN = '$this->IBAN'",new account_model());
+        if (empty($select)) {
+            return false;
+        } else {
+            return $select;
+        }
     }
 
     public function check_IBAN_available() {
