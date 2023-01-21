@@ -11,9 +11,8 @@ App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
-        $http.get((controller_url_User('login_verify'))).then((res) => {
+        $http.post((controller_url_User('login_verify'))).then((res) => {
             const result = res.data;
-           
             if (result.logged !== true) {
                 location.href = '../web/login.html'
             } else {
@@ -49,6 +48,26 @@ App.controller('Controler', function($scope, $http) {
     $scope.filter_Financial_data = function (index) {
         $scope.index_account = index;
         reload_data_Financial();
+    }
+
+    $scope.view_move = (move_type) => {
+
+        const start_date = $('#start_date').val();
+        const end_date = $('#end_date').val();
+
+
+        console.log(start_date);
+        console.log(end_date);
+        console.log(move_type);
+
+        $http.post((controller_url_User('login_verify'))).then((response) => {
+            $scope.result_move = response.data;
+            console.log($scope.result_move);
+        }).catch((err) => {
+            console.log(err);
+        });
+    
+        
     }
 
     $scope.logout = async function() {
