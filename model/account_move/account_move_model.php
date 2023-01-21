@@ -77,8 +77,23 @@ class account_move_model extends account_move_class {
        $account_move = cast_array($select, new account_move_model())[0];
        return $account_move;
     }
+    
+    public function get_moves_from_account() {
+        $select = select_array("SELECT * FROM account_move am
+                                INNER JOIN account a
+                                    ON a.id_account = am.id_account
+                                INNER JOIN move m
+                                    ON am.id_move = m.id_move        
+                                WHERE 
+                                    a.IBAN = '" . $this->objAccount->getIBAN() . "'        
+                                        ");
 
-
+        foreach ($select as $row) {
+            $account = new account_model();
+            $move = new move_model();
+            
+        }
+    }
 }
 
 ?>
