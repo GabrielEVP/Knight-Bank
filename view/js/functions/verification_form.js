@@ -20,11 +20,7 @@ function verification_Dni (dni) {
     const expNIF =  /^[a-z]./;
     const expDNI =  /^.*[a-z]$/;
 
-    if (expNIF.test(dni.toLowerCase()) && dni.length == 9  || expDNI.test(dni.toLowerCase()) && dni.length == 9 ) {
-        return true
-    } else {
-        return false
-    }
+    if (expNIF.test(dni.toLowerCase()) && dni.length == 9  || expDNI.test(dni.toLowerCase()) && dni.length == 9 )  return true; else return false;
 }
 
 // Comprueba por medio de evento keypress a travez de codigo ASCII si el valor puesto en el input tiene lo que le pongas como condicion//
@@ -35,15 +31,7 @@ function keypress_condition (input,condition) {
     })
 }
 
-function keypress_porcentaje (input) {
-    const expPORC = /[0]{1}/;
-    $(input).keypress(function(e) {
-        return expPORC.test(e.key) ? true : false
-    })
-}
-
 // Comprueba si un booleano por medio de las funciones verificacion si se cumplen o no para mostrarlo al usuario //
-
 function comprobator_input (boolean) {
     const boleean_Case = {
         true : (input) =>  $(input).css({"border-color": ""},) ,
@@ -52,4 +40,11 @@ function comprobator_input (boolean) {
     return boleean_Case[boolean] ?? alert('error no es un booleano');
 }
 
-export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, keypress_porcentaje , comprobator_input }
+function keypress_porcentaje (input) {
+    const expPORC = /[0]{1}/;
+    $(input).keypress(function(e) {
+        return expPORC.test(e.key) ? true : false
+    })
+}
+
+export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input }

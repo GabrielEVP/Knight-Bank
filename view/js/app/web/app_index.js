@@ -17,7 +17,7 @@ App.controller('Controler', function($scope, ) {
         quit_Modal();
     }
 
-    $scope.set_Data = function () {
+    $scope.set_Data_toEmailJS = function () {
         const avaible_email = verification_Email($('#email').val());
         const avaible_nombre = verification_Name($('#name').val());
         const avaible_surname = verification_Name($('#surname').val());

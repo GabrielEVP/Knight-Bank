@@ -1256,6 +1256,46 @@ body {
     margin-top: 0;
   }
 }
+.table_move {
+  overflow-x: scroll;
+}
+.table_move::-webkit-scrollbar {
+  width: 0;
+}
+.table_move::-webkit-scrollbar-track {
+  background: transparent;
+}
+.table_move::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+.table_move {
+  border-collapse: collapse;
+  border: 3px solid #2b2c30;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+.table_move td, .table_move th {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 8px;
+}
+.table_move tr:nth-child(even) {
+  background: #c7c7c7;
+}
+.table_move tr:hover {
+  background-color: rgb(73, 73, 73);
+}
+.table_move th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: #24252A;
+  color: white;
+  text-align: center;
+}
+
 .button_secondary {
   display: inline-block;
   background-color: transparent;
