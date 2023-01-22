@@ -21,4 +21,13 @@ async function fetch_set_Data(url, data) {
     }
 }
 
-export { fetch_get_Data , fetch_set_Data }
+function logout_Process (status) {
+    const Logout_Status = {
+        true : () => location.href = '../web/login.html', 
+        false : () => console.error (status)
+    }
+    return Logout_Status[status] ? Logout_Status[status]() : console.error(status);
+}
+
+
+export { fetch_get_Data , fetch_set_Data, logout_Process  }

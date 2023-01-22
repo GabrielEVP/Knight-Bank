@@ -40,4 +40,11 @@ function comprobator_input (boolean) {
     return boleean_Case[boolean] ?? alert('error no es un booleano');
 }
 
-export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input  }
+function verification_status_proces (status) {
+    const Process_Status = {
+        ok : () => location.reload(), 
+    }
+    return Process_Status[status] ? Process_Status[status]() : console.error(status);
+}
+
+export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input, verification_status_proces }

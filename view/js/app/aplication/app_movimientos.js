@@ -5,6 +5,8 @@ import { empty_input, show_Modal , quit_Modal } from "../../functions/modal.js"
 import { fetch_get_Data } from "../../server/server.js"
 import { controller_url_account_List } from "../../dictionary/dictionary_account.js";
 
+import { controller_url_moves_List } from "../../dictionary/dictionary_moves.js";
+
 const App = angular.module('App', []);
 
 App.controller('Controler', function($scope, $http) {
@@ -51,19 +53,23 @@ App.controller('Controler', function($scope, $http) {
         reload_data_Financial();
     }
 
-    $scope.view_move = (move_type) => {
+    $scope.view_move = (filter_type) => {
 
         const start_date = $('#start_date').val();
         const end_date = $('#end_date').val();
 
-        $http.post((controller_url_User('login_verify'))).then((response) => {
-            $scope.result_move = response.data;
-            //console.log($scope.result_move);
-        }).catch((err) => {
-            console.log(err);
-        });
-    
-        
+        const data = {'start_date' :start_date, 'end_date' :end_date, 'filter_type' :filter_type, 'IBAN' :$scope.account_array_now.IBAN, }
+        console.log(data);
+        $http({
+            url: controller_url_moves_List('load_own'),
+            method: "POST",
+            data: JSON.stringify(data)
+        }).then(function (result) {
+            console.log (result.data)
+        }).catch(function (result) {
+            console.error("Ocurrio un error", result.status, result.data);
+        })    
+
     }
 
     $scope.logout = async function() {
