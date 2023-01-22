@@ -1367,7 +1367,7 @@ body {
   text-align: end;
 }
 .table_move tr:nth-child(even) {
-  background: #cacaca;
+  background: rgba(160, 160, 160, 0.7960784314);
 }
 .table_move tr:hover {
   transition: 0.2s;
@@ -1381,6 +1381,30 @@ body {
   background: #24252A;
   color: white;
   text-align: center;
+}
+
+@media (max-width: 900px) {
+  .table {
+    max-width: auto;
+  }
+  .table_move {
+    width: 60em;
+  }
+}
+.date {
+  width: 15%;
+}
+
+.concepto {
+  width: 55%;
+}
+
+.tipo_move {
+  width: 20%;
+}
+
+.importe {
+  width: 10%;
 }
 
 .button_secondary {
