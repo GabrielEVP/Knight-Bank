@@ -28,7 +28,7 @@ App.controller('Controler', function($scope, $http) {
             console.log(err);
         });
     }
-
+    
     // carga los usuario del programa dependiendo de que filtro le des //
     $scope.load_user = (controller_name) =>  {
         $http.post(controller_url_user_List(controller_name))
@@ -57,22 +57,6 @@ App.controller('Controler', function($scope, $http) {
             })
         }
     }) 
-
-    const comprobacion = () => {
-        const avaible_nif = verification_Dni($('#nif').val());
-        const avaible_email = verification_Email($('#gmail').val());
-        const avaible_nombre = verification_Name($('#name').val());
-        const avaible_surname = verification_Name($('#surname').val());
-        comprobator_input(avaible_nif)("#nif");
-        comprobator_input(avaible_email)("#gmail");
-        comprobator_input(avaible_nombre)("#name");
-        comprobator_input(avaible_surname)("#surname");
-        if (avaible_email && avaible_nombre  && avaible_surname  && avaible_nif) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     // muestra el modal con los datos del usuario //
     $scope.show_Update = async (id) => {
@@ -171,3 +155,19 @@ App.controller('Controler', function($scope, $http) {
     }
 
 })
+
+const comprobacion = () => {
+    const avaible_nif = verification_Dni($('#nif').val());
+    const avaible_email = verification_Email($('#gmail').val());
+    const avaible_nombre = verification_Name($('#name').val());
+    const avaible_surname = verification_Name($('#surname').val());
+    comprobator_input(avaible_nif)("#nif");
+    comprobator_input(avaible_email)("#gmail");
+    comprobator_input(avaible_nombre)("#name");
+    comprobator_input(avaible_surname)("#surname");
+    if (avaible_email && avaible_nombre  && avaible_surname  && avaible_nif) {
+        return true;
+    } else {
+        return false;
+    }
+}
