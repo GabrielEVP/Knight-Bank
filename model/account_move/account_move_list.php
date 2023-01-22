@@ -47,30 +47,31 @@ class account_move_list extends standard_class{
                                     $sql_where       
                                         ");
 
-        $result = array();
-        foreach ($select as $row) {
-            $account = new account_model();
-            $move = new move_model();
-            $move_type = new move_type_model();
-            $account_move = new account_move_model();
+        // $result = array();
+        // foreach ($select as $row) {
+        //     $account = new account_model();
+        //     $move = new move_model();
+        //     $move_type = new move_type_model();
+        //     $account_move = new account_move_model();
 
-            $move_type->setName($row['mt.name']);
+        //     $move_type->setName($row['name']);
 
-            $move->setObjMoveType($move_type);
+        //     $move->setObjMoveType($move_type->getObjvars());
 
-            $move->setDateTime($row['m.dateTime']);
-            $move->setNotion($row['m.notion']);
+        //     $move->setDateTime($row['dateTime']);
+        //     $move->setNotion($row['notion']);
 
-            $account->setIBAN($row["a.Iban"]);
-            $account->setBalance($row['balance']);
+        //     $account->setIBAN($IBAN);
+        //     $account->setBalance($row['balance']);
 
-            $account_move->setAmount($row['am.amount']);
-            $account_move->setObjAccount($account);
-            $account_move->setObjMove($move);
+        //     $account_move->setAmount($row['amount']);
+        //     $account_move->setObjAccount($account->getObjvars());
+        //     $account_move->setObjMove($move->getObjvars());
 
-            array_push($result,$account_move);
-        }
-        $this->account_move_list = $result;
-        return $result;
+        //     array_push($result,$account_move->getObjvars());
+        //     //array_push($result,$move->getObjvars());
+        // }
+        //$this->account_move_list = $result;
+        return $select;
     }
 }
