@@ -31,7 +31,7 @@ class account_move_list extends standard_class{
     public function get_moves_from_IBAN($IBAN,$options = array()) {
         $sql_where = "";
         $sql_where .= (isset($options['start_date']))? " AND m.dateTime >= '" . $options['start_date'] .  "' " : " " ;
-        $sql_where .= (isset($options['end_date']))? " AND m.dateTime <= '" . $options['start_date'] .  "' " : " " ;
+        $sql_where .= (isset($options['end_date']))? " AND m.dateTime <= '" . $options['end_date'] .  "' " : " " ;
         $sql_where .= (isset($options['income']))? " AND am.amount > 0 " : " " ;
         $sql_where .= (isset($options['expenses']))? " AND am.amount < 0 " : " " ;
 
