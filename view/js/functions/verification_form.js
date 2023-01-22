@@ -34,17 +34,10 @@ function keypress_condition (input,condition) {
 // Comprueba si un booleano por medio de las funciones verificacion si se cumplen o no para mostrarlo al usuario //
 function comprobator_input (boolean) {
     const boleean_Case = {
-        true : (input) =>  $(input).css({"border-color": ""},) ,
+        true : (input) => $(input).css({"border-color": ""},) ,
         false : (input) => $(input).css({"border-color": "red"},)
     }
     return boleean_Case[boolean] ?? alert('error no es un booleano');
 }
 
-function keypress_porcentaje (input) {
-    const expPORC = /[0]{1}/;
-    $(input).keypress(function(e) {
-        return expPORC.test(e.key) ? true : false
-    })
-}
-
-export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input }
+export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input  }

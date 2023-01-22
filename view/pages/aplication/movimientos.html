@@ -102,7 +102,7 @@
                     <img src="../../img/global/logos/logo.gif" alt="">
                 </div>
                 <h4 class="number">{{account_array_now.IBAN}}</h4>
-                <h3 class="value" >{{account_array_now.balance}} $</h3>
+                <h3 class="value" >{{balance_user}} $</h3>
                 <h3 class="tarjet_company title_tip">Visa</h3>
                 <!--- filter scroll cuenta Repeat() -->
                 <div class="container_scroll_cuenta_filter">
@@ -110,40 +110,31 @@
                 </div>
             </div>
         </div>
-
-        <table border="1" class="table_move">
-            <tr>
-                <th>Fecha</th>
-                <th>Concepto</th>
-                <th>Importe</th>
-            </tr>
-            <tr>
-                <td>15/12/42</td>
-                <td>algo de concepto</td>
-                <td>3000.00€</td>
-            </tr>
-            <tr>
-                <td>15/12/42</td>
-                <td>algo de concepto</td>
-                <td>3000.00€</td>
-            </tr>
-            <tr>
-                <td>15/12/42</td>
-                <td>algo de concepto</td>
-                <td>3000.00€</td>
-            </tr>
-            <tr>
-                <td>15/12/42</td>
-                <td>algo de concepto</td>
-                <td>3000.00€</td>
-            </tr>
-            <tr>
-                <td>15/12/42</td>
-                <td>algo de concepto</td>
-                <td>3000.00€</td>
-            </tr>
-        </table>
-           
+        <div class="grid">
+            <div class="container_date">
+                <input id="start_date" type="date">
+                <input id="end_date" type="date">
+            </div>
+            <div class="container_move_type">
+                <button ng-click="view_move('all')" type="button" class="button_filter boton_gold">Ver Todos</button>
+                <button ng-click="view_move('income')" type="button" class="button_filter boton_green">Ver Ingresos</button>
+                <button ng-click="view_move('expenses')" type="button" class="button_filter boton_red">Ver Gastos</button>
+            </div>
+        </div>
+        <div class="table">
+            <table class="table_move">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>Importe</th>
+                </tr>
+                <tr>
+                    <td>15/12/42</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A maxime ratione, omnis repudiandae asperiores dolorum id officia consequatur optio, atque nostrum nobis incidunt aspernatur? Autem accusamus est architecto quia aspernatur.</td>
+                    <td id="importe" class="red">3000.00€</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 </body>

@@ -3,7 +3,7 @@ async function fetch_get_Data(url) {
         const res = await fetch(url);
         return await res.json();
     } catch(err) {
-        console.log(err)
+        console.error(err);
     }
 }
 
@@ -15,9 +15,9 @@ async function fetch_set_Data(url, data) {
             body: JSON.stringify(data), 
             headers:{'Content-Type': 'application/json'}
         })
-        return await res.json()
+        return await res.json();
     } catch(err) {
-        alert(err);
+        console.error(err);
     }
 }
 

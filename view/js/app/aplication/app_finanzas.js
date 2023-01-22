@@ -1,15 +1,13 @@
 import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
-import { controller_url_User } from "../../class/user/dictionary_user.js"
-import { show_Modal , quit_Modal } from "../../components/modal.js"
 
-import { controller_url_move } from "../../class/move/dictionary_account_move.js";
-import { controller_url_account_List } from "../../class/account/dictionary_account.js";
+import { controller_url_User } from "../../dictionary/dictionary_user.js"
+import { controller_url_move } from "../../dictionary/dictionary_account_move.js";
+import { controller_url_account_List } from "../../dictionary/dictionary_account.js"
 
 import { fetch_get_Data, fetch_set_Data } from "../../server/server.js"
-
+import { show_Modal , quit_Modal } from "../../functions//modal.js"
 import { keypress_condition, comprobator_input } from "../../functions/verification_form.js";
-
 import { generator_config_CircularMonth, generator_config_BarMonth  } from "./graficos.js";
 
 
@@ -68,6 +66,7 @@ App.controller('Controler', function($scope, $http) {
         // variables de cuentas //
         $scope.account_array_scroll = $scope.result.accounts; // array de scroll con sus respectivas posiciones //
         $scope.account_array_now = $scope.result.accounts[$scope.index_account]; // datos de la cuenta actual //
+        $scope.balance_user = parseFloat($scope.account_array_now.balance).toFixed(2);
 
         // variables de graficos doughnut (circular) //
         $scope.graficDOUGHNUT_financial_income = $scope.result.present_financial_data[$scope.index_account].income[0].expenses_income;
@@ -80,15 +79,10 @@ App.controller('Controler', function($scope, $http) {
         // variables de despejes de graficos bar //
         $scope.expenses = new Array();
         $scope.income = new Array();
-
-        for (const iterator of $scope.graficBAR_financial_income) {
-            $scope.income.push(iterator.expenses_income)
-        }
-
-        for (const iterator of $scope.graficBAR_financial_expenses) {
-            $scope.expenses.push(+Math.abs(iterator.expenses_income))
-        }
        
+        for (const iterator of $scope.graficBAR_financial_income) $scope.income.push(iterator.expenses_income);
+        for (const iterator of $scope.graficBAR_financial_expenses) $scope.expenses.push(+Math.abs(iterator.expenses_income));
+      
         if ($scope.chartdoughnut != null) $scope.chartdoughnut.destroy();
         $scope.chartdoughnut = new Chart(ctx_circular, generator_config_CircularMonth($scope.graficDOUGHNUT_financial_income ,$scope.graficDOUGHNUT_financial_expense));
 
@@ -96,18 +90,17 @@ App.controller('Controler', function($scope, $http) {
         $scope.chartbar = new Chart(ctx_bar,  generator_config_BarMonth($scope.income ,$scope.expenses));  
     }
 
-
-    $scope.filter_Financial_data = function (index) {
+    $scope.filter_Financial_data = (index) => {
         $scope.index_account = index;
         reload_data_Financial();
     }
 
-    $scope.show_OperationBank = function(class_element, id_account) {
+    $scope.show_OperationBank = (class_element) => {
         show_Modal(class_element);
     }
 
     $scope.do_OperationBank = async function(operation) {
-        //$('#form_operationBank').click(async function() {
+        $('#form_operationBank').click(async function() {
             var amount = $('#amount').val();
             var sender_IBAN = $('#sender_IBAN').val();
             var notion = $('#notion').val();
@@ -117,25 +110,21 @@ App.controller('Controler', function($scope, $http) {
             if (operation == 'transference') receiver_IBAN = $('#receiver_IBAN').val(); 
 
             const data = { "sender_IBAN" : sender_IBAN, "amount" :amount, "notion" :notion, "receiver_IBAN" :receiver_IBAN, "move_type" :operation };
-            console.log(data)
             const result = await fetch_set_Data(controller_url_move('new') , data);
- 
-
             if (result.status == 'ok') {
                 location.reload();
             } else {
                 console.error('error en la operacion');
             }
-        //})
+        })
     }    
 
-    $scope.close = function() {
+    $scope.close = () => {
         quit_Modal();
     }
 
-    $scope.logout = async function() {
+    $scope.logout = async () => {
         const result = await fetch_get_Data(controller_url_User('logout'));
-        console.log(result);
         if (result.logout == true) {
             location.href='../web/login.html';
         } else {

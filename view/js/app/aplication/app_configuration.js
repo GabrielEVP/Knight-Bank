@@ -1,7 +1,7 @@
 import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
-import { controller_url_User } from "../../class/user/dictionary_user.js"
-import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
+import { controller_url_User } from "../../dictionary/dictionary_user.js"
+import { empty_input, show_Modal , quit_Modal } from "../../functions/modal.js"
 import { fetch_get_Data } from "../../server/server.js"
 
 const App = angular.module('App', []);

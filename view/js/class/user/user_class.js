@@ -30,7 +30,6 @@ class user_class {
         this.name = $('#name').val();
         this.surname = $('#surname').val();
         this.gmail = $('#gmail').val();
-        this.password = $('#password').val();
     }
     
 }

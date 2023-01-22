@@ -1,14 +1,12 @@
 import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
-import { controller_url_User , controller_url_user_List } from "../../class/user/dictionary_user.js"
+import { controller_url_User , controller_url_user_List } from "../../dictionary/dictionary_user.js"
 
 import { account_list } from "../../class/account/account_list.js";
-import { controller_url_Account , controller_url_account_List } from "../../class/account/dictionary_account.js"
+import { controller_url_Account , controller_url_account_List } from "../../dictionary/dictionary_account.js"
 
 import { fetch_get_Data, fetch_set_Data } from "../../server/server.js"
-import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
-
-import { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input } from "../../functions/verification_form.js";
+import { empty_input, show_Modal , quit_Modal , open_ResponsiveModal , close_ResponsiveModal } from "../../functions/modal.js"
 
 
 const App = angular.module('App', []);
@@ -17,12 +15,10 @@ App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
-
-        $http.get((controller_url_User('login_verify'))).then((res) => {
+        $http.post((controller_url_User('login_verify'))).then((res) => {
             const result = res.data;
             $scope.menu_status = localStorage.getItem('menu_status');
             $scope.body_status = localStorage.getItem('menu');
-         
             if (result.logged !== true) {
                 location.href = '../web/login.html'
             } else {
@@ -119,7 +115,7 @@ App.controller('Controler', function($scope, $http) {
         $scope.id = id;
         const data = { "id_user": id };
         const result = await fetch_set_Data(controller_url_User('load'), data);
-        $scope.new_user = new user_class(result.user.id_user, result.user.gmail, result.user.NIF, result.user.name, result.user.surname, result.user.password, result.user.admin, result.user.active);
+        $scope.new_user = new user_class(result.user.id_user, result.user.gmail, result.user.NIF, '' , result.user.name, result.user.surname, '' , '' , '');
         $scope.new_user.load_input_Value();
 
         show_Modal(".modify");
@@ -133,64 +129,15 @@ App.controller('Controler', function($scope, $http) {
     $scope.close = function() {
         $scope.list_account = new account_list(); 
         quit_Modal();
+        close_ResponsiveModal();
 
-        if (screen.width < 520) {
-            $(".modal-content").css({
-                "top": "30%"
-            });
-
-            $(".modal_content").css({
-                "max-height": "60vh"
-            });
-        } else if (screen.width >= 1300) {
-            $(".modal-content").css({
-                "top": "60%"
-            });
-            
-            $(".modal_content").css({
-                "max-height": "50vh"
-            });
-        } else {
-            $(".modal-content").css({
-                "top": "30%"
-            });
-
-            $(".modal_content").css({
-                "max-height": "10vh"
-            });
-        }
     }
 
     $scope.show_Account = async function(class_element,id) {
         $scope.id = id;
         const data = { id_user : id }
-    
-        if (screen.width < 520) {
-            $(".modal-content").css({
-                "top": "10%"
-            });
-
-            $(".modal_content").css({
-                "max-height": "60vh"
-            });
-        
-        } else if (screen.width >= 1300) {
-            $(".modal-content").css({
-                "top": "40%"
-            });
-            
-            $(".modal_content").css({
-                "max-height": "50vh"
-            });
-        } else {
-            $(".modal-content").css({
-                "top": "30%"
-            });
-
-            $(".modal_content").css({
-                "max-height": "50vh"
-            });
-        }
+        open_ResponsiveModal();
+       
 
         $http({
             url : controller_url_account_List('load_from_user'),

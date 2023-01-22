@@ -1,7 +1,4 @@
 // Grafico Mensual Ciruclar //
-
-
-
 const generator_config_CircularMonth = (income, expense ) => {
     const total = parseFloat(income) + parseFloat(expense);
     var color;
