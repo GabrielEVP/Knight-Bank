@@ -1,15 +1,13 @@
 import { user_class } from "../../class/user/user_class.js";
 import { user_list } from "../../class/user/user_list.js";
-import { controller_url_User } from "../../class/user/dictionary_user.js"
-import { show_Modal , quit_Modal } from "../../components/modal.js"
 
-import { controller_url_move } from "../../class/move/dictionary_account_move.js";
-import { controller_url_account_List } from "../../class/account/dictionary_account.js";
+import { controller_url_User } from "../../dictionary/dictionary_user.js"
+import { controller_url_move } from "../../dictionary/dictionary_account_move.js";
+import { controller_url_account_List } from "../../dictionary/dictionary_account.js"
 
 import { fetch_get_Data, fetch_set_Data } from "../../server/server.js"
-
+import { show_Modal , quit_Modal } from "../../functions//modal.js"
 import { keypress_condition, comprobator_input } from "../../functions/verification_form.js";
-
 import { generator_config_CircularMonth, generator_config_BarMonth  } from "./graficos.js";
 
 

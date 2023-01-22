@@ -40,11 +40,4 @@ function comprobator_input (boolean) {
     return boleean_Case[boolean] ?? alert('error no es un booleano');
 }
 
-function keypress_porcentaje (input) {
-    const expPORC = /[0]{1}/;
-    $(input).keypress(function(e) {
-        return expPORC.test(e.key) ? true : false
-    })
-}
-
-export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input }
+export { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input  }
