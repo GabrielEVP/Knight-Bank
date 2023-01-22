@@ -20,7 +20,9 @@ if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado e
     
     if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
         
-        $folder_path = $root_path . "view/img/aplication/user/";
+        //$folder_path = $root_path . "view/img/aplication/user/";
+        $folder_path = $root_path . "view\img\aplication\user\\";
+        
         $path = $folder_path . $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         $sql_path = $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         
