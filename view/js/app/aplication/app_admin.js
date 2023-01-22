@@ -14,7 +14,8 @@ import { empty_input, show_Modal , quit_Modal , open_ResponsiveModal , close_Res
 const App = angular.module('App', []);
 App.controller('Controler', function($scope, $http) {
 
-    $scope.init = function () {
+    // cuando carga el dom realiza estos procesos para el uso del programa // 
+    $scope.init = () => {
         $('.loading').fadeOut();
         $http.post((controller_url_User('login_verify'))).then((res) => {
             login_Process(res.data.logged, (menu, body) => {
@@ -28,7 +29,8 @@ App.controller('Controler', function($scope, $http) {
         });
     }
 
-    $scope.load_user = function (controller_name) {
+    // carga los usuario del programa dependiendo de que filtro le des //
+    $scope.load_user = (controller_name) =>  {
         $http.post(controller_url_user_List(controller_name))
         .then((result) => {
             $scope.list_user = new user_list();
@@ -38,6 +40,7 @@ App.controller('Controler', function($scope, $http) {
         });
     }
 
+    // buscador fonetico //
     $('#seach_user').submit(() => {    
         if ($('#seach_value').val() == '') {
             $scope.load_user('all');
@@ -50,13 +53,41 @@ App.controller('Controler', function($scope, $http) {
                 $scope.list_user = new user_list();
                 $scope.list_user.cast_array_to_User(Array.from(result.data));
             }).catch(function (result) {
-                console.error("Ocurrio un error", result.status, result.data);
+                console.error("Ocurrio un error", result.status);
             })
         }
     }) 
 
-    
-    $scope.insert = async function() {
+    // muestra el modal con los datos del usuario //
+    $scope.show_Update = async (id) => {
+        $scope.id = id;
+        const data = { "id_user": id };
+        const result = await fetch_set_Data(controller_url_User('load'), data);
+
+        $scope.new_user = new user_class(result.user.id_user, result.user.gmail, result.user.NIF, '' , result.user.name, result.user.surname, '' , '' , '');
+        $scope.new_user.load_input_Value();
+
+        show_Modal(".modify");
+    }
+
+    // modifica un usuario en la base de datos //
+    $scope.modify = async () => {
+        $scope.new_user = new user_class();
+        $scope.new_user.asigment_input();
+        $scope.new_user.id_user = $scope.id
+
+        const result = await fetch_set_Data(controller_url_User('modify'), $scope.new_user);
+        verification_status_proces(result.status);
+    }
+
+    // muestra el modal para insertar el usuario //
+    $scope.show_Insert = () => {
+        empty_input();
+        show_Modal(".add_user");
+    }
+
+    // inserta un usuario en la base de datos //
+    $scope.insert = async () => {
         $scope.new_user = new user_class();
         $scope.new_user.asigment_input();
 
@@ -69,50 +100,21 @@ App.controller('Controler', function($scope, $http) {
         
     }
 
-    $scope.modify = async function() {
-        $scope.new_user = new user_class();
-        $scope.new_user.asigment_input();
-        $scope.new_user.id_user = $scope.id
-
-        const result = await fetch_set_Data(controller_url_User('modify'), $scope.new_user);
-        verification_status_proces(result.status);
+    // muestra el modal con el crud a realizar (banear o borrar o desbanear) // 
+    $scope.show_Crud = (class_element, id_user) => {
+        $scope.id = id_user;
+        show_Modal(class_element);
     }
 
-    $scope.crud = async function(controller_name, id) {
+    // realiza (banear o borrar o desbanear) al usuario  //
+    $scope.crud = async (controller_name, id) => {
         const data = { "id_user" : id }
         const result = await fetch_set_Data(controller_url_User(controller_name), data);
         verification_status_proces(result.status);
     }
 
-    /* Modal View */
-    $scope.show_Insert = function() {
-        empty_input();
-        show_Modal(".add_user");
-    }
-
-    $scope.show_Update = async function(id) {
-        $scope.id = id;
-        const data = { "id_user": id };
-        const result = await fetch_set_Data(controller_url_User('load'), data);
-
-        $scope.new_user = new user_class(result.user.id_user, result.user.gmail, result.user.NIF, '' , result.user.name, result.user.surname, '' , '' , '');
-        $scope.new_user.load_input_Value();
-
-        show_Modal(".modify");
-    }
-
-    $scope.show_Crud = function(class_element, id_user) {
-        $scope.id = id_user;
-        show_Modal(class_element);
-    }
-
-    $scope.close = function() {
-        $scope.list_account = new account_list(); 
-        quit_Modal();
-        close_ResponsiveModal();
-    }
-
-    $scope.show_Account = async function(class_element, id) {
+    // muestra el modal con todas las cuentas del usuario //
+    $scope.show_Account = async (class_element, id) => {
         $scope.id = id;
         const data = { id_user : id }
         open_ResponsiveModal();
@@ -131,19 +133,24 @@ App.controller('Controler', function($scope, $http) {
 
     }
 
-    $scope.insert_account = async function(id) {
+    // crea una cuenta al usuario //
+    $scope.insert_account = async (id) => {
         const data = {'id_user' : id} 
         const result = await fetch_set_Data(controller_url_Account('new'), data);
         verification_status_proces(result.status);
     }
 
-    $scope.logout = async function() {
+     // cierra el modal //
+     $scope.close = () => {
+        $scope.list_account = new account_list(); 
+        quit_Modal();
+        close_ResponsiveModal();
+    }
+
+    // rompe la seccion //
+    $scope.logout = async () => {
         const result = await fetch_get_Data(controller_url_User('logout'));
         logout_Process(result.logout);
     }
 
 })
-
-
-    
-

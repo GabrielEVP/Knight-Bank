@@ -14,16 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    
     <link rel="stylesheet" href="../../styles/css_aplication.css">
     <script src="../../js/app/aplication/app_configuration.js" type="module"></script>
     <title>Admins</title>
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
-
      <!--- animation load  -->
     <div class="loading"></div>
-
     <!--- nav bar PC  -->
     <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
@@ -69,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <!--- nav bar Phone top -->
     <div class="navbar_phone navbar_top">
         <div class="container_navbar_phone">
@@ -78,7 +74,6 @@
             <a ng-click="logout()" href=""><i class="i fa-solid fa-right-from-bracket red"></i></a>
         </div>   
     </div>
-
     <!--- nav bar Phone bottom -->
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
@@ -86,9 +81,7 @@
             <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
         </div>
     </div>
-
     <div class="body_collapse body_phone">
-
         <form action="../../../controller/user/update_profile.php" method="post" enctype="multipart/form-data">
             <div class="container_form_configuration">
                 <div class="container_photo_user">
@@ -116,7 +109,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </body>
 </html>

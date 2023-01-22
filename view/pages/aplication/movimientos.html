@@ -20,9 +20,7 @@
     <title>Admins</title>
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
-
     <div class="loading"></div>
-
     <!--- nav bar PC  -->
     <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
@@ -68,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <!--- nav bar Phone top -->
     <div class="navbar_phone navbar_top">
         <div class="container_navbar_phone">
@@ -77,7 +74,6 @@
             <a ng-click="logout()" href=""><i class="i fa-solid fa-right-from-bracket red"></i></a>
         </div>   
     </div>
-
     <!--- nav bar Phone bottom -->
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
@@ -85,10 +81,8 @@
             <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
         </div>
     </div>
-
     <!--- Container of aplication -->
     <div class="body_collapse body_phone">
-
         <div class="container">
             <!--- tarjet -->
             <div class="tarjet">
@@ -106,7 +100,7 @@
                 <h3 class="tarjet_company title_tip">Visa</h3>
                 <!--- filter scroll cuenta Repeat() -->
                 <div class="container_scroll_cuenta_filter">
-                    <button ng-repeat="account in account_array_scroll" ng-click="filter_Financial_data($index)" value={{account.IBAN}}>{{$index+1}}</button>
+                    <button ng-repeat="account in account_array_scroll" ng-click="filter_Move_Data($index)" value={{account.IBAN}}>{{$index+1}}</button>
                 </div>
             </div>
         </div>
@@ -116,9 +110,9 @@
                 <input id="end_date" type="date">
             </div>
             <div class="container_move_type">
-                <button ng-click="view_move('all')" type="button" class="button_filter boton_gold">Ver Todos</button>
-                <button ng-click="view_move('income')" type="button" class="button_filter boton_green">Ver Ingresos</button>
-                <button ng-click="view_move('expenses')" type="button" class="button_filter boton_red">Ver Gastos</button>
+                <button ng-click="view_Move('all')" type="button" class="button_filter boton_gold">Ver Todos</button>
+                <button ng-click="view_Move('income')" type="button" class="button_filter boton_green">Ver Ingresos</button>
+                <button ng-click="view_Move('expenses')" type="button" class="button_filter boton_red">Ver Gastos</button>
             </div>
         </div>
         <div class="table">
@@ -138,6 +132,5 @@
             </table>
         </div>
     </div>
-
 </body>
 </html>
