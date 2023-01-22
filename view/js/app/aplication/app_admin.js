@@ -5,31 +5,24 @@ import { controller_url_User , controller_url_user_List } from "../../dictionary
 import { account_list } from "../../class/account/account_list.js";
 import { controller_url_Account , controller_url_account_List } from "../../dictionary/dictionary_account.js"
 
-import { fetch_get_Data, fetch_set_Data, logout_Process } from "../../server/server.js"
+import { fetch_get_Data, fetch_set_Data, login_Process , logout_Process } from "../../server/server.js"
 
-import { empty_input, show_Modal , quit_Modal , open_ResponsiveModal , close_ResponsiveModal } from "../../functions/modal.js"
-import { get_SaveConfiguration_Navbar } from "../../functions/navbar_aplication.js"
+import { } from "../../functions/navbar_aplication.js"
 import { verification_status_proces } from "../../functions/verification_form.js";
-
+import { empty_input, show_Modal , quit_Modal , open_ResponsiveModal , close_ResponsiveModal } from "../../functions/modal.js"
 
 const App = angular.module('App', []);
-
 App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
         $http.post((controller_url_User('login_verify'))).then((res) => {
-            const result = res.data;
-            if (result.logged !== true) {
-                location.href = '../web/login.html'
-            } else {
-                $scope.list_user = new user_list();
-                $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.NIF , result.user.foto, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
+            login_Process(res.data.logged, (menu, body) => {
                 $scope.load_user('all');
-                const a = get_SaveConfiguration_Navbar($scope.menu_status, $scope.body_status);
-                console.log(a)
-                $('body').removeClass('hidden');
-            }
+                $scope.user_logged = new user_class(res.data.user.id_user, res.data.user.gmail, res.data.user.NIF , res.data.user.foto, res.data.user.name , res.data.user.surname , res.data.user.password , res.data.user.admin , res.data.user.login_tries);
+                $scope.menu_status = menu;
+                $scope.body_status = body;
+            });        
         }).catch((err) => {
             console.log(err);
         });
@@ -42,7 +35,7 @@ App.controller('Controler', function($scope, $http) {
             $scope.list_user.cast_array_to_User(Array.from(result.data));
         }).catch((err) => {
             console.log(err);
-        });;
+        });
     }
 
     $('#seach_user').submit(() => {    

@@ -11,10 +11,3 @@ function set_SaveConfiguration_Navbar (class_sidemenu, class_body) {
     localStorage.setItem('menu', class_body );
 }
 
-function get_SaveConfiguration_Navbar (sidemenu_scope, body_scope) {
-    sidemenu_scope = localStorage.getItem('menu_status')
-    body_scope = localStorage.getItem('menu')
-}
-
-export { get_SaveConfiguration_Navbar }
-
