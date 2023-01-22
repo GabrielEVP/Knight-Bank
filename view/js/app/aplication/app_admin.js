@@ -8,7 +8,7 @@ import { controller_url_Account , controller_url_account_List } from "../../dict
 import { fetch_get_Data, fetch_set_Data, login_Process , logout_Process } from "../../server/server.js"
 
 import { } from "../../functions/navbar_aplication.js"
-import { verification_status_proces } from "../../functions/verification_form.js";
+import { verification_Email, verification_Name , verification_Dni , comprobator_input, verification_status_proces } from "../../functions/verification_form.js";
 import { empty_input, show_Modal , quit_Modal , open_ResponsiveModal , close_ResponsiveModal } from "../../functions/modal.js"
 
 const App = angular.module('App', []);
@@ -58,6 +58,22 @@ App.controller('Controler', function($scope, $http) {
         }
     }) 
 
+    const comprobacion = () => {
+        const avaible_nif = verification_Dni($('#nif').val());
+        const avaible_email = verification_Email($('#gmail').val());
+        const avaible_nombre = verification_Name($('#name').val());
+        const avaible_surname = verification_Name($('#surname').val());
+        comprobator_input(avaible_nif)("#nif");
+        comprobator_input(avaible_email)("#gmail");
+        comprobator_input(avaible_nombre)("#name");
+        comprobator_input(avaible_surname)("#surname");
+        if (avaible_email && avaible_nombre  && avaible_surname  && avaible_nif) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // muestra el modal con los datos del usuario //
     $scope.show_Update = async (id) => {
         $scope.id = id;
@@ -72,12 +88,14 @@ App.controller('Controler', function($scope, $http) {
 
     // modifica un usuario en la base de datos //
     $scope.modify = async () => {
-        $scope.new_user = new user_class();
-        $scope.new_user.asigment_input();
-        $scope.new_user.id_user = $scope.id
-
-        const result = await fetch_set_Data(controller_url_User('modify'), $scope.new_user);
-        verification_status_proces(result.status);
+        const comprobar = comprobacion();
+        if (comprobar === true) {
+            $scope.new_user = new user_class();
+            $scope.new_user.asigment_input();
+            $scope.new_user.id_user = $scope.id
+            const result = await fetch_set_Data(controller_url_User('modify'), $scope.new_user);
+            verification_status_proces(result.status);
+        } 
     }
 
     // muestra el modal para insertar el usuario //
@@ -88,15 +106,14 @@ App.controller('Controler', function($scope, $http) {
 
     // inserta un usuario en la base de datos //
     $scope.insert = async () => {
-        $scope.new_user = new user_class();
-        $scope.new_user.asigment_input();
-
-        if ($scope.new_user.NIF != '') {
+        const comprobar = comprobacion();
+        console.log(comprobar);
+        if (comprobar === true && $('#password').val() != '') {
+            $scope.new_user = new user_class();
+            $scope.new_user.asigment_input();
             const result = await fetch_set_Data(controller_url_User('new'), $scope.new_user);
             verification_status_proces(result.status);
-        } else {
-            alert('Ingresa un Nif valido');
-        }
+        } 
         
     }
 

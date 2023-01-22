@@ -34,7 +34,17 @@ App.controller('Controler', function($scope, $http) {
                 $scope.chartbar;
                 $scope.chartdoughnut;
                 $scope.load_Financial_data();
+                $scope.account_all();
             });        
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    // carga todos los numeros de cuenta que estan habilitadas en el servidor //
+    $scope.account_all = () => {
+        $http.post((controller_url_account_List('all'))).then((res) => {
+            $scope.result_all_iban = res.data.list;
         }).catch((err) => {
             console.log(err);
         });
