@@ -169,11 +169,11 @@
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
             <p class="desban">¿Seguro que quieres desbanear el usuario?</p>
             <form>
-                <input id="nif" class="modify add_user" type="text" placeholder="Nif">
-                <input id="name" class="modify add_user" type="text" placeholder="Nombre">
-                <input id="surname" class="modify add_user" type="text" placeholder="Apellido">
-                <input id="gmail" class="modify add_user" type="text" placeholder="Correo">   
-                <input id="password" class="modify add_user" type="password" placeholder="Constraseña">
+                <input id="nif" class="modify add_user" type="text" placeholder="Nif" maxlength="9" required>
+                <input id="name" class="modify add_user" type="text" placeholder="Nombre" maxlength="50" required>
+                <input id="surname" class="modify add_user" type="text" placeholder="Apellido" maxlength="50" required>
+                <input id="gmail" class="modify add_user" type="text" placeholder="Correo" maxlength="50" required>   
+                <input id="password" class="modify add_user" type="password" placeholder="Constraseña" required>
             </form>  
             <div class="container_tarjet modal_content">
                 <div class="tarjet" ng-repeat="account in list_account.account_list">

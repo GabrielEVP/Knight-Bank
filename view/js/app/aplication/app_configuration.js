@@ -4,7 +4,7 @@ import { controller_url_User } from "../../dictionary/dictionary_user.js"
 import { fetch_get_Data, login_Process , logout_Process } from "../../server/server.js"
 
 import { } from "../../functions/navbar_aplication.js"
-import { verification_status_proces } from "../../functions/verification_form.js";
+import { verification_Email, verification_Name , verification_Phone , verification_Dni , comprobator_input, verification_status_proces } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
 App.controller('Controler', function($scope, $http) {
@@ -22,6 +22,12 @@ App.controller('Controler', function($scope, $http) {
             console.log(err);
         });
     }
+
+    $('#update_profile').submit(() => {  
+        const avaible_gmail = verification_Email($('#gmail').val());
+        comprobator_input(avaible_gmail)("#gmail");
+        if (avaible_gmail) return true; else return false;
+    })
 
     // borra la imagen del programa // 
     $scope.delete_Image = async () => {
