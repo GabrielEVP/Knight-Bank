@@ -14,16 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    
     <link rel="stylesheet" href="../../styles/css_aplication.css">
     <script src="../../js/app/aplication/app_admin.js" type="module"></script>
     <title>Admins</title>
 </head>
 <body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
-
      <!--- animation load  -->
     <div class="loading"></div>
-
     <!--- nav bar PC  -->
     <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
         <div class="header"> 
@@ -67,7 +64,6 @@
             </div>
         </div>
     </div>
-
     <!--- nav bar Phone top -->
     <div class="navbar_phone navbar_top">
         <div class="container_navbar_phone">
@@ -76,7 +72,6 @@
             <a ng-click="logout()" href=""><i class="i fa-solid fa-right-from-bracket red"></i></a>
         </div>   
     </div>
-
     <!--- nav bar Phone bottom -->
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
@@ -84,7 +79,6 @@
             <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
         </div>
     </div>
-
     <div class="body_collapse body_phone">
         <!--- botones filter  -->
         <div class="container_input_filter">
@@ -104,7 +98,6 @@
                 <button ng-click="show_Insert()" class="button_filter boton_a "><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
-        
         <!--- cartas  -->
         <div class="container_users">
             <div ng-repeat="user in list_user.user_list" ng-Class="{'admin_card': user.admin == 1 && user.login_tries > 0, 'user_card': user.admin == 0 && user.login_tries > 0, 'unban_card': user.login_tries == 0}" class="container_card_user" >
@@ -159,7 +152,6 @@
                 </div>
             </div>
         </div>
-        
     <!--- modal  -->
     <label ng-modal="id" for="modal" class="modal-bg"></label>
     <div class="modal-content">
@@ -183,7 +175,6 @@
                 <input id="gmail" class="modify add_user" type="text" placeholder="Correo">   
                 <input id="password" class="modify add_user" type="password" placeholder="Constraseña">
             </form>  
-
             <div class="container_tarjet modal_content">
                 <div class="tarjet" ng-repeat="account in list_account.account_list">
                     <h3 class="tarjet_company title_company">Knight Bank</h3>
@@ -210,8 +201,6 @@
             <label ng-click="modify()" for="modal" class="button success modify">Modificar</label>
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
-
-      
     </div>
 </body>
 </html>

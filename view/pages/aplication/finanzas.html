@@ -81,7 +81,6 @@
             <a href="./finanzas.html"><i class="i fa-solid fa-coins active"></i></a>
         </div>
     </div>
-
     <!--- Container of aplication -->
     <div class="body_collapse body_phone">
         <!--- header aplication -->
@@ -120,8 +119,7 @@
         <div class="container_graficos bar">
             <canvas id="bar_year"></canvas>
         </div>
-
-           <!--- Modal code -->
+        <!--- Modal code -->
         <label ng-modal="id" for="modal" class="modal-bg"></label>
         <div class="modal-content">
             <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
@@ -145,7 +143,6 @@
                         <input id="amount" type="text" placeholder="Dinero" maxlength="5">
                         <textarea  id="notion" cols="30" rows="10"></textarea>
                     </div>
-
                     <div class="container_modal_button_operation">
                         <button type="submit" ng-click="do_OperationBank('deposit')" for="modal" class="button success operation_ingresar">Ingresar</button>
                         <button type="submit" ng-click="do_OperationBank('withdrawal')" for="modal" class="button success operation_retirar">Retirar </button>

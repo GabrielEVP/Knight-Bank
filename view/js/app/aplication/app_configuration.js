@@ -9,7 +9,8 @@ import { verification_status_proces } from "../../functions/verification_form.js
 const App = angular.module('App', []);
 App.controller('Controler', function($scope, $http) {
 
-    $scope.init = function () {
+    // cuando carga el dom realiza estos procesos para el uso del programa // 
+    $scope.init = () => {
         $('.loading').fadeOut();
         $http.post((controller_url_User('login_verify'))).then((res) => {
             login_Process(res.data.logged, (menu, body) => {
@@ -22,13 +23,15 @@ App.controller('Controler', function($scope, $http) {
         });
     }
 
-    $scope.delete_Image = async function() {
+    // borra la imagen del programa // 
+    $scope.delete_Image = async () => {
         const response = await $http.post((controller_url_User('delete_image')));
         const result = response.data;
         verification_status_proces(result.status);
     }
 
-    $scope.logout = async function() {
+    // rompe la seccion //
+    $scope.logout = async () => {
         const result = await fetch_get_Data(controller_url_User('logout'));
         logout_Process(result.logout);
     }
