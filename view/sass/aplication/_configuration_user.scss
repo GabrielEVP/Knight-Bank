@@ -1,9 +1,9 @@
 .container_form_configuration {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 80%;
     margin: auto;
-    margin-top:5%;
 
     button {
         cursor: pointer;

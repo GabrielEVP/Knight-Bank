@@ -1,5 +1,4 @@
 // tarjeta // 
-
 $anchura_img_tarjet : 40px;
 $color_tarjet : gold;
 $color_cont : rgb(255, 255, 255);
@@ -24,18 +23,20 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
-
+  z-index: 0;
 }
 
 .tarjet {
   background: #232526;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   position: relative;
   width: $anchura_tarjet;
   height: calc($altura_tarjet + 2em);
   border-radius: 10px;
-  margin: 15px;
+  margin: auto;
+  margin-top: 5px;
 
   img {
     -webkit-filter: grayscale(100%);
@@ -107,10 +108,105 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
               }
 }
 
-@media (max-width: 440px) {   
+.container_botones_cuenta {
+  position: absolute;
+  bottom: -3em;
+  left: 20%;
+
+  button {
+      background: transparent;
+      color: #232526;
+      border: 1px solid #232526;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px 0px;
+      margin-left: 15px;
+      padding: 5px 10px;
+      font-weight: 300;
+      font-size: 15px;
+      border-radius: 15px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #232526;
+        color: #fff;
+        border: 1px solid #fff;
+        box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 1px 0px;
+        transition: 0.3s;
+      }
+    }
+}
+
+.container_scroll_cuenta_filter {
+  background: transparent;
+  border: 2px solid gray;
+  border-radius: 20px;
+  position: absolute;
+  @include no_scrollBars;
+  
+  button {
+    margin: 2px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    border: 1px solid #232526;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px 0px;
+
+    &:hover {
+      background-color: #232526;
+      color: #fff;
+      border: 1px solid #fff;
+      box-shadow: rgba(255, 255, 255, 0.15) 0px 1px 1px 0px;
+      transition: 0.3s;
+  
+  
+    }
+  }
+}
+
+
+@media (min-width:1520px) {   
+  .container_scroll_cuenta_filter {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    right: -4em;
+    top: 0;
+    max-height: 100%;
+  }
+}
+
+@media (max-width:1520px) {   
+  .container_botones_cuenta {
+    bottom: -5em;
+    left: 7%;
+    display: flex;
+    overflow-x: scroll;
+    @include no_scrollBars;
+    max-width: 100%;
+  }
+  
+  .container_scroll_cuenta_filter {
+    height: 30px;
+    display: inline-flex;
+    bottom:  -2.5em;
+    left: 8%;
+    overflow-x: scroll;
+    max-width: 80%;
+
+    button {
+      margin: 0px;
+      margin-left: 5px;
+    }
+  }
+}
+
+@media (max-width: 1040px) {   
   .tarjet {
     width: $anchura_tarjet_movil;
     height: $altura_tarjet_movil;
+    margin-bottom: 6em;
 
     .img_chip img {
       position: relative;
@@ -121,17 +217,6 @@ $anchur_iconos : calc($altura_tarjet - 8.5em);
       font-size: 18px;
     }
   }
-}
 
-
-.container_graficos {
-  background-color: transparent;
-  box-shadow: #232526;
-  box-shadow: 5px 16px 16px 2px rgba(0, 0, 0, 0.4);
-  width: 400px;
-  height: 400px;
-  display: flex;
-  margin: auto;
-  padding: 40px;
-  border-radius: 10px;
+ 
 }

@@ -1,43 +1,36 @@
 import { user_class } from "../../class/user/user_class.js";
-import { user_list } from "../../class/user/user_list.js";
-import { controller_url_User } from "../../class/user/dictionary_user.js"
-import { empty_input, show_Modal , quit_Modal } from "../../components/modal.js"
-import { fetch_get_Data } from "../../server/server.js"
+import { controller_url_User } from "../../dictionary/dictionary_user.js"
+
+import { fetch_get_Data, login_Process , logout_Process } from "../../server/server.js"
+
+import { } from "../../functions/navbar_aplication.js"
+import { verification_status_proces } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
-
 App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
-
-        $http.get((controller_url_User('login_verify'))).then((res) => {
-            const result = res.data;
-            $scope.menu_status = localStorage.getItem('menu_status');
-            $scope.body_status = localStorage.getItem('menu');
-
-            console.log(result);
-         
-            if (result.logged !== true) {
-                location.href = '../web/login.html'
-            } else {
-                $scope.list_user = new user_list();
-                $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.NIF , result.user.foto, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
-                $('body').removeClass('hidden');
-            }
+        $http.post((controller_url_User('login_verify'))).then((res) => {
+            login_Process(res.data.logged, (menu, body) => {
+                $scope.user_logged = new user_class(res.data.user.id_user, res.data.user.gmail, res.data.user.NIF , res.data.user.foto, res.data.user.name , res.data.user.surname , res.data.user.password , res.data.user.admin , res.data.user.login_tries);
+                $scope.menu_status = menu;
+                $scope.body_status = body;
+            });        
         }).catch((err) => {
             console.log(err);
         });
     }
 
+    $scope.delete_Image = async function() {
+        const response = await $http.post((controller_url_User('delete_image')));
+        const result = response.data;
+        verification_status_proces(result.status);
+    }
+
     $scope.logout = async function() {
         const result = await fetch_get_Data(controller_url_User('logout'));
-        console.log(result);
-        if (result.logout == true) {
-            location.href='../web/login.html';
-        } else {
-            alert('error');
-        }
+        logout_Process(result.logout);
     }
-    
+
 });

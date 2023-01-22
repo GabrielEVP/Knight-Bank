@@ -25,6 +25,9 @@ class user_list extends standard_class{
         return $this;
     }
 
+    //------------------------------------------------------------------
+    //BUSQUEDAS EN LA BBDD
+    //------------------------------------------------------------------
 
     public function get_user_list_from_BBDD() {
         $select = select_Object("SELECT * FROM user");
@@ -33,6 +36,29 @@ class user_list extends standard_class{
         return $this->user_list;
     }
 
+    public function search_list_from_DDBB ($search_string) {
+        $select = select_Object("SELECT * FROM user");
+
+        $this->user_list = array();
+        foreach ($select as $user) {
+            $check = false;
+            $search_sound_code = generate_sound_code($search_string);
+            $check |= (str_contains($user->NIF,$search_string));
+
+            $check |= (str_contains(generate_sound_code($user->name),$search_sound_code));
+            $check |= (str_contains(generate_sound_code($user->surname),$search_sound_code));
+            $check |= (str_contains(generate_sound_code($user->gmail),$search_sound_code));
+
+            if ($check) {
+                array_push($this->user_list,cast($user,new user_model()));
+            }
+        }
+        return $this->user_list;
+    }
+
+    //------------------------------------------------------------------
+    //FILTROS DE LA LISTA
+    //------------------------------------------------------------------
 
     public function get_active_users() {
         $result_list = array();
@@ -154,7 +180,7 @@ class user_list extends standard_class{
         return $result;
     }
 
-    private function get_extra_data() {
+    private function get_extra_data($sql_where = "") {
         $sql = "SELECT
                     u.id_user,
                     COUNT(a.id_account) as 'account_number',
@@ -175,9 +201,59 @@ class user_list extends standard_class{
                         move m
                     ON
                         am.id_move = m.id_move
+                " . $sql_where . "
                 GROUP BY 
                     u.id_user;";
         return  select_array($sql);      
+    }
+
+    //version comprimida pero menos eficiente que las anteriores listas (O)n^2 vs (O)n^3
+    public function get_extra_list($sql_where = "") {
+        $sql = "SELECT
+                u.id_user as 'id_user',
+                COUNT(a.id_account) as 'account_number',
+                SUM(a.balance) as 'total_balance',
+                COUNT(am.id_account_move) as 'move_number',
+                DATE(MAX(m.dateTime)) as 'last_move'
+            FROM 
+                account_move am
+            RIGHT JOIN     	
+                    account a 
+                ON
+                    a.id_account = am.id_account
+            RIGHT JOIN     	
+                    user u 
+                ON
+                    u.id_user = a.id_user
+            LEFT JOIN
+                    move m
+                ON
+                    am.id_move = m.id_move
+            " . $sql_where . "
+            GROUP BY 
+                u.id_user;";
+
+        $extra_data_array = select_array($sql);
+        $array_user_list = $this->getArrayObjVars("user_list");
+        $user_id_list = array_column($array_user_list,"id_user");
+
+        $result = array();
+        $array_length = count($extra_data_array);
+        for ($i = 0; $i<$array_length; $i++) {
+
+            if ( ($position = array_search($extra_data_array[$i]["id_user"],$user_id_list)) !== false) {
+
+                $array_user_list[$position]['foto'] = refactor_profile_img_path($array_user_list[$position]['foto']);
+                $array_user_list[$position]['account_number'] = $extra_data_array[$i]['account_number'];
+                $array_user_list[$position]['total_balance'] = ($extra_data_array[$i]['total_balance'] != null)? $extra_data_array[$i]['total_balance'] : "0";
+                $array_user_list[$position]['move_number'] = $extra_data_array[$i]['move_number'];
+                $array_user_list[$position]['last_move'] = ($extra_data_array[$i]['last_move'] != null)? $extra_data_array[$i]['last_move'] : "No hay" ;
+    
+                array_push($result,$array_user_list[$position]);
+            }
+        }
+
+        return $result;
     }
 
 }

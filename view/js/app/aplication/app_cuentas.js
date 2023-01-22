@@ -10,15 +10,13 @@ App.controller('Controler', function($scope, $http) {
 
     $scope.init = function () {
         $('.loading').fadeOut();
-
         $http.get((controller_url_User('login_verify'))).then((res) => {
-            const result = res.data;
-            $scope.menu_status = localStorage.getItem('menu_status');
-            $scope.body_status = localStorage.getItem('menu');
-                     
+            const result = res.data;          
             if (result.logged !== true) {
                 location.href = '../web/login.html'
             } else {
+                $scope.menu_status = localStorage.getItem('menu_status');
+                $scope.body_status = localStorage.getItem('menu');
                 $scope.list_user = new user_list();
                 $scope.user_logged =  new user_class(result.user.id_user, result.user.gmail, result.user.NIF , result.user.foto, result.user.name , result.user.surname , result.user.password , result.user.admin , result.user.login_tries);
                 $('body').removeClass('hidden');
@@ -27,6 +25,8 @@ App.controller('Controler', function($scope, $http) {
             console.log(err);
         });
     }
+
+
 
     $scope.logout = async function() {
         const result = await fetch_get_Data(controller_url_User('logout'));
@@ -37,6 +37,6 @@ App.controller('Controler', function($scope, $http) {
             alert('error');
         }
     }
+
     
 });
-

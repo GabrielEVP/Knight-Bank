@@ -46,20 +46,13 @@
             </div>
             <div class="item item_separator"></div>
             <div class="item">
-                <a href="#">
+                <a href="./finanzas.html">
                     <div class="icon gold"><i class="i fa-solid fa-coins color_green"></i></div>
                     <div class="title"><span>Finanzas</span></div>
                 </a>
             </div>
             <div class="item">
-                <a href="./cuentas.html">
-                    <div class="icon orange"><i class="i fa-sharp fa-solid fa-building-columns"></i></div>
-                    <div class="title"><span>Cuentas</span></div>
-                </a>
-            </div>
-            <div class="item item_separator"></div>
-            <div class="item">
-                <a href="#">
+                <a href="./movimientos.html">
                     <div class="icon green"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
                     <div class="title"><span>Movimientos</span></div>
                 </a>
@@ -87,17 +80,19 @@
     <!--- nav bar Phone bottom -->
     <div class="navbar_phone navbar_bottom">
         <div class="container_navbar_phone">
-            <a href=""><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
-            <a href=""><i class="i fa-solid fa-coins gold"></i></a>
-            <a href="./cuentas.html"><i class="i fa-sharp fa-solid fa-building-columns orange"></i></a>
+            <a href="./movimientos.html"><i class="i fa-sharp fa-solid fa-money-check-dollar green"></i></a>
+            <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
         </div>
     </div>
 
     <div class="body_collapse body_phone">
         <!--- botones filter  -->
         <div class="container_input_filter">
-            <form action="">
-                <input class="input_filter" type="text">
+            <form id="seach_user">
+                <div class="search-box">
+                    <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+                    <input id="seach_value" type="text" class="input_filter input-search" placeholder="Buscar un Usuario">
+                  </div>
             </form>
         </div>
         <div class="container_filter">
@@ -138,7 +133,7 @@
                         <div class="chart_information">
                             <div class="title">Balance</div>
                             <i class="fa-solid fa-piggy-bank a "></i>
-                            <div class="value">{{user.total_balance}} $</div>
+                            <div class="value">{{user.total_balance}} €</div>
                         </div>
                     </div>
                     <div class="container_information">
@@ -182,11 +177,11 @@
             <p class="banear">¿Seguro que quieres banear el usuario?</p>
             <p class="desban">¿Seguro que quieres desbanear el usuario?</p>
             <form>
-                <input id="nif" class="modify add_user" type="text" placeholder="nif">
-                <input id="name" class="modify add_user" type="text" placeholder="name">
-                <input id="surname" class="modify add_user" type="text" placeholder="surname">
-                <input id="gmail" class="modify add_user" type="text" placeholder="gmail">   
-                <input id="password" class="modify add_user" type="password" placeholder="password">
+                <input id="nif" class="modify add_user" type="text" placeholder="Nif">
+                <input id="name" class="modify add_user" type="text" placeholder="Nombre">
+                <input id="surname" class="modify add_user" type="text" placeholder="Apellido">
+                <input id="gmail" class="modify add_user" type="text" placeholder="Correo">   
+                <input id="password" class="modify add_user" type="password" placeholder="Constraseña">
             </form>  
 
             <div class="container_tarjet modal_content">
@@ -201,7 +196,7 @@
                         <img src="../../img/global/logos/logo.gif" alt="">
                     </div>
                     <h4 class="number">{{account.IBAN}}</h4>
-                    <h3 class="value" >{{account.balance}} $</h3>
+                    <h3 class="value" >{{account.balance}} €</h3>
                     <h3 class="tarjet_company title_tip">Visa</h3>
                 </div>
             </div>
@@ -215,6 +210,8 @@
             <label ng-click="modify()" for="modal" class="button success modify">Modificar</label>
             <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
         </footer>
+
+      
     </div>
 </body>
 </html>

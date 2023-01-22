@@ -23,6 +23,7 @@ if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado e
         $path = $folder_path . $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         $sql_path = $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         
+        
         $new_user->setFoto($sql_path);
         
         if (file_exists($folder_path . $old_user->getFoto()) && $old_user->getFoto() != "0_default.png") {
