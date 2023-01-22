@@ -34,7 +34,8 @@ if (!isset($data['IBAN']) && !$account->check_account_ownership()) {
     $response['list'] = $account_move_list->get_moves_from_IBAN($data['IBAN'],$options);
     $response['status'] = "ok";
     //$response['list'] = $account_move_list->getArrayObjVars("account_move_list");
-    $response['list'] = array_map("translate_move_name",$response['list']);
+    $response['list'] = array_map("process_move",$response['list']);
+
 }
 
 echo json_encode($response);
@@ -44,7 +45,7 @@ echo json_encode($response);
 
 
 
-function translate_move_name($move) {
+function process_move($move) {
     $move_translations = array(
         "deposit" => "deposito",
         "withdrawal" => "retiro",
@@ -52,7 +53,9 @@ function translate_move_name($move) {
         "send_transference" => "transferencia enviada",
     );
     $move['name'] = $move_translations[$move['name']];
+    $move['amount'] = number_format($move['amount'],2,",",".");
     return $move;
 }
+
 
 ?>
