@@ -316,7 +316,7 @@
 }
 @media (max-width: 450px) {
   .modal-content {
-    top: 30%;
+    top: 10%;
   }
 }
 .body_expanded {
