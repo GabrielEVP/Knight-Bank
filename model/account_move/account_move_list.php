@@ -44,7 +44,8 @@ class account_move_list extends standard_class{
                                     ON m.id_moveType = mt.id_moveType             
                                 WHERE 
                                     a.IBAN = '" . $IBAN . "' 
-                                    $sql_where       
+                                    $sql_where    
+                                    ORDER BY dateTime desc        
                                         ");
 
         // $result = array();
