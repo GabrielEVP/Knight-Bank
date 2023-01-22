@@ -29,8 +29,9 @@
       text-align: end;
     }
 
+
     tr:nth-child(even) {
-      background:#cacaca;
+      background:#a0a0a0cb;
     }
 
     tr:hover {
@@ -47,4 +48,31 @@
     color: white;
     text-align: center;
   }
+}
+
+@media (max-width: 900px) {
+  .table {
+    max-width: auto;
+}
+
+.table_move {
+   width: 60em;
+}
+ 
+}
+
+.date{
+  width: 15%;
+}
+
+.concepto{
+  width: 55%;
+}
+
+.tipo_move {
+  width: 20%;
+}
+
+.importe {
+  width: 10%;
 }
