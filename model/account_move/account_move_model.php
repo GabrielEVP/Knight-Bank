@@ -80,35 +80,7 @@ class account_move_model extends account_move_class {
        return $account_move;
     }
 
-    public function get_moves_from_account() {
-        $select = select_array("SELECT * FROM account_move am
-                                INNER JOIN account a
-                                    ON a.id_account = am.id_account
-                                INNER JOIN move m
-                                    ON am.id_move = m.id_move 
-                                INNER JOIN move_type mt
-                                    ON m.id_moveType = mt.id_moveType             
-                                WHERE 
-                                    a.IBAN = '" . $this->objAccount->getIBAN() . "'        
-                                        ");
 
-        foreach ($select as $row) {
-            $account = new account_model();
-            $move = new move_model();
-            $move_type = new move_type_model();
-
-            //$move_type->setIdMoveType($row['mt.id_moveType']);
-            $move_type->setName($row['mt.name']);
-
-            $move->setObjMoveType($move_type);
-
-            $move->setDateTime($row['m.dateTime']);
-            $move->setNotion($row['m.notion']);
-
-            $account->setIBAN($row["a.Iban"]);
-            $account->setBalance($row['balance']);
-        }
-    }
 }
 
 ?>
