@@ -25,6 +25,7 @@ App.controller('Controler', function($scope, $http) {
                 $scope.load_Financial_data();  
                 $scope.index_account = 0;  
                 $('body').removeClass('hidden');
+            
             }
         }).catch((err) => {
             console.log(err);
@@ -45,7 +46,7 @@ App.controller('Controler', function($scope, $http) {
         $scope.account_array_scroll = $scope.result; // array de scroll con sus respectivas posiciones //
         $scope.account_array_now = $scope.result[$scope.index_account]; // datos de la cuenta actual //
         $scope.balance_user = parseFloat($scope.account_array_now.balance).toFixed(2);
-
+        $scope.view_move('all');
     }
 
     $scope.filter_Financial_data = function (index) {
@@ -54,7 +55,7 @@ App.controller('Controler', function($scope, $http) {
     }
 
     $scope.view_move = (filter_type) => {
-
+        
         const start_date = $('#start_date').val();
         const end_date = $('#end_date').val();
 
@@ -65,7 +66,8 @@ App.controller('Controler', function($scope, $http) {
             method: "POST",
             data: JSON.stringify(data)
         }).then(function (result) {
-            console.log (result.data)
+            console.log(result.data);
+            $scope.move_user = result.data.list;
         }).catch(function (result) {
             console.error("Ocurrio un error", result.status, result.data);
         })    
