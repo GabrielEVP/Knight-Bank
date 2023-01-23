@@ -17,53 +17,30 @@
 
 ### Acceso ssh mediante llaves :: PENDIENTE
 
-### Acceso FTP
+### Se ha instalado un sistema de control de versiones :: PENDIENTE
 
-###### Datos de conexion
+### Todos los miembros del grupo participan como colaboradores y han hecho colaboraciones
 
-![imagen](https://user-images.githubusercontent.com/95285641/214124213-4f520614-b2d5-488f-ac7f-618e84c9628e.png)
+###### colaboradores de github
 
-###### Conexion establecida
+![imagen](https://user-images.githubusercontent.com/95285641/214141293-b9ef2679-1c7b-4900-80ff-f2a54ba0a589.png)
 
-![imagen](https://user-images.githubusercontent.com/95285641/214124483-95ad326f-2a12-4ea4-a5c3-b5acf23b1753.png)
+> NOTA 
+> Gabriel aparece 2 veces debido a que usa tanto su cuenta personal como la educativa
 
-###### Transferencia de prueba efectuada
+###### Historial de git, que nos permite comprobar la participacion de los integrantes
 
-![imagen](https://user-images.githubusercontent.com/95285641/214125781-568c712e-1499-4ae4-8977-4dfbff87cb77.png)
+![imagen](https://user-images.githubusercontent.com/95285641/214142201-879ff76e-19a9-45cf-9249-56e4d7e0dba7.png)
 
-### Acceso SFTP
 
-###### Datos de conexion (Los de SSH)
+### Desde Cpanel podemos actualizar el repositorio del hosting
 
-![imagen](https://user-images.githubusercontent.com/95285641/214127538-dd50de43-b8a2-47c7-8565-de50a245642e.png)
+![imagen](https://user-images.githubusercontent.com/95285641/214141489-6c49cc07-95c4-4948-bff0-661921f9f862.png)
 
-###### Conexion establecida
+### Desde Cpanel podemos desplegar el repositorio
 
-![imagen](https://user-images.githubusercontent.com/95285641/214127248-c2128b85-8b76-43ab-8036-dae36e1faf2f.png)
+![imagen](https://user-images.githubusercontent.com/95285641/214141697-dbc1bfaa-a09f-450a-831e-5e5f91c735d3.png)
 
-###### Transferencia de prueba efectuada
 
-![imagen](https://user-images.githubusercontent.com/95285641/214128349-3debae22-b590-4093-ae32-5e0eae0752af.png)
 
-### Administrador de archivos Cpanel
-
-###### Acceso al administrador
-
-![imagen](https://user-images.githubusercontent.com/95285641/214129808-0d60040c-b43e-4360-b2e0-e9c8dbf90c6b.png)
-
-###### Menu del administrador 
-
-![imagen](https://user-images.githubusercontent.com/95285641/214129263-30d39cf5-cbb3-4265-ae23-42ecabc45f22.png)
-
-###### Archivo en cuestion + localizacion del la funcion de editar
-
-![imagen](https://user-images.githubusercontent.com/95285641/214130153-94bdf474-18dd-4292-9d48-207a1c4caa0f.png)
-
-###### Edicion de texto
-
-![imagen](https://user-images.githubusercontent.com/95285641/214131583-867fa4d9-2fac-4fed-adba-ac3625eac318.png)
-
-### Subida de ficheros mediante SCP
-
-![imagen](https://user-images.githubusercontent.com/95285641/214136359-655b53f4-0291-4852-b5dc-3485367ed769.png)
 
