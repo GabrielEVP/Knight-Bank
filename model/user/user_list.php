@@ -183,9 +183,9 @@ class user_list extends standard_class{
     private function get_extra_data($sql_where = "") {
         $sql = "SELECT
                     u.id_user,
-                    COUNT(a.id_account) as 'account_number',
+                    COUNT(DISTINCT(a.id_account)) as 'account_number',
                     SUM(a.balance) as 'total_balance',
-                    COUNT(am.id_account_move) as 'move_number',
+                    COUNT(DISTINCT(am.id_account_move)) as 'move_number',
                     DATE(MAX(m.dateTime)) as 'last_move'
                 FROM 
                     account_move am
