@@ -6,8 +6,10 @@ Knight proyect es un proyecto didactico de uso meramente educativo que se enfoca
 
 ### Integrantes 
 
-- Gabriel Vargas (especialista Frontend)
-- Josu Diez (especialista Backend)
+|Nombre|Posicion|
+|------|--------|
+|Gabriel Vargas|especialista Frontend|
+|Josu Diez|especialista Backend|
 
 ### Tecnologias usadas
 
