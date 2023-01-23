@@ -17,7 +17,9 @@
 
 ### Acceso ssh mediante llaves :: PENDIENTE
 
-### Se ha instalado un sistema de control de versiones :: PENDIENTE
+### Se ha instalado un sistema de control de versiones
+
+###### Se ha instalado el sistema de ocntrol de versiones GIT.
 
 ### Todos los miembros del grupo participan como colaboradores y han hecho colaboraciones
 
