@@ -81,7 +81,9 @@
             <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
         </div>
     </div>
+    <!--- Container of aplication -->
     <div class="body_collapse body_phone">
+        <!--- form -->
         <form id="update_profile" action="../../../controller/user/update_profile.php" method="post" enctype="multipart/form-data">
             <div class="container_form_configuration">
                 <div class="container_photo_user">
@@ -96,19 +98,38 @@
                         <button ng-click="delete_Image()"  type="button" class="trash"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
+                <!--- input -->
                 <div class="container_input_user">
                     <input type="text" id="nif" name="NIF" value={{user_logged.NIF}} placeholder="NIF" disabled>
                     <input type="text" id="gmail" name="gmail" value={{user_logged.gmail}} placeholder="Correo">
                     <input type="text" id="name" name="name" value={{user_logged.name}} placeholder="Nombre" disabled>
                     <input type="text" id="surname" name="surname" value={{user_logged.surname}} placeholder="Apellido" disabled>
-                    <input type="text" placeholder="Contraseña">
                 </div>
+                <!--- Button -->
                 <div class="container_button_user">
                     <button type="submit">Guardar</button>
-                    <button value="cancelar">Cancelar</button>
+                    <button ng-click="show_update_Password()" type="button">Cambiar constraseña</button>
                 </div>
             </div>
         </form>
+        <!--- modal  -->
+        <label ng-modal="id" for="modal" class="modal-bg"></label>
+        <div class="modal-content">
+            <label ng-click="close()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+            <header>
+                <h2 class="modify">Cuentas del usuario</h2>
+            </header>
+            <article class="content">
+                <form id="change_password" action="">
+                    <input id="password" class="modify" type="password" placeholder="Constraseña" maxlength="50" required>   
+                    <input id="password_verify" class="modify" type="password" placeholder="repite la Constraseña" maxlength="50" required>
+                </form>  
+            </article>
+            <footer>
+                <label ng-click="update_Password()" for="modal" class="button success modify">Cambiar constraseña</label>
+                <label ng-click="close()" for="modal" class="button danger">Cancelar</label>
+            </footer>
+        </div>
     </div>
 </body>
 </html>

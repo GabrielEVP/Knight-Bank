@@ -15,7 +15,7 @@ function verification_Phone (phone) {
     return phone.length == 9 ?? false;
 }
 
-// Comprueba por medio de expresiones regulares si el valor puesto en el input es un dni o un nif //
+// Comprueba por medio de expresiones regulares si el valor puesto en el input es un dni o un nie //
 function verification_Dni (dni) {
     const expNIF =  /^[a-z]./;
     const expDNI =  /^.*[a-z]$/;

@@ -21,8 +21,5 @@ App.controller('Controler', function($scope) {
         }
         return Process_Status[result.status] ? Process_Status[result.status]() : alert(result.status);
     }
-
-   
-    
     
 })

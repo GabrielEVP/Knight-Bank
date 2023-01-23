@@ -4,7 +4,8 @@ import { controller_url_User } from "../../dictionary/dictionary_user.js"
 import { fetch_get_Data, login_Process , logout_Process } from "../../server/server.js"
 
 import { } from "../../functions/navbar_aplication.js"
-import { verification_Email, verification_Name , verification_Phone , verification_Dni , comprobator_input, verification_status_proces } from "../../functions/verification_form.js";
+import { verification_Email, comprobator_input, verification_status_proces } from "../../functions/verification_form.js";
+import { show_Modal , quit_Modal } from "../../functions/modal.js"
 
 const App = angular.module('App', []);
 App.controller('Controler', function($scope, $http) {
@@ -25,9 +26,33 @@ App.controller('Controler', function($scope, $http) {
 
     $('#update_profile').submit(() => {  
         const avaible_gmail = verification_Email($('#gmail').val());
-        comprobator_input(avaible_gmail)("#gmail");
         if (avaible_gmail) return true; else return false;
     })
+
+    $scope.show_update_Password = () => {
+        show_Modal('.modify');
+    }
+
+    $scope.update_Password = () => {
+        if ( $('#password').val() !== $('#password_verify').val()) {
+            comprobator_input(false)("#password_verify");
+        } else {
+            $http.post({
+                url: controller_url_User('update_password'),
+                method: POST,
+                data: JSON.stringify({ "password" : $('#password').val() }),
+             }).then((result) => {
+                verification_status_proces(result.data.status);
+             }).catch((error) => {
+                console.error(error);
+             });
+        }
+    }
+
+    // cierra el modal //
+    $scope.close = () => {
+        quit_Modal();
+    }
 
     // borra la imagen del programa // 
     $scope.delete_Image = async () => {

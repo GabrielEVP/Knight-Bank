@@ -9,6 +9,7 @@ function controller_url_User(controller) {
         ban: controller_path_builder('user/ban_user.php'),
         unban: controller_path_builder('user/unban_user.php'),
         login: controller_path_builder('user/login.php'),
+        update_password: controller_path_builder('user/update_password.php'),
         login_verify: controller_path_builder('user/logged_verify.php'),
         logout: controller_path_builder('user/logout.php'),
         delete_image: controller_path_builder('user/delete_profile_image.php')
