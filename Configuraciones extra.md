@@ -62,3 +62,8 @@
 ###### Edicion de texto
 
 ![imagen](https://user-images.githubusercontent.com/95285641/214131583-867fa4d9-2fac-4fed-adba-ac3625eac318.png)
+
+### Subida de ficheros mediante SCP
+
+![imagen](https://user-images.githubusercontent.com/95285641/214136359-655b53f4-0291-4852-b5dc-3485367ed769.png)
+
