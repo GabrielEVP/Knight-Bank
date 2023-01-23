@@ -3,9 +3,9 @@ include_once ("../../model/user/user_model.php");
 include_once ("../../model/function.php"); 
 
 session_start();
-print_r($_POST);
-$root_path = str_replace("controller\user","",__DIR__);
-$root_path = str_replace("controller/user","",__DIR__);
+
+$root_path = str_replace(["controller\user","controller/user"],"",__DIR__);
+//$root_path = str_replace("controller/user","",__DIR__);
 
 if (!(isset($_POST['gmail'])) || !(isset($_SESSION['id_user'])) ) {//si no ha mandado el formulario o no esta loegeado
     header("Location:".$_SERVER['HTTP_REFERER']);
@@ -20,8 +20,8 @@ if (!(isset($_POST['gmail'])) || !(isset($_SESSION['id_user'])) ) {//si no ha ma
     
     if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
         
-        $folder_path = $root_path . "view/img/aplication/user/";
-        //$folder_path = $root_path . "view\img\aplication\user\\";
+        //$folder_path = $root_path . "view/img/aplication/user/";
+        $folder_path = $root_path . "view\img\aplication\user\\";
         
         $path = $folder_path . $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         $sql_path = $old_user->getIdUser() . "_" . $_FILES['image']['name'];
@@ -37,7 +37,6 @@ if (!(isset($_POST['gmail'])) || !(isset($_SESSION['id_user'])) ) {//si no ha ma
         }
     } else {
         $new_user->setFoto($old_user->getFoto());
-        
     }
    
     if (!isset($response['error'])) {
