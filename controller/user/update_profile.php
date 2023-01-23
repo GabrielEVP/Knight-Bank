@@ -44,8 +44,6 @@ if (!(isset($_POST['gmail'])) || !(isset($_SESSION['id_user'])) ) {//si no ha ma
         $new_user->setPassword($old_user->getPassword());
         $new_user->setNIF($old_user->getNIF());
         
-        //$new_user->setName($_POST['name']);
-        //$new_user->setSurname($_POST['surname']);
         $new_user->setName($_SESSION['name']);
         $new_user->setSurname($_SESSION['surname']);
         $new_user->setGmail($_POST['gmail']);
