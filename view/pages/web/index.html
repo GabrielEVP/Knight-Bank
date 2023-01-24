@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='App'>
 <head>
-    <link rel="shortcut icon" href="./view/img/global/logos/logo.gif">
+    <link rel="shortcut icon" href="../../img/global/logos/logo.gif">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +12,21 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link rel="stylesheet" href="./view/styles/css_web.css">
-    <script src="./view/js/app/web/app_index.js" type="module"></script>
+    <link href="../../styles/css_web.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/app/web/app_login.js" type="module"></script>
     <title>Knight Bank</title>
 </head>
 <body ng-controller="Controler">
 
     <!-- --------- nav --------- -->
     <nav>
-        <img src="./view/img/global/logos/logo.gif" alt="">
+        <img src="../../img/global/logos/logo.gif" alt="">
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
         <ul>
            <li><a class="active" href="#">Inicio</a></li>
-           <li><a href="./view/pages/web/simulador.html">Simulador</a></li>
-           <li><a href="./view/pages/web/login.html">Login</a></li>
+           <li><a href="./simulador.html">Simulador</a></li>
+           <li><a href="./login.html">Login</a></li>
         </ul>
      </nav>
 
@@ -42,31 +42,31 @@
         <div class="container_flex">
     
             <div class="card" data-aos="fade-up">
-                <img src="./view/img/web/services_app.webp" alt="">
+                <img src="../../img/web/services_app.webp" alt="">
                 <h3 class="title">Acceso sin limites</h3>
                 <p class="text">Facilitamos el acceso desde cualquier lugar del mundo en cualquier dispositivo, de forma que siempre puedas utilizar tus cuentas con total comodidad</p>
             </div>
             <div class="card" data-aos="fade-up">
-                <img src="./view/img/web//services_confiabilidad.webp" alt="">
+                <img src="../../img/web/services_confiabilidad.webp" alt="">
                 <h3 class="title">Gestión de finanzas</h3>
                 <p class="text">Te ayudamos a gestionar tus finanzas y patrimonio para que no tengas que preocuparte de nada</p>
             </div>
             <div class="card" data-aos="fade-up">
-                <img src="./view/img/web/services_prestamos.jpg" alt="">
+                <img src="../../img/web/services_prestamos.jpg" alt="">
                 <h3 class="title">Transparencia</h3>
                 <p class="text">Garantizamos la transparencia en todo momento. Pase lo que pase siempre estarás informado de lo que ocurre con tu dinero.</p>
             </img>
         </div>
     </section>
 
-    <!-- --------- Knigt --------- -->
+    <!-- --------- Knight --------- -->
     <div class="container_header">
         <div class="information">
             <div class="title" data-aos="fade-up"><h1>Knight App</h1></div>
             <div class="text" data-aos="fade-up">En pos del bienestar de nuestros clientes ofrecemos Knight APP. Una aplicación de gestión que permite el cómodo y sencillo acceso a todas las necesidades bancarias básicas que pueda necesitar. Desde hacer transferencias y movimientos a controlar las cuentas o revisar sus finanzas. Solicite una demo para probar de primera mano las ventajas de la app.</div>
             <div class="flex dark" data-aos="fade-up"><button ng-click="show_Correo()" class="bttn dark">Pedir Demo</button></div>
         </div>
-        <div class="image" data-aos="fade-up" ><img src="./view/img/global/logos/logo.gif" alt=""></div>
+        <div class="image" data-aos="fade-up" ><img src="../../img/global/logos/logo.gif" alt=""></div>
     </div>
 
     <!-- --------- modal --------- -->
@@ -94,7 +94,7 @@
      
     <!-- --------- Information of knigth --------- -->
     <div class="container_information_knight padding_section">
-        <div class="image_graficos" data-aos="fade-up" ><img src="./view/img/web/graficos.png" alt=""></div>
+        <div class="image_graficos" data-aos="fade-up" ><img src="../../img/web/graficos.png" alt=""></div>
         <div class="text">
             <div class="title" ><h1 data-aos="fade-up">Estabilidad</h1></div>
             <p data-aos="fade-up">Desde Knight bank nos encargamos de asegurarnos de que nuestros clientes tengan una experiencia limpia, transparente y cómoda. Enfocándonos siempre en mantener una estabilidad constante y una seguridad inquebrantable, fomentando así la confianza y tranquilidad de nuestros clientes. Independientemente de lo que ocurra en el mundo mantendremos nuestro habitual trato profesional y efectivo.</p>
@@ -139,7 +139,7 @@
         <div class="row">   
             <div class="col">
                 <p>La información ofrecida en esta página no constituye asesoramiento en materia de inversión, ni asesoramiento bancario. Por no suponer un asesoramiento bancario, la información ofrecida no se basa en un análisis objetivo y amplio de los servicios bancarios disponibles en el mercado, ni considera la situación personal y financiera del usuario, preferencias u objetivos.</p>
-                <img src="./view/img/global/logos/logo.gif" alt="">
+                <img src="../../img/global/logos/logo.gif" alt="">
             </div>
             <div class="col">
                 <h3>Contacto <div class="linea"><span></span></div></h3>
@@ -151,9 +151,9 @@
             <div class="col ">
                 <h3>Otros <div class="linea"><span></span></div></h3>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="./view/pages/web/simulador.html">Simulacion de prestamos</a></li>
-                    <li><a href="./view/pages/web/login.html">App</a></li>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./simulador.html">Simulacion de prestamos</a></li>
+                    <li><a href="./login.html">App</a></li>
                 </ul>
             </div>
             <div class="col">

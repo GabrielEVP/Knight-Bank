@@ -5,10 +5,8 @@
 //OBJETOS GENERICOS
 //------------------------------------------------------------------
 function cast($stdObject,$new_object) {
-
     $vars = get_object_vars($stdObject);
     foreach ($vars as $key => $valor) {
-
         $setter = create_setter($key);
         $new_object->$setter($valor);
     }
@@ -17,7 +15,6 @@ function cast($stdObject,$new_object) {
 }
 
 function cast_array($array,$type) {
-
     $result = array();
     foreach($array as $object) {
         $casted_object = cast($object,new $type());
@@ -69,6 +66,7 @@ function create_setter($key) {
 //REFACTORIZACION DE FORMATOS 
 //------------------------------------------------------------------
 
+// (reargoniza las posiciones de un array ) //
 function refactor_array_indexes($input_array) {
     $result = array();
     $array_length = count($input_array);
@@ -82,7 +80,6 @@ function refactor_array_indexes($input_array) {
 }
 
 function refactor_profile_img_path($filename) {
-    
     $folder_path = "..\..\img\aplication\user\\";
     if ($filename == null || $filename == "") {
         return  $folder_path . "0_default.png";//imagen por defecto
@@ -96,7 +93,6 @@ function refactor_profile_img_path($filename) {
 //------------------------------------------------------------------
 
 function generate_sound_code ($string) {
-
     $code = str_replace(" ","",$string);
     $code = strtolower($code);
     $code = remove_accents($code);

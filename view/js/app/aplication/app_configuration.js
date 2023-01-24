@@ -37,9 +37,9 @@ App.controller('Controler', function($scope, $http) {
         if ( $('#password').val() !== $('#password_verify').val()) {
             comprobator_input(false)("#password_verify");
         } else {
-            $http.post({
+            $http({
                 url: controller_url_User('update_password'),
-                method: POST,
+                method: 'POST',
                 data: JSON.stringify({ "password" : $('#password').val() }),
              }).then((result) => {
                 verification_status_proces(result.data.status);
