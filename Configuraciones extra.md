@@ -15,7 +15,8 @@
 ![imagen](https://user-images.githubusercontent.com/95285641/214116460-f00d3386-5ea6-45e5-876c-49b6fcf838d3.png)
 ![imagen](https://user-images.githubusercontent.com/95285641/214116489-34c7b9f5-ccfb-4990-a884-f5877d96fa9f.png)
 
-### Acceso ssh mediante llaves :: PENDIENTE
+> NOTA
+> El cambio en cuestion es de prueba, y se ha vuelto a modificar para ser grupo2.zerbitzaria.net
 
 ### Se ha instalado un sistema de control de versiones
 
