@@ -97,7 +97,7 @@ App.controller('Controler', function($scope, $http) {
         } 
         
     }
-
+ 
     // muestra el modal con el crud a realizar (banear o borrar o desbanear) // 
     $scope.show_Crud = (class_element, id_user) => {
         $scope.id = id_user;
