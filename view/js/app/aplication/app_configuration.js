@@ -4,10 +4,11 @@ import { controller_url_User } from "../../dictionary/dictionary_user.js"
 import { fetch_get_Data, login_Process , logout_Process } from "../../server/server.js"
 
 import { } from "../../functions/navbar_aplication.js"
-import { verification_status_proces } from "../../functions/verification_form.js";
+import { verification_Email, comprobator_input, verification_status_proces } from "../../functions/verification_form.js";
+import { show_Modal , quit_Modal } from "../../functions/modal.js"
 
 const App = angular.module('App', []);
-App.controller('Controler', function($scope, $http) {
+App.controller('Controler', ($scope, $http) => {
 
     // cuando carga el dom realiza estos procesos para el uso del programa // 
     $scope.init = () => {
@@ -21,6 +22,36 @@ App.controller('Controler', function($scope, $http) {
         }).catch((err) => {
             console.log(err);
         });
+    }
+
+    $('#update_profile').submit(() => {  
+        const avaible_gmail = verification_Email($('#gmail').val());
+        if (avaible_gmail) return true; else return false;
+    })
+
+    $scope.show_update_Password = () => {
+        show_Modal('.modify');
+    }
+
+    $scope.update_Password = () => {
+        if ( $('#password').val() !== $('#password_verify').val()) {
+            comprobator_input(false)("#password_verify");
+        } else {
+            $http({
+                url: controller_url_User('update_password'),
+                method: 'POST',
+                data: JSON.stringify({ "password" : $('#password').val() }),
+             }).then((result) => {
+                verification_status_proces(result.data.status);
+             }).catch((error) => {
+                console.error(error);
+             });
+        }
+    }
+
+    // cierra el modal //
+    $scope.close = () => {
+        quit_Modal();
     }
 
     // borra la imagen del programa // 

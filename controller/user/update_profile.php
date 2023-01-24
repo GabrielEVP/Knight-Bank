@@ -4,10 +4,10 @@ include_once ("../../model/function.php");
 
 session_start();
 
-$root_path = str_replace("controller\user","",__DIR__);
-$root_path = str_replace("controller/user","",__DIR__);
+$root_path = str_replace(["controller\user","controller/user"],"",__DIR__);
+//$root_path = str_replace("controller/user","",__DIR__);
 
-if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado el formulario o no esta loegeado
+if (!(isset($_POST['gmail'])) || !(isset($_SESSION['id_user'])) ) {//si no ha mandado el formulario o no esta loegeado
     header("Location:".$_SERVER['HTTP_REFERER']);
 } else {
     $response = array();
@@ -20,10 +20,11 @@ if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado e
     
     if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
         
-        $folder_path = $root_path . "view/img/aplication/user/";
+        //$folder_path = $root_path . "view/img/aplication/user/";
+        $folder_path = $root_path . "view\img\aplication\user\\";
+        
         $path = $folder_path . $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         $sql_path = $old_user->getIdUser() . "_" . $_FILES['image']['name'];
-        
         
         $new_user->setFoto($sql_path);
         
@@ -36,7 +37,6 @@ if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado e
         }
     } else {
         $new_user->setFoto($old_user->getFoto());
-        
     }
    
     if (!isset($response['error'])) {
@@ -44,8 +44,8 @@ if (!(isset($_POST['name'])) || !(isset($_POST['name'])) ) {//si no ha mandado e
         $new_user->setPassword($old_user->getPassword());
         $new_user->setNIF($old_user->getNIF());
         
-        $new_user->setName($_POST['name']);
-        $new_user->setSurname($_POST['surname']);
+        $new_user->setName($_SESSION['name']);
+        $new_user->setSurname($_SESSION['surname']);
         $new_user->setGmail($_POST['gmail']);
         
         $new_user->update_user();

@@ -13,7 +13,7 @@ import { generator_config_CircularMonth, generator_config_BarMonth  } from "../.
 
 
 const App = angular.module('App', []);
-App.controller('Controler', function($scope, $http) {
+App.controller('Controler', ($scope, $http) => {
 
     const ctx_bar = document.getElementById('bar_year').getContext("2d");
     const ctx_circular = document.getElementById('circular_month').getContext("2d");
@@ -34,7 +34,17 @@ App.controller('Controler', function($scope, $http) {
                 $scope.chartbar;
                 $scope.chartdoughnut;
                 $scope.load_Financial_data();
+                $scope.account_all();
             });        
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    // carga todos los numeros de cuenta que estan habilitadas en el servidor //
+    $scope.account_all = () => {
+        $http.post((controller_url_account_List('all'))).then((res) => {
+            $scope.result_all_iban = res.data.list;
         }).catch((err) => {
             console.log(err);
         });

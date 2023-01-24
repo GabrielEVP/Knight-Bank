@@ -19,6 +19,13 @@ class standard_class {
         return $response_array;
     }
 
+    public function get_any_ArrayObjVars($array) {
+        $response_array = array();
+        foreach ($array as $object) {
+            array_push($response_array,$object->getObjvars());
+        }
+        return $response_array;
+    }
 
     public function set_full_object($new_object) {
         $vars = get_object_vars($new_object);
@@ -27,5 +34,6 @@ class standard_class {
             $this->$setter($valor);
         }
     }
+
 }
 ?>

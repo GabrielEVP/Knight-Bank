@@ -1,5 +1,5 @@
 .green {
-  color: #16f802;
+  color: #2ecd20;
 }
 
 .yellow {
@@ -35,8 +35,8 @@
 }
 
 .boton_green {
-  background-color: #16f802;
-  border: 3px solid #16f802;
+  background-color: #2ecd20;
+  border: 3px solid #2ecd20;
 }
 
 .boton_yellow {
@@ -156,6 +156,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 1em;
 }
 .modal-content .button {
   position: relative;
@@ -1327,6 +1328,11 @@ body {
 @media (max-width: 985px) {
   .circular {
     margin-top: 0;
+  }
+}
+@media (max-width: 500px) {
+  .bar {
+    display: none;
   }
 }
 .table {

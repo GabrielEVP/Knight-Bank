@@ -74,6 +74,7 @@ class account_model extends account_class {
 
     public function check_account_ownership () {
         $select = single_row_array_select("SELECT id_user FROM account WHERE IBAN = '$this->IBAN'");
+        return $select;
         if (!empty($select) && $this->objUser->getIdUser() == $select['id_user']) {
             return true;
         } else {
@@ -178,6 +179,43 @@ class account_model extends account_class {
             $this->IBAN = $new_IBAN;
             $IBAN_completed = $this->check_IBAN_available();
         }
+    }
+
+    //------------------------------------------------------------------------
+    //LISTAS
+    //------------------------------------------------------------------------
+
+    public function get_accounts_from_user_id ($return_type = "array") {
+        //$this->objUser->setIdUser($user_id);
+        $select = select_Object("SELECT * FROM account WHERE id_user = " . $this->objUser->getIdUser());
+        $account_list = cast_array($select, new account_model());
+        if ($return_type == 'array') {
+            return $this->get_any_ArrayObjVars($account_list);
+        } else if ($return_type == 'object') {
+            return $account_list;
+        } else {
+            return false;
+        }
+    }
+
+    public function get_financial_data_from_user ($options = array()) {
+
+        $account_list = $this->get_accounts_from_user_id("object");
+        $result = array();
+        foreach ($account_list as $account) {
+            $options['iban'] = $account->getIBAN();
+
+            $finances = $account->get_financial_data($options);
+            $finances["iban"] = $account->getIBAN();
+            
+            array_push($result,$finances);
+        }
+
+        return $result;
+    }
+
+    public function get_all_IBAN() {
+        return select_array("SELECT IBAN FROM account WHERE active = 1");
     }
 
 }
