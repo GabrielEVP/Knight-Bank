@@ -23,8 +23,6 @@ if (!isset($data['IBAN']) || !$account->check_account_ownership()) {
     $account_move_list = new account_move_model();
     $response['list'] = $account_move_list->get_moves_from_IBAN($data['IBAN']);
     $response['status'] = "ok";
-    //$response['list'] = $account_move_list->getArrayObjVars("account_move_list");
-
 } else {
     $options = array();
     (isset($data['filter_type']) && $data['filter_type'] != 'all') ? $options[$data['filter_type']] = 1  : "";
@@ -34,9 +32,7 @@ if (!isset($data['IBAN']) || !$account->check_account_ownership()) {
     $account_move_list = new account_move_model();
     $response['list'] = $account_move_list->get_moves_from_IBAN($data['IBAN'],$options);
     $response['status'] = "ok";
-    //$response['list'] = $account_move_list->getArrayObjVars("account_move_list");
-    //$response['list'] = array_map("process_move",$response['list']);
-
+    $response['list'] = array_map("process_move",$response['list']);
 }
 
 echo json_encode($response);
@@ -53,7 +49,7 @@ function process_move($move) {
         "receive_transference" => "transferencia recibida",
         "send_transference" => "transferencia enviada",
     );
-    $move['objMove']['name'] = $move_translations[$move['name']];
+    $move['objMove']['objMoveType']['name'] = $move_translations[$move['objMove']['objMoveType']['name']];
     $move['amount'] = number_format($move['amount'],2,",",".");
     return $move;
 }
