@@ -31,7 +31,7 @@ function keypress_condition (input,condition) {
 }
 
 // comprueba que todos los input necesario para la creacion de usuario sean validos sino retorna false y muestra en cliente //
-const comprobatorConditionUser = () => {
+function comprobatorConditionUser () {
     const avaible_nif = verification_Dni($('#nif').val());
     const avaible_email = verification_Email($('#gmail').val());
     const avaible_nombre = verification_Name($('#name').val());
