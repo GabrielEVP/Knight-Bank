@@ -27,13 +27,13 @@ Knight proyect es un proyecto didactico de uso meramente educativo que se enfoca
 ### Componentes
 
 - Servidor de hosting (guebs)
-- Dominio knightbank.net
+- Dominio grupo2.zerbitzaria.net
 - Base de datos grupo2ze_banca
 - Lenguajes de programacion (Html, css, Sass, JavaScript y PHP)
 
 ### Acerca del despliegue
 
-La web se encuentra desplegada en el domino https://knightbank.net/ alojado dentro del hosting de guebs. Haciendo uso de la funcionalidad que Cpanel incluye dicho servico que nos permite actualizar el contenido de la web a traves de un repositorio de guitHub tanto de forma manual como automatica. En nuestro caso, se hacen los despluegues a partir de la rama master de forma manual. 
+La web se encuentra desplegada en el domino https://grupo2.zerbitzaria.net/ alojado dentro del hosting de guebs. Haciendo uso de la funcionalidad que Cpanel incluye dicho servico que nos permite actualizar el contenido de la web a traves de un repositorio de guitHub tanto de forma manual como automatica. En nuestro caso, se hacen los despluegues a partir de la rama master de forma manual. 
 
 ### Proceso de despluegue 
 
