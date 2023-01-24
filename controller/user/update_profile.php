@@ -20,8 +20,8 @@ if (!(isset($_POST['gmail'])) || !(isset($_SESSION['id_user'])) ) {//si no ha ma
     
     if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
         
-        //$folder_path = $root_path . "view/img/aplication/user/";
-        $folder_path = $root_path . "view\img\aplication\user\\";
+        $folder_path = $root_path . "view/img/aplication/user/";
+        //$folder_path = $root_path . "view\img\aplication\user\\";
         
         $path = $folder_path . $old_user->getIdUser() . "_" . $_FILES['image']['name'];
         $sql_path = $old_user->getIdUser() . "_" . $_FILES['image']['name'];
