@@ -157,7 +157,8 @@ class user_model extends user_class {
             $check |= (str_contains(generate_sound_code($user->gmail),$search_sound_code));
 
             if ($check) {
-                array_push($user_list,cast($user,new user_model()));
+                $new_user = cast($user,new user_model());
+                array_push($user_list,get_object_vars($new_user));
             }
         }
         return $user_list;
