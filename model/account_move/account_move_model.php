@@ -113,7 +113,7 @@ public function get_moves_from_IBAN($IBAN,$options = array()) {
 
         $move_type->setName($row['name']);
 
-        $move->setObjMoveType($move_type->getObjvars());
+        $move->setObjMoveType($move_type);
 
         $move->setDateTime($row['dateTime']);
         $move->setNotion($row['notion']);
@@ -124,7 +124,7 @@ public function get_moves_from_IBAN($IBAN,$options = array()) {
         $account_move->setAmount($row['amount']);
 
         $account_move->objAccount = $account->getObjvars();
-        $account_move->objMove = $move->getObjvars();
+        $account_move->objMove = $move->get_move_and_move_type();
 
         array_push($result,get_object_vars($account_move));
     }

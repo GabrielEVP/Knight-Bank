@@ -26,6 +26,11 @@ class move_model extends move_class {
 
         return $this;
     }
+
+    public function get_move_and_move_type () {
+        $this->objMoveType = $this->objMoveType->getObjvars();
+        return get_object_vars($this);
+    }
 //------------------------------------------------------------------
 //CRUD (SIN SELECT)
 //------------------------------------------------------------------
@@ -56,7 +61,9 @@ class move_model extends move_class {
 
         return $move;
     }
-
+//------------------------------------------------------------------
+//OBTENCION DE DATOS DE LA BBDD
+//------------------------------------------------------------------
 
 
 }
