@@ -1,5 +1,5 @@
 <?php 
-include_once ("../../../model/user/user_list.php"); 
+include_once ("../../../model/user/user_model.php"); 
 include_once ("../../../model/function.php"); 
 
 session_start();
@@ -7,8 +7,8 @@ session_start();
 if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
     $data=json_decode(file_get_contents("php://input"),true);
 
-    $user_list = new user_list();
-    $user_list->get_user_list_from_BBDD();
+    $user_list = new user_model();
+    //$user_list->get_user_list_from_BBDD();
 
     $users = $user_list->get_full_extra_list();
     
