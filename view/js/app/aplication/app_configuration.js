@@ -26,7 +26,8 @@ App.controller('Controler', ($scope, $http) => {
 
     $('#update_profile').submit(() => {  
         const avaible_gmail = verification_Email($('#gmail').val());
-        if (avaible_gmail) return true; else return false;
+        comprobator_input(avaible_gmail)('#gmail');
+        return avaible_gmail ? true : false;
     })
 
     $scope.show_update_Password = () => {
