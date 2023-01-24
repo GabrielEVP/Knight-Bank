@@ -6,7 +6,9 @@
 
 ![imagen](https://user-images.githubusercontent.com/95285641/214049021-d7ab9d6d-82c0-478c-8f99-d6e72d9559cd.png)
 
-### Redireccion :: PENDIENTE
+### Redireccion
+
+![imagen](https://user-images.githubusercontent.com/95285641/214412293-bea1013a-b0e2-4ff3-99c4-463e10ccd441.png)
 
 ### Cambio de nombre 
 
