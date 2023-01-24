@@ -94,6 +94,7 @@ $colores: (
   "gray" #cfc7c7,
   "gold" gold,
   "red" #ec400c
+  "greendark" #349c14
 );
 
 @each $name , $color in $colores {

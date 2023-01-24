@@ -8,7 +8,7 @@ import { verification_Email, comprobator_input, verification_status_proces } fro
 import { show_Modal , quit_Modal } from "../../functions/modal.js"
 
 const App = angular.module('App', []);
-App.controller('Controler', function($scope, $http) {
+App.controller('Controler', ($scope, $http) => {
 
     // cuando carga el dom realiza estos procesos para el uso del programa // 
     $scope.init = () => {

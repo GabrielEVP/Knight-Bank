@@ -1330,6 +1330,11 @@ body {
     margin-top: 0;
   }
 }
+@media (max-width: 500px) {
+  .bar {
+    display: none;
+  }
+}
 .table {
   overflow-x: scroll;
   height: 28em;

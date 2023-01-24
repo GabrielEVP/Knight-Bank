@@ -13,7 +13,7 @@ import { generator_config_CircularMonth, generator_config_BarMonth  } from "../.
 
 
 const App = angular.module('App', []);
-App.controller('Controler', function($scope, $http) {
+App.controller('Controler', ($scope, $http) => {
 
     const ctx_bar = document.getElementById('bar_year').getContext("2d");
     const ctx_circular = document.getElementById('circular_month').getContext("2d");

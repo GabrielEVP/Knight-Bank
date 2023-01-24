@@ -2,8 +2,7 @@ import { show_Modal , quit_Modal } from "../../functions/modal.js"
 import { verification_Email, verification_Name , verification_Phone , verification_Dni , keypress_condition, comprobator_input } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
-
-App.controller('Controler', function($scope, ) {
+App.controller('Controler', ($scope) => {
 
     window.onload = () => {
         keypress_condition("#phone", "0123456789");

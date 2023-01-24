@@ -124,10 +124,10 @@
                     <th>Importe</th>
                 </tr>
                 <tr class="move_description" ng-repeat="move in move_user">
-                    <td class="date">{{move.dateTime}}</td>
-                    <td class="concepto">{{move.notion}}</td>
-                    <td class="tipo_move">{{move.name}}</td>
-                    <td id="importe" class="importe" ng-Class="{'red': move.amount < '0,00' , 'green': move.amount > '0,00' }" >{{move.amount}} €</td>
+                    <td class="date">{{move.objMove.dateTime}}</td>
+                    <td class="concepto">{{move.objMove.notion}}</td>
+                    <td class="tipo_move">{{move.objMove.objMoveType.name}}</td>
+                    <td id="importe" class="importe" ng-Class="{'red': move.amount < '0,00' }" >{{move.amount}} €</td>
                 </tr>
             </table>
         </div>

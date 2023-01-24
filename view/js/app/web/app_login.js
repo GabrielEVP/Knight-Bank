@@ -4,7 +4,7 @@ import { verification_Dni } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
 
-App.controller('Controler', function($scope) {
+App.controller('Controler', ($scope) => {
 
     $scope.login = async () => {
         const avaible_nif = verification_Dni($('#nif').val());
