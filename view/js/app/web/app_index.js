@@ -30,11 +30,10 @@ App.controller('Controler', ($scope) => {
         comprobator_input(avaible_dni)("#dni");
 
         if (avaible_email && avaible_nombre  && avaible_surname && avaible_phone && avaible_dni) {
-            $("#form").submit(async () => {
+            $("#form").submit(async function() {
                 emailjs.init('o5KjR2swVQ-VjGWP_');
                 const serviceID = "service_mr0cxam" ;
                 const templateID = "template_rmmgi7r" ;
-
                 await emailjs.sendForm(serviceID, templateID, this);
                 location.reload();
             });
