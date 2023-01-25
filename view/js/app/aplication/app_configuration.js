@@ -25,7 +25,7 @@ App.controller('Controler', ($scope, $http) => {
     }
 
     // comprueba que el correo este bien e envia el formulario //
-    $('#update_profile').submit(() => {
+    $('#update_profile').submit(() => {  
         const avaible_gmail = verification_Email($('#gmail').val());
         comprobator_input(avaible_gmail)('#gmail');
         return avaible_gmail ? true : false;
