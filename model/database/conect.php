@@ -1,5 +1,5 @@
 <?php
-
+//*CONEXION A LA BBDD*
 include_once ('conect_data.php');
 
 class conect extends conect_data {

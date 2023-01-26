@@ -1,14 +1,16 @@
 <?php 
-include_once ("../../../model/user/user_list.php"); 
-//if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+include_once ("../../../model/user/user_model.php"); 
+session_start();
 
-$user_list = new user_list();
+if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
-$user_list->get_user_list_from_BBDD();
-$inactive_users = $user_list->get_inactive_users();
+$user_list = new user_model();
+
+//$user_list->get_user_list_from_BBDD();
+$inactive_users = $user_list->get_inactive_extra_list();
 
 echo json_encode($inactive_users);
-/*} else {
+} else {
     echo json_encode("no admin");
-}*/
+}
 ?>

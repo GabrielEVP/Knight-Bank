@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../img/global/logos/logo.gif">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/422b82f355.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../styles/css_aplication.css">
+    <script src="../../js/app/aplication/app_movimientos.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Admins</title>
+</head>
+<body ng-controller="Controler" ng-init="init()" ng-Class="{'ng-scope': menu_status != 'sidemenu menu_expanded', 'ng-scope body_expanded body_phone' : menu_status != 'sidemenu menu_collapsed' }" class="hidden">
+    <div class="loading"></div>
+    <!--- nav bar PC  -->
+    <div ng-Class="{'menu_expanded': menu_status != 'sidemenu menu_collapsed' , 'menu_collapsed': menu_status == 'sidemenu menu_collapsed'}" class="sidemenu" >
+        <div class="header"> 
+            <div class="menu_btn">
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+                <div class="btn_hamburger"></div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="photo"><a href="./configuration.html"><img src={{user_logged.foto}} alt="Icono_user"></a></div>
+            <div class="name"><span>{{user_logged.name}}</span></div>
+        </div>
+        <div class="menu_items">
+            <div ng-show="user_logged.admin == 1">
+                <div class="item">
+                    <a href="./admin.html">
+                        <div class="icon cya_white"><i class="i fa-solid fa-lock "></i></div>
+                        <div class="title"><span>Admin</span></div>
+                    </a>
+                </div>
+                <div class="item item_separator"></div>
+            </div>
+            <div class="item">
+                <a href="./finanzas.html">
+                    <div class="icon gold"><i class="i fa-solid fa-coins color_green"></i></div>
+                    <div class="title"><span>Finanzas</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="./movimientos.html">
+                    <div class="icon active"><i class="i fa-sharp fa-solid fa-money-check-dollar"></i></div>
+                    <div class="title"><span>Movimientos</span></div>
+                </a>
+            </div>
+            <div class="item item_separator logout_raya"></div>
+                <div class="item logout ">    
+                    <a ng-click="logout()" href="#">
+                        <div class="icon red"><i class="i fa-solid fa-right-from-bracket"></i></div>
+                        <div class="title"><span>Cerrar Seccion</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--- nav bar Phone top -->
+    <div class="navbar_phone navbar_top">
+        <div class="container_navbar_phone">
+            <a href="./configuration.html"><img src={{user_logged.foto}} alt="Icono_user"></a>
+            <a href="./admin.html"><i class="i fa-solid fa-lock cya_white"></i></a>
+            <a ng-click="logout()" href=""><i class="i fa-solid fa-right-from-bracket red"></i></a>
+        </div>   
+    </div>
+    <!--- nav bar Phone bottom -->
+    <div class="navbar_phone navbar_bottom">
+        <div class="container_navbar_phone">
+            <a href="./movimientos.html"><i class="i fa-sharp fa-solid fa-money-check-dollar active"></i></a>
+            <a href="./finanzas.html"><i class="i fa-solid fa-coins gold"></i></a>
+        </div>
+    </div>
+    <!--- Container of aplication -->
+    <div class="body_collapse body_phone">
+        <div class="container">
+            <!--- tarjet -->
+            <div class="tarjet">
+                <h3 class="tarjet_company title_company">Knight Bank</h3>
+                <p>debito</p>
+                <div class="img_chip">
+                    <img src="../../img/aplication/scan.png" alt="">
+                    <img src="../../img/aplication/chip.png" alt="">
+                </div>
+                <div class="img_fondo">
+                    <img src="../../img/global/logos/logo.gif" alt="">
+                </div>
+                <h4 class="number">{{account_array_now.IBAN}}</h4>
+                <h3 class="value" >{{balance_user}} $</h3>
+                <h3 class="tarjet_company title_tip">Visa</h3>
+                <!--- filter scroll cuenta Repeat() -->
+                <div class="container_scroll_cuenta_filter">
+                    <button ng-repeat="account in account_array_scroll" ng-click="filter_Move_Data($index)" value={{account.IBAN}}>{{$index+1}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="container_date">
+                <input id="start_date" type="date">
+                <input id="end_date" type="date">
+            </div>
+            <div class="container_move_type">
+                <button ng-click="view_Move('all')" type="button" class="button_filter boton_gold">Ver Todos</button>
+                <button ng-click="view_Move('income')" type="button" class="button_filter boton_green">Ver Ingresos</button>
+                <button ng-click="view_Move('expenses')" type="button" class="button_filter boton_red">Ver Gastos</button>
+            </div>
+        </div>
+        <div class="table">
+            <table class="table_move">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>Tipo Movimientos</th>
+                    <th>Importe</th>
+                </tr>
+                <tr class="move_description" ng-repeat="move in move_user">
+                    <td class="date">{{move.objMove.dateTime}}</td>
+                    <td class="concepto">{{move.objMove.notion}}</td>
+                    <td class="tipo_move">{{move.objMove.objMoveType.name}}</td>
+                    <td id="importe" class="importe" ng-Class="{'red': move.amount < '0,00' }" >{{move.amount}} €</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+<head>
+    <link rel="shortcut icon" href="../../img/global/logos/logo.gif">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="../../styles/css_web.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/app/web/app_index.js" type="module"></script>
+    <title>Knight Bank</title>
+</head>
+<body ng-controller="Controler">
+
+    <!-- --------- nav --------- -->
+    <nav>
+        <img src="../../img/global/logos/logo.gif" alt="">
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
+        <ul>
+           <li><a class="active" href="#">Inicio</a></li>
+           <li><a href="./simulador.html">Simulador</a></li>
+           <li><a href="./login.html">Login</a></li>
+        </ul>
+     </nav>
+
+    <!-- --------- presentation --------- -->
+    <div class="presentation">
+        <h1  data-aos="fade-down">Knigth Bank</h1>
+        <h1  data-aos="fade-down">Transparencia, estabilidad y profesionalidad </h1>
+    </div>
+
+    <!-- --------- card --------- -->
+    <section id="services">     
+        <h1>Nuestros Servicios</h1>
+        <div class="container_flex">
+    
+            <div class="card" data-aos="fade-up">
+                <img src="../../img/web/services_app.webp" alt="">
+                <h3 class="title">Acceso sin limites</h3>
+                <p class="text">Facilitamos el acceso desde cualquier lugar del mundo en cualquier dispositivo, de forma que siempre puedas utilizar tus cuentas con total comodidad</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="../../img/web/services_confiabilidad.webp" alt="">
+                <h3 class="title">Gestión de finanzas</h3>
+                <p class="text">Te ayudamos a gestionar tus finanzas y patrimonio para que no tengas que preocuparte de nada</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <img src="../../img/web/services_prestamos.jpg" alt="">
+                <h3 class="title">Transparencia</h3>
+                <p class="text">Garantizamos la transparencia en todo momento. Pase lo que pase siempre estarás informado de lo que ocurre con tu dinero.</p>
+            </img>
+        </div>
+    </section>
+
+    <!-- --------- Knight --------- -->
+    <div class="container_header">
+        <div class="information">
+            <div class="title" data-aos="fade-up"><h1>Knight App</h1></div>
+            <div class="text" data-aos="fade-up">En pos del bienestar de nuestros clientes ofrecemos Knight APP. Una aplicación de gestión que permite el cómodo y sencillo acceso a todas las necesidades bancarias básicas que pueda necesitar. Desde hacer transferencias y movimientos a controlar las cuentas o revisar sus finanzas. Solicite una demo para probar de primera mano las ventajas de la app.</div>
+            <div class="flex dark" data-aos="fade-up"><button ng-click="show_Correo()" class="bttn dark">Pedir Demo</button></div>
+        </div>
+        <div class="image" data-aos="fade-up" ><img src="../../img/global/logos/logo.gif" alt=""></div>
+    </div>
+
+    <!-- --------- modal --------- -->
+    <label for="modal" class="modal-bg"></label>
+    <div class="modal-content">
+        <label ng-click="hidde_Correo()" for="modal" class="close"><i class="fa fa-times" aria-hidden="true"></i></label>
+        <header>
+            <h2 class="correo" class="borrar">Peticion de demo</h2>
+        </header>
+        <form id="form">
+            <article class="content">
+                <input name="email" id="email" class="correo" type="text" placeholder="Correo electronico" >
+                <input name="name" id="name" class="correo" type="text" maxlength="40" placeholder="Nombre" >
+                <input name="surname" id="surname" class="correo" type="text"  maxlength="40" placeholder="Apellido" >
+                <input name="phone" id="phone" class="correo" type="text" maxlength="9" placeholder="Telefono" >
+                <input name="dni" id="dni" class="correo" type="text" maxlength="9" placeholder="Dni">
+                <textarea name="text" id="text" cols="30" rows="10"></textarea>
+            </article>
+            <footer class="button_modal">
+                <div class="flex dark"><button ng-click="set_Data_toEmailJS()" class="bttn modal_buttons_success">Enviar</button></div>
+                <div class="flex dark"><button ng-click="hidde_Correo()" class="bttn modal_buttons_cancel">Cancelar</button></div>
+            </footer>
+        </form>
+    </div>
+     
+    <!-- --------- Information of knigth --------- -->
+    <div class="container_information_knight padding_section">
+        <div class="image_graficos" data-aos="fade-up" ><img src="../../img/web/graficos.png" alt=""></div>
+        <div class="text">
+            <div class="title" ><h1 data-aos="fade-up">Estabilidad</h1></div>
+            <p data-aos="fade-up">Desde Knight bank nos encargamos de asegurarnos de que nuestros clientes tengan una experiencia limpia, transparente y cómoda. Enfocándonos siempre en mantener una estabilidad constante y una seguridad inquebrantable, fomentando así la confianza y tranquilidad de nuestros clientes. Independientemente de lo que ocurra en el mundo mantendremos nuestro habitual trato profesional y efectivo.</p>
+        </div>
+    </div>  
+    
+    <!-- personal people -->
+    <section id="section_people">
+        <h1 id="people" data-aos="fade-up">Integrantes</h1>
+        <div class="container_people" data-aos="fade-up">
+            <div class="card_people gabriel">
+              <h2>Gabriel Vargas</h2>
+              <i class="fab icon_people fa-brands fa-github"></i>
+              <i class="fab icon_people fa-whatsapp"></i>
+              <i class="fab icon_people fa-brands fa-instagram"></i>
+              <i class="fab icon_people fa-brands fa-linkedin"></i>
+            </div>
+    
+            <div class="card_people josu">
+              <h2>Josu Diez</h2>
+              <i class="fab icon_people fa-brands fa-github"></i>
+              <i class="fab icon_people fa-whatsapp"></i>
+              <i class="fab icon_people fa-brands fa-instagram"></i>
+              <i class="fab icon_people fa-brands fa-linkedin"></i>
+            </div>
+          </div>
+    </section>
+
+    <!-- zortnoza information -->
+    <div class="container_information_knight about">
+        <div class="image_graficos" data-aos="fade-up" ><img src="../../img/web/logo_urritxe.png" alt=""></div>
+        <div class="text">
+            <div class="title" ><h1 data-aos="fade-up">Sobre nosotros</h1></div>
+            <p data-aos="fade-up">Con un equipo formado únicamente por dos integrantes, Knight Project es un proyecto didáctico diseñado y desarrollado únicamente con propósito educativo, como tal, todas las operaciones realizadas son simulaciones y en ningún momento se utiliza dinero real.
+            Hablando más en concreto de los desarrolladores, tenemos a dos alumnos de FP Zornotza, siendo estos Gabriel, diseñador y director Frontend y Josu, gestor del servidor y director Backend.</p>
+        </div>
+    </div>  
+    
+    <!-- --------- Footer --------- -->
+    <footer class="footer">
+        <hr>
+        <div class="row">   
+            <div class="col">
+                <p>La información ofrecida en esta página no constituye asesoramiento en materia de inversión, ni asesoramiento bancario. Por no suponer un asesoramiento bancario, la información ofrecida no se basa en un análisis objetivo y amplio de los servicios bancarios disponibles en el mercado, ni considera la situación personal y financiera del usuario, preferencias u objetivos.</p>
+                <img src="../../img/global/logos/logo.gif" alt="">
+            </div>
+            <div class="col">
+                <h3>Contacto <div class="linea"><span></span></div></h3>
+                <p>48340 Amorebieta-Etxano, Bizkaia</p>
+                <p>Telefono: 943 92 63 89</p>
+                <p>+34 645 42 53 65</p>
+                <p class="email_id">knightBank_support@gmail.com</p>
+            </div>
+            <div class="col ">
+                <h3>Otros <div class="linea"><span></span></div></h3>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./simulador.html">Simulacion de prestamos</a></li>
+                    <li><a href="./login.html">App</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="redes">Redes<div class="linea"><span></span></div></h3>
+                <div class="social_icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-brands fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-brands fa-github"></i>
+                    <i class="fab fa-brands fa-linkedin"></i>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

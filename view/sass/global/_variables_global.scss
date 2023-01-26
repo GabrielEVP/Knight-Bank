@@ -18,6 +18,7 @@ $border_gris :1px solid black;
 $border_negro : 2px solid #000000;
 $border_verde: 2px solid $color_principal;
 
+$transition_fast: all 0.4s;
 $transition_medium: all 2s;
 
 
@@ -67,9 +68,9 @@ $border_verde: 2px solid $color_principal;
 }
 
 @mixin no_scrollBars {
-
     &::-webkit-scrollbar {
-        width: 0;    
+        width: 0;
+        height: 0;    
     }
       
     &::-webkit-scrollbar-track {  
@@ -81,4 +82,30 @@ $border_verde: 2px solid $color_principal;
         border: none;
     }
     
+}
+
+$colores: (
+  "green" #2ecd20,
+  "yellow" #e3fc04,
+  "a" #adf701,
+  "blue" #0d64d6,
+  "orange" #ff9100,
+  "cya_white" #00ffb3,
+  "gray" #cfc7c7,
+  "gold" gold,
+  "red" #ec400c
+  "greendark" #349c14
+);
+
+@each $name , $color in $colores {
+    .#{$name} {
+      color: $color;
+    } 
+}
+
+@each $name , $color in $colores {
+    .boton_#{$name} {
+      background-color: $color;
+      border: 3px solid $color;
+    } 
 }

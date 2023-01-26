@@ -1,11 +1,9 @@
-import {controller_url_User} from '../class/user/dictionary_user.js'
-
 async function fetch_get_Data(url) {
     try {
         const res = await fetch(url);
         return await res.json();
     } catch(err) {
-        console.log(err)
+        console.error(err);
     }
 }
 
@@ -17,28 +15,31 @@ async function fetch_set_Data(url, data) {
             body: JSON.stringify(data), 
             headers:{'Content-Type': 'application/json'}
         })
-        return await res.json()
+        return await res.json();
     } catch(err) {
-        alert(err);
+        console.error(err);
     }
 }
 
-async function login_verify() {
-    try {
-        const res = await fetch(controller_url_User('login_verify'));
-        const result = await res.json();
+function login_Process (status,callback) {
+    const Login_Status = {
+        true : () => {
+            callback(localStorage.getItem('menu_status'), localStorage.getItem('menu'));
+            $('body').removeClass('hidden');
+        }, 
 
-        if(result.logged == true && result.admin == 1) {
-            console.log('admin')
-        } else if (result.logged == true && result.admin == 0) {
-            location.href = "../../../index.html"
-        } else {
-            location.href = "../../../index.html"
-        }
-    } catch(err) {
-        console.log(err)
+        false : () => location.href = '../web/login.html'
     }
+    return Login_Status[status] ? Login_Status[status](callback) : console.error(status);
+}
+
+function logout_Process (status) {
+    const Logout_Status = {
+        true : () => location.href = '../web/login.html', 
+        false : () => console.error (status)
+    }
+    return Logout_Status[status] ? Logout_Status[status]() : console.error(status);
 }
 
 
-export { fetch_get_Data , fetch_set_Data, login_verify }
+export { fetch_get_Data , fetch_set_Data, login_Process,  logout_Process  }

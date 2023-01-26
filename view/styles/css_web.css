@@ -1,4 +1,32 @@
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:700';
+.green {
+  color: #16f802;
+}
+
+.yellow {
+  color: #e3fc04;
+}
+
+.a {
+  color: #adf701;
+}
+
+.blue {
+  color: #0d64d6;
+}
+
+.orange {
+  color: #ff9100;
+}
+
+.cya_white {
+  color: #00ffb3;
+}
+
+.gray {
+  color: #cfc7c7;
+}
+
 .modal-bg {
   position: fixed;
   top: 0;

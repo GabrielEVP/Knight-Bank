@@ -1,9 +1,10 @@
 class user_class {
 
-    constructor(id_user, gmail, NIF, name, surname, password, admin, login_tries) {
+    constructor(id_user, gmail, NIF, foto, name, surname, password, admin, login_tries) {
         this.id_user = id_user;
         this.gmail = gmail;
         this.NIF = NIF;
+        this.foto = foto;
         this.name = name;
         this.surname = surname;
         this.password = password;

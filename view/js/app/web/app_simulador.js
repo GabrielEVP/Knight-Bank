@@ -2,8 +2,7 @@ import { truncate_decimals , process_number_format  } from "../../functions/calc
 import { keypress_condition } from "../../functions/verification_form.js";
 
 const App = angular.module('App', []);
-
-App.controller('Controler', function($scope) {
+App.controller('Controler', ($scope) => {
 
     window.onload = function () {
         keypress_condition("#porcentajeInteres", "0123456789.");

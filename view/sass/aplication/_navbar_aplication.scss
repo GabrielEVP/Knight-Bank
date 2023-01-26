@@ -20,26 +20,23 @@ $transition_expanded: 0.2s;
 
 .sidemenu {
     transition: $transition_expanded;
-    background-image: url("../img/aplication/fondo5.gif");
-    background-size: cover;
-    background-position: bottom 50px right 20px;
+    background: #201f1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #201f1f, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #181717, #1a1919); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     position: fixed;
     height: 100%;
     left: 0;
     top: 0;
     overflow: scroll;
+    z-index: 1000;
 
     @include no_scrollBars;
-   
 }
 
 .i {
-    color: white;
     font-size: 34px;
 }
-
-
 
 /* header */
 .header {
@@ -79,15 +76,22 @@ $transition_expanded: 0.2s;
 }
 
 .photo {
-    transition: $transition_expanded;
     img {
-        transition: $transition_expanded + 3s;
-        width: 100%;
-        height: 100%;
         border-radius: 50%;
         box-shadow: 0 0 10px rgb(15, 15, 15);
 
     }
+}
+
+.menu_expanded .photo img {
+    margin-left: 18px;
+    width: 10em;
+    height: 10em;
+}
+
+.menu_collapsed .photo img {
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .name {
@@ -112,11 +116,8 @@ $transition_expanded: 0.2s;
         }
 
         a:hover .i {
-            color: aqua;
-        }
-
-
-        
+            color: rgb(146, 143, 143);
+        }   
 }
 
 .icon {
@@ -145,8 +146,6 @@ $transition_expanded: 0.2s;
     border-bottom: solid 3px $hover_color;
 
 }
-
-
 
 .menu_expanded {
     transition: $transition_expanded;
@@ -203,5 +202,91 @@ $transition_expanded: 0.2s;
     }
 }
 
+.logout_raya {
+    position: absolute;
+    bottom: 3em;
+}
 
+.logout {
+    position: absolute;
+    bottom: 0;
+}
+
+.active {
+    color: gray;
+}
+
+// ----------------  Navbar Phone ---------------- //
+.navbar_phone {
+    display: none;
+    background: #201f1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #201f1f, #1d1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #181717, #1a1919); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    overflow-x: scroll;
+    @include no_scrollBars;
+    z-index: 1000;
+
+    img {
+        display: flex;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: auto;
+    }
+}
+
+.navbar_top {
+    top: 0;
+}
+
+.navbar_bottom {
+    bottom: 0;
+}
+
+.container_navbar_phone {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    a {
+
+        width: 60px;
+        height: 100%;
+        margin: 15px;
+    }
+
+    i {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1040px) {
+    .navbar_phone {
+        display: block;
+        position: fixed;
+    }
+    .body_expanded {
+        display: none;
+        margin: 0;
+    }
+    
+    .body_collapse {
+        display: none;
+        margin: 0;
+    }
+    
+    .sidemenu {
+        display: none;
+    }
+
+    .body_phone {
+        margin-top: 80px;
+        margin-bottom: 80px;
+        display: block;
+    }
+
+}
 
