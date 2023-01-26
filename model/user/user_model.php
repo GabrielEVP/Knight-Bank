@@ -40,7 +40,7 @@ class user_model extends user_class {
     }
 
     public function update_user () {
-        return update("update user set gmail = '$this->gmail', NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password', foto= '$this->foto' WHERE id_user = $this->id_user");
+        return update("update user set gmail = '$this->gmail', NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password' WHERE id_user = $this->id_user");
     }
     //*********************************/
     //EXTRA
