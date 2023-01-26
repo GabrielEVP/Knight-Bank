@@ -16,6 +16,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
     $user->setNIF($data['NIF']);
     $user->setName($data['name']);
     $user->setSurname($data['surname']);
+    $user->getFoto();
    // $user->setAdmin($data['admin']);
     
     $password = password_hash($data['password'], PASSWORD_DEFAULT);

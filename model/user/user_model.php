@@ -40,7 +40,7 @@ class user_model extends user_class {
     }
 
     public function update_user () {
-        return update("update user set gmail = '$this->gmail', NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password' WHERE id_user = $this->id_user");
+        return update("update user set gmail = '$this->gmail', NIF= '$this->NIF', name= '$this->name', surname= '$this->surname', password= '$this->password', foto= '$this->foto' WHERE id_user = $this->id_user");
     }
     //*********************************/
     //EXTRA
@@ -63,6 +63,11 @@ class user_model extends user_class {
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DESDE LA BBDD
 //------------------------------------------------------------------
+    public function get_user_img () {
+        $select = single_row_array_select("select foto from user where id_user = $this->id_user");
+        $this->foto = $select['foto'];
+        return $this->foto;
+    }
 
     public function get_user ($id) {
        $select = select_Object("select * from user where id_user = $id");
