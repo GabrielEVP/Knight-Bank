@@ -19,7 +19,7 @@ App.controller('Controler', ($scope, $http) => {
     const ctx_circular = document.getElementById('circular_month').getContext("2d");
 
     window.onload = function () {
-        keypress_condition("#money_operation", "0123456789,.");
+        keypress_condition("#amount", "0123456789,.");
     }
 
     // cuando carga el dom realiza estos procesos para el uso del programa // 
