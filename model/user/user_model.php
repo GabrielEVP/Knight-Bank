@@ -295,7 +295,7 @@ class user_model extends user_class {
         $sql = "SELECT
                     u.id_user,
                     COUNT(DISTINCT(a.id_account)) as 'account_number',
-                    SUM(a.balance) as 'total_balance',
+                    SUM(DISTINCT(a.balance)) as 'total_balance',
                     COUNT(DISTINCT(am.id_account_move)) as 'move_number',
                     DATE(MAX(m.dateTime)) as 'last_move'
                 FROM 
@@ -323,7 +323,7 @@ class user_model extends user_class {
         $sql = "SELECT
                 u.id_user as 'id_user',
                 COUNT(DISTINCT(a.id_account)) as 'account_number',
-                SUM(a.balance) as 'total_balance',
+                SUM(DISTINCT(a.balance)) as 'total_balance',
                 COUNT(DISTINCT(am.id_account_move)) as 'move_number',
                 DATE(MAX(m.dateTime)) as 'last_move'
             FROM 
