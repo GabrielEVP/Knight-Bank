@@ -7,11 +7,7 @@ import { controller_url_account_List } from "../../dictionary/dictionary_account
 import { fetch_get_Data, fetch_set_Data, login_Process , logout_Process } from "../../server/server.js"
 
 import { } from "../../functions/navbar_aplication.js"
-<<<<<<< HEAD
 import { verification_status_proces, keypress_condition } from "../../functions/verification_form.js";
-=======
-import { verification_status_proces } from "../../functions/verification_form.js";
->>>>>>> 32fc7d5626bce53b5c9c2db73b208ffb369faca9
 import { show_Modal , quit_Modal } from "../../functions/modal.js"
 import { generator_config_CircularMonth, generator_config_BarMonth  } from "../../functions/graficos.js";
 
