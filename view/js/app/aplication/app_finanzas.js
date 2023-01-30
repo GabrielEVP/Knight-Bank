@@ -7,7 +7,7 @@ import { controller_url_account_List } from "../../dictionary/dictionary_account
 import { fetch_get_Data, fetch_set_Data, login_Process , logout_Process } from "../../server/server.js"
 
 import { } from "../../functions/navbar_aplication.js"
-import { verification_status_proces } from "../../functions/verification_form.js";
+import { verification_status_proces, keypress_condition } from "../../functions/verification_form.js";
 import { show_Modal , quit_Modal } from "../../functions/modal.js"
 import { generator_config_CircularMonth, generator_config_BarMonth  } from "../../functions/graficos.js";
 
@@ -19,7 +19,7 @@ App.controller('Controler', ($scope, $http) => {
     const ctx_circular = document.getElementById('circular_month').getContext("2d");
 
     window.onload = function () {
-        keypress_condition("#money_operation", "0123456789,.");
+        keypress_condition("#amount", "0123456789,.");
     }
 
     // cuando carga el dom realiza estos procesos para el uso del programa // 

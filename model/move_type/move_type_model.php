@@ -28,9 +28,7 @@ class move_type_model extends move_type_class {
 //OBTENCION DE DATOS DE LA BBDD
 //------------------------------------------------------------------
     public function get_move_type_by_id ($id) {
-       $select = select_Object("select * from move_type where id = $id");
-       $move_type = cast_array($select, new move_type_model())[0];
-       return $move_type;
+       return single_row_object_select("select * from move_type where id = $id", new move_type_model());
     }
 
     public function get_move_type_by_name () {
