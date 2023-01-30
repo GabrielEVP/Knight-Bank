@@ -9,23 +9,6 @@ class move_type_model extends move_type_class {
 
     private $objmove_typeType;
 
-    /**
-     * Get the value of objmove_typeType
-     */
-    public function getObjmove_typeType()
-    {
-        return $this->objmove_typeType;
-    }
-
-    /**
-     * Set the value of objmove_typeType
-     */
-    public function setObjmove_typeType($objmove_typeType): self
-    {
-        $this->objmove_typeType = $objmove_typeType;
-
-        return $this;
-    }
 //------------------------------------------------------------------
 //CRUD (SIN SELECT)
 //------------------------------------------------------------------

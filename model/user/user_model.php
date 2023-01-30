@@ -7,25 +7,6 @@ include_once (str_replace("user", "", __DIR__  . "function.php"));
 
 class user_model extends user_class {
 
-    private $objuserType;
-
-        /**
-     * Get the value of objuserType
-     */
-    public function getObjuserType()
-    {
-        return $this->objuserType;
-    }
-
-    /**
-     * Set the value of objuserType
-     */
-    public function setObjuserType($objuserType): self
-    {
-        $this->objuserType = $objuserType;
-
-        return $this;
-    }
 //------------------------------------------------------------------
 //CRUD (SIN SELECT)
 //------------------------------------------------------------------
