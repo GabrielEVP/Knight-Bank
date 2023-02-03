@@ -124,15 +124,16 @@ App.controller('Controler', ($scope) => {
                     if (anos_carencia % 1 != 0) {
                         anos_carencia++;
                     }
+                    console.log(duracion_carencia);
                     var fin_carencia = false;
                     for (let i = 1; i <= anos_carencia; i++) {
                         var contador_periodo = 0;
-                        for (let j = 1; j < 13 && fin_carencia == false && !(((i - 1) * 12) + j >= duracion_carencia); j++) {
+                        for (let j = 1; j < 13 && fin_carencia == false && !(((i - 1) * 12) + j > duracion_carencia); j++) {
                             var check = false;
                             interes_cuota = 0;
                             amortizado_cuota = 0;
                             total_cuota = 0;
-
+                            
                             if ( j % (tipo_interes) == 0 ) {
                                 check = true;
                                 if (tipo_carencia == 1) {
@@ -141,7 +142,6 @@ App.controller('Controler', ($scope) => {
                                     total_pendiente = parseFloat(total_pendiente) + parseFloat( (Math.pow( (1 + interes) ,1/(12/tipo_interes)) * total_pendiente) - total_pendiente );
                                 }
                             }
-
                             if ( ((i - 1) * 12) + j == duracion_carencia) {
                                 fin_carencia = true;
                                 inicio_contador_mes = j + 1;
@@ -228,7 +228,7 @@ App.controller('Controler', ($scope) => {
                     var fin_carencia = false;
                     for (let i = 1; i <= anos_carencia; i++) {
                         var contador_periodo = 0;
-                        for (let j = 1; j < 13 && fin_carencia == false && !(((i - 1) * 12) + j >= duracion_carencia); j++) {
+                        for (let j = 1; j < 13 && fin_carencia == false && !(((i - 1) * 12) + j > duracion_carencia); j++) {
                             var check = false;
                             interes_cuota = 0;
                             amortizado_cuota = 0;
@@ -246,7 +246,6 @@ App.controller('Controler', ($scope) => {
                             if ( ((i - 1) * 12) + j == duracion_carencia) {
                                 fin_carencia = true;
                                 inicio_contador_mes = j + 1;
-                                console.log("hola");
                             }
                             if (check) { 
                                 contador_periodo++;
