@@ -13,8 +13,10 @@ $temp = explode("\\",$_SESSION['foto']);
 $image = end($temp);
 unset($temp);
 
-$root_path = str_replace("controller\user","",__DIR__);
-$folder_path = $root_path . "view\img\aplication\user\\";
+$root_path = str_replace(["controller\user","controller/user"],"",__DIR__);
+//$folder_path = $root_path . "view\img\aplication\user\\";
+$folder_path = $root_path . "view/img/aplication/user/";
+
 $result = array();
 
 $valid = true;

@@ -11,31 +11,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="../../styles/css_web.css" rel="stylesheet" type="text/css" />
     <script src="../../js/app/web/app_login.js" type="module"></script>
-    <title>Inicio Seccion</title>
+    <title>Inicio Sesión</title>
 </head>
 <body class="fond_form" ng-controller="Controler">
 
     <form class="form">
         <div class="form_contenedor">
-
-            <h1>Iniciar Sección</h1>
-
+            <h1>Iniciar Sesión</h1>
             <div class="input-container">
                 <input id="nif" class="input" type="text" placeholder=" " maxlength="9" />
                 <div class="cut cut-short"></div>
                 <label for="nif" class="placeholder">NIF</label>
             </div> 
-
             <div class="input-container">
                 <input id="password" class="input" type="password" placeholder=" " />
                 <div class="cut cut-long"></div>
                 <label for="password" class="placeholder">Constraseña</label>
             </div>           
-
-            <button id="submit_login" ng-click="login()" class="button_principal max_width" type="button">Iniciar sección</button>
-
+            <button id="submit_login" ng-click="login()" class="button_principal max_width" type="button">Iniciar Sesión</button>
             <p class="form_tiene">Vuelve al inicio  <strong><a href="./index.html" class="form_link">click aqui</a></strong></p>
-
         </div>
     </form>
 

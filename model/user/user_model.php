@@ -7,25 +7,6 @@ include_once (str_replace("user", "", __DIR__  . "function.php"));
 
 class user_model extends user_class {
 
-    private $objuserType;
-
-        /**
-     * Get the value of objuserType
-     */
-    public function getObjuserType()
-    {
-        return $this->objuserType;
-    }
-
-    /**
-     * Set the value of objuserType
-     */
-    public function setObjuserType($objuserType): self
-    {
-        $this->objuserType = $objuserType;
-
-        return $this;
-    }
 //------------------------------------------------------------------
 //CRUD (SIN SELECT)
 //------------------------------------------------------------------
@@ -63,6 +44,11 @@ class user_model extends user_class {
 //------------------------------------------------------------------
 //OBTENCION DE DATOS DESDE LA BBDD
 //------------------------------------------------------------------
+    public function get_user_img () {
+        $select = single_row_array_select("select foto from user where id_user = $this->id_user");
+        $this->foto = $select['foto'];
+        return $this->foto;
+    }
 
     public function get_user ($id) {
        $select = select_Object("select * from user where id_user = $id");
@@ -295,7 +281,7 @@ class user_model extends user_class {
         $sql = "SELECT
                     u.id_user,
                     COUNT(DISTINCT(a.id_account)) as 'account_number',
-                    SUM(a.balance) as 'total_balance',
+                    SUM(DISTINCT(a.balance)) as 'total_balance',
                     COUNT(DISTINCT(am.id_account_move)) as 'move_number',
                     DATE(MAX(m.dateTime)) as 'last_move'
                 FROM 
@@ -323,7 +309,7 @@ class user_model extends user_class {
         $sql = "SELECT
                 u.id_user as 'id_user',
                 COUNT(DISTINCT(a.id_account)) as 'account_number',
-                SUM(a.balance) as 'total_balance',
+                SUM(DISTINCT(a.balance)) as 'total_balance',
                 COUNT(DISTINCT(am.id_account_move)) as 'move_number',
                 DATE(MAX(m.dateTime)) as 'last_move'
             FROM 
